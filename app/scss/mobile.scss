@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@media only screen and (max-width: 1300px), only screen and (max-device-width: 1300px) {
+	#innerBtnHolder {
+	    /*width: 85%;*/
+	    /* background-color: red; */
+	    /*height: 85%;*/
+	    /*top: 7%;*/
+	}
+
+	/*#moving4, #moving3, #moving2, #moving1 {
+	    background-size:50%;
+    }*/
+
+    .backgroundImage, .staticImage{
+    	/*width:25%;
+        background-size:70%;*/
+    }
+
+    #portfolio4page .content .textContainer, #portfolio3page .content .textContainer {
+	    bottom:15%;
+	}
+	#portfolio7page .content{
+    	width:86%;
+    	left:4%;
+	}
+	#portfolio6page .content{
+    	width:86%;
+    	right:4%;
+	}
+
+	.content .textLeft{
+	    float:none;
+	    width:auto;
+	}
+	.content .textRight{
+		margin-top: 10px;
+		display:block;
+	    float:none;
+	    width:auto;
+	}
+	.videoContainer {
+        width: 65%;
+	    height: 39%;
+        right: 4.5%;
+	    bottom: 4.5%;
+	}	
+	.video-background{
+		top: -2.5%;
+		height:105%;
+		width:105%;
+	}
+}
+
+@media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
+
+
+
+	.backgroundImage, .staticImage{
+    	/*width:30%;
+    	background-size:80%;*/
+    }
+
+    #moving5 {
+	    width: 60%;
+	    height: 40%;
+	    top: 30%;
+    }
+
+    #innerBtnHolder{
+    	width:100%;
+    	/*height:100%;*/
+    }
+
+	@media only screen and (orientation: landscape){
+		#innerBtnHolder {
+			/*top: 5%;*/
+			height:90%;
+		}
+		#outerBtnHolder{
+			height:100%;
+			/*background-color:red;*/
+		}
+		#homepage{
+			/*background-color:blue;*/
+		}
+	} 
+}
+
+@media only screen and (max-width: 550px), only screen and (max-device-width: 550px) {
+	#innerBtnHolder {
+	     /*width: 85%;*/
+    	  /*background-color: blue; */
+		 /*height: 90%;*/
+	}
+
+	
+	#moving1, #moving2{
+	    /*background-position: 50% 30%;*/
+	}
+
+	#moving3, #moving4 {
+		/*background-position: 50% 70%;*/
+	}
+
+	#moving5 {
+        width: 70%;
+	    /*height: 30%;*/
+	    background-size: contain;
+	    top: 30%;
+	}
+
+	.backgroundImage, .staticImage{
+    	/*width:45%;
+    	background-size:100%;
+    	height:15%;*/
+    }
+
+	#innerBtnHolder {
+		/*top: 5%;*/
+		height:80%;
+	}
+
+	#middleImages, #portfolio6page, #portfolio7page{
+		opacity:0;
+	}
+
+}
+@media only screen and (max-height: 600px) {
+	#portfolio4page .content .textContainer, #portfolio3page .content .textContainer, #portfolio8page .content .textContainer {
+	    bottom:0;
+	}
+	#outerBtnHolder, #innerBtnHolder, #homepage{
+		min-height:460px;
+		max-width: 2000px;
+	}
+
+	.videoContainer{
+		height:35%;
+		bottom:0;
+	}
+	.video-foreground, .video-background iframe {
+	    position: absolute;
+	    top: -15%;
+	    left: -11%;
+	    right: 0;
+	    width: 120%;
+	    height: 130%;
+	}
+
+}
+
+@media only screen and (max-height: 400px), only screen and (max-device-height: 400px) {
+	#outerBtnHolder{
+		height:400px;
+	}
+}
