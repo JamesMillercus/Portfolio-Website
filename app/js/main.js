@@ -216,7 +216,7 @@ $( document ).ready(function() {
 				  isAnimating = false;
 				  setTimeout(function(){
 				    $('.animatingPage').css({'display':'block'});
-					console.log('animation finished - ready to play!')
+					console.log('animation finished - ready to play!');
 				  }, 300);		
 				}
 		    });

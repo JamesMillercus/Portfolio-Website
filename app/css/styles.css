@@ -15,7 +15,8 @@ a {
 h1 {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 22px; }
+  font-size: 22px;
+  font-weight: normal; }
 
 p {
   margin-top: 10px;
@@ -136,6 +137,7 @@ h1, p {
 .videoContainer {
   width: 63.5%;
   height: 47%;
+  padding-bottom: 1.25%;
   position: absolute;
   right: 5.5%;
   bottom: 0;
@@ -143,26 +145,13 @@ h1, p {
   z-index: -88;
   overflow: hidden; }
 
-.video-background {
-  position: absolute;
-  top: 0;
-  right: 0%;
-  bottom: 0%;
-  left: 0%;
-  background-color: white;
-  z-index: -99;
-  height: 102%;
-  width: 102%;
-  /*opacity:.1;*/ }
-
-.video-foreground,
-.video-background iframe {
+iframe {
   position: absolute;
   top: -6%;
-  left: -6%;
+  left: -10%;
   right: 0;
-  width: 110%;
-  height: 110%;
+  width: 120%;
+  height: 120%;
   /*opacity:.8;*/
   pointer-events: none; }
 
