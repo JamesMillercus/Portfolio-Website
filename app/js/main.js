@@ -1,3 +1,5 @@
+//0. make sizes of text field on vid 2 match vid one
+//0.1 make a better vid loading system (on scroll over start loading vid one)
 //1. add in all text boxes and choose font that suites
 //2. add in images and video overlay
 //3. fix scrolling error when people first load page
