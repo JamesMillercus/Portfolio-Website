@@ -40,17 +40,28 @@
 	    float:none;
 	    width:auto;
 	}
-	.videoContainer {
-        width: 65%;
-	    height: 39%;
-        right: 4.5%;
-	    bottom: 4.5%;
-	}	
-	.video-background{
-		top: -2.5%;
-		height:105%;
-		width:105%;
+	.videoContainer{
+	    padding-bottom:1%;
+	    position: absolute;
+	    z-index:-88;
+	    overflow:hidden;
+	    opacity:0;
 	}
+
+	#portfolio1page .videoContainer{
+	    width: 63.5%;
+	    height: 47%;
+	    right: 5.5%;
+	    bottom: 0;
+	}
+
+	#portfolio2page .videoContainer{
+	    width: 64%;
+	    height: 42%;
+	    left: 9.5%;
+	    bottom: 0;
+	}	
+	
 }
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {

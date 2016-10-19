@@ -160,17 +160,26 @@ h1, p{
     background-image: url('../assets/frequency.gif');
 }
 .videoContainer{
-    width: 63.5%;
-    height: 47%;
-    padding-bottom:1.25%;
+    padding-bottom:1.8%;
     position: absolute;
-    right: 5.5%;
-    bottom: 0;
-    opacity: 0;
     z-index:-88;
     overflow:hidden;
+    opacity:0;
 }
 
+#portfolio1page .videoContainer{
+    width: 63.5%;
+    height: 47%;
+    right: 5.5%;
+    bottom: 0;
+}
+
+#portfolio2page .videoContainer{
+    width: 63%;
+    height: 43%;
+    left: 9.5%;
+    bottom: 0;
+}
 
 
 
@@ -253,7 +262,7 @@ h1, p{
 
 #portfolio2page .content{
     height:68%;
-    width:56.7%;
+    width:63%;
     bottom:5%;
     left:10%;
 }

@@ -5,14 +5,14 @@
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    var firstLoaded = false;
+    var firstLoaded = 0;
 
     var player;
-    var htmlPlayer = 'player1';
-
+    var htmlPlayer1 = 'player1';
+    var htmlPlayer2 = 'player2';
 
     function onYouTubeIframeAPIReady() {
-      player = new YT.Player(htmlPlayer, {
+      player1 = new YT.Player(htmlPlayer1, {
         playerVars: {
           'controls': 0,
           'autohide': 1,
@@ -26,32 +26,85 @@
         },
         videoId: 'abU5I9Tj6ZU',
         events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
+          'onReady': onPlayer1Ready,
+          'onStateChange': onPlayer1StateChange
+        }
+      });
+      player2 = new YT.Player(htmlPlayer2, {
+        playerVars: {
+          'controls': 0,
+          'autohide': 1,
+          'wmode': 'opaque',
+          'showinfo': 0,
+          'loop': 1,
+          'mute': 1,
+          //'start': 15,
+          //'end': 110,
+          'playlist': 'uc8N-uWyTus'
+        },
+        videoId: 'uc8N-uWyTus',
+        events: {
+          'onReady': onPlayer2Ready,
+          'onStateChange': onPlayer2StateChange
         }
       });
     }
 
-    function onPlayerReady(event) {
+    // function onYouTubeIframeAPIReady() {
+    //   player = new YT.Player(htmlPlayer2, {
+    //     playerVars: {
+    //       'controls': 0,
+    //       'autohide': 1,
+    //       'wmode': 'opaque',
+    //       'showinfo': 0,
+    //       'loop': 1,
+    //       'mute': 1,
+    //       //'start': 15,
+    //       //'end': 110,
+    //       'playlist': 'uc8N-uWyTus'
+    //     },
+    //     videoId: 'uc8N-uWyTus',
+    //     events: {
+    //       'onReady': onPlayerReady,
+    //       'onStateChange': onPlayerStateChange
+    //     }
+    //   });
+    // }
+
+    function onPlayer1Ready(event) {
       // console.log("play sexy video slut");
-        player.playVideo();
+        player1.playVideo();
         event.target.mute();
-        firstLoaded = true;
+        firstLoaded++;
+    }
+    function onPlayer2Ready(event) {
+      // console.log("play sexy video slut");
+        player2.playVideo();
+        event.target.mute();
+        firstLoaded++;
     }
 
     var refreshId = setInterval(function() {    
-      if(firstLoaded==true && isLoaded==false){
-        var playerTime = player.getCurrentTime();
-        console.log(playerTime);
-        if(playerTime>0.0001){
-          player.pauseVideo();
-          isLoaded = true; 
-          clearInterval(refreshId);
+      if(firstLoaded==2 && isLoaded!=2){
+        var playerTime1 = player1.getCurrentTime();
+        var playerTime2 = player2.getCurrentTime();
+        
+        if(playerTime1>0.0001){
+          player1.pauseVideo();
+          isLoaded++; 
+        }
+        if(playerTime2>0.0001){
+          player2.pauseVideo();
+          isLoaded++; 
         }
       }
+      if(isLoaded == 2) clearInterval(refreshId);
       console.log("timer");
     }, .1);
 
-    function onPlayerStateChange(event) {
+    function onPlayer1StateChange(event) {
+      
+    }
+    function onPlayer2StateChange(event) {
       
     }
