@@ -9,6 +9,8 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
 
 //runs sass, browserSync and watch tasks (for development)
 gulp.task('default', function (callback){
@@ -19,7 +21,7 @@ gulp.task('default', function (callback){
 //runs sass, useref, images and font tasks (for FTP uploads)
 gulp.task('build', function (callback){
 	runSequence('clean:dist',
-		['sass', 'useref', 'images', 'fonts'],
+		['sass', 'useref', 'scripts', 'jsLibs', 'images', 'fonts'],
 		callback
 		)
 });
@@ -58,6 +60,29 @@ gulp.task('browserSync', function() {
 		},
 	})
 });
+
+gulp.task('distTest', function() {
+	browserSync.init({
+		server: {
+			baseDir:'dist'
+		},
+	})
+});
+
+gulp.task('jsLibs', function(){
+	return gulp.src('app/js/lib/*.js')
+	// .pipe(concat('libraries.min.js'))
+	// .pipe(uglify())
+	.pipe(gulp.dest('dist/js/lib'));
+});
+
+gulp.task('scripts', function(){
+	return gulp.src('app/js/*.js')
+	.pipe(concat('main.min.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('dist/js'));
+});
+
 //task to get all js+css files referenced in html file and output all new files to dist
 gulp.task('useref', function(){
 	return gulp.src('app/*.html')
