@@ -55,7 +55,7 @@
 	var v = document.createElement("video");
 	var divCenter;
 	var middleImagesHeight, newMiddleImagesHeight;
-	var isLoaded = 0;
+	// var isLoaded = 0;
 
 	// $.getScript("js/nav.js");
 
@@ -128,7 +128,7 @@ $( document ).ready(function() {
 			backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
 			//if desktop, then calculate math to decide pages positions every mouse movement
 			if(windowSizeWidth > 1024){
-				topPagePos = 0.5, leftPagePos = .72, rightPagePos = 1.72, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.73, centralPos = 1.354, middlePagePos = 1.32;
+				topPagePos = 0.5, leftPagePos = .72, rightPagePos = 1.72, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.354, middlePagePos = 1.32;
 				backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/5;
 				largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, medHitboxWSize = backgroundWSize*2.37, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
 			} 
@@ -247,8 +247,8 @@ $( document ).ready(function() {
 		if(hovered == 'portfolio1page'){
 			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio1").removeClass("backgroundImage").addClass("staticImage");
-			if(isLoaded == 2){
-				player1.playVideo();
+			if(isReady == true){
+				players[0].playVideo();
 				console.log("WORKINGAS??!?!");
 			} 
 			lastScrolled = "#portfolio1";
@@ -256,8 +256,8 @@ $( document ).ready(function() {
 		if(hovered == 'portfolio2page'){
 			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio2").removeClass("backgroundImage").addClass("staticImage");
-			if(isLoaded == 2){
-				player2.playVideo();
+			if(isReady == true){
+				players[1].playVideo();
 				console.log("WORKINGAS??!?!");
 			} 
 			lastScrolled = "#portfolio2";
@@ -309,7 +309,7 @@ $( document ).ready(function() {
 
 
 	function animateIn(){
-		if(isLoaded == 2) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});		   
+		if(isReady == true) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});		   
 	}
 	// function animateOut(){
 	// 	$(lastScrolled).stop().animate({'opacity': 1},{complete: function(){
@@ -326,7 +326,9 @@ $( document ).ready(function() {
 	    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
 	    $(lastScrolled + 'page .content').stop().animate({"opacity":0});
 		$('.videoContainer').stop().animate({"opacity": 0});
-		if(isLoaded == 2) player2.pauseVideo();
+		if(isReady == true){
+			pauseAllVideos();
+		} 
 	    // $(lastScrolled).css({'opacity':1});
 	// 	// if browser is above 1024 (is a desktop)
 		if(lastPage != 'reset' && lastScrolled != ''){

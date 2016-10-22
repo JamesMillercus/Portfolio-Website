@@ -40,27 +40,31 @@
 	    float:none;
 	    width:auto;
 	}
-	.videoContainer{
-	    padding-bottom:1%;
-	    position: absolute;
-	    z-index:-88;
-	    overflow:hidden;
-	    opacity:0;
-	}
+	#portfolio1page .videoContainer, #portfolio2page .videoContainer{
+	    width: 64%;
+	    height: 46%;
+	} 
 
 	#portfolio1page .videoContainer{
-	    width: 63.5%;
-	    height: 46%;
 	    right: 5.5%;
 	    bottom: 0;
 	}
 
 	#portfolio2page .videoContainer{
-	    width: 64%;
-	    height: 46%;
 	    left: 9.5%;
 	    bottom: 0;
-	}	
+	}
+
+	@media only screen and (max-height: 650px) {
+		#portfolio1page .videoContainer, #portfolio2page .videoContainer {
+		    height: 44%;
+		}
+	}
+	@media only screen and (max-height: 570px) {
+		#portfolio1page .videoContainer, #portfolio2page .videoContainer {
+		    height: 40%;
+		}
+	}
 	
 }
 
