@@ -35,6 +35,8 @@ function onPlayerReady(event){
   if(isLoaded == videoList){
     isReady = true;
   } 
+  //set hacky xmas video 10 seconds in
+  // if (players[2].getCurrentTime() < 10) players[2].seekTo(10,true); 
 }
 //loop through and pause all videos
 function pauseAllVideos(){

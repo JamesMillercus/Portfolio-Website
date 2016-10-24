@@ -123,7 +123,7 @@ $( document ).ready(function() {
 		    // set size + position of each page within the website container
 			$('#homepage').css({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px'});
 			// set size + position of background
-			$('#container').css({'height':windowSizeHeight*3 +'px ', 'width':windowSizeWidth*3 + 'px', 'margin-left': '-'+windowSizeWidth + 'px', 'margin-top': '-'+windowSizeHeight + 'px'}); 	
+			$('#container').css({'height':windowSizeHeight*3 +'px ', 'width':windowSizeWidth*3 + 'px', 'margin-left': '-'+windowSizeWidth + 'px', 'margin-top': '-'+windowSizeHeight + 'px', 'opacity': 1}); 	
 			//Find 37% of the size of the home page to use for movement calculations of navigation scroll overs
 			backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
 			//if desktop, then calculate math to decide pages positions every mouse movement
@@ -247,29 +247,25 @@ $( document ).ready(function() {
 		if(hovered == 'portfolio1page'){
 			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio1").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true){
-				players[0].playVideo();
-				console.log("WORKINGAS??!?!");
-			} 
+			if(isReady == true) players[0].playVideo();
 			lastScrolled = "#portfolio1";
 		}
 		if(hovered == 'portfolio2page'){
 			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio2").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true){
-				players[1].playVideo();
-				console.log("WORKINGAS??!?!");
-			} 
+			if(isReady == true) players[1].playVideo();
 			lastScrolled = "#portfolio2";
 		}
 		if(hovered == 'portfolio3page'){
 			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'},{complete: function(){isAnimating=false;console.log('isAnimating' + isAnimating);}});
 			$("#portfolio3").removeClass("backgroundImage").addClass("staticImage");
+			if(isReady == true) players[2].playVideo();
 			lastScrolled = "#portfolio3";	
 		}
 		if(hovered == 'portfolio4page'){
 			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'},{complete: function(){isAnimating=false;console.log('isAnimating' + isAnimating);}});
 			$("#portfolio4").removeClass("backgroundImage").addClass("staticImage");
+			if(isReady == true) players[3].playVideo();
 			lastScrolled = "#portfolio4";	
 		}
 		if(hovered == 'portfolio5page'){
@@ -361,7 +357,9 @@ $( document ).ready(function() {
 		    $(lastScrolled).css({"opacity":1});
 		    setTimeout(function(){
 			    isAnimating=false;
+			    lastScrolled = '';
 			    // $(lastScrolled + 'page .content').css({'opacity':0});
+			    // $('#container').css({'opacity': 0});
 			    isHover='container';
 			}, 50);		    
 		}

@@ -19,7 +19,7 @@
     }
 
     #portfolio4page .content .textContainer, #portfolio3page .content .textContainer {
-	    bottom:15%;
+	    bottom:1%;
 	}
 	#portfolio7page .content{
     	width:86%;
@@ -55,17 +55,35 @@
 	    bottom: 0;
 	}
 
+	#portfolio3page iframe{
+		top:-33%;
+		left:-32.5%;
+		height:165%;
+		width:165%;
+	}
+
 	@media only screen and (max-height: 650px) {
-		#portfolio1page .videoContainer, #portfolio2page .videoContainer {
+		#portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {
 		    height: 44%;
+		}
+		#portfolio1page .videoPlayer, #portfolio2page .videoPlayer, #portfolio4page .videoPlayer {
+			top:-5%;
+		}
+		#portfolio3page .videoContainer {
+			height: 40%;	
+		}
+		#portfolio3page .videoPlayer {
+			top:-37%;
 		}
 	}
 	@media only screen and (max-height: 570px) {
-		#portfolio1page .videoContainer, #portfolio2page .videoContainer {
+		#portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {
 		    height: 40%;
 		}
+		#portfolio1page .videoPlayer, #portfolio2page .videoPlayer, #portfolio4page .videoPlayer {
+			top:-23%;
+		}
 	}
-	
 }
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
@@ -91,6 +109,9 @@
     .videoContainer{
     	opacity:0;
     }
+    #portfolio3page .videoContainer{
+	    height: 46%;
+	}
 
 	@media only screen and (orientation: landscape){
 		#innerBtnHolder {

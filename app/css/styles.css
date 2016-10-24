@@ -167,6 +167,27 @@ iframe {
   left: 9.5%;
   bottom: 0; }
 
+#portfolio3page .videoContainer {
+  width: 64%;
+  height: 47%;
+  right: 5.5%;
+  top: 0; }
+
+#portfolio4page .videoContainer {
+  width: 64%;
+  height: 47%;
+  left: 9.5%;
+  top: 0; }
+
+#portfolio3page .videoPlayer {
+  padding-bottom: 70%; }
+
+#portfolio3page iframe {
+  top: -30%;
+  left: -20%;
+  height: 140%;
+  width: 140%; }
+
 #innerBtnHolder {
   /*width: 70%;*/
   /*background-color: yellow;*/
@@ -238,7 +259,7 @@ iframe {
 
 #portfolio4page .content {
   height: 67%;
-  width: 57.6%;
+  width: 64%;
   top: 7%;
   left: 10%; }
 
@@ -281,11 +302,11 @@ iframe {
 
 #portfolio3page .content .textContainer {
   position: absolute;
-  bottom: 20%; }
+  bottom: 2%; }
 
 #portfolio4page .content .textContainer {
   position: absolute;
-  bottom: 20%; }
+  bottom: 2%; }
 
 #portfolio5page .content .textContainer {
   position: absolute;

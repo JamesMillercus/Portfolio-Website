@@ -16,20 +16,18 @@ var rename = require('gulp-rename');
 gulp.task('default', function (callback){
 	runSequence(['sass','browserSync', 'watch'],
 		callback
-		)
-});
+)});
 //runs sass, useref, images and font tasks (for FTP uploads)
 gulp.task('build', function (callback){
 	runSequence('clean:dist',
 		['sass', 'useref', 'scripts', 'jsLibs', 'images', 'fonts'],
 		callback
-		)
-});
+)});
 
 // task to clean dist folder (delete old files)
 gulp.task('clean:dist', function(){
 	return del.sync('dist');
-})
+});
 //task to optimise images + put them in dist folder
 gulp.task('images', function(){
 	return gulp.src('app/assets/**/*.+(png|jpg|gif|svg)')
