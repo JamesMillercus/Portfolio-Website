@@ -271,6 +271,7 @@ $( document ).ready(function() {
 		if(hovered == 'portfolio5page'){
 			$('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio5").removeClass("backgroundImage").addClass("staticImage");
+			if(isReady == true) players[4].playVideo();
 			lastScrolled = "#portfolio5";
 		}
 		if(hovered == 'portfolio6page'){
