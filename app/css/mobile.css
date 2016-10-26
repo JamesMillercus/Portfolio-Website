@@ -17,8 +17,8 @@
     width: 86%;
     left: 4%; }
   #portfolio6page .content {
-    width: 86%;
-    right: 4%; }
+    height: 100%;
+    width: 40%; }
   .content .textLeft {
     float: none;
     width: auto; }
@@ -40,23 +40,11 @@
     top: -33%;
     left: -32.5%;
     height: 165%;
-    width: 165%; } }
-
-@media only screen and (max-width: 1300px) and (max-height: 650px), only screen and (max-device-width: 1300px) and (max-height: 650px) {
-  #portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {
-    height: 44%; }
-  #portfolio1page .videoPlayer, #portfolio2page .videoPlayer, #portfolio4page .videoPlayer {
-    top: -5%; }
-  #portfolio3page .videoContainer {
-    height: 40%; }
-  #portfolio3page .videoPlayer {
-    top: -37%; } }
-
-@media only screen and (max-width: 1300px) and (max-height: 570px), only screen and (max-device-width: 1300px) and (max-height: 570px) {
-  #portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {
-    height: 40%; }
-  #portfolio1page .videoPlayer, #portfolio2page .videoPlayer, #portfolio4page .videoPlayer {
-    top: -23%; } }
+    width: 165%; }
+  #portfolio6page .videoContainer {
+    width: 82%;
+    height: 100%;
+    right: -20%; } }
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
   .backgroundImage, .staticImage {
@@ -108,8 +96,18 @@
   #middleImages, #portfolio6page, #portfolio7page {
     opacity: 0; } }
 
+@media only screen and (max-height: 650px) {
+  #portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {
+    height: 44%; }
+  #portfolio1page .videoPlayer, #portfolio2page .videoPlayer, #portfolio4page .videoPlayer {
+    top: -5%; }
+  #portfolio3page .videoContainer {
+    height: 40%; }
+  #portfolio3page .videoPlayer {
+    top: -37%; } }
+
 @media only screen and (max-height: 600px) {
-  #portfolio4page .content .textContainer, #portfolio3page .content .textContainer, #portfolio8page .content .textContainer {
+  #portfolio4page .content .textContainer, #portfolio3page .content .textContainer {
     bottom: 0; }
   #outerBtnHolder, #innerBtnHolder, #homepage {
     min-height: 460px;
@@ -123,7 +121,21 @@
     left: -11%;
     right: 0;
     width: 120%;
-    height: 130%; } }
+    height: 130%; }
+  #portfolio8page .videoContainer {
+    height: 50%; } }
+
+@media only screen and (max-height: 570px) {
+  #portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {
+    height: 40%; }
+  #portfolio1page .videoPlayer, #portfolio2page .videoPlayer, #portfolio4page .videoPlayer {
+    top: -23%; }
+  #portfolio5page .content {
+    height: 90%; }
+  #portfolio5page .content .textContainer {
+    top: 5%; }
+  #portfolio5page .videoContainer {
+    height: 50%; } }
 
 @media only screen and (max-height: 400px), only screen and (max-device-height: 400px) {
   #outerBtnHolder {

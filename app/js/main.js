@@ -1,5 +1,4 @@
-//0. make sizes of text field on vid 2 match vid one
-//0.1 make a better vid loading system (on scroll over start loading vid one)
+//0. FIX VIDEO 7 DISPLAY/MOVEMENT POSITION SO THAT IT MATCHES VIDEO 6
 //1. add in all text boxes and choose font that suites
 //2. add in images and video overlay
 //3. fix scrolling error when people first load page
@@ -104,82 +103,70 @@ $( document ).ready(function() {
 
 	function checkPositions()
 	{
+		//update window sizes
+	    windowSizeWidth = $(window).width();
+		windowSizeHeight = $(window).height();
 		
-
-
-			//update window sizes
-		    windowSizeWidth = $(window).width();
-			windowSizeHeight = $(window).height();
-			console.log(windowSizeWidth);
-		    
-		    
-
-
-
-		    console.log("backgroundWSize = " + backgroundWSize);
-			//math to decide pages positions every mouse movement
-			var topPagePos, bottomPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos;
-			
-		    // set size + position of each page within the website container
-			$('#homepage').css({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px'});
-			// set size + position of background
-			$('#container').css({'height':windowSizeHeight*3 +'px ', 'width':windowSizeWidth*3 + 'px', 'margin-left': '-'+windowSizeWidth + 'px', 'margin-top': '-'+windowSizeHeight + 'px', 'opacity': 1}); 	
-			//Find 37% of the size of the home page to use for movement calculations of navigation scroll overs
-			backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
-			//if desktop, then calculate math to decide pages positions every mouse movement
-			if(windowSizeWidth > 1024){
-				topPagePos = 0.5, leftPagePos = .72, rightPagePos = 1.72, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.354, middlePagePos = 1.32;
-				backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/5;
-				largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, medHitboxWSize = backgroundWSize*2.37, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
-			} 
-		    else if(windowSizeWidth > 900 && windowSizeWidth < 1024){
-		    	topPagePos = 0.58, leftPagePos = .72, rightPagePos = 1.72, bottomPagePos = 1.74, leftCornerPos = 1.5, rightCornerPos = 1.77, centralPos = 1.354, middlePagePos = 1.345;
-		    	backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/6;
-		    	largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
-		    } 
-		    else if(windowSizeWidth >= 551 && windowSizeWidth < 900 || isTablet){
-		    	topPagePos = 0.65, leftPagePos = .42, rightPagePos = 1.78, bottomPagePos = 1.75, leftCornerPos = 2.3, rightCornerPos = 1.77, centralPos = 1.3, middlePagePos = 1.375;
-		    	backgroundWSize = $('#homepage').width()/5, backgroundHSize = $('#homepage').height()/7;
-		    	largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
-		    } 
-		    //if mobile, then calculate math to decide pages positions every mouse movement
-		    if(windowSizeWidth <= 550 || isMobile){
-		    	topPagePos = .25, bottomPagePos = 1.6, leftCornerPos = 8, rightCornerPos = 1.66, centralPos = 1.3478, middlePagePos = 1.375;
-		    	backgroundWSize = $('#homepage').width()/3.3, backgroundHSize = $('#homepage').height()/3.5;
-		    	largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize;
-		    } 
-
-		    $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
-		    outerBtnHolderWSize = $('#outerBtnHolder').width(), outerBtnHolderHSize = $('#outerBtnHolder').height(), innerBtnHolderHSize = $('#innerBtnHolder').height(), middleImagesHeight = $('#middleImages').height(); 
-			divCenter = ($(window).width() - outerBtnHolderWSize)/2;
-		    // Selected page background image grows by 1.2 times its current size and other pages have their size divided by 1.8
-			growBackgroundWSize = backgroundWSize*1.3, shrinkBackgroundWSize = backgroundWSize/1.9;
-			//shrink the container holder the home page nav buttons by 1.5 of their current size
-			newouterBtnHolderWSize = outerBtnHolderWSize/1.5, newouterBtnHolderHSize = outerBtnHolderHSize/1.5;
-		    newMiddleImagesHeight = middleImagesHeight/1;
-		    newInnerBtnHolderHSize = innerBtnHolderHSize/1.5;
-		    outerBtnHolderTop = ($('#homepage').height()-$('#outerBtnHolder').height())/2, innerBtnHolderTop = (outerBtnHolderHSize-innerBtnHolderHSize)/2;  
-		    newInnerBtnHolderTop = (newouterBtnHolderHSize-newInnerBtnHolderHSize)/2;
-		    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':outerBtnHolderTop+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''});
-			$('#portfolio1page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
-			$('#portfolio2page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
-			$('#portfolio3page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
-			$('#portfolio4page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
-			$('#portfolio5page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
-			$('#portfolio6page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*leftPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
-			$('#portfolio7page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
-			$('#portfolio8page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
-		    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px '});
-			
-			//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
-			if(isHover!= 'container') resetToHome('reset');
-			//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
-			if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") staticHome();
-			//else load the page without video
-			else if(!!v.canPlayType == false || windowSizeWidth < 1024) staticHome();
-			console.log('innerBtnHolderHSize = '+ innerBtnHolderHSize);
-			console.log('middleImagesHeight = '+ middleImagesHeight);
+		//math to decide pages positions every mouse movement
+		var topPagePos, bottomPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos;
 		
+	    // set size + position of each page within the website container
+		$('#homepage').css({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px'});
+		// set size + position of background
+		$('#container').css({'height':windowSizeHeight*3 +'px ', 'width':windowSizeWidth*3 + 'px', 'margin-left': '-'+windowSizeWidth + 'px', 'margin-top': '-'+windowSizeHeight + 'px', 'opacity': 1}); 	
+		//Find 37% of the size of the home page to use for movement calculations of navigation scroll overs
+		backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
+		//if desktop, then calculate math to decide pages positions every mouse movement
+		if(windowSizeWidth > 1024){
+			topPagePos = 0.5, leftPagePos = .75, rightPagePos = 1.72, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.29, middlePagePos = 1.32;
+			backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/5;
+			largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, medHitboxWSize = backgroundWSize*3, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
+		} 
+	    else if(windowSizeWidth > 900 && windowSizeWidth < 1024){
+	    	topPagePos = 0.58, leftPagePos = .72, rightPagePos = 1.72, bottomPagePos = 1.74, leftCornerPos = 1.5, rightCornerPos = 1.77, centralPos = 1.354, middlePagePos = 1.345;
+	    	backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/6;
+	    	largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
+	    } 
+	    else if(windowSizeWidth >= 551 && windowSizeWidth < 900 || isTablet){
+	    	topPagePos = 0.65, leftPagePos = .42, rightPagePos = 1.78, bottomPagePos = 1.75, leftCornerPos = 2.3, rightCornerPos = 1.77, centralPos = 1.3, middlePagePos = 1.375;
+	    	backgroundWSize = $('#homepage').width()/5, backgroundHSize = $('#homepage').height()/7;
+	    	largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
+	    } 
+	    //if mobile, then calculate math to decide pages positions every mouse movement
+	    if(windowSizeWidth <= 550 || isMobile){
+	    	topPagePos = .25, bottomPagePos = 1.6, leftCornerPos = 8, rightCornerPos = 1.66, centralPos = 1.3478, middlePagePos = 1.375;
+	    	backgroundWSize = $('#homepage').width()/3.3, backgroundHSize = $('#homepage').height()/3.5;
+	    	largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize;
+	    } 
+
+	    $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
+	    outerBtnHolderWSize = $('#outerBtnHolder').width(), outerBtnHolderHSize = $('#outerBtnHolder').height(), innerBtnHolderHSize = $('#innerBtnHolder').height(), middleImagesHeight = $('#middleImages').height(); 
+		divCenter = ($(window).width() - outerBtnHolderWSize)/2;
+	    // Selected page background image grows by 1.2 times its current size and other pages have their size divided by 1.8
+		growBackgroundWSize = backgroundWSize*1.3, shrinkBackgroundWSize = backgroundWSize/1.9;
+		//shrink the container holder the home page nav buttons by 1.5 of their current size
+		newouterBtnHolderWSize = outerBtnHolderWSize/1.5, newouterBtnHolderHSize = outerBtnHolderHSize/1.5;
+	    newMiddleImagesHeight = middleImagesHeight/1;
+	    newInnerBtnHolderHSize = innerBtnHolderHSize/1.5;
+	    outerBtnHolderTop = ($('#homepage').height()-$('#outerBtnHolder').height())/2, innerBtnHolderTop = (outerBtnHolderHSize-innerBtnHolderHSize)/2;  
+	    newInnerBtnHolderTop = (newouterBtnHolderHSize-newInnerBtnHolderHSize)/2;
+	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':outerBtnHolderTop+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''});
+		$('#portfolio1page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
+		$('#portfolio2page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
+		$('#portfolio3page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
+		$('#portfolio4page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
+		$('#portfolio5page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
+		$('#portfolio6page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*leftPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
+		$('#portfolio7page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
+		$('#portfolio8page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
+	    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px '});
+		
+		//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
+		if(isHover!= 'container') resetToHome('reset');
+		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
+		if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") staticHome();
+		//else load the page without video
+		else if(!!v.canPlayType == false || windowSizeWidth < 1024) staticHome();
 	}
 	// hide video, add a background image to the home page, reset all nav button positions and activate navigation movement by clearing lastScrolled
 	function staticHome(){
@@ -277,16 +264,19 @@ $( document ).ready(function() {
 		if(hovered == 'portfolio6page'){
 			$('#container').stop().animate({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio6").removeClass("backgroundImage").addClass("staticImage");
+			if(isReady == true) players[5].playVideo();
 			lastScrolled = "#portfolio6";
 		}
 		if(hovered == 'portfolio7page'){
 			$('#container').stop().animate({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
 			$("#portfolio7").removeClass("backgroundImage").addClass("staticImage");
+			if(isReady == true) players[6].playVideo();
 			lastScrolled = "#portfolio7";
 		}
 		if(hovered == 'portfolio8page'){
 			$('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'},{complete: function(){isAnimating=false;console.log('isAnimating' + isAnimating);}});
 			$("#portfolio8").removeClass("backgroundImage").addClass("staticImage");
+			if(isReady == true) players[7].playVideo();
 			lastScrolled = "#portfolio8";
 		}
 		reSizeImages();
@@ -358,7 +348,7 @@ $( document ).ready(function() {
 		    $(lastScrolled).css({"opacity":1});
 		    setTimeout(function(){
 			    isAnimating=false;
-			    lastScrolled = '';
+			    // lastScrolled = '';
 			    // $(lastScrolled + 'page .content').css({'opacity':0});
 			    // $('#container').css({'opacity': 0});
 			    isHover='container';

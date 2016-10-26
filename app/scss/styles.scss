@@ -173,8 +173,8 @@ iframe {
    position: absolute;
    top:0;
    left: 0%;
-   width: 100%;
-   height: 100%;
+   width: 105%;
+   height: 105%;
    pointer-events: none;
 }
 
@@ -213,21 +213,51 @@ iframe {
 }
 
 #portfolio5page .videoContainer{
-    width: 64%;
-    height: 47%;
-    left: 9.5%;
+    width: 120%;
+    height: 55%;
     bottom: 0;
+}
+
+#portfolio6page .videoContainer{
+    width: 60%;
+    height: 100%;
+    right: 0;
+}
+
+#portfolio7page .videoContainer{
+    width: 60%;
+    height: 100%;
+    left: 0;
+}
+
+#portfolio8page .videoContainer{
+    width: 100%;
+    height: 55%;
+    top: 0;
 }
 
 #portfolio3page .videoPlayer{
     padding-bottom:70%;
 }
-
+#portfolio6page .videoPlayer{
+    left:-10%;
+}
+#portfolio7page .videoPlayer{
+    left:-10%;
+}
 #portfolio3page iframe{
     top:-30%;
     left:-20%;
     height:140%;
     width:140%;
+}
+
+#portfolio5page .videoPlayer {
+        left:-10%;
+}
+
+#portfolio2page iframe {
+    top:-10%;
 }
 
 #innerBtnHolder {
@@ -316,24 +346,24 @@ iframe {
     left:10%;
 }
 #portfolio5page .content{
-    height:83%;
+    height:100%;
     width:100%;
-    bottom:2%;
+    bottom:0;
 }
 #portfolio6page .content{
     height:100%;
     width:90%;
-    right:0;
+    left: 5%;
 }
 #portfolio7page .content{
     height:100%;
     width:88%;
-    left:2%;
+    right:2%;
 }
 #portfolio8page .content{
-    height:84%;
+    height:100%;
     width:100%;
-    top:0;
+    bottom:0;
 }
 #topImage{
     position: absolute;
@@ -362,23 +392,38 @@ iframe {
 }
 #portfolio5page .content .textContainer{
     position:absolute;
-    top:5%;
+    top:15%;
 }
 
 #portfolio6page .content .textContainer{
-    width:76%;
+    width:75%;
     position:absolute;
     left:0;
 }
+#portfolio6page .textLeft, #portfolio6page .textRight {
+    float:none;
+    display:block;
+    margin-bottom:10px;
+}
+
+#portfolio7page .textLeft, #portfolio7page .textRight{
+    float:none;
+    display:block;
+    margin-bottom:10px;
+    /*background-color:green;*/
+
+}
 
 #portfolio7page .content .textContainer{
-    width:76%;
+    width:50%;
     position:absolute;
     right:0;
+    /*background-color:yellow;*/
 }
+
 #portfolio8page .content .textContainer{
     position:absolute;
-    bottom:30%;
+    bottom:15%;
 }
 #middleImages{
     position: absolute;
