@@ -45,6 +45,7 @@
 	var image;
 	// store the last scrolled item
 	var lastScrolled = 'newUser';
+	var lastVideo;
 	// store home page size to determine navigation movement distance
 	var backgroundWMover, backgroundHMover;
 	// math to decide button positions within the home page, every mouse movement
@@ -65,14 +66,38 @@
 		//if animation between navigation buttons isn't happening 
 		if (isAnimating == false){
 			//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-			if(isHover == 'portfolio1page') $('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'});
-			if(isHover == 'portfolio2page') $('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'});
-			if(isHover == 'portfolio3page') $('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'});
-			if(isHover == 'portfolio4page') $('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'});
-			if(isHover == 'portfolio5page') $('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'});
-			if(isHover == 'portfolio6page') $('#container').css({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'});
-			if(isHover == 'portfolio7page') $('#container').css({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'});
-			if(isHover == 'portfolio8page') $('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'});
+			if(isHover == 'portfolio1page') {
+				$('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio2page') {
+				$('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio3page') {
+				$('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio4page') {
+				$('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio5page') {
+				$('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio6page') {
+				$('#container').css({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio7page') {
+				$('#container').css({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'});
+				if(isReady == true) animateIn();
+			}
+			if(isHover == 'portfolio8page') {
+				$('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'});
+				if(isReady == true) animateIn();
+			}
 			//if not hovering on a nav button
 			if(isHover == 'container') {
 				//animate based on normal mouse position
@@ -214,7 +239,7 @@ $( document ).ready(function() {
 
 	// on mouse over of navigation button
 	$(".animatingPage").mouseenter(function(){
-		console.log("yo slut");
+		// console.log("yo slut");
 		//if browser is over 1024 (desktop user)
 		if(windowSizeWidth > 1024 && isNaN(currentPosX) == false && windowSizeHeight >500){
 			//check what page the user is scrolling over
@@ -288,16 +313,13 @@ $( document ).ready(function() {
 		$(lastScrolled + 'page .content').stop().animate({'opacity': 1});
 		//Make the selected pages background image grow
 		$(".staticImage").stop().animate({'width': growBackgroundWSize+'px'},{complete: function(){
-			animateIn();
+			if(isReady == true) animateIn();
 		}}); 
 		//Loop through all other pages and shrink them
 		$( ".backgroundImage" ).stop().animate({'width': shrinkBackgroundWSize+'px'});
 	}
 
 
-	function animateIn(){
-		if(isReady == true) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});		   
-	}
 	// function animateOut(){
 	// 	$(lastScrolled).stop().animate({'opacity': 1},{complete: function(){
 	// 		animateIn();
@@ -356,3 +378,10 @@ $( document ).ready(function() {
 		}
 	}
 });
+
+function animateIn(){
+	lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1; // => "1"
+	if (players[lastVideo].getCurrentTime()>1 && $("#" + isHover + " .videoContainer").css('opacity') === '0') {
+		$("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
+	}
+}

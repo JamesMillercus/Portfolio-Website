@@ -240,10 +240,13 @@ iframe {
     padding-bottom:70%;
 }
 #portfolio6page .videoPlayer{
-    left:-10%;
+    left:-5%;
 }
 #portfolio7page .videoPlayer{
     left:-10%;
+}
+#portfolio8page .videoPlayer{
+    left:-5%;
 }
 #portfolio3page iframe{
     top:-30%;
@@ -253,11 +256,23 @@ iframe {
 }
 
 #portfolio5page .videoPlayer {
-        left:-10%;
+    left:-10%;
 }
 
 #portfolio2page iframe {
-    top:-10%;
+    top:-2%;
+}
+
+#portfolio5page iframe{
+     top:-10%;
+}
+#portfolio6page iframe{
+     width:110%;
+     height:110%;
+     left:-2%;
+}
+#portfolio8page iframe{
+     top:-5%;
 }
 
 #innerBtnHolder {
@@ -410,15 +425,15 @@ iframe {
     float:none;
     display:block;
     margin-bottom:10px;
+    width:100%;
     /*background-color:green;*/
 
 }
 
 #portfolio7page .content .textContainer{
-    width:50%;
-    position:absolute;
-    right:0;
-    /*background-color:yellow;*/
+    width: 38%;
+    position: absolute;
+    right: 9%;
 }
 
 #portfolio8page .content .textContainer{
