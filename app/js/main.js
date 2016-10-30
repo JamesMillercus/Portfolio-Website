@@ -1,24 +1,11 @@
-//0. FIX VIDEO 7 DISPLAY/MOVEMENT POSITION SO THAT IT MATCHES VIDEO 6
-//1. add in all text boxes and choose font that suites
-//2. add in images and video overlay
-//3. fix scrolling error when people first load page
-//4. do css for large desktop screens
 
-//0. Optimise images for retina mobile (check with alex that I'm already doing this)
+
+//0. Click on video to maximise to full screen
 //1. Check if html5 vid is supported + animate design and nav buttons upon page load (fix bug upon page load, some time delay is triggering after animation is finished?)
-//2. Annotate / tidy js
-//3. fix all bugs (check on different browsers with Kerve browser stack login details)
-
-//Nice additions:
-//1. Github
-
-
-//PLAN IS:
-// 1. SCROLL OVER PROJECT
-// 2. START LOADING YOUTUBEVIDEO
-// 3. Do alex's css hack to make video always be in correct aspect ratio (bottom-padding x%)
-// 3. ONCE LOADED AND PLAYING, GIF FADES OUT AND YOUTUBE VIDEO FADES IN
-// 4. IF A USER CLICKS ON THE IMAGE IT GOES FULL SCREEN
+//2. Acknowledge videos loading in some way? (when isready == true)
+//3. Annotate / tidy js
+//4. fix all bugs (check on different browsers with Kerve browser stack login details)
+//5. do css for large desktop screens
 
 
 	//setting up mobile device if statements by detecting touch availability
@@ -66,38 +53,15 @@
 		//if animation between navigation buttons isn't happening 
 		if (isAnimating == false){
 			//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-			if(isHover == 'portfolio1page') {
-				$('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio2page') {
-				$('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio3page') {
-				$('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio4page') {
-				$('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio5page') {
-				$('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio6page') {
-				$('#container').css({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio7page') {
-				$('#container').css({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'});
-				if(isReady == true) animateIn();
-			}
-			if(isHover == 'portfolio8page') {
-				$('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'});
-				if(isReady == true) animateIn();
-			}
+			if(isHover == 'portfolio1page') $('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'});
+			if(isHover == 'portfolio2page') $('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'});
+			if(isHover == 'portfolio3page') $('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'});
+			if(isHover == 'portfolio4page') $('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'});
+			if(isHover == 'portfolio5page') $('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'});
+			if(isHover == 'portfolio6page') $('#container').css({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'});
+			if(isHover == 'portfolio7page') $('#container').css({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'});
+			if(isHover == 'portfolio8page') $('#container').css({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'});
+			// if(isHover == 'portfolio1page' || isHover == 'portfolio2page' || isHover == 'portfolio3page' || isHover == 'portfolio4page' || isHover == 'portfolio5page' || isHover == 'portfolio6page' || isHover == 'portfolio7page' || isHover == 'portfolio8page') if(isReady == true) animateIn();
 			//if not hovering on a nav button
 			if(isHover == 'container') {
 				//animate based on normal mouse position
@@ -239,7 +203,6 @@ $( document ).ready(function() {
 
 	// on mouse over of navigation button
 	$(".animatingPage").mouseenter(function(){
-		// console.log("yo slut");
 		//if browser is over 1024 (desktop user)
 		if(windowSizeWidth > 1024 && isNaN(currentPosX) == false && windowSizeHeight >500){
 			//check what page the user is scrolling over
@@ -247,8 +210,6 @@ $( document ).ready(function() {
 		    //start animating
 			isAnimating = true;
 		    //Detect what navigation button is being hovered, move the background to center the selected page 
-		    //Change the math movement to match what navigation page the user has chosen
-		    //Once the selected page has animated to its defined position, set animation to false
 		    for(var pageNumber = 1;pageNumber<9;pageNumber++){
 		    	if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollPortfolio(isHover);	
 		    }
@@ -256,52 +217,38 @@ $( document ).ready(function() {
 	});
 
 	function scrollPortfolio(hovered){
+	    //Change the math movement to match what navigation page the user has chosen
+	    //Once the selected page has animated to its defined position, set animation to false
 		if(hovered == 'portfolio1page'){
-			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
-			$("#portfolio1").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[0].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio1";
 		}
 		if(hovered == 'portfolio2page'){
-			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
-			$("#portfolio2").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[1].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio2";
 		}
 		if(hovered == 'portfolio3page'){
-			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'},{complete: function(){isAnimating=false;console.log('isAnimating' + isAnimating);}});
-			$("#portfolio3").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[2].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*1.3+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio3";	
 		}
 		if(hovered == 'portfolio4page'){
-			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'},{complete: function(){isAnimating=false;console.log('isAnimating' + isAnimating);}});
-			$("#portfolio4").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[3].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*1.3+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio4";	
 		}
 		if(hovered == 'portfolio5page'){
-			$('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
-			$("#portfolio5").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[4].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY*.6+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio5";
 		}
 		if(hovered == 'portfolio6page'){
-			$('#container').stop().animate({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
-			$("#portfolio6").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[5].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX/1.3+'px', 'margin-top': currentPosY+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio6";
 		}
 		if(hovered == 'portfolio7page'){
-			$('#container').stop().animate({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'},{complete: function(){isAnimating=false; console.log('isAnimating' + isAnimating);}});
-			$("#portfolio7").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[6].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX*1.24+'px', 'margin-top': currentPosY+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio7";
 		}
 		if(hovered == 'portfolio8page'){
-			$('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'},{complete: function(){isAnimating=false;console.log('isAnimating' + isAnimating);}});
-			$("#portfolio8").removeClass("backgroundImage").addClass("staticImage");
-			if(isReady == true) players[7].playVideo();
+			$('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY*1.4+'px'},{complete: function(){isAnimating=false;}});
 			lastScrolled = "#portfolio8";
 		}
 		reSizeImages();
@@ -309,6 +256,7 @@ $( document ).ready(function() {
 
 
 	function reSizeImages(){
+		$(lastScrolled).removeClass("backgroundImage").addClass("staticImage");
 		//Make the selected pages' content appear
 		$(lastScrolled + 'page .content').stop().animate({'opacity': 1});
 		//Make the selected pages background image grow
@@ -352,9 +300,6 @@ $( document ).ready(function() {
 			$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
 			$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
 	// 	    //if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
-	// 	    console.log("#portfolio8 classes = " + $("#portfolio8").attr("class"));
-	// 	    console.log("shrink " + isHover);
-	// 		console.log("animating = " + isAnimating);
 		    for(var pageNumber = 1;pageNumber<8;pageNumber++){
 				if(isHover != 'portfolio'+pageNumber+'page'){ 
 					isHover = 'container';
@@ -380,8 +325,7 @@ $( document ).ready(function() {
 });
 
 function animateIn(){
-	lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1; // => "1"
-	if (players[lastVideo].getCurrentTime()>1 && $("#" + isHover + " .videoContainer").css('opacity') === '0') {
-		$("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
-	}
+	lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
+	players[lastVideo].playVideo();
+	if (myPlayerState == 1 && $("#" + isHover + " .videoContainer").css('opacity') === '0') $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
 }
