@@ -1,8 +1,10 @@
 
 
 //0. Click on video to maximise to full screen
+	//- css to make video go to full screen on all screen sizes
+	//- Reveal controls
 //1. Check if html5 vid is supported + animate design and nav buttons upon page load (fix bug upon page load, some time delay is triggering after animation is finished?)
-//2. Acknowledge videos loading in some way? (when isready == true)
+//2. Acknowledge videos loading in some way, perhaps animate everything in to opacity 1 from 0 (when isready == true)
 //3. Annotate / tidy js
 //4. fix all bugs (check on different browsers with Kerve browser stack login details)
 //5. do css for large desktop screens
@@ -42,16 +44,16 @@
 	var v = document.createElement("video");
 	var divCenter;
 	var middleImagesHeight, newMiddleImagesHeight;
+	var clickedVideo = false;
 	// var isLoaded = 0;
-
-	// $.getScript("js/nav.js");
 
 	function updatePosition(posX, posY) {
 	    //move background container based on mouse positions
 		currentPosX = posX;
 		currentPosY = posY; 
+		// console.log(posX);
 		//if animation between navigation buttons isn't happening 
-		if (isAnimating == false){
+		if (isAnimating == false && clickedVideo == false){
 			//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
 			if(isHover == 'portfolio1page') $('#container').css({'margin-left': currentPosX/1.2+'px', 'margin-top': currentPosY*.7+'px'});
 			if(isHover == 'portfolio2page') $('#container').css({'margin-left': currentPosX*1.16+'px', 'margin-top': currentPosY*.7+'px'});
@@ -139,19 +141,27 @@ $( document ).ready(function() {
 	    newInnerBtnHolderHSize = innerBtnHolderHSize/1.5;
 	    outerBtnHolderTop = ($('#homepage').height()-$('#outerBtnHolder').height())/2, innerBtnHolderTop = (outerBtnHolderHSize-innerBtnHolderHSize)/2;  
 	    newInnerBtnHolderTop = (newouterBtnHolderHSize-newInnerBtnHolderHSize)/2;
-	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':outerBtnHolderTop+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''});
-		$('#portfolio1page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
-		$('#portfolio2page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
-		$('#portfolio3page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
-		$('#portfolio4page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
-		$('#portfolio5page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
-		$('#portfolio6page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*leftPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
-		$('#portfolio7page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
-		$('#portfolio8page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
-	    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px '});
+	    if(clickedVideo == false){
+	    	//if a video hasn't been clicked and the browser window is resized
+		    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':outerBtnHolderTop+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''});
+			$('#portfolio1page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
+			$('#portfolio2page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
+			$('#portfolio3page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth/leftCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
+			$('#portfolio4page').css({'height':largeHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightCornerPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
+			$('#portfolio5page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*topPagePos + 'px'});
+			$('#portfolio6page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*leftPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
+			$('#portfolio7page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
+			$('#portfolio8page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
+		    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px '});
+			//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
+			if(isHover!= 'container') resetToHome('reset');
+	    }else{
+	    	//if video has been clicked and page then resized
+	    	// $("#" + isHover + " .videoContainer").css({'width':'115%', 'height':'100%'});
+	    	// $("#"+isHover).css({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px', 'width': windowSizeWidth + 'px', 'height':windowSizeHeight+'px'});
+	    	// $("#" + isHover + " iframe").css({'width': '100%', 'height': '100%'});
+	    }
 		
-		//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
-		if(isHover!= 'container') resetToHome('reset');
 		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
 		if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") staticHome();
 		//else load the page without video
@@ -204,16 +214,18 @@ $( document ).ready(function() {
 	// on mouse over of navigation button
 	$(".animatingPage").mouseenter(function(){
 		//if browser is over 1024 (desktop user)
-		if(windowSizeWidth > 1024 && isNaN(currentPosX) == false && windowSizeHeight >500){
+		if(windowSizeWidth > 1024 && isNaN(currentPosX) == false && windowSizeHeight >500 && clickedVideo == false){
 			//check what page the user is scrolling over
 		    isHover = $(this).attr('id');
 		    //start animating
 			isAnimating = true;
 		    //Detect what navigation button is being hovered, move the background to center the selected page 
-		    for(var pageNumber = 1;pageNumber<9;pageNumber++){
-		    	if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollPortfolio(isHover);	
-		    }
+		    for(var pageNumber = 1;pageNumber<9;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollPortfolio(isHover);	   
 		}
+	});
+
+	$(".animatingPage").click(function(){
+		for(var pageNumber = 1;pageNumber<9;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
 	});
 
 	function scrollPortfolio(hovered){
@@ -253,6 +265,27 @@ $( document ).ready(function() {
 		}
 		reSizeImages();
 	}
+	
+	function openPortfolio(clicked){
+		if(clickedVideo == false){
+			console.log("clicked video = #" + clicked);
+			if(isReady == true){
+				lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
+				players[lastVideo].playVideo();
+				$("#" + isHover + " .videoContainer").stop().animate({'opacity': 1, 'width':'120%', 'height':'100%', 'right': 0, 'left': '-15%', 'top': 0, 'bottom': 0, 'position':'fixed'});
+				$("#" + isHover + " .videoPlayer").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
+				$("#" + isHover + " iframe").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
+				$("#" + isHover + " iframe").css({'z-index': 10000});
+				$("#" + clicked + ", #" + isHover + " .videoPlayer").css({'overflow':'visible', 'z-index':1000});
+				$("#" + clicked + " .content").css({'opacity':0});
+				$("#"+clicked).stop().animate({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px', 'width': windowSizeWidth + 'px', 'height':windowSizeHeight+'px'});
+				$('#container').stop().animate({'margin-left': -windowSizeWidth + 'px', 'margin-top': -windowSizeHeight + 'px'});
+				clickedVideo = true;
+				// $("#" + isHover + " .videoContainer").css({'position':'fixed'});
+				//change css of video to become full screen and then reveal controls
+			} 
+		}
+	}
 
 
 	function reSizeImages(){
@@ -265,6 +298,7 @@ $( document ).ready(function() {
 		}}); 
 		//Loop through all other pages and shrink them
 		$( ".backgroundImage" ).stop().animate({'width': shrinkBackgroundWSize+'px'});
+		console.log('resizeImages function activated');
 	}
 
 
@@ -275,51 +309,54 @@ $( document ).ready(function() {
 	// }
 
 	//on mouse out of navigation button
-	$(".animatingPage").mouseleave(function(){ if(windowSizeWidth > 1024) resetToHome(isHover); });
+	$(".animatingPage").mouseleave(function(){ 
+		if(windowSizeWidth > 1024 && clickedVideo == false) resetToHome(isHover); });
 
 	function resetToHome(lastPage){
+		if(clickedVideo == false){
 
-	//     // Get the page that was just scrolled out and shrink its background image to its normal size
-	    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
-	    $(lastScrolled + 'page .content').stop().animate({"opacity":0});
-		$('.videoContainer').stop().animate({"opacity": 0});
-		if(isReady == true){
-			pauseAllVideos();
-		} 
-	    // $(lastScrolled).css({'opacity':1});
-	// 	// if browser is above 1024 (is a desktop)
-		if(lastPage != 'reset' && lastScrolled != ''){
-	// 		// animation starts
-		    isAnimating = true;
-	// 	    // console.log("call mouse out");
-			$(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
-	// 		//Hide the scrolled out pages content back to opacity 0
-		    $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
-	// 	    //Make the container holding the nav buttons go back to its original size and position
-			$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
-			$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
-			$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
-	// 	    //if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
-		    for(var pageNumber = 1;pageNumber<8;pageNumber++){
-				if(isHover != 'portfolio'+pageNumber+'page'){ 
-					isHover = 'container';
-			        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){
-			        	isAnimating=false;
-			        	console.log('animated back to original layout');
-			        }});
-			        // isAnimating = false;
+		//     // Get the page that was just scrolled out and shrink its background image to its normal size
+		    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
+		    $(lastScrolled + 'page .content').stop().animate({"opacity":0});
+			$('.videoContainer').stop().animate({"opacity": 0});
+			if(isReady == true){
+				pauseAllVideos();
+			} 
+		    // $(lastScrolled).css({'opacity':1});
+		// 	// if browser is above 1024 (is a desktop)
+			if(lastPage != 'reset' && lastScrolled != ''){
+		// 		// animation starts
+			    isAnimating = true;
+		// 	    // console.log("call mouse out");
+				$(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
+		// 		//Hide the scrolled out pages content back to opacity 0
+			    $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
+		// 	    //Make the container holding the nav buttons go back to its original size and position
+				$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
+				$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
+				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
+		// 	    //if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
+			    for(var pageNumber = 1;pageNumber<8;pageNumber++){
+					if(isHover != 'portfolio'+pageNumber+'page'){ 
+						isHover = 'container';
+				        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){
+				        	isAnimating=false;
+				        	console.log('animated back to original layout');
+				        }});
+				        // isAnimating = false;
+					}
 				}
+			}else{
+			    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
+			    // $(lastScrolled).css({"opacity":1});
+			    setTimeout(function(){
+				    isAnimating=false;
+				    // lastScrolled = '';
+				    // $(lastScrolled + 'page .content').css({'opacity':0});
+				    // $('#container').css({'opacity': 0});
+				    isHover='container';
+				}, 50);		    
 			}
-		}else{
-		    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
-		    $(lastScrolled).css({"opacity":1});
-		    setTimeout(function(){
-			    isAnimating=false;
-			    // lastScrolled = '';
-			    // $(lastScrolled + 'page .content').css({'opacity':0});
-			    // $('#container').css({'opacity': 0});
-			    isHover='container';
-			}, 50);		    
 		}
 	}
 });
