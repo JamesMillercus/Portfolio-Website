@@ -147,13 +147,14 @@ iframe {
   left: 0%;
   width: 105%;
   height: 105%;
-  pointer-events: none; }
+  /*pointer-events: none;*/ }
 
 .videoContainer {
   position: absolute;
   z-index: -88;
   overflow: hidden;
-  opacity: 0; }
+  opacity: 0;
+  background-color: blue; }
 
 #portfolio1page .videoContainer {
   width: 63.5%;

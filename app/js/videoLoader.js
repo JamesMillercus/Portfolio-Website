@@ -19,7 +19,6 @@ function onYouTubeIframeAPIReady() {
   for(videoList = 0; videoList < iframes.length;videoList++) {
     players[videoList] = createPlayer(iframes[videoList]);
   }   
-  console.log("youtube iframes ready");
 }
 //create a player and call a function when its ready to play
 function createPlayer(playerInfo) {
@@ -29,7 +28,6 @@ function createPlayer(playerInfo) {
           'onStateChange': onPlayerStateChange      
        }
     });
-    console.log("videos players created");
 }
 //when its ready to be played make sure that all the other videos are loaded, and then allow users to play the videos
 function onPlayerReady(event){
@@ -40,7 +38,6 @@ function onPlayerReady(event){
     console.log("videos ready");
     isReady = true;
   } 
-  //set hacky xmas video 10 seconds in
 }
 //loop through and pause all videos
 function pauseAllVideos(){
@@ -54,3 +51,14 @@ function onPlayerStateChange(event) {
   if (isHover!= 'container' && isReady == true) animateIn();
 }
 
+
+function fullScreen (element){
+  console.log('video = ' + element);
+  if(element.requestFullScreen) {
+    element.requestFullScreen();
+  } else if(element.webkitRequestFullScreen ) {
+    element.webkitRequestFullScreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  }
+}

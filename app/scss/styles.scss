@@ -176,7 +176,7 @@ iframe {
    left: 0%;
    width: 105%;
    height: 105%;
-   pointer-events: none;
+   /*pointer-events: none;*/
 }
 
 .videoContainer{
@@ -184,6 +184,7 @@ iframe {
     z-index:-88;
     overflow:hidden;
     opacity:0;
+    background-color:blue;
 }
 
 #portfolio1page .videoContainer{

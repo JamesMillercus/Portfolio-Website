@@ -1,8 +1,9 @@
 
 
 //0. Click on video to maximise to full screen
-	//- css to make video go to full screen on all screen sizes
-	//- Reveal controls
+	// fix video sizes within page so that they hide the player controllers prior to clicking
+	// fix text positions
+	// try and trigger video full screen without clicking (through a function call)
 //1. Check if html5 vid is supported + animate design and nav buttons upon page load (fix bug upon page load, some time delay is triggering after animation is finished?)
 //2. Acknowledge videos loading in some way, perhaps animate everything in to opacity 1 from 0 (when isready == true)
 //3. Annotate / tidy js
@@ -201,21 +202,21 @@ $( document ).ready(function() {
 			$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
 				if(lastScrolled == "newUser"){
 			      console.log('Video has ended!');	  
-				  $('#topImage').stop().animate({'top': '0', 'left': '0', opacity: 1}, 300);
-				  $('#portfolio1').stop().animate({'top':'', 'left':'', 'opacity':1}, 300);
-				  $('#portfolio2').stop().animate({'top':'', 'right':'', 'opacity':1}, 300);
-				  $('#portfolio3').stop().animate({'bottom':'', 'left':'', 'opacity':1}, 300);
-				  $('#portfolio4').stop().animate({'bottom':'', 'right':'', 'opacity':1}, 300);
-				  $('#portfolio6').stop().animate({'left': '0', opacity: 1}, 300);
-				  $('#portfolio7').stop().animate({'right': '0', opacity: 1}, 300);
-				  $('#bottomImage').stop().animate({'bottom': '0', opacity: 1},300);
+				  $('#topImage').stop().animate({'top': '0', 'left': '0', 'opacity': 1}, 1000);
+				  $('#portfolio1').stop().animate({'top':'', 'left':'', 'opacity':1}, 1000);
+				  $('#portfolio2').stop().animate({'top':'', 'right':'', 'opacity':1}, 1000);
+				  $('#portfolio3').stop().animate({'bottom':'', 'left':'', 'opacity':1}, 1000);
+				  $('#portfolio4').stop().animate({'bottom':'', 'right':'', 'opacity':1}, 1000);
+				  $('#portfolio6').stop().animate({'left': '0', 'opacity': 1}, 1000);
+				  $('#portfolio7').stop().animate({'right': '0', 'opacity': 1}, 1000);
+				  $('#bottomImage').stop().animate({'bottom': '0', 'opacity': 1},1000);
 				  lastScrolled = '';
 				  isHover = 'container';
 				  isAnimating = false;
 				  setTimeout(function(){
 				    $('.animatingPage').css({'display':'block'});
 					console.log('animation finished - ready to play!');
-				  }, 300);		
+				  }, 1000);		
 				}
 		    });
 		}
@@ -257,68 +258,58 @@ $( document ).ready(function() {
 	
 	function openPortfolio(clicked){
 		if(clickedVideo == false){
-			console.log("clicked video = #" + clicked);
 			if(isReady == true){
 				lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
+				var videoClicked = document.getElementById("player"+ (lastVideo + 1));
 				players[lastVideo].playVideo();
-				$("#" + isHover + " .videoContainer").stop().animate({'opacity': 1, 'width':'120%', 'height':'100%', 'right': 0, 'left': '-15%', 'top': 0, 'bottom': 0, 'position':'fixed'});
-				$("#" + isHover + " .videoPlayer").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
-				$("#" + isHover + " iframe").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
-				$("#" + isHover + " iframe").css({'z-index': 10000});
-				$("#" + clicked + ", #" + isHover + " .videoPlayer").css({'overflow':'visible', 'z-index':1000});
-				$("#" + clicked + " .content").css({'opacity':0});
-				$("#"+clicked).stop().animate({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px', 'width': windowSizeWidth + 'px', 'height':windowSizeHeight+'px'});
-				$('#container').stop().animate({'margin-left': -windowSizeWidth + 'px', 'margin-top': -windowSizeHeight + 'px'});
-				clickedVideo = true;
+				// $("#" + isHover + " iframe").css({'z-index': 10000});
+				// $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1, 'width':'120%', 'height':'100%', 'right': 0, 'left': '-15%', 'top': 0, 'bottom': 0, 'position':'fixed'});
+				// $("#" + isHover + " .videoPlayer").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
+				// $("#" + isHover + " iframe").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
+				// $("#" + isHover + " iframe").css({'z-index': 10000});
+				// $("#" + clicked + ", #" + isHover + " .videoPlayer").css({'overflow':'visible', 'z-index':1000});
+				// $("#" + clicked + " .content").css({'opacity':0});
+				// $("#"+clicked).stop().animate({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px', 'width': windowSizeWidth + 'px', 'height':windowSizeHeight+'px'});
+				// $('#container').stop().animate({'margin-left': -windowSizeWidth + 'px', 'margin-top': -windowSizeHeight + 'px'},{complete: function(){
+				// 	console.log("full screen");
+				// 	fullScreen(html);
+				fullScreen(videoClicked);
+				// }}); 
+				// clickedVideo = true;
+				// playFullscreen("#"+clicked + " iframe");
 				// $("#" + isHover + " .videoContainer").css({'position':'fixed'});
 				//change css of video to become full screen and then reveal controls
 			} 
 		}
 	}
 
-
-	// function animateOut(){
-	// 	$(lastScrolled).stop().animate({'opacity': 1},{complete: function(){
-	// 		animateIn();
-	// 	}});
-	// }
-
 	//on mouse out of navigation button
-	$(".animatingPage").mouseleave(function(){ 
-		if(windowSizeWidth > 1024 && clickedVideo == false) resetToHome(isHover); });
+	$(".animatingPage").mouseleave(function(){ if(windowSizeWidth > 1024 && clickedVideo == false) resetToHome(isHover); });
 
 	function resetToHome(lastPage){
 		if(clickedVideo == false){
 
-		//     // Get the page that was just scrolled out and shrink its background image to its normal size
+			// Get the page that was just scrolled out and shrink its background image to its normal size
 		    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
 		    $(lastScrolled + 'page .content').stop().animate({"opacity":0});
 			$('.videoContainer').stop().animate({"opacity": 0});
-			if(isReady == true){
-				pauseAllVideos();
-			} 
-		    // $(lastScrolled).css({'opacity':1});
-		// 	// if browser is above 1024 (is a desktop)
+			if(isReady == true) pauseAllVideos();
+		// 	if browser is above 1024 (is a desktop)
 			if(lastPage != 'reset' && lastScrolled != ''){
-		// 		// animation starts
+		// 		animation starts
 			    isAnimating = true;
-		// 	    // console.log("call mouse out");
 				$(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
-		// 		//Hide the scrolled out pages content back to opacity 0
+		// 		Hide the scrolled out pages content back to opacity 0
 			    $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
-		// 	    //Make the container holding the nav buttons go back to its original size and position
+		// 	    Make the container holding the nav buttons go back to its original size and position
 				$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
 				$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
 				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
-		// 	    //if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
+		// 	    if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
 			    for(var pageNumber = 1;pageNumber<8;pageNumber++){
 					if(isHover != 'portfolio'+pageNumber+'page'){ 
 						isHover = 'container';
-				        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){
-				        	isAnimating=false;
-				        	console.log('animated back to original layout');
-				        }});
-				        // isAnimating = false;
+				        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){ isAnimating=false; }});
 					}
 				}
 			}else{
