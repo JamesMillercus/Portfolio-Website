@@ -23,7 +23,7 @@
 	}
 	#portfolio7page .content{
     	width:86%;
-    	left:4%;
+    	right:5%;
 	}
 	
 	#portfolio6page .content {
@@ -32,14 +32,14 @@
 	}
 
 	.content .textLeft{
-	    float:none;
-	    width:auto;
+	    /*float:none;
+	    width:auto;*/
 	}
 	.content .textRight{
-		margin-top: 10px;
+		/*margin-top: 10px;
 		display:block;
 	    float:none;
-	    width:auto;
+	    width:auto;*/
 	}
 	#portfolio1page .videoContainer, #portfolio2page .videoContainer{
 	    width: 64%;
@@ -56,6 +56,17 @@
 	    bottom: 0;
 	}
 
+	.videoPlayer{
+		padding-bottom:65%;
+	}
+
+	iframe{
+		top: -35%;
+	    left: -30%;
+	    height: 165%;
+	    width: 165%;
+	}
+
 	#portfolio3page iframe{
 		top:-33%;
 		left:-32.5%;
@@ -63,9 +74,15 @@
 		width:165%;
 	}
 	#portfolio6page .videoContainer {
-	    width: 82%;
+        width: 75%;
 	    height: 100%;
 	    right: -20%;
+	}
+
+	#portfolio7page .content .textContainer {
+	    right: 0%;
+        width: 42%;
+    	position: absolute;
 	}
 }
 

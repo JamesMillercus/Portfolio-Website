@@ -12,6 +12,7 @@ var videoList;
 //video players are stored in this array
 var players = [];
 var myPlayerState;
+var fullScreenCounter = 0;
 
 //loop through each iframe and create a video player for it
 function onYouTubeIframeAPIReady() {
@@ -49,6 +50,10 @@ function pauseAllVideos(){
 function onPlayerStateChange(event) {
   myPlayerState = event.data;
   if (isHover!= 'container' && isReady == true) animateIn();
+  if(clickedVideo == true) {
+    players[lastVideo].playVideo();
+    // players[lastVideo].unMute();
+  }
 }
 
 
@@ -61,4 +66,15 @@ function fullScreen (element){
   } else if(element.mozRequestFullScreen) {
     element.mozRequestFullScreen();
   }
+}
+$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', fn);
+
+function fn(){
+  fullScreenCounter++;
+  if(fullScreenCounter == 2) {
+    clickedVideo = false;
+    fullScreenCounter = 0;
+    // players[lastVideo].mute();
+  }
+  console.log(fullScreenCounter);
 }

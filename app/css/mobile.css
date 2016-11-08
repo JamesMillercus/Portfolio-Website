@@ -15,18 +15,18 @@
     bottom: 1%; }
   #portfolio7page .content {
     width: 86%;
-    left: 4%; }
+    right: 5%; }
   #portfolio6page .content {
     height: 100%;
     width: 100%; }
   .content .textLeft {
-    float: none;
-    width: auto; }
+    /*float:none;
+	    width:auto;*/ }
   .content .textRight {
-    margin-top: 10px;
-    display: block;
-    float: none;
-    width: auto; }
+    /*margin-top: 10px;
+		display:block;
+	    float:none;
+	    width:auto;*/ }
   #portfolio1page .videoContainer, #portfolio2page .videoContainer {
     width: 64%;
     height: 46%; }
@@ -36,15 +36,26 @@
   #portfolio2page .videoContainer {
     left: 9.5%;
     bottom: 0; }
+  .videoPlayer {
+    padding-bottom: 65%; }
+  iframe {
+    top: -35%;
+    left: -30%;
+    height: 165%;
+    width: 165%; }
   #portfolio3page iframe {
     top: -33%;
     left: -32.5%;
     height: 165%;
     width: 165%; }
   #portfolio6page .videoContainer {
-    width: 82%;
+    width: 75%;
     height: 100%;
-    right: -20%; } }
+    right: -20%; }
+  #portfolio7page .content .textContainer {
+    right: 0%;
+    width: 42%;
+    position: absolute; } }
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
   .backgroundImage, .staticImage {

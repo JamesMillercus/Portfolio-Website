@@ -144,7 +144,7 @@ h1, p {
 iframe {
   position: absolute;
   top: 0;
-  left: 0%;
+  left: -2%;
   width: 105%;
   height: 105%;
   /*pointer-events: none;*/ }
@@ -157,7 +157,7 @@ iframe {
   background-color: blue; }
 
 #portfolio1page .videoContainer {
-  width: 63.5%;
+  width: 64%;
   height: 47%;
   right: 5.5%;
   bottom: 0; }
@@ -186,31 +186,28 @@ iframe {
   bottom: 0; }
 
 #portfolio6page .videoContainer {
-  width: 60%;
+  width: 55%;
   height: 100%;
   right: 0; }
 
 #portfolio7page .videoContainer {
-  width: 60%;
+  width: 55%;
   height: 100%;
   left: 0; }
 
 #portfolio8page .videoContainer {
-  width: 100%;
+  width: 120%;
   height: 55%;
   top: 0; }
 
 #portfolio3page .videoPlayer {
   padding-bottom: 70%; }
 
-#portfolio6page .videoPlayer {
-  left: -5%; }
-
 #portfolio7page .videoPlayer {
-  left: -10%; }
+  /*left:-10%;*/ }
 
 #portfolio8page .videoPlayer {
-  left: -5%; }
+  /*left:-5%;*/ }
 
 #portfolio3page iframe {
   top: -30%;
@@ -222,15 +219,16 @@ iframe {
   left: -10%; }
 
 #portfolio2page iframe {
-  top: -2%; }
+  /*top:-2%;*/ }
 
 #portfolio5page iframe {
   top: -10%; }
 
 #portfolio6page iframe {
-  width: 110%;
-  height: 110%;
-  left: -2%; }
+  width: 120%;
+  height: 120%;
+  left: -8%;
+  top: -5%; }
 
 #portfolio8page iframe {
   top: -5%; }
@@ -379,7 +377,7 @@ iframe {
 #portfolio7page .content .textContainer {
   width: 38%;
   position: absolute;
-  right: 9%; }
+  right: 2%; }
 
 #portfolio8page .content .textContainer {
   position: absolute;

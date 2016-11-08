@@ -4,6 +4,7 @@
 	// fix video sizes within page so that they hide the player controllers prior to clicking
 	// fix text positions
 	// try and trigger video full screen without clicking (through a function call)
+	// allow videos to play when they've been clicked
 //1. Check if html5 vid is supported + animate design and nav buttons upon page load (fix bug upon page load, some time delay is triggering after animation is finished?)
 //2. Acknowledge videos loading in some way, perhaps animate everything in to opacity 1 from 0 (when isready == true)
 //3. Annotate / tidy js
@@ -114,7 +115,7 @@ $( document ).ready(function() {
 		backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
 		//if desktop, then calculate math to decide pages positions every mouse movement
 		if(windowSizeWidth > 1024){
-			topPagePos = 0.5, leftPagePos = .75, rightPagePos = 1.72, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.29, middlePagePos = 1.32;
+			topPagePos = 0.5, leftPagePos = .75, rightPagePos = 1.69, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.29, middlePagePos = 1.32;
 			backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/5;
 			largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, medHitboxWSize = backgroundWSize*3, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
 		} 
@@ -261,7 +262,6 @@ $( document ).ready(function() {
 			if(isReady == true){
 				lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
 				var videoClicked = document.getElementById("player"+ (lastVideo + 1));
-				players[lastVideo].playVideo();
 				// $("#" + isHover + " iframe").css({'z-index': 10000});
 				// $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1, 'width':'120%', 'height':'100%', 'right': 0, 'left': '-15%', 'top': 0, 'bottom': 0, 'position':'fixed'});
 				// $("#" + isHover + " .videoPlayer").stop().animate({'right': 0, 'left': 0, 'top': 0, 'bottom': 0});
@@ -275,7 +275,7 @@ $( document ).ready(function() {
 				// 	fullScreen(html);
 				fullScreen(videoClicked);
 				// }}); 
-				// clickedVideo = true;
+				clickedVideo = true;
 				// playFullscreen("#"+clicked + " iframe");
 				// $("#" + isHover + " .videoContainer").css({'position':'fixed'});
 				//change css of video to become full screen and then reveal controls
