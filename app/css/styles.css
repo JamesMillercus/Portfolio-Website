@@ -104,18 +104,6 @@ h1, p {
   top: 0;
   background-image: url("../assets/wiywiGIF.gif"); }
 
-/*#portfolio1 .smallSquare{
-    background-image: url('http://jamesmillerportfolio.co.uk/wp-content/themes/jmPortfolio/assets/smallSquare.jpg');
-    width: 25px;
-    height: 23px;
-}
-
-#portfolio1 .mediumSquare{
-    background-image: url('http://jamesmillerportfolio.co.uk/wp-content/themes/jmPortfolio/assets/mediumSquare.jpg');
-    width: 60px;
-    height: 51px;
-    margin-left: -40%;
-}*/
 #portfolio2 {
   /*background-color:green;   */
   top: 0;
@@ -154,7 +142,7 @@ iframe {
   z-index: -88;
   overflow: hidden;
   opacity: 0;
-  background-color: blue; }
+  /*background-color:blue;*/ }
 
 #portfolio1page .videoContainer {
   width: 64%;
@@ -181,27 +169,33 @@ iframe {
   top: 0; }
 
 #portfolio5page .videoContainer {
-  width: 120%;
+  width: 130%;
   height: 55%;
   bottom: 0; }
 
 #portfolio6page .videoContainer {
-  width: 55%;
-  height: 100%;
+  width: 61%;
+  height: 120%;
   right: 0; }
 
 #portfolio7page .videoContainer {
-  width: 55%;
-  height: 100%;
+  width: 61%;
+  height: 120%;
   left: 0; }
 
 #portfolio8page .videoContainer {
-  width: 120%;
+  width: 130%;
   height: 55%;
   top: 0; }
 
 #portfolio3page .videoPlayer {
   padding-bottom: 70%; }
+
+#portfolio1page iframe, #portfolio2page iframe, #portfolio4page iframe {
+  width: 140%;
+  height: 140%;
+  left: -21%;
+  top: -16%; }
 
 #portfolio7page .videoPlayer {
   /*left:-10%;*/ }
@@ -216,7 +210,7 @@ iframe {
   width: 140%; }
 
 #portfolio5page .videoPlayer {
-  left: -10%; }
+  /*left:-10%;*/ }
 
 #portfolio2page iframe {
   /*top:-2%;*/ }
@@ -224,14 +218,15 @@ iframe {
 #portfolio5page iframe {
   top: -10%; }
 
-#portfolio6page iframe {
-  width: 120%;
-  height: 120%;
+#portfolio6page iframe, #portfolio7page iframe {
+  width: 140%;
+  height: 140%;
   left: -8%;
   top: -5%; }
 
-#portfolio8page iframe {
-  top: -5%; }
+#portfolio5page iframe, #portfolio8page iframe {
+  top: -10%;
+  left: -12%; }
 
 #innerBtnHolder {
   /*width: 70%;*/
@@ -255,7 +250,8 @@ iframe {
   position: relative; }
 
 #container {
-  position: absolute; }
+  position: absolute;
+  opacity: 1; }
 
 #viewport {
   height: 100%;
@@ -316,12 +312,12 @@ iframe {
 #portfolio6page .content {
   height: 100%;
   width: 90%;
-  left: 5%; }
+  left: 4%; }
 
 #portfolio7page .content {
   height: 100%;
   width: 88%;
-  right: 2%; }
+  right: 1%; }
 
 #portfolio8page .content {
   height: 100%;

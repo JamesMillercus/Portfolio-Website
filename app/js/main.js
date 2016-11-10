@@ -1,10 +1,7 @@
 
 
 //0. Click on video to maximise to full screen
-	// fix video sizes within page so that they hide the player controllers prior to clicking
-	// fix text positions
-	// try and trigger video full screen without clicking (through a function call)
-	// allow videos to play when they've been clicked
+	// MAKE SURE VIDEO IS VIEWABLE FULL SCREEN WHEN CLICKED!!!!
 //1. Check if html5 vid is supported + animate design and nav buttons upon page load (fix bug upon page load, some time delay is triggering after animation is finished?)
 //2. Acknowledge videos loading in some way, perhaps animate everything in to opacity 1 from 0 (when isready == true)
 //3. Annotate / tidy js
@@ -115,7 +112,7 @@ $( document ).ready(function() {
 		backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
 		//if desktop, then calculate math to decide pages positions every mouse movement
 		if(windowSizeWidth > 1024){
-			topPagePos = 0.5, leftPagePos = .75, rightPagePos = 1.69, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.29, middlePagePos = 1.32;
+			topPagePos = 0.5, leftPagePos = .76, rightPagePos = 1.675, bottomPagePos = 1.7, leftCornerPos = 1.5, rightCornerPos = 1.734, centralPos = 1.29, middlePagePos = 1.32;
 			backgroundWSize = $('#homepage').width()/7, backgroundHSize = $('#homepage').height()/5;
 			largeHitboxHSize = backgroundHSize*4, largeHitboxWSize = backgroundWSize*4, medHitboxWSize = backgroundWSize*3, smallHitboxHSize = backgroundHSize * 1.8, smallHitboxWSize = backgroundWSize * 2;
 		} 
@@ -203,14 +200,14 @@ $( document ).ready(function() {
 			$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
 				if(lastScrolled == "newUser"){
 			      console.log('Video has ended!');	  
-				  $('#topImage').stop().animate({'top': '0', 'left': '0', 'opacity': 1}, 1000);
-				  $('#portfolio1').stop().animate({'top':'', 'left':'', 'opacity':1}, 1000);
-				  $('#portfolio2').stop().animate({'top':'', 'right':'', 'opacity':1}, 1000);
-				  $('#portfolio3').stop().animate({'bottom':'', 'left':'', 'opacity':1}, 1000);
-				  $('#portfolio4').stop().animate({'bottom':'', 'right':'', 'opacity':1}, 1000);
-				  $('#portfolio6').stop().animate({'left': '0', 'opacity': 1}, 1000);
-				  $('#portfolio7').stop().animate({'right': '0', 'opacity': 1}, 1000);
-				  $('#bottomImage').stop().animate({'bottom': '0', 'opacity': 1},1000);
+				  $('#topImage').stop().animate({'top': '0', 'left': '0', 'opacity': 1}, 500);
+				  $('#portfolio1').stop().animate({'top':'', 'left':'', 'opacity':1}, 500);
+				  $('#portfolio2').stop().animate({'top':'', 'right':'', 'opacity':1}, 500);
+				  $('#portfolio3').stop().animate({'bottom':'', 'left':'', 'opacity':1}, 500);
+				  $('#portfolio4').stop().animate({'bottom':'', 'right':'', 'opacity':1}, 500);
+				  $('#portfolio6').stop().animate({'left': '0', 'opacity': 1}, 500);
+				  $('#portfolio7').stop().animate({'right': '0', 'opacity': 1}, 500);
+				  $('#bottomImage').stop().animate({'bottom': '0', 'opacity': 1},500);
 				  lastScrolled = '';
 				  isHover = 'container';
 				  isAnimating = false;
@@ -291,7 +288,7 @@ $( document ).ready(function() {
 
 			// Get the page that was just scrolled out and shrink its background image to its normal size
 		    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
-		    $(lastScrolled + 'page .content').stop().animate({"opacity":0});
+		    // $(lastScrolled + 'page .content').stop().animate({"opacity":0});
 			$('.videoContainer').stop().animate({"opacity": 0});
 			if(isReady == true) pauseAllVideos();
 		// 	if browser is above 1024 (is a desktop)
@@ -317,10 +314,13 @@ $( document ).ready(function() {
 			    // $(lastScrolled).css({"opacity":1});
 			    setTimeout(function(){
 				    isAnimating=false;
-				    // lastScrolled = '';
-				    // $(lastScrolled + 'page .content').css({'opacity':0});
-				    // $('#container').css({'opacity': 0});
+				    $(lastScrolled + 'page .content').css({'opacity':0});
+				    $('.videoContainer').css({"opacity": 0});
+				    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 				    isHover='container';
+				    checkPositions();
+				    console.log("reset");
+				    // lastScrolled = '';
 				}, 50);		    
 			}
 		}

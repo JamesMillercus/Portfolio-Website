@@ -50,10 +50,6 @@ function pauseAllVideos(){
 function onPlayerStateChange(event) {
   myPlayerState = event.data;
   if (isHover!= 'container' && isReady == true) animateIn();
-  if(clickedVideo == true) {
-    players[lastVideo].playVideo();
-    // players[lastVideo].unMute();
-  }
 }
 
 
@@ -71,10 +67,12 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 
 function fn(){
   fullScreenCounter++;
+  if(fullScreenCounter == 1) {
+    players[lastVideo].unMute().seekTo(0).playVideo();
+  }
   if(fullScreenCounter == 2) {
     clickedVideo = false;
     fullScreenCounter = 0;
-    // players[lastVideo].mute();
+    players[lastVideo].mute();
   }
-  console.log(fullScreenCounter);
 }
