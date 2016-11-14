@@ -58,10 +58,12 @@
     position: absolute; } }
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
+  #linksTop, #linksBottom {
+    opacity: 1; }
   .backgroundImage, .staticImage {
     /*width:30%;
     	background-size:80%;*/ }
-  #moving5 {
+  #centerImage {
     width: 60%;
     height: 40%;
     top: 30%; }
@@ -71,7 +73,9 @@
   .videoContainer {
     opacity: 0; }
   #portfolio3page .videoContainer {
-    height: 46%; } }
+    height: 46%; }
+  .animatingPage {
+    background-color: red; } }
 
 @media only screen and (max-width: 900px) and (orientation: landscape), only screen and (max-device-width: 900px) and (orientation: landscape) {
   #innerBtnHolder {
@@ -92,7 +96,7 @@
     /*background-position: 50% 30%;*/ }
   #moving3, #moving4 {
     /*background-position: 50% 70%;*/ }
-  #moving5 {
+  #centerImage {
     width: 70%;
     /*height: 30%;*/
     background-size: contain;

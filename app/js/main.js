@@ -1,7 +1,8 @@
 
 
 //0. Click on video to maximise to full screen
-	// MAKE SURE VIDEO IS VIEWABLE FULL SCREEN WHEN CLICKED!!!!
+	// Make it work on tablet and mobile
+	// fix check positions not updating when screen size is changed (maybe add short time delay?)
 //1. Check if html5 vid is supported + animate design and nav buttons upon page load (fix bug upon page load, some time delay is triggering after animation is finished?)
 //2. Acknowledge videos loading in some way, perhaps animate everything in to opacity 1 from 0 (when isready == true)
 //3. Annotate / tidy js
@@ -156,6 +157,7 @@ $( document ).ready(function() {
 			$('#portfolio7page').css({'height':smallHitboxHSize +'px ', 'width':largeHitboxWSize + 'px', 'margin-left': windowSizeWidth*rightPagePos +'px', 'margin-top': windowSizeHeight*middlePagePos +'px'});
 			$('#portfolio8page').css({'height':largeHitboxHSize +'px ', 'width':medHitboxWSize + 'px', 'margin-left': windowSizeWidth*centralPos +'px', 'margin-top': windowSizeHeight*bottomPagePos +'px'});
 		    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px '});
+		    if(lastScrolled != "newUser") $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 			//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
 			if(isHover!= 'container') resetToHome('reset');
 	    }else{
@@ -174,7 +176,7 @@ $( document ).ready(function() {
 	function staticHome(){
 		console.log('static home triggered');
 		$('video').css({'display': 'none'});
-		$("#moving5").addClass("designBackground");	
+		$("#centerImage").addClass("designBackground");	
 		$('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8').css({'top': '', 'left': '', 'right':'', 'bottom': '', 'opacity': ''});
 		lastScrolled = '';
 		isHover = 'container';
@@ -184,7 +186,7 @@ $( document ).ready(function() {
 	// set video height to half the page, disable nav movement + hide nav button graphics, 
 	function animateHome(){
 		console.log('video play');
-		var videoHeight = ($('#moving5').height()-($('#moving5').height()*.7))/2;
+		var videoHeight = ($('#centerImage').height()-($('#centerImage').height()*.7))/2;
 		$('.animatingPage').css({'display':'none'});
 		$('#topImage').css({'top':'35%', 'opacity':'0'});
 		$('#portfolio1').css({'top':'40%', 'left':'40%', 'opacity':0});
@@ -212,6 +214,7 @@ $( document ).ready(function() {
 				  isHover = 'container';
 				  isAnimating = false;
 				  setTimeout(function(){
+				    $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 				    $('.animatingPage').css({'display':'block'});
 					console.log('animation finished - ready to play!');
 				  }, 1000);		
@@ -230,6 +233,7 @@ $( document ).ready(function() {
 			isAnimating = true;
 		    //Detect what navigation button is being hovered, move the background to center the selected page 
 		    for(var pageNumber = 1;pageNumber<9;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollPortfolio(isHover, pageNumber-1);	   
+		    	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 0});
 		}
 	});
 
@@ -302,6 +306,7 @@ $( document ).ready(function() {
 				$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
 				$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
 				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
+				$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 		// 	    if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
 			    for(var pageNumber = 1;pageNumber<8;pageNumber++){
 					if(isHover != 'portfolio'+pageNumber+'page'){ 
@@ -315,7 +320,7 @@ $( document ).ready(function() {
 			    setTimeout(function(){
 				    isAnimating=false;
 				    $(lastScrolled + 'page .content').css({'opacity':0});
-				    $('.videoContainer').css({"opacity": 0});
+				    // $('.videoContainer').css({"opacity": 0});
 				    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 				    isHover='container';
 				    checkPositions();

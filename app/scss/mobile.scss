@@ -88,14 +88,16 @@
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
 
-
+	#linksTop, #linksBottom{
+		opacity:1;
+	}
 
 	.backgroundImage, .staticImage{
     	/*width:30%;
     	background-size:80%;*/
     }
 
-    #moving5 {
+    #centerImage {
 	    width: 60%;
 	    height: 40%;
 	    top: 30%;
@@ -111,6 +113,9 @@
     }
     #portfolio3page .videoContainer{
 	    height: 46%;
+	}
+	.animatingPage{
+		background-color:red;
 	}
 
 	@media only screen and (orientation: landscape){
@@ -144,7 +149,7 @@
 		/*background-position: 50% 70%;*/
 	}
 
-	#moving5 {
+	#centerImage {
         width: 70%;
 	    /*height: 30%;*/
 	    background-size: contain;
