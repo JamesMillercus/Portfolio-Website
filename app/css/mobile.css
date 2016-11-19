@@ -37,12 +37,12 @@
     left: 9.5%;
     bottom: 0; }
   .videoPlayer {
-    padding-bottom: 65%; }
+    /*padding-bottom:65%;*/ }
   iframe {
-    top: -35%;
-    left: -30%;
-    height: 165%;
-    width: 165%; }
+    top: -45%;
+    left: -40%;
+    height: 200%;
+    width: 200%; }
   #portfolio3page iframe {
     top: -33%;
     left: -32.5%;
@@ -52,10 +52,20 @@
     width: 75%;
     height: 100%;
     right: -20%; }
+  #portfolio7page .videoContainer {
+    width: 75%;
+    height: 100%;
+    left: -20%; }
   #portfolio7page .content .textContainer {
-    right: 0%;
-    width: 42%;
-    position: absolute; } }
+    right: -3%;
+    width: 45%;
+    /*position: absolute;
+	    background-color: green;*/ }
+  #portfolio8page iframe, #portfolio5page iframe {
+    top: -60%;
+    left: -60%;
+    /*height:165%;
+		width:165%;*/ } }
 
 @media only screen and (max-width: 900px), only screen and (max-device-width: 900px) {
   #linksTop, #linksBottom {
@@ -75,7 +85,7 @@
   #portfolio3page .videoContainer {
     height: 46%; }
   .animatingPage {
-    background-color: red; } }
+    /*background-color:red;*/ } }
 
 @media only screen and (max-width: 900px) and (orientation: landscape), only screen and (max-device-width: 900px) and (orientation: landscape) {
   #innerBtnHolder {
@@ -109,7 +119,10 @@
     /*top: 5%;*/
     height: 80%; }
   #middleImages, #portfolio6page, #portfolio7page {
-    opacity: 0; } }
+    opacity: 0; }
+  #portfolio7page, #portfolio6page {
+    display: none;
+    /*background-color: blue;*/ } }
 
 @media only screen and (max-height: 650px) {
   #portfolio1page .videoContainer, #portfolio2page .videoContainer, #portfolio4page .videoContainer {

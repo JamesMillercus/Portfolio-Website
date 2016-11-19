@@ -1,4 +1,13 @@
 $link-height: 30px;
+$outerdiv-videoheight: 47%;
+$outerdiv-videowidth: 64%;
+$topdiv-videowidth: 130%;
+$topdiv-videoheight: 55%;
+$middlediv-videowidth: 61%;
+$middlediv-videoheight: 120%;
+$iframe-size: 140%;
+
+
 
 html, body { 
   margin:0; 
@@ -132,7 +141,7 @@ h1, p{
     /*background-color:green;   */
     top:0;
     right:0;
-    background-image: url('../assets/teacups2.gif');
+    background-image: url('../assets/krispyKreme.gif');
 }
 
 #portfolio3{
@@ -176,54 +185,54 @@ iframe {
     /*background-color:blue;*/
 }
 
+#portfolio1page .videoContainer, #portfolio2page .videoContainer, 
+#portfolio3page .videoContainer, #portfolio4page .videoContainer{
+    width: $outerdiv-videowidth;
+    height: $outerdiv-videoheight;
+}
+
 #portfolio1page .videoContainer{
-    width: 64%;
-    height: 47%;
     right: 5.5%;
     bottom: 0;
 }
 
+
 #portfolio2page .videoContainer{
-    width: 64%;
-    height: 47%;
     left: 9.5%;
     bottom: 0;
 }
 #portfolio3page .videoContainer{
-    width: 64%;
-    height: 47%;
     right: 5.5%;
     top: 0;
 }
 
 #portfolio4page .videoContainer{
-    width: 64%;
-    height: 47%;
     left: 9.5%;
     top: 0;
 }
 
 #portfolio5page .videoContainer{
-    width: 130%;
-    height: 55%;
     bottom: 0;
 }
 
+#portfolio8page .videoContainer, #portfolio5page .videoContainer{
+    width: $topdiv-videowidth;
+    height: $topdiv-videoheight;
+}
+
 #portfolio6page .videoContainer{
-    width: 61%;
-    height: 120%;
     right: 0;
+}
+#portfolio6page .videoContainer, #portfolio7page .videoContainer{
+    width: $middlediv-videowidth;
+    height: $middlediv-videoheight;
 }
 
 #portfolio7page .videoContainer{
-    width: 61%;
-    height: 120%;
     left: 0;
 }
 
 #portfolio8page .videoContainer{
-    width: 130%;
-    height: 55%;
     top: 0;
 }
 
@@ -232,8 +241,8 @@ iframe {
 }
 
 #portfolio1page iframe, #portfolio2page iframe, #portfolio4page iframe{
-    width:140%;
-    height:140%;
+    width:$iframe-size;
+    height:$iframe-size;
     left:-21%;
     top:-16%;
 }
@@ -250,8 +259,8 @@ iframe {
 #portfolio3page iframe{
     top:-30%;
     left:-20%;
-    height:140%;
-    width:140%;
+    height:$iframe-size;
+    width:$iframe-size;
 }
 
 #portfolio5page .videoPlayer {
@@ -266,8 +275,8 @@ iframe {
      top:-10%;
 }
 #portfolio6page iframe, #portfolio7page iframe{
-    width: 140%;
-    height: 140%;
+    width: $iframe-size;
+    height: $iframe-size;
     left: -8%;
     top: -5%;
 }
@@ -501,7 +510,7 @@ iframe {
     background-image: url('../assets/linkedIn.jpg');
 }
 
-#github{
+#gitHub{
     background-image: url('../assets/github.jpg');
 }
 

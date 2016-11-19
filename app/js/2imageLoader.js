@@ -1,3 +1,7 @@
+
+
+//** LOAD IN ALL IMAGES **//
+
 $( document ).ready(function() {
 	console.log( "ready!" );
 		// (function($){
@@ -34,15 +38,5 @@ $( document ).ready(function() {
 
 			    });
 		    };
-		// })(jQuery);
-
-		// $.getScript( "js/main.js" )
-		//   .done(function( script, textStatus ) {
-		//     console.log( "home page loaded status = " + textStatus );
-		//   })
-		//   .fail(function( jqxhr, settings, exception ) {
-		//     $( "div.log" ).text( "Triggered ajaxError handler." );
-		// });
-
-
 });
+

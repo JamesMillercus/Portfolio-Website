@@ -1,18 +1,5 @@
-// Inject YouTube API script asynchronously
-var tag = document.createElement('script');
-tag.src = "//www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// a counter to see how many videos have been loaded
-var isLoaded = 0;
-//boolean to allow videos to be played once loaded
-var isReady = false;
-//the number of videos that will be loaded
-var videoList;
-//video players are stored in this array
-var players = [];
-var myPlayerState;
-var fullScreenCounter = 0;
+
+//** VIDEO LOGIC **//
 
 //loop through each iframe and create a video player for it
 function onYouTubeIframeAPIReady() {
@@ -76,3 +63,4 @@ function fn(){
     players[lastVideo].mute();
   }
 }
+

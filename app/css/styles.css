@@ -108,7 +108,7 @@ h1, p {
   /*background-color:green;   */
   top: 0;
   right: 0;
-  background-image: url("../assets/teacups2.gif"); }
+  background-image: url("../assets/krispyKreme.gif"); }
 
 #portfolio3 {
   /*background-color:green;*/
@@ -144,48 +144,45 @@ iframe {
   opacity: 0;
   /*background-color:blue;*/ }
 
-#portfolio1page .videoContainer {
+#portfolio1page .videoContainer, #portfolio2page .videoContainer,
+#portfolio3page .videoContainer, #portfolio4page .videoContainer {
   width: 64%;
-  height: 47%;
+  height: 47%; }
+
+#portfolio1page .videoContainer {
   right: 5.5%;
   bottom: 0; }
 
 #portfolio2page .videoContainer {
-  width: 64%;
-  height: 47%;
   left: 9.5%;
   bottom: 0; }
 
 #portfolio3page .videoContainer {
-  width: 64%;
-  height: 47%;
   right: 5.5%;
   top: 0; }
 
 #portfolio4page .videoContainer {
-  width: 64%;
-  height: 47%;
   left: 9.5%;
   top: 0; }
 
 #portfolio5page .videoContainer {
-  width: 130%;
-  height: 55%;
   bottom: 0; }
 
+#portfolio8page .videoContainer, #portfolio5page .videoContainer {
+  width: 130%;
+  height: 55%; }
+
 #portfolio6page .videoContainer {
-  width: 61%;
-  height: 120%;
   right: 0; }
 
-#portfolio7page .videoContainer {
+#portfolio6page .videoContainer, #portfolio7page .videoContainer {
   width: 61%;
-  height: 120%;
+  height: 120%; }
+
+#portfolio7page .videoContainer {
   left: 0; }
 
 #portfolio8page .videoContainer {
-  width: 130%;
-  height: 55%;
   top: 0; }
 
 #portfolio3page .videoPlayer {
@@ -430,7 +427,7 @@ iframe {
 #linkedIn {
   background-image: url("../assets/linkedIn.jpg"); }
 
-#github {
+#gitHub {
   background-image: url("../assets/github.jpg"); }
 
 #twitter {
