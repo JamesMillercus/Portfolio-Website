@@ -64,6 +64,17 @@ var isReady = false;
 var videoList;
 //video players are stored in this array
 var players = [];
+//video youtubeids
+var playerYoutubeIds = [];
+var ID = '';
+//video player for mobile devices
+var player;
 var myPlayerState;
 var fullScreenCounter = 0;
+//a variable to store previously played video when on mobile
+var wasPlayed;
+//variable to store whether the video is playing or not
+var selectedVidLoader = 0;
+//variable to store the state of the mobile device video player
+var videoLoaderState;
 

@@ -79,7 +79,7 @@ function updatePosition(posX, posY) {
 	portfolioMovePosX = [currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
 	portfolioMovePosY = [currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
 	//if animation between navigation buttons isn't happening 
-	if (isAnimating == false && clickedVideo == false && windowSizeHeight >500){
+	if (isAnimating == false && clickedVideo == false && windowSizeHeight >550){
 		//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
 		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollingPage(isHover, pageNumber-1)
 

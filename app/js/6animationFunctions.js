@@ -14,13 +14,17 @@ function staticHome(){
 	isHover = 'container';
 	isAnimating = false;
 	//allow nav buttons to be scrolled over by revealing the scroll buttons
-	$('.animatingPage').css({'display':''});
+	if(videoClicked == false) $('.animatingPage').css({'display':''});
 	console.log("static home");
 }
 
 //** START ON ANIMATED SCREEN **//
 function animateHome(){
 	console.log('video play');
+	v.addEventListener("timeupdate", function() {
+		console.log(v.currentTime);
+		// if(v.currentTime >= 1) alert("penis 1 second");
+	}, false);
 	// set video height to half the page
 	var videoHeight = ($('#centerImage').height()-($('#centerImage').height()*.7))/2;
 	//disable nav movement
@@ -38,9 +42,8 @@ function animateHome(){
 	//if for whatever reason the video gets paused at any point before finishing, then go to a static screen
 	if($("video").get(0).paused != true) staticHome();
 	else{
-		//set video height and if the video is completed
+		//set video vertical position and if the video is completed
 		$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
-
 	      console.log('Video has ended!');
 	      //animate all the nav buttons to their correct positions	  
 		  $('#topImage').stop().animate({'top': '0', 'left': '0', 'opacity': 1}, 500);
@@ -92,6 +95,15 @@ function scrollPortfolio(hovered, posmovement){
 	}
 }
 
+$("video").on("timeupdate", function(event){ 
+	console.log(vid.currentTime);
+	onTrackedVideoFrame(this.currentTime);
+});
+
+function onTrackedVideoFrame(currentTime){
+    console.log(currentTime);
+}
+
 //** ANIMATING VIDEOS ON SCROLL OVER **//
 function animateIn(){
 	//set the last video to what you've just scrolled over
@@ -99,25 +111,31 @@ function animateIn(){
 	//play the selected video
 	players[lastVideo].playVideo();
 	//if the video is playing and it is currently hidden, then animate it in.
-	if (myPlayerState == 1 && $("#" + isHover + " .videoContainer").css('opacity') === '0') $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
+	if (myPlayerState == 1 && $("#" + isHover + " .videoContainer").css('opacity') === '0' && clickedVideo == false) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
 }
 
 //** OPEN VIDEO **//
 function openPortfolio(clicked){
-	console.log("clicked = " + clicked);
+	//if is mobile and previously clicked on the same video
+	if(isNaN(lastScrolled) && lastScrolled == "container" && isMobile) players[wasPlayed].unMute().seekTo(0).playVideo();
 	//if a video hasn't been clicked yet, the videos have been loaded and the screen height is over 500
-	if(clickedVideo == false && isReady == true && windowSizeHeight > 500){
-		console.log(lastScrolled);
+	if(clickedVideo == false && isReady == true && windowSizeHeight > 500 && !isTablet){
 		//set the last video to what you've just scrolled over
 		lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
-		console.log(lastVideo);
+		console.log("clicked = "+lastVideo);
 		//set up a variable which will be able to full screen the selected video
-		var videoClicked = document.getElementById("player"+ (lastVideo + 1));
-		console.log(videoClicked);
-		//full screen the selected video
-		fullScreen(videoClicked);
-		//set boolean to true to stop other unwanted functions from activating
+		var selectedVideo = document.getElementById("player"+ (lastVideo + 1));
+		// opens fullscreen video on mobile
+		if(isMobile) fullScreenMobile();
+		//full screen the selected video if on a desktop computer
+		if(!isMobile) fullScreen(selectedVideo);
+	}
+	if(isTablet) {
+		var number = clicked.substring(9); //gets the substring from index position 3 to the end
+		number = parseInt(number)-1; //converts to a number
+		selectedVidLoader = 0;
 		clickedVideo = true;
+		fullScreenTouchDevice(number);
 	}
 }
 

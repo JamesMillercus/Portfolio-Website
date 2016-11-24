@@ -125,7 +125,7 @@ h1, p {
 .videoPlayer {
   padding-bottom: 56.25%;
   position: relative;
-  z-index: -88;
+  /*z-index:-88;*/
   height: 0;
   overflow: hidden; }
 
@@ -134,8 +134,7 @@ iframe {
   top: 0;
   left: -2%;
   width: 105%;
-  height: 105%;
-  /*pointer-events: none;*/ }
+  height: 105%; }
 
 .videoContainer {
   position: absolute;
@@ -438,3 +437,16 @@ iframe {
 
 #pinterest {
   background-image: url("../assets/pinterest.jpg"); }
+
+#mobileVideoLoader {
+  display: none; }
+
+#mobileVideoExit {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  z-index: 200;
+  display: none; }
