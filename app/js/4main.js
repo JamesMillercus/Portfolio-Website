@@ -2,18 +2,27 @@
 // TO DO ON PLANE
 // - MAKE ALL ASSETS FOR NEW DESIGN (new html5 video + mood tree)
 
-//1. Allow pause button to work on tablet (check that this isn't just on my ipad)
-//2. Make animated text, be replaced with image when finished
-//3. Finish all designs (animated creative technology, all gifs)
-//4. Fix all bugs (check on different browsers with Kerve browser stack login details)
+//0. Allow pause button to work on tablet (check that this isn't just on my ipad)
+//1. Finish all designs (animated creative technology, all gifs)
+//2. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video, reveal jpg on a lower z-index, x seconds into the video, once video has finished then opacity 0 on vid
-//5. do css + js for large desktop screens
-//6. Check on windows/android mobile devices
+//3. do css + js for large desktop screens
+//4. Check on windows/android mobile devices
 
 //** MAIN SECTION OF LOGIC **//
 
 //on document ready
 $( document ).ready(function() {
+
+	var vid = document.getElementById("startUpVid");
+	console.log(vid);
+
+	vid.ontimeupdate = function() { myFunction() };
+	function myFunction() {
+		if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
+	}
+
+
 	//when all navigation images are loaded, call checkPositions()
 	$('.backgroundImage').imagesLoaded()
 	.done( function( instance ) {

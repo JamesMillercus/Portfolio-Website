@@ -2,8 +2,8 @@
 
 //** START ON STATIC SCREEN **//
 function staticHome(){
-	// hide video
 	console.log('static home triggered');
+	// hide video
 	$('video').css({'display': 'none'});
 	//add a background image to the home page
 	$("#centerImage").addClass("designBackground");	
@@ -21,10 +21,7 @@ function staticHome(){
 //** START ON ANIMATED SCREEN **//
 function animateHome(){
 	console.log('video play');
-	v.addEventListener("timeupdate", function() {
-		console.log(v.currentTime);
-		// if(v.currentTime >= 1) alert("penis 1 second");
-	}, false);
+	
 	// set video height to half the page
 	var videoHeight = ($('#centerImage').height()-($('#centerImage').height()*.7))/2;
 	//disable nav movement
@@ -69,16 +66,17 @@ function animateHome(){
 	}
 }
 //** SCROLLING FUNCTION **//
+//Changes the math movement to match what navigation page the user has chosen
 function scrollPortfolio(hovered, posmovement){
-    //Change the math movement to match what navigation page the user has chosen
-    //Once the selected page has animated to its defined position, set animation to false
+    //if the initial start up video played, then hide it to reveal the still jpg
+    if($("video").css('display') === 'block') $('video').css({'display': 'none'});
     //set last scrolled to the div that has just been hovered over
 	lastScrolled = '#' + hovered.substring(0,10);
 	//if the windowsize is desktop, mouse positions values are there, the height of the browser is over 500 and a video hasnt been clicked
 	if(windowSizeWidth > 1024 && isNaN(currentPosX) == false && windowSizeHeight >500 && clickedVideo == false){
 		//set animation to true
 		isAnimating = true;
-		//animate the container to the position of the item which was scrolled over
+		//animate the container to the position of the item which was scrolled over, Once selected page is animated then set animation to false
 		$('#container').stop().animate({'margin-left': portfolioMovePosX[posmovement], 'margin-top': portfolioMovePosY[posmovement]},{complete: function(){isAnimating=false;}});
 		//add a class which will alow that div to grow
 		$(lastScrolled).removeClass("backgroundImage").addClass("staticImage");
@@ -93,15 +91,6 @@ function scrollPortfolio(hovered, posmovement){
 		$( ".backgroundImage" ).stop().animate({'width': shrinkBackgroundWSize+'px'});
     	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 0});
 	}
-}
-
-$("video").on("timeupdate", function(event){ 
-	console.log(vid.currentTime);
-	onTrackedVideoFrame(this.currentTime);
-});
-
-function onTrackedVideoFrame(currentTime){
-    console.log(currentTime);
 }
 
 //** ANIMATING VIDEOS ON SCROLL OVER **//
