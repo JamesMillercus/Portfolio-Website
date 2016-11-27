@@ -32,7 +32,7 @@ function checkWidth() {
 	// $('#viewport').css({'height':windowSizeHeight +'px ', 'width':windowSizeWidth + 'px'});
 
 	//send values to other js files that control each page
-	if(lastScrolled != "newUser"){
+	if(lastScrolled != "newUser" && lastScrolled != "animatingHome"){
 		$(function() { 
 		    updatePosition(newBackgroundPosX,newBackgroundPosY);
 		});

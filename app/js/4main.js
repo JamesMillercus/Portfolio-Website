@@ -14,7 +14,7 @@
 //on document ready
 $( document ).ready(function() {
 
-	var vid = document.getElementById("startUpVid");
+	vid = document.getElementById("startUpVid");
 	console.log(vid);
 
 	vid.ontimeupdate = function() { myFunction() };
@@ -115,6 +115,11 @@ $( document ).ready(function() {
 //** CHECK POSITIONS **//
 function checkPositions() {
 	//update window sizes
+	portfolioMovePosX = [currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
+	portfolioMovePosY = [currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
+	
+	console.log("window width = " + windowSizeWidth);
+	console.log("window height = " + windowSizeHeight);
     windowSizeWidth = $(window).width();
 	windowSizeHeight = $(window).height();
     // set size + position of each page within the website container
@@ -203,6 +208,6 @@ function checkPositions() {
 	//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
 	if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
 	//else load the page without video
-	else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile) staticHome();
+	else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile || $("video").get(0).paused != true) staticHome();
 }
 

@@ -150,6 +150,7 @@ function fn(){
     clickedVideo = false;
     fullScreenCounter = 0;
     players[lastVideo].mute();
+    $('.videoContainer').css({"opacity": 0});
   }
 }
 

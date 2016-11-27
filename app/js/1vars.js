@@ -33,6 +33,7 @@ var rightPosMath = 1.57, bottomPosMath = 1.73, topPosMath = 3.22, leftPosMath = 
 // store values to decide the size of selected and non selected nav buttons
 var growBackgroundWSize, shrinkBackgroundWSize;
 var v = document.createElement("video");
+var vid;
 var divCenter;
 var middleImagesHeight, newMiddleImagesHeight;
 var clickedVideo = false;

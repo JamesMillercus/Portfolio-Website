@@ -290,9 +290,9 @@ iframe {
 
 #portfolio3page .content {
   height: 67%;
-  width: 59.1%;
+  width: 64.1%;
   top: 7%;
-  right: 10%; }
+  right: 5.5%; }
 
 #portfolio4page .content {
   height: 67%;
@@ -450,3 +450,6 @@ iframe {
   background-color: blue;
   z-index: 200;
   display: none; }
+
+#startUpVid {
+  display: block; }
