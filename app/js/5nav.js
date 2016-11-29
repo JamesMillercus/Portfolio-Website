@@ -75,7 +75,7 @@ if(has_touch){
 function updatePosition(posX, posY) {
     //move background container based on mouse positions
 	currentPosX = posX;
-	currentPosY = posY; 
+	currentPosY = posY;
 	portfolioMovePosX = [currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
 	portfolioMovePosY = [currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
 	//if animation between navigation buttons isn't happening 
@@ -93,6 +93,7 @@ function updatePosition(posX, posY) {
 			//clear any inline styles on navigation images that were created with js
 	        $('.backgroundImage').css({'width': backgroundWSize + 'px', 'height': backgroundHSize + 'px'});
 	        $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
+	        $('.videoContainer').css({'opacity':''});
 	        if(isHover == 'container') lastScrolled = 'container';
 		}
 	}

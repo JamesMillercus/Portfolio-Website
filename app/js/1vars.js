@@ -79,3 +79,12 @@ var selectedVidLoader = 0;
 //variable to store the state of the mobile device video player
 var videoLoaderState;
 
+
+var keyboardArr = [/*a*/97,/*A*/65,/*b*/98,/*B*/66,/*c*/99,/*C*/67,/*d*/100,/*D*/68,/*e*/101,/*E*/69,/*f*/102,/*F*/70,/*g*/103,/*G*/71,/*h*/104,/*H*/72,/*m*/109,/*M*/77];
+var count=0;
+var keyboardEvent;
+var lowerCase, upperCase;
+var wasHover;
+var lastClicked;
+var oldHover;
+

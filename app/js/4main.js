@@ -3,6 +3,8 @@
 // - MAKE ALL ASSETS FOR NEW DESIGN (new html5 video + mood tree)
 
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
+// - add scroll delayer for top and bottom projects
+// - Prepare all assets for plane journey (paint animation, text, gifs, arduino schematics)
 //1. Finish all designs (animated creative technology, all gifs)
 //2. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video, reveal jpg on a lower z-index, x seconds into the video, once video has finished then opacity 0 on vid
@@ -15,7 +17,7 @@
 $( document ).ready(function() {
 
 	vid = document.getElementById("startUpVid");
-	console.log(vid);
+	// console.log(vid);
 
 	vid.ontimeupdate = function() { myFunction() };
 	function myFunction() {
@@ -26,7 +28,7 @@ $( document ).ready(function() {
 	//when all navigation images are loaded, call checkPositions()
 	$('.backgroundImage').imagesLoaded()
 	.done( function( instance ) {
-	    console.log('all images successfully loaded');
+	    // console.log('all images successfully loaded');
       	checkPositions();
   	});
 	
@@ -58,6 +60,34 @@ $( document ).ready(function() {
 	//on mouse out of navigation button
 	$(".animatingPage").mouseleave(function(){ resetToHome(isHover); });
 
+	$( "html" ).keypress(function( event ) {	
+		for(lowerCase = 0; lowerCase < keyboardArr.length; lowerCase+=2){
+		  	upperCase = (lowerCase+1);
+		  	count++;
+			lastClicked = "portfolio"+count+"page";
+		  	keyboardEvent=event.which;
+			currentPosX = -windowSizeWidth;
+			currentPosY = -windowSizeHeight;
+		  	triggerResponse(lastClicked,keyboardEvent);
+		}
+	}); 
+	  
+	function triggerResponse(newHover, keyp){
+		if ( keyp == keyboardArr[lowerCase] || keyp == keyboardArr[upperCase] ) {
+			var counter = count-1;
+			if(clickedVideo==false && counter<(keyboardArr.length/2)-1){
+				if(newHover != isHover){
+				    resetToHome(newHover);
+				  	isHover = newHover;
+					lastScrolled = '#' + newHover.substring(0,10);;
+					scrollPortfolio(newHover, counter);	
+				}else openPortfolio(isHover);
+			} 
+			if (counter==(keyboardArr.length/2)-1 && lastScrolled != '') resetToHome(newHover);
+		}	
+		if(count>=(keyboardArr.length/2)) count =0;
+	}
+
 	//** RESET TO HOME POSITION **//
 	function resetToHome(lastPage){
 		// if browser is above 1024 (is a desktop) and a video hasn't been clicked
@@ -69,17 +99,28 @@ $( document ).ready(function() {
 			//if videos are loaded then pause all of them
 			if(isReady == true) pauseAllVideos();
 			//if you've just scrolled out of a nav button
+			console.log("Last Scrolled (musn't be '') = " + lastScrolled);
 			if(lastPage != 'reset' && lastScrolled != ''){
 				// animation starts
 			    if(!isMobile) isAnimating = true;
+			    console.log("background W size SLUT = " + backgroundWSize+'px');
 				$(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
 				//Hide the scrolled out pages content back to opacity 0
-			    $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
+			    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
+			    $('.content').stop().animate({'opacity': 0});
 				//Make the container holding the nav buttons go back to its original size and position
 				$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
 				$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
 				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
 				$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+				if(lastScrolled == "#portfolio5") {
+					$('#portfolio8page').css({"display":"none"});
+					setTimeout(function(){ $('#portfolio8page').css({"display":"block"}); }, 700);	
+				}
+				else if(lastScrolled == "#portfolio8"){
+				 $('#portfolio5page').css({"display":"none"});
+					setTimeout(function(){ $('#portfolio5page').css({"display":"block"}); }, 700);	
+				}
 				//if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
 			    for(var pageNumber = 1;pageNumber<8;pageNumber++){
 					if(isHover != 'portfolio'+pageNumber+'page'){ 
@@ -87,21 +128,29 @@ $( document ).ready(function() {
 				        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){ isAnimating=false; }});
 					}
 				}
+				console.log("animate page to home position")
 			//if you've just resized the screen.
 			}else{
-			    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
-			    // $(lastScrolled).css({"opacity":1});
-			    setTimeout(function(){
-				    isAnimating=false;
-				    $(lastScrolled + 'page .content').css({'opacity':0});
-				    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
-				    isHover='container';
-				    checkPositions();
-				    $('.videoContainer').css({"opacity": 0});
-				    console.log("reset");
-				    // $('body').css({'background-color': 'orange'});
-				    // lastScrolled = '';
-				}, 50);		    
+				//if the user isn't using special electronics invitation (keyboard inputs)
+				if(lastClicked == ''){
+				    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
+				    // $(lastScrolled).css({"opacity":1});
+				    setTimeout(function(){
+					    isAnimating=false;
+					    $(lastScrolled + 'page .content').css({'opacity':0});
+					    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
+					    isHover='container';
+					    checkPositions();
+					    $('.videoContainer').css({"opacity": 0});
+					    console.log("reset");
+					    // $('body').css({'background-color': 'orange'});
+					    // lastScrolled = '';
+					}, 50);		    
+					//if the user is navigating the site with the electronics invitation (keyboard inputs)
+				} else{
+					checkPositions();
+					$('#container').stop().animate({'margin-left': portfolioMovePosX[0], 'margin-top': portfolioMovePosY[0]},{complete: function(){isAnimating=false;}});
+				}
 			}
 		//if a video has been clicked and then you resize the screen, then return to the standard screen navigation
 		} else {
@@ -188,6 +237,7 @@ function checkPositions() {
 	//if a video hasn't been clicked and the browser window is resized
     if(clickedVideo == false){
     	$('#container').css({'opacity':1,'display':'block'});
+    	$('.videoContainer').css({'opacity':''});
     	//reset and re-center all postions of all content
 	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':outerBtnHolderTop+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''});
 	    //for each portfolio item on the page, call a function that will resize them based on screen size
@@ -201,9 +251,10 @@ function checkPositions() {
 	    //reveal social media buttons
 	    if(lastScrolled != "newUser") $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 		//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
-		if(isHover!= 'container') resetToHome('reset');
+		if(isHover!= 'container' && lastClicked == '') resetToHome('reset');
     }else{
     	//if video has been clicked and page then resized
+
     }
 	//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
 	if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode

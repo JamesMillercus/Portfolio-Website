@@ -2,7 +2,6 @@
 
 //** START ON STATIC SCREEN **//
 function staticHome(){
-	console.log('static home triggered');
 	// hide video
 	$('video').css({'display': 'none'});
 	//add a background image to the home page
@@ -15,7 +14,7 @@ function staticHome(){
 	isAnimating = false;
 	//allow nav buttons to be scrolled over by revealing the scroll buttons
 	if(clickedVideo == false) $('.animatingPage').css({'display':''});
-	console.log("static home");
+	// console.log("static home");
 }
 
 //** START ON ANIMATED SCREEN **//
@@ -35,10 +34,10 @@ function animateHome(){
 	$('#portfolio7').css({'margin-right':'40%', 'opacity':0});
 	$('#bottomImage').css({'margin-bottom':'20%', 'opacity':0});
 	lastScrolled = 'animatingHome';
-	console.log("animate home");
+	// console.log("animate home");
 	//set video vertical position and if the video is completed
 	$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
-      console.log('Video has ended!');
+      // console.log('Video has ended!');
       //animate all the nav buttons to their correct positions	  
 	  $('#topImage').stop().animate({'margin-top': '', 'margin-left': '', 'opacity': 1}, 500);
 	  $('#portfolio1').stop().animate({'margin-top':'', 'margin-left':'', 'opacity':1}, 500);
@@ -67,7 +66,8 @@ function scrollPortfolio(hovered, posmovement){
     //set last scrolled to the div that has just been hovered over
 	lastScrolled = '#' + hovered.substring(0,10);
 	//if the windowsize is desktop, mouse positions values are there, the height of the browser is over 500 and a video hasnt been clicked
-	if(windowSizeWidth > 1024 && isNaN(currentPosX) == false && windowSizeHeight >500 && clickedVideo == false){
+
+	if(windowSizeWidth > 1024 && windowSizeHeight >500 && clickedVideo == false && isNaN(currentPosX) == false){
 		//set animation to true
 		isAnimating = true;
 		//animate the container to the position of the item which was scrolled over, Once selected page is animated then set animation to false
@@ -76,14 +76,11 @@ function scrollPortfolio(hovered, posmovement){
 		$(lastScrolled).removeClass("backgroundImage").addClass("staticImage");
 		//Make the selected pages' content appear
 		$(lastScrolled + 'page .content').stop().animate({'opacity': 1});
-		//Make the selected pages background image grow
-		$(".staticImage").stop().animate({'width': growBackgroundWSize+'px'},{complete: function(){
-			//once the image has grown and if the videos have been loaded, then animate the video in.
-			if(isReady == true) animateIn();
-		}}); 
+		//Make the selected pages background image grow and once the image has grown and if the videos have been loaded, then animate the video in.
+		$(".staticImage").stop().animate({'width': growBackgroundWSize+'px'},{complete: function(){ if(isReady == true) animateIn(); }}); 
 		//Loop through all other pages and shrink them
 		$( ".backgroundImage" ).stop().animate({'width': shrinkBackgroundWSize+'px'});
-    	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 0});
+    	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 0});	
 	}
 }
 
@@ -105,7 +102,6 @@ function openPortfolio(clicked){
 	if(clickedVideo == false && isReady == true && windowSizeHeight > 500 && !isTablet){
 		//set the last video to what you've just scrolled over
 		lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
-		console.log("clicked = "+lastVideo);
 		//set up a variable which will be able to full screen the selected video
 		var selectedVideo = document.getElementById("player"+ (lastVideo + 1));
 		// opens fullscreen video on mobile

@@ -151,6 +151,7 @@ function fn(){
     fullScreenCounter = 0;
     players[lastVideo].mute();
     $('.videoContainer').css({"opacity": 0});
+    if(clickedVideo != '') checkPositions();
   }
 }
 
