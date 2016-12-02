@@ -103,7 +103,7 @@ h1, p{
 }
 
 #portfolio5{
-    background-image: url('../assets/timeAnimation3.gif');
+    background-image: url('../assets/wiywiGIF.gif');
     margin-left: auto;
     margin-right: auto;
     top: 0;
@@ -111,7 +111,7 @@ h1, p{
 }
 
 #portfolio6{
-    background-image: url('../assets/pot2.gif');
+    background-image: url('../assets/leapTassimo.gif');
     float:left;
     /*background-color:blue;*/
 }
@@ -134,7 +134,7 @@ h1, p{
     /*background-color:green;*/
     left:0;
     top:0;
-    background-image: url('../assets/wiywiGIF.gif');
+    background-image: url('../assets/timeAnimation3.gif');
 }
 
 #portfolio2{
@@ -148,7 +148,7 @@ h1, p{
     /*background-color:green;*/
     bottom:0;
     left:0;
-    background-image: url('../assets/hatGif23.gif');
+    background-image: url('../assets/MSMgif.gif');
     
 }
 
@@ -525,10 +525,11 @@ iframe {
 #pinterest{
     background-image: url('../assets/pinterest.jpg');
 }
-#mobileVideoLoader{
+#fullscreenVideoPlayer{
     display:none;
+    opacity:0;
 }
-#mobileVideoExit{
+#videoExit{
     position:fixed;
     top:0;
     right:0;
@@ -537,6 +538,7 @@ iframe {
     background-color:blue;
     z-index:200;
     display:none;
+    opacity:0;
 }
 #startUpVid{
     display:block;

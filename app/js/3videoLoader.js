@@ -3,40 +3,40 @@
 //loop through each iframe and create a video player for it
 function onYouTubeIframeAPIReady() {
   var iframes = document.querySelectorAll('.yPlayer')
-  for(videoList = 0; videoList < iframes.length;videoList++) players[videoList] = createPlayer(iframes[videoList], videoList);
-  if(isTablet) loadMobileDevice();
+  for(videoList = 0; videoList < iframes.length;videoList++) players[videoList] = createPortfolioPlayers(iframes[videoList], videoList);
+  loadFullScreenVideoPlayer();
 }
 //create a player and call a function when its ready to play
-function createPlayer(playerInfo, idNumber) {
+function createPortfolioPlayers(playerInfo, idNumber) {
   var src = $("#"+playerInfo.id).attr('src');
   YouTubeGetID(src);
   playerYoutubeIds[idNumber]=ID;
-  // console.log("player info "+ idNumber+ " = " +playerYoutubeIds[idNumber]);
+  // console.log("player info "+ playerInfo.id+ " = " +idNumber);
   return new YT.Player(playerInfo.id, {
      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange      
+        'onReady': onPortfolioPlayerReady,
+        'onStateChange': onPortfolioPlayerStateChange      
      }
   });
 }
-function loadMobileDevice(){
-  player = new YT.Player('mobileVideoLoader', {
+function loadFullScreenVideoPlayer(){
+  player = new YT.Player('fullscreenVideoPlayer', {
     height: '100%',
     width: '100%',
     // videoId: 'M7lc1UVf-VE',
     events: {
-       'onReady': onMobileDevicePlayerReady,
-       'onStateChange': onMobileDevicePlayerStateChange
+       'onReady': onFullScreenPlayerReady,
+       'onStateChange': onFullScreenPlayerStateChange
     }
   });
 }
-function onMobileDevicePlayerReady(event){
+function onFullScreenPlayerReady(event){
   // var playerID = YT.get('#player3');
   // alert(playerID)
 }
 
 //when its ready to be played make sure that all the other videos are loaded, and then allow users to play the videos
-function onPlayerReady(event){
+function onPortfolioPlayerReady(event){
   //bind events
   isLoaded++;
   // var id = players[isLoaded].getVideoData()['video_id'];
@@ -45,7 +45,7 @@ function onPlayerReady(event){
   // console.log("video id = "+playerInfoID);
   event.target.mute();
   if(isLoaded == videoList){
-    console.log("videos ready");
+    // console.log("videos ready");
     // YouTubeGetID("https://www.youtube.com/embed/abU5I9Tj6ZU?enablejsapi=1&loop=1&modestbranding=1&playlist=abU5I9Tj6ZU&rel=0&showinfo=0");
     isReady = true;
   } 
@@ -57,16 +57,9 @@ function pauseAllVideos(){
   }
 }
 
-function onPlayerStateChange(event) {
+function onPortfolioPlayerStateChange(event) {
   myPlayerState = event.data;
   if (isHover!= 'container' && isReady == true) animateIn();
-  // if(isMobile) fn();
-  // if(isHover == 'container' && isMobile) return;
-  // if(myPlayerState == 3) {
-  //   console.log("YES");
-  //   players[lastVideo].playVideo();
-  // }
-  
   //if video is played on mobile
   if(myPlayerState == 1) if(isMobile) players[lastVideo].seekTo(0).unMute();
   //if video is paused or stopped on mobile
@@ -74,32 +67,10 @@ function onPlayerStateChange(event) {
    
 }
 
-function onMobileDevicePlayerStateChange(event){
+function onFullScreenPlayerStateChange(event){
   videoLoaderState = event.data;
-  if(selectedVidLoader == 1 && videoLoaderState == 3) player.playVideo();
+  if(selectedVidLoader == 1 && videoLoaderState == 3) player.unMute().playVideo();
   if(videoLoaderState == 1) selectedVidLoader ++;
-  
-
-  // if(event.data == 3) $('#mobileVideoExit').css({'background-color':'green'}); 
-  // if(event.data == -1) $('#mobileVideoExit').css({'background-color':'red'}); 
-  // if(event.data == 0) $('#mobileVideoExit').css({'background-color':'orange'}); 
-  // if(event.data == 1) $('#mobileVideoExit').css({'background-color':'blue'}); 
-  // if(event.data == 2) $('#mobileVideoExit').css({'background-color':'cyan'}); 
-  // if(event.data == 5) $('#mobileVideoExit').css({'background-color':'white'}); 
-}
-
-
-function fullScreen (element){
-  // console.log('video = ' + element);
-  if(element.requestFullScreen) {
-    element.requestFullScreen();
-  } else if(element.webkitRequestFullScreen ) {
-    element.webkitRequestFullScreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  }
-  //set boolean to true to stop other unwanted functions from activating
-  clickedVideo = true;
 }
 
 function YouTubeGetID(url){
@@ -121,37 +92,43 @@ function fullScreenMobile(){
   staticHome();
 }
 
-function fullScreenTouchDevice(portfolioSelection){
+function fullScreenVideoPlayer(portfolioSelection){
+  console.log(portfolioSelection);
+  console.log(player);
+  console.log(playerYoutubeIds[portfolioSelection]);
   if(playerYoutubeIds[portfolioSelection] != wasPlayed) player.loadVideoById(playerYoutubeIds[portfolioSelection]);
+  else player.unMute().playVideo();
   wasPlayed = playerYoutubeIds[portfolioSelection];
-  $('#container, .animatingPage, iframe').css({'display':'none'}); 
-  $('#mobileVideoLoader, #mobileVideoExit').css({'display':'block'}); 
+  //animate video
+  $("#" + isHover + " .videoContainer").css({'height': '100%', 'width':'100%','bottom':0,'right':0,'left':0, 'top':'0'});
+  $("#" + isHover ).css({'position':'fixed'});
+  $("#" + isHover + " .content" ).css({'display':'none'});
+  $("#" + isHover + " .videoPlayer").css({'overflow': 'visible','bottom':0,'right':0,'left':0, 'top':0});
+  $("#" + isHover + " .videoPlayer iframe").css({'width': '100%', 'height': '100%','bottom':0,'right':0,'left':0, 'top':0});
+  $("#" + isHover).stop().animate({'width':'100%', 'height':'100%', 'left':0, 'top':0, 'right':0, 'bottom':0, 'margin-top': 0, 'margin-left':0},{complete: function(){ 
+        $("#" + isHover ).css({'z-index': '-1000'});
+        $('#fullscreenVideoPlayer').css({'display':'block'});  
+        $('#container, .animatingPage, iframe').css({'display':'none'}); 
+        $('#fullscreenVideoPlayer, #videoExit').css({'display':'block'}); 
+  }}); 
+  $('#fullscreenVideoPlayer, #videoExit').stop().animate({'opacity':'1', 'background-color':"black"});
+
+  // setTimeout(function(){
+  //   $('#container, .animatingPage, iframe').css({'display':'none'}); 
+  //   $('#fullscreenVideoPlayer, #videoExit').css({'display':'block'}); 
+  // }, 3000);   
+
+  players[portfolioSelection].pauseVideo().seekTo(0);
   if(selectedVidLoader == 0) {
     selectedVidLoader++;
   }
   // alert(playerYoutubeIds[portfolioSelection]);
 }
 
-function exitMobileFullScreen(){
+function exitFullScreen(){
   clickedVideo = false; 
   player.mute().pauseVideo();
-  $('#mobileVideoLoader, #mobileVideoExit, #container, .animatingPage').css({'display':''});
+  $('#fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #' + isHover + ' .videoContainer, #'+ isHover+', #'+isHover+' .content, #'+isHover+' .videoPlayer, #'+isHover+' .videoPlayer iframe, #container, .animatingPage, iframe').css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':'', 'z-index':''});
+  // $("#" + isHover + " .videoContainer, #fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #" + isHover + " .content", "#" + isHover + " .videoPlayer iframe, #" + isHover + " .videoPlayer").css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':''});
   checkPositions();
 }
-
-$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', fn);
-
-function fn(){
-  fullScreenCounter++;
-  if(fullScreenCounter == 1) {
-    players[lastVideo].unMute().seekTo(0).playVideo();
-  }
-  if(fullScreenCounter >= 2) {
-    clickedVideo = false;
-    fullScreenCounter = 0;
-    players[lastVideo].mute();
-    $('.videoContainer').css({"opacity": 0});
-    if(clickedVideo != '') checkPositions();
-  }
-}
-

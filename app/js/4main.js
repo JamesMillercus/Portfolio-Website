@@ -3,13 +3,13 @@
 // - MAKE ALL ASSETS FOR NEW DESIGN (new html5 video + mood tree)
 
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
-// - add scroll delayer for top and bottom projects
 // - Prepare all assets for plane journey (paint animation, text, gifs, arduino schematics)
 //1. Finish all designs (animated creative technology, all gifs)
 //2. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video, reveal jpg on a lower z-index, x seconds into the video, once video has finished then opacity 0 on vid
 //3. do css + js for large desktop screens
 //4. Check on windows/android mobile devices
+//5. Create node back end (word press?) and use johnny five for arduino code + use leapjs to make portfolio useable with the leap motion
 
 //** MAIN SECTION OF LOGIC **//
 
@@ -53,12 +53,19 @@ $( document ).ready(function() {
 		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
 	});
 
-	$("#mobileVideoExit").click(function(){
-		exitMobileFullScreen();
+	$("#videoExit").click(function(){
+		exitFullScreen();
 	});
 
 	//on mouse out of navigation button
-	$(".animatingPage").mouseleave(function(){ resetToHome(isHover); });
+	$(".animatingPage").mouseleave(function(){ 
+		// console.log("lastScrolled = " + lastScrolled);
+		resetToHome(isHover); 
+	});
+
+	$(document).keyup(function(e) {
+  		if (e.keyCode === 27) exitFullScreen();
+	});
 
 	$( "html" ).keypress(function( event ) {	
 		for(lowerCase = 0; lowerCase < keyboardArr.length; lowerCase+=2){
@@ -70,6 +77,7 @@ $( document ).ready(function() {
 			currentPosY = -windowSizeHeight;
 		  	triggerResponse(lastClicked,keyboardEvent);
 		}
+		console.log(keyboardEvent);
 	}); 
 	  
 	function triggerResponse(newHover, keyp){
@@ -79,12 +87,12 @@ $( document ).ready(function() {
 				if(newHover != isHover){
 				    resetToHome(newHover);
 				  	isHover = newHover;
-					lastScrolled = '#' + newHover.substring(0,10);;
+					lastScrolled = '#' + newHover.substring(0,10);
 					scrollPortfolio(newHover, counter);	
 				}else openPortfolio(isHover);
-			} 
+			}else exitFullScreen(); 
 			if (counter==(keyboardArr.length/2)-1 && lastScrolled != '') resetToHome(newHover);
-		}	
+		}
 		if(count>=(keyboardArr.length/2)) count =0;
 	}
 
@@ -99,11 +107,11 @@ $( document ).ready(function() {
 			//if videos are loaded then pause all of them
 			if(isReady == true) pauseAllVideos();
 			//if you've just scrolled out of a nav button
-			console.log("Last Scrolled (musn't be '') = " + lastScrolled);
+			// console.log("Last Scrolled (musn't be '') = " + lastScrolled);
 			if(lastPage != 'reset' && lastScrolled != ''){
 				// animation starts
 			    if(!isMobile) isAnimating = true;
-			    console.log("background W size SLUT = " + backgroundWSize+'px');
+			    // console.log("background W size SLUT = " + backgroundWSize+'px');
 				$(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
 				//Hide the scrolled out pages content back to opacity 0
 			    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
@@ -128,7 +136,7 @@ $( document ).ready(function() {
 				        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){ isAnimating=false; }});
 					}
 				}
-				console.log("animate page to home position")
+				// console.log("animate page to home position")
 			//if you've just resized the screen.
 			}else{
 				//if the user isn't using special electronics invitation (keyboard inputs)
@@ -142,12 +150,14 @@ $( document ).ready(function() {
 					    isHover='container';
 					    checkPositions();
 					    $('.videoContainer').css({"opacity": 0});
-					    console.log("reset");
+					    // console.log("reset");
 					    // $('body').css({'background-color': 'orange'});
-					    // lastScrolled = '';
 					}, 50);		    
 					//if the user is navigating the site with the electronics invitation (keyboard inputs)
 				} else{
+					
+				    lastScrolled = 'container';
+				    isHover='container';
 					checkPositions();
 					$('#container').stop().animate({'margin-left': portfolioMovePosX[0], 'margin-top': portfolioMovePosY[0]},{complete: function(){isAnimating=false;}});
 				}
@@ -166,9 +176,6 @@ function checkPositions() {
 	//update window sizes
 	portfolioMovePosX = [currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
 	portfolioMovePosY = [currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
-	
-	console.log("window width = " + windowSizeWidth);
-	console.log("window height = " + windowSizeHeight);
     windowSizeWidth = $(window).width();
 	windowSizeHeight = $(window).height();
     // set size + position of each page within the website container

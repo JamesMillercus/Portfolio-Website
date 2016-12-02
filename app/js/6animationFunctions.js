@@ -99,22 +99,19 @@ function openPortfolio(clicked){
 	//if is mobile and previously clicked on the same video
 	if(isNaN(lastScrolled) && lastScrolled == "container" && isMobile) players[wasPlayed].unMute().seekTo(0).playVideo();
 	//if a video hasn't been clicked yet, the videos have been loaded and the screen height is over 500
-	if(clickedVideo == false && isReady == true && windowSizeHeight > 500 && !isTablet){
+	if(clickedVideo == false && isReady == true && windowSizeHeight > 500){
 		//set the last video to what you've just scrolled over
 		lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
 		//set up a variable which will be able to full screen the selected video
-		var selectedVideo = document.getElementById("player"+ (lastVideo + 1));
-		// opens fullscreen video on mobile
-		if(isMobile) fullScreenMobile();
-		//full screen the selected video if on a desktop computer
-		if(!isMobile) fullScreen(selectedVideo);
-	}
-	if(isTablet) {
 		var number = clicked.substring(9); //gets the substring from index position 3 to the end
 		number = parseInt(number)-1; //converts to a number
 		selectedVidLoader = 0;
 		clickedVideo = true;
-		fullScreenTouchDevice(number);
+		// var selectedVideo = document.getElementById("player"+ (lastVideo + 1));
+		// opens fullscreen video on mobile
+		if(isMobile) fullScreenMobile();
+		//full screen the selected video if on a desktop computer
+		if(!isMobile) fullScreenVideoPlayer(number);
 	}
 }
 

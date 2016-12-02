@@ -86,7 +86,7 @@
     height: 46%; }
   .animatingPage {
     /*background-color:red;*/ }
-  #mobileVideoLoader {
+  #fullscreenVideoPlayer {
     width: 100%;
     height: 100%;
     left: 0;
@@ -106,7 +106,7 @@
     /*background-color:red;*/ }
   #homepage {
     /*background-color:blue;*/ }
-  /*#mobileVideoLoader{
+  /*#fullscreenVideoPlayer{
 			background-color:green;
 		}*/ }
 
