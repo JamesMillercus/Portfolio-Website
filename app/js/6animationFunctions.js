@@ -61,12 +61,9 @@ function animateHome(){
 //** SCROLLING FUNCTION **//
 //Changes the math movement to match what navigation page the user has chosen
 function scrollPortfolio(hovered, posmovement){
-    //if the initial start up video played, then hide it to reveal the still jpg
-    if($("video").css('display') === 'block') $('video').css({'display': 'none'});
     //set last scrolled to the div that has just been hovered over
 	lastScrolled = '#' + hovered.substring(0,10);
 	//if the windowsize is desktop, mouse positions values are there, the height of the browser is over 500 and a video hasnt been clicked
-
 	if(windowSizeWidth > 1024 && windowSizeHeight >500 && clickedVideo == false && isNaN(currentPosX) == false){
 		//set animation to true
 		isAnimating = true;

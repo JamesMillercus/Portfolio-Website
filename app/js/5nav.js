@@ -96,9 +96,8 @@ function updatePosition(posX, posY) {
 	        $('.videoContainer').css({'opacity':''});
 	        if(isHover == 'container') lastScrolled = 'container';
 		}
-		// console.log("ishover = " + isHover);
-		// console.log("lastScrolled = " + lastScrolled);
-		// console.log("clicked Video = " + clickedVideo);
+        //if the initial start up video played, then hide it to reveal the still jpg
+		if($("video").css('display') === 'block') $('video').css({'display': 'none'});
 	}
 }
 

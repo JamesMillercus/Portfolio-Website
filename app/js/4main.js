@@ -1,15 +1,24 @@
 
 // TO DO ON PLANE
-// - MAKE ALL ASSETS FOR NEW DESIGN (new html5 video + mood tree)
+// Do electronic invitation 
 
+// Post Plane:
+// re-export start up animation as mp4 + ogg with handbrake
+// Get Izzy to sense check project text
+
+//PHASE ONE
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
-// - Prepare all assets for plane journey (paint animation, text, gifs, arduino schematics)
 //1. Finish all designs (animated creative technology, all gifs)
 //2. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video, reveal jpg on a lower z-index, x seconds into the video, once video has finished then opacity 0 on vid
 //3. do css + js for large desktop screens
 //4. Check on windows/android mobile devices
-//5. Create node back end (word press?) and use johnny five for arduino code + use leapjs to make portfolio useable with the leap motion
+
+//PHASE TWO
+//1. Create node back end and use johnny five for arduino code + a templating engine to serve bespoke message
+
+//PHASE THREE
+//1. use leapjs to make portfolio useable with the leap motion + myo band + wordpress
 
 //** MAIN SECTION OF LOGIC **//
 

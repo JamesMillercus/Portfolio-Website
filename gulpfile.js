@@ -30,7 +30,7 @@ gulp.task('clean:dist', function(){
 });
 //task to optimise images + put them in dist folder
 gulp.task('images', function(){
-	return gulp.src('app/assets/**/*.+(png|jpg|gif|svg)')
+	return gulp.src('app/assets/**/*.+(png|jpg|gif|svg|mp4|ogv|ogg)')
 	.pipe(cache(imagemin({
 		interlaced: true
 	})))
