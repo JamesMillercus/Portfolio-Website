@@ -455,3 +455,31 @@ iframe {
 
 #startUpVid {
   display: block; }
+
+@media only screen and (min-width: 1900px) {
+  #centerImage {
+    width: 35%; }
+  #portfolio1page .content {
+    height: 68%;
+    width: 55%;
+    bottom: 5%;
+    right: 14.5%; }
+  #portfolio1page .videoContainer, #portfolio2page .videoContainer {
+    height: 62%; }
+  #portfolio3page .videoContainer {
+    height: 60%; }
+  #portfolio4page .videoContainer {
+    height: 78%; }
+  #portfolio5page .videoContainer, #portfolio8page .videoContainer {
+    height: 74%; }
+  #portfolio8page .content .textContainer {
+    bottom: 18%; }
+  #portfolio4page .videoPlayer {
+    padding-bottom: 64.25%; }
+  #portfolio3page iframe {
+    top: -32%;
+    left: -30%;
+    height: 160%;
+    width: 160%; }
+  #portfolio5page iframe, #portfolio8page iframe {
+    top: -2%; } }

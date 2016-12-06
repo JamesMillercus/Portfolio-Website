@@ -44,8 +44,10 @@ var portfolioMovePosY;
 var topPagePos, bottomPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos;
 var desktopImageSizes, smallDesktopImageSizes, tabletImageSizes, mobileImageSizes, imageResizingArr;
 var imageSizeVariables = [topPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos, largeHitboxHSize, largeHitboxWSize, medHitboxWSize,smallHitboxHSize,smallHitboxWSize];
+//add greater than code here for large desktops ( < 1900)
 var greaterThanResizer = [1024,900,551,0];
 var lesserThanResizer = [99999999,1024,900,550];
+//what size large desktop items should be
 var backgroundWImageResizerArr = [7,7,5,3.3];
 var backgroundHImageResizerArr = [5,6,7,3.5];
 var navHeight = [imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[11], imageSizeVariables[11], imageSizeVariables[8]];

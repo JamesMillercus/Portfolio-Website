@@ -8,7 +8,7 @@
 
 //PHASE ONE
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
-//1. Finish all designs (animated creative technology, all gifs)
+//1. Change font for logo, upload hackyxmas youtube video
 //2. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video, reveal jpg on a lower z-index, x seconds into the video, once video has finished then opacity 0 on vid
 //3. do css + js for large desktop screens
@@ -121,7 +121,8 @@ $( document ).ready(function() {
 				// animation starts
 			    if(!isMobile) isAnimating = true;
 			    // console.log("background W size SLUT = " + backgroundWSize+'px');
-				$(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
+				if(windowSizeWidth < 1900) $(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
+    			else $(".backgroundImage").stop().animate({'width': backgroundWSize/1.5+'px'});
 				//Hide the scrolled out pages content back to opacity 0
 			    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
 			    $('.content').stop().animate({'opacity': 0});
@@ -151,6 +152,7 @@ $( document ).ready(function() {
 				//if the user isn't using special electronics invitation (keyboard inputs)
 				if(lastClicked == ''){
 				    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
+				    $('.videoContainer').css({"opacity": 0});
 				    // $(lastScrolled).css({"opacity":1});
 				    setTimeout(function(){
 					    isAnimating=false;
@@ -158,7 +160,6 @@ $( document ).ready(function() {
 					    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 					    isHover='container';
 					    checkPositions();
-					    $('.videoContainer').css({"opacity": 0});
 					    // console.log("reset");
 					    // $('body').css({'background-color': 'orange'});
 					}, 50);		    
@@ -229,6 +230,7 @@ function checkPositions() {
 
 	//** SORT POSITION DATA FROM ARRAY AND ASSIGN NEW ELEMENT POSITIONS **//
 	function resizeImages(resizedNumber, newSize){
+		
 		//store chosen array data in a new array
 		imageSizeVariables[resizedNumber] = newSize;
 		//set the height of all the content
@@ -241,7 +243,8 @@ function checkPositions() {
 		navMarginTop = [windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[3]];
 	}
 	//set the size of the background image based on the screen size
-    $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
+	if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
+	else $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
  	//get size of the outer btn holder for calculations on vertical/horizontal centering
     outerBtnHolderWSize = $('#outerBtnHolder').width(), outerBtnHolderHSize = $('#outerBtnHolder').height(), innerBtnHolderHSize = $('#innerBtnHolder').height(), middleImagesHeight = $('#middleImages').height(); 
     //calculate the horizontal center

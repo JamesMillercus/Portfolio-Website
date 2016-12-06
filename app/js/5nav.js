@@ -91,7 +91,8 @@ function updatePosition(posX, posY) {
 			//animate based on normal mouse position
 			$('#container').css({'opacity': 1,'margin-left': posX+'px', 'margin-top': posY+'px'});
 			//clear any inline styles on navigation images that were created with js
-	        $('.backgroundImage').css({'width': backgroundWSize + 'px', 'height': backgroundHSize + 'px'});
+	        if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
+    		else $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
 	        $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
 	        $('.videoContainer').css({'opacity':''});
 	        if(isHover == 'container') lastScrolled = 'container';
