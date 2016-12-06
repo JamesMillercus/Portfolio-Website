@@ -8,10 +8,10 @@
 
 //PHASE ONE
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
-//1. Change font for logo, upload hackyxmas youtube video
+//1. Change font for logo
 //2. Fix all bugs (check on different browsers with Kerve browser stack login details)
-// 	- black outline around html5 video, reveal jpg on a lower z-index, x seconds into the video, once video has finished then opacity 0 on vid
-//3. do css + js for large desktop screens
+// 	- black outline around html5 video (IE)
+//3. Finish large screen css/js bug when page is full height but reduced width
 //4. Check on windows/android mobile devices
 
 //PHASE TWO
