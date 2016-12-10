@@ -6,13 +6,16 @@
 // re-export start up animation as mp4 + ogg with handbrake
 // Get Izzy to sense check project text
 
+//CHANGE LOGO TO SHRINK A BLACK CIRCLE INTO NOTHING
+//THEN ANIMAGE HTML TEXT FROM NOTHING TO APPROPRIATE WIDTH
+//ADD JS FUNCTIONALITY TO TEXT
+
 //PHASE ONE
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
 //1. Change font for logo
 //2. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video (IE)
-//3. Finish large screen css/js bug when page is full height but reduced width
-//4. Check on windows/android mobile devices
+//3. Check on windows/android mobile devices
 
 //PHASE TWO
 //1. Create node back end and use johnny five for arduino code + a templating engine to serve bespoke message
@@ -109,6 +112,7 @@ $( document ).ready(function() {
 	function resetToHome(lastPage){
 		// if browser is above 1024 (is a desktop) and a video hasn't been clicked
 		if(clickedVideo == false && windowSizeWidth > 1024 && !isMobile){
+			// $(".staticImage").css({'opacity': 1});
 			// Get the page that was just scrolled out and shrink its background image to its normal size
 		    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
 		    // $(lastScrolled + 'page .content').stop().animate({"opacity":0});
@@ -122,7 +126,7 @@ $( document ).ready(function() {
 			    if(!isMobile) isAnimating = true;
 			    // console.log("background W size SLUT = " + backgroundWSize+'px');
 				if(windowSizeWidth < 1900) $(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
-    			else $(".backgroundImage").stop().animate({'width': backgroundWSize/1.5+'px'});
+    			else if (windowSizeWidth > 1900 || windowSizeHeight > 1100) $(".backgroundImage").stop().animate({'width': backgroundWSize/1.5+'px'});
 				//Hide the scrolled out pages content back to opacity 0
 			    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
 			    $('.content').stop().animate({'opacity': 0});
@@ -151,6 +155,9 @@ $( document ).ready(function() {
 			}else{
 				//if the user isn't using special electronics invitation (keyboard inputs)
 				if(lastClicked == ''){
+				    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
+				    if(windowSizeWidth < 1900) $(".backgroundImage").css({'width': backgroundWSize+'px'});
+    				else if (windowSizeWidth > 1900 || windowSizeHeight > 1100) $(".backgroundImage").css({'width': backgroundWSize/1.5+'px'});
 				    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 				    $('.videoContainer').css({"opacity": 0});
 				    // $(lastScrolled).css({"opacity":1});
@@ -230,7 +237,6 @@ function checkPositions() {
 
 	//** SORT POSITION DATA FROM ARRAY AND ASSIGN NEW ELEMENT POSITIONS **//
 	function resizeImages(resizedNumber, newSize){
-		
 		//store chosen array data in a new array
 		imageSizeVariables[resizedNumber] = newSize;
 		//set the height of all the content
@@ -243,8 +249,8 @@ function checkPositions() {
 		navMarginTop = [windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[3]];
 	}
 	//set the size of the background image based on the screen size
-	if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
-	else $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
+	if(windowSizeWidth < 1900) $('.backgroundImage').css({'width': backgroundWSize + 'px ', 'height': backgroundHSize + 'px'});
+	else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
  	//get size of the outer btn holder for calculations on vertical/horizontal centering
     outerBtnHolderWSize = $('#outerBtnHolder').width(), outerBtnHolderHSize = $('#outerBtnHolder').height(), innerBtnHolderHSize = $('#innerBtnHolder').height(), middleImagesHeight = $('#middleImages').height(); 
     //calculate the horizontal center
@@ -256,7 +262,7 @@ function checkPositions() {
 	//if a video hasn't been clicked and the browser window is resized
     if(clickedVideo == false){
     	$('#container').css({'opacity':1,'display':'block'});
-    	$('.videoContainer').css({'opacity':''});
+    	// $('.videoContainer').css({'opacity':''});
     	//reset and re-center all postions of all content
 	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':outerBtnHolderTop+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''});
 	    //for each portfolio item on the page, call a function that will resize them based on screen size

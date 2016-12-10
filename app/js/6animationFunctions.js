@@ -89,6 +89,7 @@ function animateIn(){
 	players[lastVideo].playVideo();
 	//if the video is playing and it is currently hidden, then animate it in.
 	if (myPlayerState == 1 && $("#" + isHover + " .videoContainer").css('opacity') === '0' && clickedVideo == false) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
+	// $(".staticImage").stop().animate({'opacity': 0});
 }
 
 //** OPEN VIDEO **//

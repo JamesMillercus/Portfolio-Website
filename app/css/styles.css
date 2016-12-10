@@ -483,3 +483,132 @@ iframe {
     width: 160%; }
   #portfolio5page iframe, #portfolio8page iframe {
     top: -2%; } }
+
+@media only screen and (max-width: 1300px), only screen and (max-device-width: 1300px) {
+  #innerBtnHolder {
+    /*width: 85%;*/
+    /* background-color: red; */
+    /*height: 85%;*/
+    /*top: 7%;*/ }
+  /*#moving4, #moving3, #moving2, #moving1 {
+        background-size:50%;
+    }*/
+  .backgroundImage, .staticImage {
+    /*width:25%;
+        background-size:70%;*/ }
+  #portfolio4page .content .textContainer, #portfolio3page .content .textContainer {
+    bottom: 1%; }
+  #portfolio7page .content {
+    width: 86%;
+    right: 5%; }
+  #portfolio6page .content {
+    height: 100%;
+    width: 100%; }
+  .content .textLeft {
+    /*float:none;
+        width:auto;*/ }
+  .content .textRight {
+    /*margin-top: 10px;
+        display:block;
+        float:none;
+        width:auto;*/ }
+  #portfolio1page .videoContainer, #portfolio2page .videoContainer {
+    width: 64%;
+    height: 46%; }
+  #portfolio1page .videoContainer {
+    right: 5.5%;
+    bottom: 0; }
+  #portfolio2page .videoContainer {
+    left: 9.5%;
+    bottom: 0; }
+  .videoPlayer {
+    /*padding-bottom:65%;*/ }
+  iframe {
+    top: -45%;
+    left: -40%;
+    height: 200%;
+    width: 200%; }
+  #portfolio3page iframe {
+    top: -33%;
+    left: -32.5%;
+    height: 165%;
+    width: 165%; }
+  #portfolio6page .videoContainer {
+    width: 75%;
+    height: 100%;
+    right: -20%; }
+  #portfolio7page .videoContainer {
+    width: 75%;
+    height: 100%;
+    left: -20%; }
+  #portfolio7page .content .textContainer {
+    right: -3%;
+    width: 45%;
+    /*position: absolute;
+        background-color: green;*/ }
+  #portfolio8page iframe, #portfolio5page iframe {
+    top: -60%;
+    left: -60%;
+    /*height:165%;
+        width:165%;*/ } }
+
+@media only screen and (max-width: 1500px) and (min-height: 1000px), only screen and (max-device-width: 1500px) and (min-height: 1000px) {
+  .videoContainer {
+    display: none; }
+  /*
+    #portfolio1page .videoContainer, #portfolio2page .videoContainer{
+        height: 55%;
+        background-color:red;
+    }
+    .videoPlayer {
+        padding-bottom: 200.25%;
+    }
+
+    #portfolio4page iframe{
+        width: 260%;
+        top: -30%;
+        left: -85%;
+    }
+
+    #portfolio4page .videoContainer, #portfolio3page .videoContainer{
+         background-color:red;
+         height:58%;
+    }
+
+    #portfolio4page .videoPlayer,#portfolio3page .videoPlayer{
+        padding-bottom: 130.25%;
+    }
+
+    #portfolio1page iframe, #portfolio2page iframe {
+        width: 240%;
+        left: -55%;
+        top: -38%;
+    }
+
+    #portfolio3page iframe {
+        top: -33%;
+        left: -150.5%;
+        height: 165%;
+        width: 310%;
+    }
+
+    #portfolio5page iframe, #portfolio8page iframe {
+        top: -70%;
+        width: 240%;
+        left: -85%;
+    }
+
+    #portfolio5page .videoContainer, #portfolio8page .videoContainer{
+        width: 130%;
+        height: 70%;
+    }
+
+    #portfolio5page .videoPlayer, #portfolio8page .videoPlayer {
+        padding-bottom: 130.25%;
+    }
+
+    #portfolio6page iframe, #portfolio7page iframe{
+        top:-38%;
+        left: -75%;
+        width: 250%;
+    }*/ }

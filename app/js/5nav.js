@@ -92,7 +92,7 @@ function updatePosition(posX, posY) {
 			$('#container').css({'opacity': 1,'margin-left': posX+'px', 'margin-top': posY+'px'});
 			//clear any inline styles on navigation images that were created with js
 	        if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
-    		else $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
+    		else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
 	        $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
 	        $('.videoContainer').css({'opacity':''});
 	        if(isHover == 'container') lastScrolled = 'container';
