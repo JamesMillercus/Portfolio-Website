@@ -6,16 +6,16 @@
 // re-export start up animation as mp4 + ogg with handbrake
 // Get Izzy to sense check project text
 
-//CHANGE LOGO TO SHRINK A BLACK CIRCLE INTO NOTHING
-//THEN ANIMAGE HTML TEXT FROM NOTHING TO APPROPRIATE WIDTH
 //ADD JS FUNCTIONALITY TO TEXT
+
 
 //PHASE ONE
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
-//1. Change font for logo
-//2. Fix all bugs (check on different browsers with Kerve browser stack login details)
+//1. finalise animation for intro text
+//2. when scroll over each letter, make it hop and change colour
+//3. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video (IE)
-//3. Check on windows/android mobile devices
+//4. Check on windows/android mobile devices (problem with android selecting mobile version of site)
 
 //PHASE TWO
 //1. Create node back end and use johnny five for arduino code + a templating engine to serve bespoke message
@@ -33,7 +33,7 @@ $( document ).ready(function() {
 
 	vid.ontimeupdate = function() { myFunction() };
 	function myFunction() {
-		if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
+		// if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
 	}
 
 
@@ -272,11 +272,16 @@ function checkPositions() {
 			$('#portfolio'+ (portfolioNumber+1) +'page').css({'height':navHeight[portfolioNumber] +'px', 'width':navWidth[portfolioNumber] +'px', 'margin-left': navMarginLeft[portfolioNumber] +'px', 'margin-top': navMarginTop[portfolioNumber] +'px'});		
 		}
 		//center the middle two portfolio items
-	    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px '});
+	    $('#middleImages').css({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
+	    $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px', 'top':($('#centerImage').height()-$('#heroText').height())/2});
 	    //reveal social media buttons
-	    if(lastScrolled != "newUser") $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+	    if(lastScrolled != "newUser") {
+	    	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+	    	$('#heroText').css({'opacity':1, 'display':'block'});
+	    }else $('#heroText').css({'opacity':0, 'display':'none'});
 		//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
 		if(isHover!= 'container' && lastClicked == '') resetToHome('reset');
+		$('#heroText').css({'top':($('#centerImage').height()-$('#heroText').height())/2});
     }else{
     	//if video has been clicked and page then resized
 

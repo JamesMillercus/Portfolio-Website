@@ -42,6 +42,17 @@ h1, p{
     color:#7c7c7c;;
 }
 
+#heroText {
+    /*width: 95%;*/
+    /*background-color:red;*/
+    font-family: 'Poiret One', cursive;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
+    text-align:center;
+    position:relative;
+}
+
 #outerBtnHolder #innerBtnHolder .backgroundImage, #outerBtnHolder #innerBtnHolder .staticImage{
     background-size: contain;
     background-position: 50% 50%;
@@ -80,7 +91,7 @@ h1, p{
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    /*background-color: red;*/
+    /*background-color: green;*/
     top: 25%;
 }
 .designBackground{
@@ -670,6 +681,9 @@ iframe {
         width: 75%;
         height: 100%;
         left: -20%;
+    }
+    #portfolio3page .videoContainer{
+        height:40%;
     }
     #portfolio7page .content .textContainer {
         right: -3%;

@@ -5,7 +5,7 @@ function staticHome(){
 	// hide video
 	$('video').css({'display': 'none'});
 	//add a background image to the home page
-	$("#centerImage").addClass("designBackground");	
+	// $("#centerImage").addClass("designBackground");	
 	//reset all nav button positions
 	$('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8').css({'margin-top': '', 'margin-left': '', 'margin-right':'', 'margin-bottom': '', 'opacity': ''});
 	//activate navigation movement by clearing lastScrolled and resetting isHover + isAnimating
@@ -33,29 +33,36 @@ function animateHome(){
 	$('#portfolio6').css({'margin-left':'40%', 'opacity':0});
 	$('#portfolio7').css({'margin-right':'40%', 'opacity':0});
 	$('#bottomImage').css({'margin-bottom':'20%', 'opacity':0});
+	var heroTextHeight = ($('#centerImage').height()-$('#heroText').height())/2;
+  	$('#heroText').css({'top':heroTextHeight + 'px'});
 	lastScrolled = 'animatingHome';
 	// console.log("animate home");
 	//set video vertical position and if the video is completed
 	$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
       // console.log('Video has ended!');
-      //animate all the nav buttons to their correct positions	  
-	  $('#topImage').stop().animate({'margin-top': '', 'margin-left': '', 'opacity': 1}, 500);
-	  $('#portfolio1').stop().animate({'margin-top':'', 'margin-left':'', 'opacity':1}, 500);
-	  $('#portfolio2').stop().animate({'margin-top':'', 'margin-right':'', 'opacity':1}, 500);
-	  $('#portfolio3').stop().animate({'margin-bottom':'', 'margin-left':'', 'opacity':1}, 500);
-	  $('#portfolio4').stop().animate({'margin-bottom':'', 'margin-right':'', 'opacity':1}, 500);
-	  $('#portfolio6').stop().animate({'margin-left': '', 'opacity': 1}, 500);
-	  $('#portfolio7').stop().animate({'margin-right': '', 'opacity': 1}, 500);
-	  $('#bottomImage').stop().animate({'margin-bottom': '', 'opacity': 1},500);
-	  lastScrolled = '';
-	  //reset all variables so that navigation scrolling will work
-	  isHover = 'container';
-	  isAnimating = false;
-	  //after a second, make the social links animate in
-	  setTimeout(function(){
-	    $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
-	    $('.animatingPage').css({'display':'block'});
-	  }, 1000);		
+      $('video').css({'display':'none'});
+      $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
+      $('#heroText').stop().animate({'opacity': 1},{complete: function(){
+	      //animate text in
+	      //animate all the nav buttons to their correct positions	  
+		  $('#topImage').stop().animate({'margin-top': '', 'margin-left': '', 'opacity': 1}, 500);
+		  $('#portfolio1').stop().animate({'margin-top':'', 'margin-left':'', 'opacity':1}, 500);
+		  $('#portfolio2').stop().animate({'margin-top':'', 'margin-right':'', 'opacity':1}, 500);
+		  $('#portfolio3').stop().animate({'margin-bottom':'', 'margin-left':'', 'opacity':1}, 500);
+		  $('#portfolio4').stop().animate({'margin-bottom':'', 'margin-right':'', 'opacity':1}, 500);
+		  $('#portfolio6').stop().animate({'margin-left': '', 'opacity': 1}, 500);
+		  $('#portfolio7').stop().animate({'margin-right': '', 'opacity': 1}, 500);
+		  $('#bottomImage').stop().animate({'margin-bottom': '', 'opacity': 1},500);
+		  lastScrolled = '';
+		  //reset all variables so that navigation scrolling will work
+		  isHover = 'container';
+		  isAnimating = false;
+		  //after a second, make the social links animate in
+		  setTimeout(function(){
+		    $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+		    $('.animatingPage').css({'display':'block'});
+		  }, 1000);		
+      }});
     });
 }
 //** SCROLLING FUNCTION **//
