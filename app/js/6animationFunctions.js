@@ -5,7 +5,8 @@ function staticHome(){
 	// hide video
 	$('video').css({'display': 'none'});
 	//add a background image to the home page
-	// $("#centerImage").addClass("designBackground");	
+	// $("#centerImage").addClass("designBackground");
+	$('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block', 'opacity':1});	
 	//reset all nav button positions
 	$('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8').css({'margin-top': '', 'margin-left': '', 'margin-right':'', 'margin-bottom': '', 'opacity': ''});
 	//activate navigation movement by clearing lastScrolled and resetting isHover + isAnimating
@@ -15,6 +16,7 @@ function staticHome(){
 	//allow nav buttons to be scrolled over by revealing the scroll buttons
 	if(clickedVideo == false) $('.animatingPage').css({'display':''});
 	// console.log("static home");
+	activateHeroAnimation();
 }
 
 //** START ON ANIMATED SCREEN **//
@@ -42,6 +44,7 @@ function animateHome(){
       // console.log('Video has ended!');
       $('video').css({'display':'none'});
       $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
+	  activateHeroAnimation();
       $('#heroText').stop().animate({'opacity': 1},{complete: function(){
 	      //animate text in
 	      //animate all the nav buttons to their correct positions	  
@@ -65,6 +68,50 @@ function animateHome(){
       }});
     });
 }
+
+
+function activateHeroAnimation(){
+	$elem = $('#heroText');
+	var charHover, previousCharHover;
+	var heroCharNumber = 0;
+	var chars = jQuery.map($elem.text().split(''), function(c) {
+	  if(c != ' '){
+		  heroCharNumber++;
+		  return '<span class ="heroChar" id = "heroCharNumber'+heroCharNumber+'">' + c + '</span>';
+	  }else return '<span id = heroCharSpace>' + c + '</span>';
+	});
+	$elem.html(chars.join('')); 
+	$( "#heroCharSpace" ).css({'width': $( "#heroCharNumber1" ).width()+'px', 'height':$( "#heroCharNumber1" ).height()+'px'});
+	$(".heroChar").mouseenter(function(){
+		charHover = $(this).attr('id');
+		if ($("#"+charHover).css('margin-top')==='0px') growChar(charHover);
+	});
+	$(".heroChar").mouseleave(function(){
+		shrinkChar(charHover);
+	});
+	var heroTextHeight = ($('#centerImage').height()-$('#heroCharNumber1').height())/2;
+	var heroTotalTextWidth = 0;
+	for(var x = 1;x<chars.length;x++){
+		var heroTextWidth = $('#heroCharNumber'+x).width();
+		heroTotalTextWidth += heroTextWidth;
+	}
+	heroTotalTextWidth = heroTotalTextWidth + $("#heroCharSpace").width();
+	$('#heroText').css({'height':$('#heroCharNumber1').height() + 'px'});
+  	$('#heroText').css({'top': heroTextHeight + 'px', 'width':heroTotalTextWidth + 'px'});
+}
+
+function growChar(selectedChar){
+	console.log("#"+selectedChar);
+	$( "#"+selectedChar ).css({'color':'#7c7c7c'});
+	$( "#"+selectedChar ).stop().animate({'margin-top':'-20px'},{complete: function(){
+		$( "#"+selectedChar ).stop().animate({'margin-top':'0px'});
+	}});
+}
+function shrinkChar(selectedChar){
+	// $( "#"+selectedChar ).css({'color':'black'});
+}
+
+
 //** SCROLLING FUNCTION **//
 //Changes the math movement to match what navigation page the user has chosen
 function scrollPortfolio(hovered, posmovement){

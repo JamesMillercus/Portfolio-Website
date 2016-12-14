@@ -1,18 +1,11 @@
-
-// TO DO ON PLANE
-// Do electronic invitation 
-
 // Post Plane:
 // re-export start up animation as mp4 + ogg with handbrake
 // Get Izzy to sense check project text
 
-//ADD JS FUNCTIONALITY TO TEXT
-
-
 //PHASE ONE
 //0. Allow pause button to work on tablet (check that this isn't just on my ipad)
-//1. finalise animation for intro text
-//2. when scroll over each letter, make it hop and change colour
+//1. Finalise animation for intro text
+//2. Once scrolled over all hero text, change text to say design, creative, technologist, maker, thinker, electronics, developing etc..
 //3. Fix all bugs (check on different browsers with Kerve browser stack login details)
 // 	- black outline around html5 video (IE)
 //4. Check on windows/android mobile devices (problem with android selecting mobile version of site)
@@ -47,11 +40,12 @@ $( document ).ready(function() {
 	// when browser is resized, call checkPositions()
 	$(window).resize(checkPositions);
 	$(window).on( "orientationchange", function( event ) { checkPositions(); });
+
 	// on mouse over of navigation button
 	$(".animatingPage").mouseenter(function(){
 	    isHover = $(this).attr('id');
 	    //Detect what navigation button is being hovered, move the background to center the selected page 
-	    for(var pageNumber = 0;pageNumber<(portfolioMovePosX.length)+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollPortfolio(isHover, pageNumber-1);	   
+	    for(var pageNumber = 0;pageNumber<(portfolioMovePosX.length+1);pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') scrollPortfolio(isHover, pageNumber-1);	   
 	});
 	//on mouse click
 	$(".animatingPage").click(function(){
@@ -62,7 +56,7 @@ $( document ).ready(function() {
 		}
 		
 		//open the selected portfolio item
-		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
+		for(var pageNumber = 0;pageNumber<(portfolioMovePosX.length+1);pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
 	});
 
 	$("#videoExit").click(function(){
@@ -159,7 +153,8 @@ $( document ).ready(function() {
 				    if(windowSizeWidth < 1900) $(".backgroundImage").css({'width': backgroundWSize+'px'});
     				else if (windowSizeWidth > 1900 || windowSizeHeight > 1100) $(".backgroundImage").css({'width': backgroundWSize/1.5+'px'});
 				    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
-				    $('.videoContainer').css({"opacity": 0});
+				    $('.videoContainer').css({'opacity': 0});
+				    $('.content').css({'opacity': 0});
 				    // $(lastScrolled).css({"opacity":1});
 				    setTimeout(function(){
 					    isAnimating=false;
@@ -167,12 +162,11 @@ $( document ).ready(function() {
 					    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 					    isHover='container';
 					    checkPositions();
-					    // console.log("reset");
+					    console.log("reset");
 					    // $('body').css({'background-color': 'orange'});
 					}, 50);		    
 					//if the user is navigating the site with the electronics invitation (keyboard inputs)
 				} else{
-					
 				    lastScrolled = 'container';
 				    isHover='container';
 					checkPositions();
@@ -278,10 +272,14 @@ function checkPositions() {
 	    if(lastScrolled != "newUser") {
 	    	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 	    	$('#heroText').css({'opacity':1, 'display':'block'});
+	    	$('.videoContainer').css({'opacity': 0});
+		    $('.content').css({'opacity': 0});
+	    	lastScrolled ='';
 	    }else $('#heroText').css({'opacity':0, 'display':'none'});
 		//if resize the browser window whilst scrolled over a menu item then activate complete home page reset
 		if(isHover!= 'container' && lastClicked == '') resetToHome('reset');
-		$('#heroText').css({'top':($('#centerImage').height()-$('#heroText').height())/2});
+		// $('#heroText').css({'top':($('#centerImage').height()-$('#heroText').height())/2});
+		activateHeroAnimation();
     }else{
     	//if video has been clicked and page then resized
 

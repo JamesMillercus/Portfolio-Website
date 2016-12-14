@@ -27,10 +27,16 @@ h1, p {
   font-family: 'Open Sans', sans-serif;
   color: #7c7c7c; }
 
+.heroChar, #heroCharSpace {
+  /*color:red;*/
+  float: left; }
+
 #heroText {
   /*width: 95%;*/
-  /*background-color:red;*/
-  font-family: 'Poiret One', cursive;
+  /*background-color:blue;*/
+  opacity: 0;
+  cursor: pointer;
+  font-family: 'Signika', sans-serif;
   margin-left: auto;
   margin-right: auto;
   font-weight: bolder;
@@ -494,6 +500,10 @@ iframe {
   #portfolio5page iframe, #portfolio8page iframe {
     top: -2%; } }
 
+@media only screen and (max-width: 1380px), only screen and (max-device-width: 1380px) {
+  #portfolio3page .videoContainer {
+    height: 40%; } }
+
 @media only screen and (max-width: 1300px), only screen and (max-device-width: 1300px) {
   #innerBtnHolder {
     /*width: 85%;*/
@@ -531,6 +541,8 @@ iframe {
   #portfolio2page .videoContainer {
     left: 9.5%;
     bottom: 0; }
+  #portfolio3page .videoContainer {
+    height: 40%; }
   .videoPlayer {
     /*padding-bottom:65%;*/ }
   iframe {
@@ -551,8 +563,6 @@ iframe {
     width: 75%;
     height: 100%;
     left: -20%; }
-  #portfolio3page .videoContainer {
-    height: 40%; }
   #portfolio7page .content .textContainer {
     right: -3%;
     width: 45%;
