@@ -73,45 +73,66 @@ function animateHome(){
 function activateHeroAnimation(){
 	$elem = $('#heroText');
 	var charHover, previousCharHover;
-	var heroCharNumber = 0;
+	var heroCharNumber = 0, heroSpaceNumber = 0;
+	var heroTextHeight = ($('#centerImage').height()-$('#heroCharNumber1').height())/2;
+	var heroTotalTextWidth = 0;
+	if(currentHero == 0) $( "#heroText" ).html(heroTextOptions[0]);
 	var chars = jQuery.map($elem.text().split(''), function(c) {
+	  var charLength, charLengthParser;
 	  if(c != ' '){
 		  heroCharNumber++;
 		  return '<span class ="heroChar" id = "heroCharNumber'+heroCharNumber+'">' + c + '</span>';
-	  }else return '<span id = heroCharSpace>' + c + '</span>';
+	  }else {
+	  	  heroSpaceNumber++;
+		  return '<span id = heroCharSpace>' + c + '</span>';
+	  }
 	});
+	if(heroSpaceNumber != 0) charLength = chars.length, charLengthParser = chars.length-1;
+	else charLength = chars.length+1, charLengthParser = chars.length;
 	$elem.html(chars.join('')); 
 	$( "#heroCharSpace" ).css({'width': $( "#heroCharNumber1" ).width()+'px', 'height':$( "#heroCharNumber1" ).height()+'px'});
 	$(".heroChar").mouseenter(function(){
 		charHover = $(this).attr('id');
-		if ($("#"+charHover).css('margin-top')==='0px') growChar(charHover);
+		if ($("#"+charHover).css('opacity')==='1' && windowSizeWidth > 1024 && isAnimating == false && $('.animatingPage').css('display')==='block') growChar(charHover, charLengthParser);
 	});
-	$(".heroChar").mouseleave(function(){
-		shrinkChar(charHover);
+	
+	$("#centerImage").mouseenter(function(){
+		allowAnimation = true;
+		console.log("ALLOW ANIMATION");
 	});
-	var heroTextHeight = ($('#centerImage').height()-$('#heroCharNumber1').height())/2;
-	var heroTotalTextWidth = 0;
-	for(var x = 1;x<chars.length;x++){
+	for(var x = 1;x<charLength;x++){
 		var heroTextWidth = $('#heroCharNumber'+x).width();
 		heroTotalTextWidth += heroTextWidth;
 	}
-	heroTotalTextWidth = heroTotalTextWidth + $("#heroCharSpace").width();
+	if(heroSpaceNumber>0) heroTotalTextWidth = heroTotalTextWidth + $("#heroCharSpace").width();
 	$('#heroText').css({'height':$('#heroCharNumber1').height() + 'px'});
   	$('#heroText').css({'top': heroTextHeight + 'px', 'width':heroTotalTextWidth + 'px'});
 }
 
-function growChar(selectedChar){
-	console.log("#"+selectedChar);
-	$( "#"+selectedChar ).css({'color':'#7c7c7c'});
+function growChar(selectedChar, numberOfChars){
+	grownChars++;
+	if(grownChars == numberOfChars) changeHero();
+	$( "#"+selectedChar ).css({'opacity':'.5'});
 	$( "#"+selectedChar ).stop().animate({'margin-top':'-20px'},{complete: function(){
 		$( "#"+selectedChar ).stop().animate({'margin-top':'0px'});
 	}});
 }
-function shrinkChar(selectedChar){
-	// $( "#"+selectedChar ).css({'color':'black'});
+
+function changeHero(){
+	var chosenWord;
+	if(currentHero == 0) currentHero++;
+	for(var x = 0;x<heroTextOptions.length;x++){
+		if(currentHero == x) chosenWord = heroTextOptions[x];
+		if(currentHero == heroTextOptions.length) currentHero = 0, chosenWord = heroTextOptions[0];
+	}
+	$( "#heroText" ).stop().animate({'opacity':'0'},{complete: function(){
+		$( "#heroText" ).html(chosenWord);
+		$( "#heroText" ).stop().animate({'opacity':'1'});
+		grownChars = 0;
+		activateHeroAnimation();
+	}});
+	currentHero++;
 }
-
-
 //** SCROLLING FUNCTION **//
 //Changes the math movement to match what navigation page the user has chosen
 function scrollPortfolio(hovered, posmovement){
@@ -134,6 +155,7 @@ function scrollPortfolio(hovered, posmovement){
     	$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 0});	
 	}
 }
+
 
 //** ANIMATING VIDEOS ON SCROLL OVER **//
 function animateIn(){

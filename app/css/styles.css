@@ -28,7 +28,7 @@ h1, p {
   color: #7c7c7c; }
 
 .heroChar, #heroCharSpace {
-  /*color:red;*/
+  color: black;
   float: left; }
 
 #heroText {
@@ -91,19 +91,19 @@ h1, p {
   background-color: white; }
 
 #portfolio5 {
-  background-image: url("../assets/wiywiGIF.gif");
+  background-image: url("../assets/beerGif.gif");
   margin-left: auto;
   margin-right: auto;
   top: 0;
   /*background-color:blue;*/ }
 
 #portfolio6 {
-  background-image: url("../assets/leapTassimo.gif");
+  background-image: url("../assets/wiywiGIF.gif");
   float: left;
   /*background-color:blue;*/ }
 
 #portfolio7 {
-  background-image: url("../assets/pumpkin.gif");
+  background-image: url("../assets/leapTassimo.gif");
   float: right;
   /*background-color:blue;*/ }
 
