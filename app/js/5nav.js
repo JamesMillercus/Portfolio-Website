@@ -79,7 +79,7 @@ function updatePosition(posX, posY) {
 	//if animation between navigation buttons isn't happening 
 	if (isAnimating == false && clickedVideo == false && windowSizeHeight >550){
 		//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
+		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != ''  && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
 
 		function scrollingPage(currentHover, posMovement){
 			if(windowSizeWidth > 1024) $('#container').css({'margin-left': portfolioMovePosX[posMovement], 'margin-top': portfolioMovePosY[posMovement]});

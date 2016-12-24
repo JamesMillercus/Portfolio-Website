@@ -3,11 +3,15 @@
 // Get Izzy to sense check project text
 
 //PHASE ONE
-//0. Allow pause button to work on tablet (check that this isn't just on my ipad)
+//1. Fix all bugs (check on different browsers with Kerve browser stack login details)
+//2. Check on windows/android mobile devices (problem with android selecting mobile version of site)
+//3. ADD LOADING SCREEN (if needed)
+
+// THINGS TO CHECK
 //1. Finalise animation for intro text
-//2. Fix all bugs (check on different browsers with Kerve browser stack login details)
-// - black outline around html5 video (IE)
-//4. Check on windows/android mobile devices (problem with android selecting mobile version of site)
+//2. Video Player Functionality: Allow pause button to work on tablet (check that this isn't just on my ipad)
+//3. User interaction: ADD IN FUNCTIONALITY THAT REVEALS PROJECTS ONCE YOU'VE ACTIVATED ALLOWANIMATION (will make interaction a little more obvious)
+//4. black outline around html5 video (IE)
 
 //PHASE TWO
 //1. Create node back end and use johnny five for arduino code + a templating engine to serve bespoke message
@@ -246,7 +250,7 @@ $(document).ready(function () {
 			    for(var pageNumber = 1;pageNumber<8;pageNumber++){
 					if(isHover != 'portfolio'+pageNumber+'page'){ 
 						isHover = 'container';
-				        $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){ isAnimating=false; }});
+				        if(allowAnimation == true) $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){ isAnimating=false; }});
 					}
 				}
 				// console.log("animate page to home position")
@@ -275,7 +279,7 @@ $(document).ready(function () {
 				    lastScrolled = 'container';
 				    isHover='container';
 					checkPositions();
-					$('#container').stop().animate({'margin-left': portfolioMovePosX[0], 'margin-top': portfolioMovePosY[0]},{complete: function(){isAnimating=false;}});
+					if(allowAnimation == true) $('#container').stop().animate({'margin-left': portfolioMovePosX[0], 'margin-top': portfolioMovePosY[0]},{complete: function(){isAnimating=false;}});
 				}
 			}
 		//if a video has been clicked and then you resize the screen, then return to the standard screen navigation

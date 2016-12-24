@@ -45,8 +45,8 @@ function onPortfolioPlayerReady(event){
   // console.log("video id = "+playerInfoID);
   event.target.mute();
   if(isLoaded == videoList){
-    // console.log("videos ready");
     // YouTubeGetID("https://www.youtube.com/embed/abU5I9Tj6ZU?enablejsapi=1&loop=1&modestbranding=1&playlist=abU5I9Tj6ZU&rel=0&showinfo=0");
+    console.log("videos ready");
     isReady = true;
   } 
 }

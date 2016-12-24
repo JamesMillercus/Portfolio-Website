@@ -36,10 +36,10 @@ h1, p {
   /*background-color:blue;*/
   opacity: 0;
   cursor: pointer;
-  font-family: 'Signika', sans-serif;
+  font-family: 'Dosis', sans-serif;
   margin-left: auto;
   margin-right: auto;
-  font-weight: bolder;
+  font-weight: 100;
   text-align: center;
   position: relative; }
 
