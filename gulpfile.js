@@ -11,6 +11,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
+var nodemon = require('gulp-nodemon');
 
 //runs sass, browserSync and watch tasks (for development)
 gulp.task('default', function (callback){
@@ -50,13 +51,41 @@ gulp.task('sass', function(){
 		stream: true
 	}))
 });
-//task to create a local and externally accessible server
-gulp.task('browserSync', function() {
-	browserSync.init({
-		server: {
-			baseDir:'app'
-		},
+// our gulp-nodemon task
+gulp.task('nodemon', function (cb) {
+	var started = false;
+	return nodemon({
+		script: 'app/index.js'
+	}).on('start', function () {
+		//avoid nodemon being started multiple times
+		console.log("server started");
+		setTimeout(function(){
+			browserSync.reload();
+		}, 2000);
+		if (!started) {
+			cb();
+			started = true;
+		}
 	})
+	.on('crash', function() {
+		// console.log('nodemon.crash');
+	})
+	.on('restart', function() {
+		console.log('nodemon.restart');
+		// browserSync.reload();
+	})
+	.once('quit', function () {
+		// handle ctrl+c without a big weep
+		process.exit();
+	});
+});
+
+gulp.task('browserSync', ['nodemon'], function() {
+	browserSync.init({
+		proxy: "localhost:3000",
+		port: 4000,
+	});
+	console.log("Browser sync is working");
 });
 
 gulp.task('distTest', function() {
@@ -97,4 +126,5 @@ gulp.task('watch', ['browserSync', 'sass'], function(){
 	gulp.watch('app/scss/**/*.scss', ['sass']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/**/*.js', browserSync.reload);
+	gulp.watch('app/*.js', browserSync.reload);
 });
