@@ -59,7 +59,7 @@ function animateHome(){
 		  lastScrolled = '';
 		  //reset all variables so that navigation scrolling will work
 		  isHover = 'container';
-		  isAnimating = false;
+		  isAnimating = false; 
 		  //after a second, make the social links animate in
 		  setTimeout(function(){
 		    $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});

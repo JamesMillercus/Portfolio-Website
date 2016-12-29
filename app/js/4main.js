@@ -8,7 +8,7 @@
 //3. ADD LOADING SCREEN (if needed)
 
 // THINGS TO CHECK
-//1. Finalise animation for intro text
+//1. Finalise animation for intro text (grow from center)
 //2. Video Player Functionality: Allow pause button to work on tablet (check that this isn't just on my ipad)
 //3. User interaction: ADD IN FUNCTIONALITY THAT REVEALS PROJECTS ONCE YOU'VE ACTIVATED ALLOWANIMATION (will make interaction a little more obvious)
 //4. black outline around html5 video (IE)
@@ -119,7 +119,6 @@ function checkPositions() {
 		activateHeroAnimation();
     }else{
     	//if video has been clicked and page then resized
-
     }
 	//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
 	if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
@@ -131,7 +130,7 @@ function checkPositions() {
 
 //on document ready
 $(document).ready(function () {
-
+	socket.emit('userSocket', 'startUp');
 	vid = document.getElementById("startUpVid");
 	// console.log(vid);
 

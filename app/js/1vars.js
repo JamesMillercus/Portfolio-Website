@@ -1,6 +1,3 @@
-/*jslint browser:true*/
-/*global window*/
-
 //** SET UP ALL VARIABLES **//
 
 //setting up mobile device if statements by detecting touch availability
@@ -58,8 +55,6 @@ var navWidth, navMarginLeft, navMarginTop;
 var grownChars = 0;
 var currentHero = 0;
 var allowAnimation = false;
-var heroTextOptions = ["James Miller","Design", "Creative","Technology","Electronics", "Node", "Making", "Arduino", "Javascript", "Interactive", "Gamification", "Playful", "Installations", "Prototyping"];
-
 // Inject YouTube API script asynchronously
 var tag = document.createElement('script');
 tag.src = "//www.youtube.com/player_api";
@@ -87,7 +82,6 @@ var selectedVidLoader = 0;
 //variable to store the state of the mobile device video player
 var videoLoaderState;
 var selectedVideo;
-
 var keyboardArr = [/*a*/97,/*A*/65,/*b*/98,/*B*/66,/*c*/99,/*C*/67,/*d*/100,/*D*/68,/*e*/101,/*E*/69,/*f*/102,/*F*/70,/*g*/103,/*G*/71,/*h*/104,/*H*/72,/*m*/109,/*M*/77];
 var count = 0;
 var keyboardEvent;
@@ -95,4 +89,3 @@ var lowerCase, upperCase;
 var wasHover;
 var lastClicked;
 var oldHover;
-
