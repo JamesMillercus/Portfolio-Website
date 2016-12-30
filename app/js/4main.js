@@ -3,7 +3,7 @@
 // Get Izzy to sense check project text
 
 //PHASE ONE
-//1. Fix all bugs (check on different browsers with Kerve browser stack login details)
+//1. Fix all MOBILE bugs (check on different browsers with Kerve browser stack login details)
 //2. Check on windows/android mobile devices (problem with android selecting mobile version of site)
 //3. ADD LOADING SCREEN (if needed)
 
@@ -130,7 +130,8 @@ function checkPositions() {
 
 //on document ready
 $(document).ready(function () {
-	socket.emit('userSocket', 'startUp');
+	if(isMobile) allowAnimation = true;
+	
 	vid = document.getElementById("startUpVid");
 	// console.log(vid);
 
@@ -158,11 +159,9 @@ $(document).ready(function () {
 	//on mouse click
 	$(".animatingPage").click(function(){
 		if(isHover == "container" && isMobile) openPortfolio(wasPlayed);
-		
 		if(isTablet) {
 			//open video full screen for ipad
 		}
-		
 		//open the selected portfolio item
 		for(var pageNumber = 0;pageNumber<(portfolioMovePosX.length+1);pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
 	});

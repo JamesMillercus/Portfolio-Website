@@ -170,6 +170,7 @@ function animateIn(){
 
 //** OPEN VIDEO **//
 function openPortfolio(clicked){
+	alert(clicked);
 	//if is mobile and previously clicked on the same video
 	if(isNaN(lastScrolled) && lastScrolled == "container" && isMobile) players[wasPlayed].unMute().seekTo(0).playVideo();
 	//if a video hasn't been clicked yet, the videos have been loaded and the screen height is over 500
