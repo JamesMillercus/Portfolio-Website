@@ -95,4 +95,5 @@ var lowerCase, upperCase;
 var wasHover;
 var lastClicked;
 var oldHover;
+var heroTotalTextWidth = 0;
 

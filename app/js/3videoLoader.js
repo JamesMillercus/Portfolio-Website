@@ -90,6 +90,7 @@ function fullScreenMobile(){
   players[lastVideo].playVideo();
   wasPlayed = lastVideo;
   staticHome();
+  clickedVideo=false;
 }
 
 function fullScreenVideoPlayer(portfolioSelection){
@@ -126,9 +127,10 @@ function fullScreenVideoPlayer(portfolioSelection){
 }
 
 function exitFullScreen(){
-  clickedVideo = false; 
   player.mute().pauseVideo();
   $('#fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #' + isHover + ' .videoContainer, #'+ isHover+', #'+isHover+' .content, #'+isHover+' .videoPlayer, #'+isHover+' .videoPlayer iframe, #container, .animatingPage, iframe').css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':'', 'z-index':''});
+  allowAnimation = false;
   // $("#" + isHover + " .videoContainer, #fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #" + isHover + " .content", "#" + isHover + " .videoPlayer iframe, #" + isHover + " .videoPlayer").css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':''});
+  clickedVideo = false; 
   checkPositions();
 }

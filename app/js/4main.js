@@ -175,7 +175,7 @@ $(document).ready(function () {
 	//on mouse out of navigation button
 	$(".animatingPage").mouseleave(function(){ 
 		// console.log("lastScrolled = " + lastScrolled);
-		resetToHome(isHover); 
+		if(lastScrolled != 'container') resetToHome(isHover); 
 	});
 
 	$(document).keyup(function(e) {
