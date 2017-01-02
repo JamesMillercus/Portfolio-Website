@@ -79,7 +79,7 @@ function updatePosition(posX, posY) {
 	//if animation between navigation buttons isn't happening 
 	if (isAnimating == false && clickedVideo == false && windowSizeHeight >550){
 		//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != ''  && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
+		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
 
 		function scrollingPage(currentHover, posMovement){
 			if(windowSizeWidth > 1024) $('#container').css({'margin-left': portfolioMovePosX[posMovement], 'margin-top': portfolioMovePosY[posMovement]});
@@ -93,7 +93,7 @@ function updatePosition(posX, posY) {
     		else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
 	        $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
 	        $('.videoContainer').css({'opacity':''});
-	        if(isHover == 'container') lastScrolled = 'container';
+	        if(isHover == 'container') lastScrolled = 'container', allowAnimation = true;
 		}
         //if the initial start up video played, then hide it to reveal the still jpg
 		if($("video").css('display') === 'block') $('video').css({'display': 'none'});

@@ -45,7 +45,9 @@ function animateHome(){
       $('video').css({'display':'none'});
       $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
 	  activateHeroAnimation();
-      $('#heroText').stop().animate({'opacity': 1},{complete: function(){
+	  $('#heroText').css({'width':heroTotalTextWidth +'px','bottom':0+'px','font-size':0+'px','padding-top':$('#heroText').height()/2+'px','padding-left':$('#heroText').width()/2+'px'});
+      console.log('width of hero = ' + heroTotalTextWidth + 'px');
+      $('#heroText').stop().animate({'opacity': 1, 'font-size':$('#centerImage').width()/8 +'px', 'padding':0+'px'},{complete: function(){
 	      //animate text in
 	      //animate all the nav buttons to their correct positions	  
 		  $('#topImage').stop().animate({'margin-top': '', 'margin-left': '', 'opacity': 1}, 500);
@@ -75,7 +77,7 @@ function activateHeroAnimation(){
 	var charHover, previousCharHover;
 	var heroCharNumber = 0, heroSpaceNumber = 0;
 	var heroTextHeight = ($('#centerImage').height()-$('#heroCharNumber1').height())/2;
-	var heroTotalTextWidth = 0;
+	heroTotalTextWidth = 0;
 	if(currentHero == 0) $( "#heroText" ).html(heroTextOptions[0]);
 	var chars = jQuery.map($elem.text().split(''), function(c) {
 	  var charLength, charLengthParser;
@@ -96,10 +98,10 @@ function activateHeroAnimation(){
 		if ($("#"+charHover).css('opacity')==='1' && windowSizeWidth > 1024 && isAnimating == false && $('.animatingPage').css('display')==='block') growChar(charHover, charLengthParser);
 	});
 	
-	$("#centerImage").mouseenter(function(){
-		allowAnimation = true;
-		console.log("ALLOW ANIMATION");
-	});
+	// $("#centerImage").mouseenter(function(){
+	// 	allowAnimation = true;
+	// 	console.log("ALLOW ANIMATION");
+	// });
 	for(var x = 1;x<charLength;x++){
 		var heroTextWidth = $('#heroCharNumber'+x).width();
 		heroTotalTextWidth += heroTextWidth;
@@ -107,6 +109,7 @@ function activateHeroAnimation(){
 	if(heroSpaceNumber>0) heroTotalTextWidth = heroTotalTextWidth + $("#heroCharSpace").width();
 	$('#heroText').css({'height':$('#heroCharNumber1').height() + 'px'});
   	$('#heroText').css({'top': heroTextHeight + 'px', 'width':heroTotalTextWidth + 'px'});
+
 }
 
 function growChar(selectedChar, numberOfChars){

@@ -464,10 +464,14 @@ iframe {
   right: 0;
   width: 100px;
   height: 100px;
-  background-color: blue;
+  background-image: url("../assets/closeButton.png");
+  background-position: 0px 0px;
   z-index: 200;
   display: none;
   opacity: 0; }
+
+#videoExit:hover {
+  background-position: 0px 100px; }
 
 #startUpVid {
   display: block; }

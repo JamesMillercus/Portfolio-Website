@@ -88,4 +88,10 @@ var keyboardEvent;
 var lowerCase, upperCase;
 var wasHover;
 var lastClicked;
+<<<<<<< .merge_file_lJp1Ea
 var oldHover;
+=======
+var oldHover;
+var heroTotalTextWidth = 0;
+
+>>>>>>> .merge_file_gTAafT
