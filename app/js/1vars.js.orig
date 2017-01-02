@@ -88,5 +88,10 @@ var keyboardEvent;
 var lowerCase, upperCase;
 var wasHover;
 var lastClicked;
+<<<<<<< HEAD
+var oldHover;
+=======
 var oldHover;
 var heroTotalTextWidth = 0;
+
+>>>>>>> develop

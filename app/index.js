@@ -42,7 +42,7 @@ var serveFileLocations = [
 //gifs
 '/assets/moodTree.gif','/assets/krispyKreme.gif','/assets/MSMgif.gif','/assets/hackyXmasGif.gif','/assets/beerGif.gif','/assets/wiywiGIF.gif','/assets/leapTassimo.gif','/assets/makerGifFinal.gif',
 //images
-'/assets/instagram.jpg','/assets/twitter.jpg','/assets/linkedIn.jpg','/assets/github.jpg','/assets/mail.jpg','/assets/pinterest.jpg',
+'/assets/closeButton.png','/assets/instagram.jpg','/assets/twitter.jpg','/assets/linkedIn.jpg','/assets/github.jpg','/assets/mail.jpg','/assets/pinterest.jpg',
 //video
 '/assets/logoAnimation.mp4'];
 
@@ -55,7 +55,7 @@ var serveFiles = [
 //gifs
 '/assets/moodTree.gif','/assets/krispyKreme.gif','/assets/MSMgif.gif','/assets/hackyXmasGif.gif','/assets/beerGif.gif','/assets/wiywiGIF.gif','/assets/leapTassimo.gif','/assets/makerGifFinal.gif',
 //images
-'/assets/instagram.jpg','/assets/twitter.jpg','/assets/linkedIn.jpg','/assets/github.jpg','/assets/mail.jpg','/assets/pinterest.jpg',
+'/assets/closeButton.png','/assets/instagram.jpg','/assets/twitter.jpg','/assets/linkedIn.jpg','/assets/github.jpg','/assets/mail.jpg','/assets/pinterest.jpg',
 //video
 '/assets/logoAnimation.mp4'];
 
