@@ -1,8 +1,8 @@
 //TO DO
 // TEST JOHNNY FIVE SET UP
+// IMPLEMENT ON LOAD CHECK IF THE BOARD HAS BEEN PLUGGED IN
 
 //implement mongoDB to seen who has accessed the site and what they looked at.
-//Add CMS KEYSTONE / WORDPRESS
 
 //** SET UP ALL VARIABLES **//
 var app = require('express')();
@@ -12,15 +12,16 @@ var j5 = require("johnny-five");
 var board = new j5.Board();
 var heroTextNumber=0;
 var arduinoReady = false;
+var cardName = '';
 // var j5 = {};
  
 var LEDPIN = 13;
 var OUTPUT = 1;
 
 //** BESPOKE HERO TEXT ARRAYS **//
+// 0
+var isabelHeroText = ["Isabel Robson","Tax", "Mittens","3rd March","Franchesca", "Andy", "Karen", "Very Funny", "Skype", "Pigs", "Nazis", "Abinger Hammer", "Power2Women", "Biology", "Crickets", "Mclurcans"];
 // 1
-var isabelHeroText = ["Isabel Robson","Design", "Creative","Technology","Electronics", "Node", "Experimental", "Arduino", "Javascript", "Interactive", "Gamification", "Innovation", "Installations", "Prototyping", "Experiential", "Products"];
-// 2
 var trevorHeroText = ["Trevor Atterton","Design", "Creative","Technology","Electronics", "Node", "Experimental", "Arduino", "Javascript", "Interactive", "Gamification", "Innovation", "Installations", "Prototyping", "Experiential", "Products"];
 // array to contain all other hero text arrays
 var totalHeroTexts = [isabelHeroText,trevorHeroText];
@@ -85,25 +86,44 @@ board.on("ready", function(){
   //   this.digitalWrite(LEDPIN, (val = val ? 0 : 1));
   // });
 
-  
-  this.each(function(board){
-    // Set up LED on board B
-    for(var x = 0;x<totalHeroTexts.length;x++) {
-	    if(board.io.firmware.name == x+".ino"){
-	      j5.ledA = new five.Led({
-	        pin: 13,
-	        board: board
-	      });
-	      heroTextChanger(totalHeroTexts[x]);
-	    }
-	}
+  var touch = new j5.Button(4);
+
+  // Plug the LED module into the
+  // Grove Shield's D6 jack. See
+  // grove-led for more information.
+  var led = new j5.Led(6);
+
+  // The following will turn the Led
+  // on and off as the touch is
+  // pressed and released.
+  touch.on("press", function() {
+    led.on();
   });
-  j5.ledA.toggle();
+
+  touch.on("release", function() {
+    led.off();
+  });
+
+  // Set up LED on board B
+  for(var x = 0;x<totalHeroTexts.length;x++) {
+    if(board.io.firmware.name == "a"+x+".ino"){
+      // j5.ledA = new five.Led({
+      //   pin: 13,
+      //   board: board
+      // });
+      heroTextChanger(totalHeroTexts[x]);
+      cardName = x;
+      console.log("arduino"+x+" = loaded");
+    }
+  }
+  console.log("ARDUINO IS = loaded");
+  // j5.ledA.toggle();
 });
 
 //** SOCKET COMMUNICATION **//
 io.on('connection', function(socket){
   console.log('a user connected');
+  if(cardName!='') heroChanger(cardName);
   // socket.on('userSocket', function(msg){
     // if(msg == 'startUp') heroTextChanger(heroTextNumber);
     // else if(msg != 'startUp' && arduinoReady == true) loadArduino(msg);
