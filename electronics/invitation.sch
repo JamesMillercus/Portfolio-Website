@@ -35,10 +35,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Portfolio Business Card"
+Date "January 2017"
+Rev "1"
+Comp "James Miller"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -547,7 +547,7 @@ U 1 1 587168CE
 P 10000 2950
 F 0 "P2" H 10000 3050 50  0000 C CNN
 F 1 "James Miller" H 10350 2950 50  0000 C CNN
-F 2 "assets:JMLogoButton" H 10000 2950 50  0001 C CNN
+F 2 "assets:JMLogo" H 10000 2950 50  0001 C CNN
 F 3 "" H 10000 2950 50  0000 C CNN
 	1    10000 2950
 	1    0    0    -1  
@@ -558,7 +558,7 @@ U 1 1 5871732E
 P 10000 3150
 F 0 "P4" H 10000 3250 50  0000 C CNN
 F 1 "D&AD" H 10350 3150 50  0000 C CNN
-F 2 "assets:moodButton" H 10000 3150 50  0001 C CNN
+F 2 "assets:moodTreeGif" H 10000 3150 50  0001 C CNN
 F 3 "" H 10000 3150 50  0000 C CNN
 	1    10000 3150
 	1    0    0    -1  
@@ -569,7 +569,7 @@ U 1 1 58717389
 P 10000 3350
 F 0 "P5" H 10000 3450 50  0000 C CNN
 F 1 "Krispy Kreme" H 10350 3350 50  0000 C CNN
-F 2 "assets:krispyButton" H 10000 3350 50  0001 C CNN
+F 2 "assets:krispyKreme" H 10000 3350 50  0001 C CNN
 F 3 "" H 10000 3350 50  0000 C CNN
 	1    10000 3350
 	1    0    0    -1  
@@ -580,7 +580,7 @@ U 1 1 587173E7
 P 10000 3550
 F 0 "P6" H 10000 3650 50  0000 C CNN
 F 1 "Epic Mind Drive" H 10350 3550 50  0000 C CNN
-F 2 "assets:mindDriveButton" H 10000 3550 50  0001 C CNN
+F 2 "assets:mindDrive-F.Paste" H 10000 3550 50  0001 C CNN
 F 3 "" H 10000 3550 50  0000 C CNN
 	1    10000 3550
 	1    0    0    -1  
@@ -591,7 +591,7 @@ U 1 1 58717448
 P 10000 3750
 F 0 "P7" H 10000 3850 50  0000 C CNN
 F 1 "Hacky Xmas" H 10350 3750 50  0000 C CNN
-F 2 "assets:hackyButton" H 10000 3750 50  0001 C CNN
+F 2 "assets:hackyXmas" H 10000 3750 50  0001 C CNN
 F 3 "" H 10000 3750 50  0000 C CNN
 	1    10000 3750
 	1    0    0    -1  
@@ -602,7 +602,7 @@ U 1 1 587174AC
 P 10000 3950
 F 0 "P8" H 10000 4050 50  0000 C CNN
 F 1 "Pay@Pump" H 10350 3950 50  0000 C CNN
-F 2 "assets:beerButton" H 10000 3950 50  0001 C CNN
+F 2 "assets:beerGif-F.Paste" H 10000 3950 50  0001 C CNN
 F 3 "" H 10000 3950 50  0000 C CNN
 	1    10000 3950
 	1    0    0    -1  
@@ -613,7 +613,7 @@ U 1 1 58717513
 P 10000 4150
 F 0 "P9" H 10000 4250 50  0000 C CNN
 F 1 "WIYWI" H 10350 4150 50  0000 C CNN
-F 2 "assets:WiywiButton" H 10000 4150 50  0001 C CNN
+F 2 "assets:WIYWI" H 10000 4150 50  0001 C CNN
 F 3 "" H 10000 4150 50  0000 C CNN
 	1    10000 4150
 	1    0    0    -1  
@@ -624,7 +624,7 @@ U 1 1 5871757F
 P 10000 4350
 F 0 "P10" H 10000 4450 50  0000 C CNN
 F 1 "Tassimo" H 10350 4350 50  0000 C CNN
-F 2 "assets:tassimoButton" H 10000 4350 50  0001 C CNN
+F 2 "assets:tassimoGif" H 10000 4350 50  0001 C CNN
 F 3 "" H 10000 4350 50  0000 C CNN
 	1    10000 4350
 	1    0    0    -1  
@@ -635,7 +635,7 @@ U 1 1 587175EC
 P 10000 4550
 F 0 "P11" H 10000 4650 50  0000 C CNN
 F 1 "Maker" H 10350 4550 50  0000 C CNN
-F 2 "assets:makerButton" H 10000 4550 50  0001 C CNN
+F 2 "assets:makerGif" H 10000 4550 50  0001 C CNN
 F 3 "" H 10000 4550 50  0000 C CNN
 	1    10000 4550
 	1    0    0    -1  
@@ -700,7 +700,7 @@ U 1 1 5872F853
 P 1400 1700
 F 0 "C3" H 1425 1800 50  0000 L CNN
 F 1 "22pF" H 1425 1600 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 1438 1550 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 1438 1550 50  0001 C CNN
 F 3 "" H 1400 1700 50  0000 C CNN
 	1    1400 1700
 	0    1    1    0   
@@ -711,7 +711,7 @@ U 1 1 5872F8DC
 P 1400 2100
 F 0 "C5" H 1425 2200 50  0000 L CNN
 F 1 "22pF" H 1425 2000 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 1438 1950 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 1438 1950 50  0001 C CNN
 F 3 "" H 1400 2100 50  0000 C CNN
 	1    1400 2100
 	0    1    1    0   
@@ -727,6 +727,17 @@ F 3 "" H 4450 4050 50  0000 C CNN
 	1    3350 2950
 	1    0    0    -1  
 $EndComp
+$Comp
+L Crystal_Small Y1
+U 1 1 58744F16
+P 1750 1900
+F 0 "Y1" H 1750 2000 50  0000 C CNN
+F 1 "Crystal_Small" H 1750 1800 50  0000 C CNN
+F 2 "assets:crystal_FA238-TSX3225" H 1750 1900 50  0001 C CNN
+F 3 "" H 1750 1900 50  0000 C CNN
+	1    1750 1900
+	0    1    1    0   
+$EndComp
 Wire Wire Line
 	2200 3800 2100 3800
 Wire Wire Line
@@ -735,12 +746,6 @@ Wire Wire Line
 	1800 6200 1400 6200
 Wire Wire Line
 	1400 6700 1700 6700
-Wire Wire Line
-	1400 6500 1550 6500
-Wire Wire Line
-	1400 6400 1550 6400
-Wire Wire Line
-	1550 6400 1550 6300
 Wire Wire Line
 	1900 6300 1850 6300
 Wire Wire Line
@@ -999,19 +1004,18 @@ Connection ~ 1750 1700
 Wire Wire Line
 	2200 2100 2200 2000
 Connection ~ 1750 2100
-$Comp
-L Crystal_Small Y1
-U 1 1 58744F16
-P 1750 1900
-F 0 "Y1" H 1750 2000 50  0000 C CNN
-F 1 "Crystal_Small" H 1750 1800 50  0000 C CNN
-F 2 "Crystals:Crystal_HC49-SD_SMD" H 1750 1900 50  0001 C CNN
-F 3 "" H 1750 1900 50  0000 C CNN
-	1    1750 1900
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	1750 1700 1750 1800
 Wire Wire Line
 	1750 2100 1750 2000
+Wire Wire Line
+	1400 6500 1550 6500
+Wire Wire Line
+	1550 6400 1550 6300
+Wire Wire Line
+	1400 6400 1550 6400
+Text Label 1450 6400 0    20   ~ 0
+Data+
+Text Label 1450 6500 0    20   ~ 0
+Data-
 $EndSCHEMATC

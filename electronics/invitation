@@ -1,0 +1,11 @@
+Qty,partname,description,lib
+0,"ATMEGA16U4-A","TQFP44, 16K Flash, 1.25K SRAM, 512B EEPROM, USB2.0","atmel"
+0,"C","Unpolarized capacitor","device"
+0,"CONN_01X01","Connector, single row, 01x01","conn"
+0,"CONN_02X03","Connector, double row, 02x03","conn"
+0,"CP1","Polarised capacitor","device"
+0,"Crystal_Small","Two pin crystal","device"
+0,"F_Small","Fuse","device"
+0,"LED","","device"
+0,"R","Resistor","device"
+0,"USB_OTG","USB micro/mini connector","conn"
