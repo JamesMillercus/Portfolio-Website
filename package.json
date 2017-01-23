@@ -37,6 +37,7 @@
     "express": "^4.14.0",
     "gulp-nodemon": "^2.2.1",
     "johnny-five": "^0.10.6",
+    "kicad_bom_wizard": "0.0.8",
     "pug": "^2.0.0-beta6",
     "socket.io": "^1.7.2"
   }
