@@ -4,6 +4,8 @@
 function staticHome(){
 	// hide video
 	$('video').css({'display': 'none'});
+	$( "#viewport" ).removeClass( "hide" );
+	$( "#loadScreenHolder" ).addClass( "hide" ).css({'display':'none'});
 	//add a background image to the home page
 	// $("#centerImage").addClass("designBackground");
 	$('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block', 'opacity':1});	
@@ -24,17 +26,20 @@ function animateHome(){
 	// set video height to half the page
 	var videoHeight = ($('#centerImage').height()-($('#centerImage').height()*.7))/2;
 	//disable nav movement
+	$( "#viewport" ).removeClass( "hide" );
+	$( "#loadScreenHolder" ).addClass( "hide" ).css({'display':'none'});
+	document.getElementById('startUpVid').play();
 	$('.animatingPage').css({'display':'none'});
 	//hide nav button graphics
 	$('#startUpVid').css({'display':'block', 'opacity':1});
-	$('#topImage').css({'margin-top':'20%', 'opacity':0});
-	$('#portfolio1').css({'margin-top':'20%', 'margin-left':'40%', 'opacity':0});
-	$('#portfolio2').css({'margin-top':'20%', 'margin-right':'40%', 'opacity':0});
-	$('#portfolio3').css({'margin-bottom':'20%', 'margin-left':'40%', 'opacity':0});
-	$('#portfolio4').css({'margin-bottom':'20%', 'margin-right':'40%', 'opacity':0});
-	$('#portfolio6').css({'margin-left':'40%', 'opacity':0});
-	$('#portfolio7').css({'margin-right':'40%', 'opacity':0});
-	$('#bottomImage').css({'margin-bottom':'20%', 'opacity':0});
+	$('#topImage').css({'margin-top':'20%'});
+	$('#portfolio1').css({'margin-top':'20%', 'margin-left':'40%'});
+	$('#portfolio2').css({'margin-top':'20%', 'margin-right':'40%'});
+	$('#portfolio3').css({'margin-bottom':'20%', 'margin-left':'40%'});
+	$('#portfolio4').css({'margin-bottom':'20%', 'margin-right':'40%'});
+	$('#portfolio6').css({'margin-left':'40%'});
+	$('#portfolio7').css({'margin-right':'40%'});
+	$('#bottomImage').css({'margin-bottom':'20%'});
 	var heroTextHeight = ($('#centerImage').height()-$('#heroText').height())/2;
   	$('#heroText').css({'top':heroTextHeight + 'px'});
 	lastScrolled = 'animatingHome';
@@ -45,8 +50,8 @@ function animateHome(){
       $('video').css({'display':'none'});
       $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
 	  activateHeroAnimation();
-	  $('#heroText').css({'width':heroTotalTextWidth +'px','bottom':0+'px','font-size':0+'px','padding-top':$('#heroText').height()/2+'px','padding-left':$('#heroText').width()/2+'px'});
-      console.log('width of hero = ' + heroTotalTextWidth + 'px');
+	  $('#heroText').css({'width':heroTotalTextWidth +'px','bottom':0+'px','font-size':0+'px','padding-top':$('#heroText').height()/1.5+'px','padding-left':$('#heroText').width()/1.5+'px',});
+      // console.log('width of hero = ' + heroTotalTextWidth + 'px');
       $('#heroText').stop().animate({'opacity': 1, 'font-size':$('#centerImage').width()/8 +'px', 'padding':0+'px'},{complete: function(){
 	      //animate text in
 	      //animate all the nav buttons to their correct positions	  
@@ -191,4 +196,3 @@ function openPortfolio(clicked){
 		if(!isMobile) fullScreenVideoPlayer(number);
 	}
 }
-

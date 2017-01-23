@@ -41,6 +41,25 @@ h1, p{
     font-family: 'Open Sans', sans-serif;
     color:#7c7c7c;
 }
+
+#loadScreen{
+    background-image: url(../assets/loading.gif);
+    width: 200px;
+    height: 130px;
+    background-size:contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+}
+#loadScreenHolder{
+    position: relative;
+    top:40%;
+}
+.hide{
+    opacity:0;
+}
+
 .heroChar, #heroCharSpace{
     color:black;
     float:left;

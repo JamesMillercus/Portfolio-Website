@@ -89,16 +89,16 @@ function updatePosition(posX, posY) {
 			//animate based on normal mouse position
 			$('#container').css({'opacity': 1,'margin-left': posX+'px', 'margin-top': posY+'px'});
 			//clear any inline styles on navigation images that were created with js
-	        if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
-    		else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
-	        $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
-	        $('.videoContainer').css({'opacity':''});
-	        if(isHover == 'container') lastScrolled = 'container', allowAnimation = true;
+      if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
+  		else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
+      $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
+      $('.videoContainer').css({'opacity':''});
+      if(isHover == 'container') lastScrolled = 'container', allowAnimation = true;
 		}
         //if the initial start up video played, then hide it to reveal the still jpg
 		if($("video").css('display') === 'block') $('video').css({'display': 'none'});
 	}
-	console.log("last Scrolled = "+ lastScrolled);
-	console.log("is hover = "+ isHover);
+	// console.log("last Scrolled = "+ lastScrolled);
+	// console.log("is hover = "+ isHover);
 }
 

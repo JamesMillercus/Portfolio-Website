@@ -8,7 +8,10 @@
     </head>
     <body>
         <script src="js/main.min.js"></script>
-        <div id ="viewport"> 
+        <div id = "loadScreenHolder"> 
+            <div id = "loadScreen"></div>
+        </div>
+        <div id ="viewport" class = "hide"> 
             <div id ="videoExit"></div>
             <iframe id = "fullscreenVideoPlayer" src="https://www.youtube.com/embed/abU5I9Tj6ZU?enablejsapi=1&loop=1&modestbranding=1&playlist=abU5I9Tj6ZU&rel=0&showinfo=0"></iframe>     
             <div id ="container">      
@@ -42,7 +45,7 @@
                                         </a>
                                     </div>
                                     <div id = "heroText">James Miller</div>
-                                    <video id ="startUpVid" width="100px" height="100px" autoplay> 
+                                    <video id ="startUpVid" width="100px" height="100px"> 
                                         <source src="assets/logoAnimation.mp4" type="video/mp4">
                                         <!-- <source src="assets/design.ogv" type="video/ogg"> -->
                                     </video>

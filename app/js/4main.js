@@ -121,10 +121,33 @@ function checkPositions() {
     	//if video has been clicked and page then resized
 
     }
-	//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
-	if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
-	//else load the page without video
-	else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile || $("video").get(0).paused != true) staticHome();
+    if(lastScrolled == "newUser"){
+    	$('#topImage').css({'opacity':0});
+	    $('#bottomImage').css({'opacity':0});
+	    $('#portfolio1').css({'opacity':0});
+	    $('#portfolio2').css({'opacity':0});
+	    $('#portfolio3').css({'opacity':0});
+	    $('#portfolio4').css({'opacity':0});
+	    $('#portfolio6').css({'opacity':0});
+	    $('#portfolio7').css({'opacity':0});
+    }
+	// //if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
+	// if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
+	// //else load the page without video
+	// else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile || $("video").get(0).paused != true) staticHome();
+}
+
+function startWebsite(){
+	$("#loadScreen").stop().animate({'opacity': 0},{ duration: 2000,
+    specialEasing: {
+      width: "linear",
+      height: "easeOutBounce"
+    }, complete: function(){ 
+		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
+	    if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
+	    //else load the page without video
+	    else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile || $("video").get(0).paused != true) staticHome();
+	}}); 
 }
 
 //** MAIN SECTION OF LOGIC **//
@@ -192,7 +215,7 @@ $(document).ready(function () {
 			currentPosY = -windowSizeHeight;
 		  	triggerResponse(lastClicked,keyboardEvent);
 		}
-		console.log(keyboardEvent);
+		// console.log(keyboardEvent);
 	}); 
 	  
 	function triggerResponse(newHover, keyp){
@@ -271,7 +294,7 @@ $(document).ready(function () {
 					    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 					    isHover='container';
 					    checkPositions();
-					    console.log("reset");
+					    // console.log("reset");
 					    // $('body').css({'background-color': 'orange'});
 					}, 50);		    
 					//if the user is navigating the site with the electronics invitation (keyboard inputs)

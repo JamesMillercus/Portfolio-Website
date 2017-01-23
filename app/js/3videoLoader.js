@@ -3,15 +3,16 @@
 //loop through each iframe and create a video player for it
 function onYouTubeIframeAPIReady() {
   var iframes = document.querySelectorAll('.yPlayer')
-  for(videoList = 0; videoList < iframes.length;videoList++) players[videoList] = createPortfolioPlayers(iframes[videoList], videoList);
+  for(videoList = 0; videoList < iframes.length;videoList++) players[videoList] = createPortfolioPlayers(iframes[videoList], videoList, iframes.length);
   loadFullScreenVideoPlayer();
 }
 //create a player and call a function when its ready to play
-function createPortfolioPlayers(playerInfo, idNumber) {
+function createPortfolioPlayers(playerInfo, idNumber, noOfVideos) {
   var src = $("#"+playerInfo.id).attr('src');
   YouTubeGetID(src);
   playerYoutubeIds[idNumber]=ID;
   // console.log("player info "+ playerInfo.id+ " = " +idNumber);
+  // if(idNumber == noOfVideos-1) console.log('ALL IS LOADED!');
   return new YT.Player(playerInfo.id, {
      events: {
         'onReady': onPortfolioPlayerReady,
@@ -44,10 +45,14 @@ function onPortfolioPlayerReady(event){
   var src = $('iframe',this).attr('src');
   // console.log("video id = "+playerInfoID);
   event.target.mute();
+  // console.log('isLoaded = ' + isLoaded);
+  // console.log('videoList = ' + videoList);
   if(isLoaded == videoList){
     // YouTubeGetID("https://www.youtube.com/embed/abU5I9Tj6ZU?enablejsapi=1&loop=1&modestbranding=1&playlist=abU5I9Tj6ZU&rel=0&showinfo=0");
-    console.log("videos ready");
+    // console.log("videos ready");
     isReady = true;
+
+    startWebsite();
   } 
 }
 //loop through and pause all videos
@@ -94,9 +99,6 @@ function fullScreenMobile(){
 }
 
 function fullScreenVideoPlayer(portfolioSelection){
-  console.log(portfolioSelection);
-  console.log(player);
-  console.log(playerYoutubeIds[portfolioSelection]);
   if(playerYoutubeIds[portfolioSelection] != wasPlayed) player.loadVideoById(playerYoutubeIds[portfolioSelection]);
   else player.unMute().playVideo();
   wasPlayed = playerYoutubeIds[portfolioSelection];
@@ -134,3 +136,4 @@ function exitFullScreen(){
   clickedVideo = false; 
   checkPositions();
 }
+

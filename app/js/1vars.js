@@ -58,7 +58,7 @@ var navWidth, navMarginLeft, navMarginTop;
 var grownChars = 0;
 var currentHero = 0;
 var allowAnimation = false;
-var heroTextOptions = ["James Miller","Design", "Creative","Technology","Electronics", "Node", "Making", "Arduino", "Javascript", "Interactive", "Gamification", "Playful", "Installations", "Prototyping"];
+var heroTextOptions = ["James Miller","Design", "Creative","Technology","Electronics", "Node", "Ideation", "Arduino", "Javascript", "Interactive", "Gamification", "Innovation", "Installations", "Prototyping", "Experiential", "Products"];
 
 // Inject YouTube API script asynchronously
 var tag = document.createElement('script');
@@ -96,4 +96,5 @@ var wasHover;
 var lastClicked;
 var oldHover;
 var heroTotalTextWidth = 0;
+
 

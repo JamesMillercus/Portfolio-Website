@@ -3,7 +3,6 @@
 //** LOAD IN ALL IMAGES **//
 
 $( document ).ready(function() {
-	console.log( "ready!" );
     $.fn.bgLoaded = function(custom) {
         var self = this;
 
