@@ -5,7 +5,9 @@
 //PHASE ONE
 //1. Fix all bugs (check on different browsers with Kerve browser stack login details)
 //2. Check on windows/android mobile devices (problem with android selecting mobile version of site)
-//3. ADD LOADING SCREEN (if needed)
+//3. ADD LOADING SCREEN 
+// - Add videos in once the loading screen is there
+//4. Fix bug where all videos reveal once clicked + screen resize reset scroll (like when vid is clicked)
 
 // THINGS TO CHECK
 //1. Finalise animation for intro text
@@ -122,14 +124,7 @@ function checkPositions() {
 
     }
     if(lastScrolled == "newUser"){
-    	$('#topImage').css({'opacity':0});
-	    $('#bottomImage').css({'opacity':0});
-	    $('#portfolio1').css({'opacity':0});
-	    $('#portfolio2').css({'opacity':0});
-	    $('#portfolio3').css({'opacity':0});
-	    $('#portfolio4').css({'opacity':0});
-	    $('#portfolio6').css({'opacity':0});
-	    $('#portfolio7').css({'opacity':0});
+	    $('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio6, #portfolio7').css({'opacity':0});
     }
 	// //if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
 	// if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
@@ -162,7 +157,6 @@ $(document).ready(function () {
 	function myFunction() {
 		// if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
 	}
-
 
 	//when all navigation images are loaded, call checkPositions()
     $('.backgroundImage').imagesLoaded().done( function( instance ) {
