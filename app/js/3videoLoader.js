@@ -1,5 +1,19 @@
 
 //** VIDEO LOGIC **//
+// put all link names into an array
+// loop through each item in array and push them through a function that creates appends html on a page
+// call on youtubeiframeapiready function
+
+var youtubeVidArr = ['abU5I9Tj6ZU','yVKqqdlHPLI','AlvdRkRewvA','K3N18cqnzHg','d_NQcNYMKG8','8ycTf2TDH_I','Swuka5XJRcw','wviBk2BYAzw','5hHonl2hmiU'];
+
+function loadIframes(){
+  for(var x = 0;x<youtubeVidArr.length;x++){
+    if(x == 0) $( "#viewport" ).append( '<iframe id = "fullscreenVideoPlayer" src="https://www.youtube.com/embed/'+youtubeVidArr[x]+'?enablejsapi=1&loop=1&modestbranding=1&playlist='+youtubeVidArr[x]+'&rel=0&showinfo=0"></iframe>' );
+    else $( "#portfolio"+x+"page .videoPlayer" ).append( '<iframe src="https://www.youtube.com/embed/'+youtubeVidArr[x]+'?enablejsapi=1&loop=1&modestbranding=1&playlist='+youtubeVidArr[x]+'&rel=0&showinfo=0" frameborder="0" allowfullscreen id="player'+x+'" class = "yPlayer" width="560" height="315"></iframe>' );
+    $( "#loadPercentage p" ).html((loadPercentage+=5) +'%')
+  }
+}
+
 //loop through each iframe and create a video player for it
 function onYouTubeIframeAPIReady() {
   var iframes = document.querySelectorAll('.yPlayer')
@@ -45,11 +59,13 @@ function onPortfolioPlayerReady(event){
   var src = $('iframe',this).attr('src');
   // console.log("video id = "+playerInfoID);
   event.target.mute();
-  // console.log('isLoaded = ' + isLoaded);
-  // console.log('videoList = ' + videoList);
+  console.log('isLoaded = ' + isLoaded);
+  console.log('videoList = ' + videoList);
+  $( "#loadPercentage p" ).html((loadPercentage+=6) +'%')
   if(isLoaded == videoList){
     // YouTubeGetID("https://www.youtube.com/embed/abU5I9Tj6ZU?enablejsapi=1&loop=1&modestbranding=1&playlist=abU5I9Tj6ZU&rel=0&showinfo=0");
-    // console.log("videos ready");
+    $( "#loadPercentage p" ).html((loadPercentage+=7) +'%')
+    console.log("videos ready");
     isReady = true;
 
     startWebsite();

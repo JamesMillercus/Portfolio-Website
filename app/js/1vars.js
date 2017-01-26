@@ -59,12 +59,13 @@ var grownChars = 0;
 var currentHero = 0;
 var allowAnimation = false;
 var heroTextOptions = ["James Miller","Design", "Creative","Technology","Electronics", "Node", "Ideation", "Arduino", "Javascript", "Interactive", "Gamification", "Innovation", "Installations", "Prototyping", "Experiential", "Products"];
-
-// Inject YouTube API script asynchronously
-var tag = document.createElement('script');
-tag.src = "//www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+$(document).ready(function () {
+	// Inject YouTube API script asynchronously
+	var tag = document.createElement('script');
+	tag.src = "//www.youtube.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
 // a counter to see how many videos have been loaded
 var isLoaded = 0;
 //boolean to allow videos to be played once loaded
@@ -96,5 +97,7 @@ var wasHover;
 var lastClicked;
 var oldHover;
 var heroTotalTextWidth = 0;
+var loadPercentage = 0;
+var videoYeah;
 
 

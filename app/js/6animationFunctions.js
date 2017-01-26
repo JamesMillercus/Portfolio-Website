@@ -3,6 +3,7 @@
 //** START ON STATIC SCREEN **//
 function staticHome(){
 	// hide video
+	console.log("static home triggered!");
 	$('video').css({'display': 'none'});
 	$( "#viewport" ).removeClass( "hide" );
 	$( "#loadScreenHolder" ).addClass( "hide" ).css({'display':'none'});
@@ -10,9 +11,10 @@ function staticHome(){
 	// $("#centerImage").addClass("designBackground");
 	$('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block', 'opacity':1});	
 	//reset all nav button positions
-	$('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8').css({'margin-top': '', 'margin-left': '', 'margin-right':'', 'margin-bottom': '', 'opacity': ''});
+	$('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8').css({'margin-top': '', 'margin-left': '', 'margin-right':'', 'margin-bottom': '', 'opacity': '', 'display':''});
 	//activate navigation movement by clearing lastScrolled and resetting isHover + isAnimating
 	lastScrolled = '';
+	console.log("lastScrolled = " + lastScrolled);
 	isHover = 'container';
 	isAnimating = false;
 	//allow nav buttons to be scrolled over by revealing the scroll buttons
@@ -23,15 +25,16 @@ function staticHome(){
 
 //** START ON ANIMATED SCREEN **//
 function animateHome(){
+	console.log("animate home launched!");
 	// set video height to half the page
 	var videoHeight = ($('#centerImage').height()-($('#centerImage').height()*.7))/2;
 	//disable nav movement
 	$( "#viewport" ).removeClass( "hide" );
 	$( "#loadScreenHolder" ).addClass( "hide" ).css({'display':'none'});
+	$('#startUpVid').css({'display':'block', 'opacity':1});
 	document.getElementById('startUpVid').play();
 	$('.animatingPage').css({'display':'none'});
 	//hide nav button graphics
-	$('#startUpVid').css({'display':'block', 'opacity':1});
 	$('#topImage').css({'margin-top':'20%'});
 	$('#portfolio1').css({'margin-top':'20%', 'margin-left':'40%'});
 	$('#portfolio2').css({'margin-top':'20%', 'margin-right':'40%'});
@@ -43,37 +46,49 @@ function animateHome(){
 	var heroTextHeight = ($('#centerImage').height()-$('#heroText').height())/2;
   	$('#heroText').css({'top':heroTextHeight + 'px'});
 	lastScrolled = 'animatingHome';
+	// if(videoYeah.paused){
+	// 	staticHome();
+	// }
+	$( window ).resize(function() {
+  		staticHome();
+	});
 	// console.log("animate home");
 	//set video vertical position and if the video is completed
-	$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
-      // console.log('Video has ended!');
-      $('video').css({'display':'none'});
-      $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
-	  activateHeroAnimation();
-	  $('#heroText').css({'width':heroTotalTextWidth +'px','bottom':0+'px','font-size':0+'px','padding-top':$('#heroText').height()/1.5+'px','padding-left':$('#heroText').width()/1.5+'px',});
-      // console.log('width of hero = ' + heroTotalTextWidth + 'px');
-      $('#heroText').stop().animate({'opacity': 1, 'font-size':$('#centerImage').width()/8 +'px', 'padding':0+'px'},{complete: function(){
-	      //animate text in
-	      //animate all the nav buttons to their correct positions	  
-		  $('#topImage').stop().animate({'margin-top': '', 'margin-left': '', 'opacity': 1}, 500);
-		  $('#portfolio1').stop().animate({'margin-top':'', 'margin-left':'', 'opacity':1}, 500);
-		  $('#portfolio2').stop().animate({'margin-top':'', 'margin-right':'', 'opacity':1}, 500);
-		  $('#portfolio3').stop().animate({'margin-bottom':'', 'margin-left':'', 'opacity':1}, 500);
-		  $('#portfolio4').stop().animate({'margin-bottom':'', 'margin-right':'', 'opacity':1}, 500);
-		  $('#portfolio6').stop().animate({'margin-left': '', 'opacity': 1}, 500);
-		  $('#portfolio7').stop().animate({'margin-right': '', 'opacity': 1}, 500);
-		  $('#bottomImage').stop().animate({'margin-bottom': '', 'opacity': 1},500);
-		  lastScrolled = '';
-		  //reset all variables so that navigation scrolling will work
-		  isHover = 'container';
-		  isAnimating = false;
-		  //after a second, make the social links animate in
-		  setTimeout(function(){
-		    $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
-		    $('.animatingPage').css({'display':'block'});
-		  }, 1000);		
-      }});
-    });
+	console.log("lastScrolled = " + lastScrolled);
+	if(!videoYeah.paused) {
+		console.log("lastScrolled = " + lastScrolled);
+		$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
+	      if(lastScrolled == 'animatingHome'){
+		      console.log('Video has ended!');
+		      $('video').css({'display':'none'});
+		      $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
+			  activateHeroAnimation();
+			  $('#heroText').css({'width':heroTotalTextWidth +'px','bottom':0+'px','font-size':0+'px','padding-top':$('#heroText').height()/1.5+'px','padding-left':$('#heroText').width()/1.5+'px',});
+		      // console.log('width of hero = ' + heroTotalTextWidth + 'px');
+		      $('#heroText').stop().animate({'opacity': 1, 'font-size':$('#centerImage').width()/8 +'px', 'padding':0+'px'},{complete: function(){
+			      //animate text in
+			      //animate all the nav buttons to their correct positions	  
+				  $('#topImage').stop().animate({'margin-top': '', 'margin-left': '', 'opacity': 1}, 500);
+				  $('#portfolio1').stop().animate({'margin-top':'', 'margin-left':'', 'opacity':1}, 500);
+				  $('#portfolio2').stop().animate({'margin-top':'', 'margin-right':'', 'opacity':1}, 500);
+				  $('#portfolio3').stop().animate({'margin-bottom':'', 'margin-left':'', 'opacity':1}, 500);
+				  $('#portfolio4').stop().animate({'margin-bottom':'', 'margin-right':'', 'opacity':1}, 500);
+				  $('#portfolio6').stop().animate({'margin-left': '', 'opacity': 1}, 500);
+				  $('#portfolio7').stop().animate({'margin-right': '', 'opacity': 1}, 500);
+				  $('#bottomImage').stop().animate({'margin-bottom': '', 'opacity': 1},500);
+				  lastScrolled = '';
+				  //reset all variables so that navigation scrolling will work
+				  isHover = 'container';
+				  isAnimating = false;
+				  //after a second, make the social links animate in
+				  setTimeout(function(){
+				    $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+				    $('.animatingPage').css({'display':'block'});
+				  }, 1000);		
+		      }});
+	      }
+	    });
+	}
 }
 
 

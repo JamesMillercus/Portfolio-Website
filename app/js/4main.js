@@ -5,15 +5,11 @@
 //PHASE ONE
 //1. Fix all bugs (check on different browsers with Kerve browser stack login details)
 //2. Check on windows/android mobile devices (problem with android selecting mobile version of site)
-//3. ADD LOADING SCREEN 
-// - Add videos in once the loading screen is there
-//4. Fix bug where all videos reveal once clicked + screen resize reset scroll (like when vid is clicked)
+//3. Fix bug where all videos reveal once clicked + screen resize reset scroll (like when vid is clicked)
+//4. Recode site so that is runs more effieciently (constructor functions)
 
 // THINGS TO CHECK
-//1. Finalise animation for intro text
-//2. Video Player Functionality: Allow pause button to work on tablet (check that this isn't just on my ipad)
-//3. User interaction: ADD IN FUNCTIONALITY THAT REVEALS PROJECTS ONCE YOU'VE ACTIVATED ALLOWANIMATION (will make interaction a little more obvious)
-//4. black outline around html5 video (IE)
+//1. Video Player Functionality: Allow pause button to work on tablet (check that this isn't just on my ipad)
 
 //PHASE TWO
 //1. Create node back end and use johnny five for arduino code + a templating engine to serve bespoke message
@@ -133,7 +129,7 @@ function checkPositions() {
 }
 
 function startWebsite(){
-	$("#loadScreen").stop().animate({'opacity': 0},{ duration: 2000,
+	$("#loadScreen, #loadPercentage").stop().animate({'opacity': 0},{ duration: 2000,
     specialEasing: {
       width: "linear",
       height: "easeOutBounce"
@@ -141,7 +137,7 @@ function startWebsite(){
 		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
 	    if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
 	    //else load the page without video
-	    else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile || $("video").get(0).paused != true) staticHome();
+	    else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile) staticHome();
 	}}); 
 }
 
@@ -149,6 +145,7 @@ function startWebsite(){
 
 //on document ready
 $(document).ready(function () {
+	videoYeah = document.getElementById("startUpVid");
 
 	vid = document.getElementById("startUpVid");
 	// console.log(vid);
@@ -164,7 +161,9 @@ $(document).ready(function () {
             checkPositions();
     });
 	// when browser is resized, call checkPositions()
-	$(window).resize(checkPositions);
+	$( window ).resize(function() {
+  		checkPositions();
+	});
 	$(window).on( "orientationchange", function( event ) { checkPositions(); });
 
 	// on mouse over of navigation button
@@ -254,7 +253,7 @@ $(document).ready(function () {
 				$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
 				$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
 				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
-				$( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+				if(lastScrolled != 'newUser') $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 				if(lastScrolled == "#portfolio5") {
 					$('#portfolio8page').css({"display":"none"});
 					setTimeout(function(){ $('#portfolio8page').css({"display":"block"}); }, 700);	
@@ -306,4 +305,6 @@ $(document).ready(function () {
 			if(!isMobile && !isTablet) isHover = 'container';
 		}
 	}
+
+	loadIframes();
 });
