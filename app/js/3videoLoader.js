@@ -141,13 +141,13 @@ function fullScreenVideoPlayer(portfolioSelection){
   if(selectedVidLoader == 0) {
     selectedVidLoader++;
   }
-  // alert(playerYoutubeIds[portfolioSelection]);
 }
 
 function exitFullScreen(){
   player.mute().pauseVideo();
   $('#fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #' + isHover + ' .videoContainer, #'+ isHover+', #'+isHover+' .content, #'+isHover+' .videoPlayer, #'+isHover+' .videoPlayer iframe, #container, .animatingPage, iframe').css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':'', 'z-index':''});
   allowAnimation = false;
+  lastScrolled = '';
   // $("#" + isHover + " .videoContainer, #fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #" + isHover + " .content", "#" + isHover + " .videoPlayer iframe, #" + isHover + " .videoPlayer").css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':''});
   clickedVideo = false; 
   checkPositions();

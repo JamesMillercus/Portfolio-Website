@@ -19,6 +19,8 @@
 
 //** CHECK POSITIONS **//
 function checkPositions() {
+	// store home page size to determine navigation movement distance
+	var backgroundWMover, backgroundHMover;
     //update window sizes
     portfolioMovePosX = [ currentPosX / 1.2 + 'px', currentPosX * 1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
     portfolioMovePosY = [ currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
@@ -134,10 +136,11 @@ function startWebsite(){
       width: "linear",
       height: "easeOutBounce"
     }, complete: function(){ 
+    	// var v = window.document.createElement("video");
 		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
-	    if(!!v.canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
+	    if(!!document.getElementById("startUpVid").canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
 	    //else load the page without video
-	    else if(!!v.canPlayType == false || windowSizeWidth < 1024 || isMobile) staticHome();
+	    else if(!!document.getElementById("startUpVid").canPlayType == false || windowSizeWidth < 1024 || isMobile) staticHome();
 	}}); 
 }
 
@@ -145,15 +148,14 @@ function startWebsite(){
 
 //on document ready
 $(document).ready(function () {
-	videoYeah = document.getElementById("startUpVid");
 
-	vid = document.getElementById("startUpVid");
-	// console.log(vid);
+	// vid = document.getElementById("startUpVid");
+	// // console.log(vid);
 
-	vid.ontimeupdate = function() { myFunction() };
-	function myFunction() {
-		// if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
-	}
+	// vid.ontimeupdate = function() { myFunction() };
+	// function myFunction() {
+	// 	// if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
+	// }
 
 	//when all navigation images are loaded, call checkPositions()
     $('.backgroundImage').imagesLoaded().done( function( instance ) {
@@ -163,6 +165,9 @@ $(document).ready(function () {
 	// when browser is resized, call checkPositions()
 	$( window ).resize(function() {
   		checkPositions();
+		allowAnimation = false;
+	    lastScrolled = '';
+	    clickedVideo = false; 
 	});
 	$(window).on( "orientationchange", function( event ) { checkPositions(); });
 

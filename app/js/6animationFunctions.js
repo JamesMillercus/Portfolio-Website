@@ -55,6 +55,7 @@ function animateHome(){
 	// console.log("animate home");
 	//set video vertical position and if the video is completed
 	console.log("lastScrolled = " + lastScrolled);
+	var videoYeah = document.getElementById("startUpVid");
 	if(!videoYeah.paused) {
 		console.log("lastScrolled = " + lastScrolled);
 		$('video').css({'top':videoHeight + 'px'}).on('ended',function(){

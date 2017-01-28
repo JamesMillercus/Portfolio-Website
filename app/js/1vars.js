@@ -22,20 +22,12 @@ var windowSizeWidth, windowSizeHeight;
 var isAnimating = false;
 // variable to check what is being hovered on, set up automatically as container
 var isHover = 'container';
-// math to decide movement distance that the container will animate once nav buttons are hovered over/out
-var shortMovement = 1.22, mediumMovement = 1.28, longMovement = 1.29;
-// store selected navigation image here
-var image;
 // store the last scrolled item
 var lastScrolled = 'newUser';
+//stores the latest selected video for iphones
 var lastVideo;
-// store home page size to determine navigation movement distance
-var backgroundWMover, backgroundHMover;
-// math to decide button positions within the home page, every mouse movement
-var rightPosMath = 1.57, bottomPosMath = 1.73, topPosMath = 3.22, leftPosMath = 3.94;
 // store values to decide the size of selected and non selected nav buttons
 var growBackgroundWSize, shrinkBackgroundWSize;
-var v = window.document.createElement("video");
 var vid;
 var divCenter;
 var middleImagesHeight, newMiddleImagesHeight;
@@ -98,6 +90,5 @@ var lastClicked;
 var oldHover;
 var heroTotalTextWidth = 0;
 var loadPercentage = 0;
-var videoYeah;
 
 
