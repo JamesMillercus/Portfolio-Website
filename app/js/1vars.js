@@ -28,14 +28,32 @@ var lastScrolled = 'newUser';
 var lastVideo;
 // store values to decide the size of selected and non selected nav buttons
 var growBackgroundWSize, shrinkBackgroundWSize;
-var vid;
-var divCenter;
-var middleImagesHeight, newMiddleImagesHeight;
+//calculate the vertical position of the 2 portfolio items in the center of the page
+var middleImagesHeight;
+// var to track if a video has been clicked
 var clickedVideo = false;
-var portfolioMovePosX;
-var portfolioMovePosY;
 
-//math to decide pages positions every mouse movement
+var PortfolioMovePos = {
+	portfolio1: [.83333333333333333,.7],
+	portfolio2: [1.16,.7],
+	portfolio3: [.83333333333333333,1.3],
+	portfolio4: [1.16,1.3],
+	portfolio5: [1,.6],
+	portfolio6: [.76923072999,1],
+	portfolio7: [1.24,1],
+	portfolio8: [1,1.4],
+    portfolioMoveValue : function(xpos, ypos, portfolioItem) {
+    	return [xpos*this[Object.keys(this)[portfolioItem]][0] + 'px', ypos*this[Object.keys(this)[portfolioItem]][1]+ 'px'];
+    },
+    totalPortfolioItems : function(){
+    	// return Object.keys(this).length-1;
+    	return 9;
+    },
+};
+
+//Array to store how portfolio items are animated based on mouse positions
+var portfolioMovePosX, portfolioMovePosY;
+//math to decide positions of portfolio hit boxes (dynamically assigned)
 var topPagePos, bottomPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos;
 var desktopImageSizes, smallDesktopImageSizes, tabletImageSizes, mobileImageSizes, imageResizingArr;
 var imageSizeVariables = [topPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos, largeHitboxHSize, largeHitboxWSize, medHitboxWSize, smallHitboxHSize, smallHitboxWSize];

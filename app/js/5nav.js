@@ -74,15 +74,14 @@ function updatePosition(posX, posY) {
     //move background container based on mouse positions
 	currentPosX = posX;
 	currentPosY = posY;
-	portfolioMovePosX = [currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
-	portfolioMovePosY = [currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
-	//if animation between navigation buttons isn't happening 
-	if (isAnimating == false && clickedVideo == false && windowSizeHeight >550){
-		//detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-		for(var pageNumber = 0;pageNumber<portfolioMovePosX.length+1;pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
 
-		function scrollingPage(currentHover, posMovement){
-			if(windowSizeWidth > 1024) $('#container').css({'margin-left': portfolioMovePosX[posMovement], 'margin-top': portfolioMovePosY[posMovement]});
+  //if animation between navigation buttons isn't happening 
+  if (isAnimating == false && clickedVideo == false && windowSizeHeight >550){
+    //detect what navigation button is being scrolled over and adjust maths mouse position accordingly
+    for(var pageNumber = 0;pageNumber<PortfolioMovePos.totalPortfolioItems();pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
+
+    function scrollingPage(currentHover, posMovement){
+      if(windowSizeWidth > 1024) $('#container').css({'margin-left': PortfolioMovePos.portfolioMoveValue(currentPosX, currentPosY, posMovement)[0], 'margin-top': PortfolioMovePos.portfolioMoveValue(currentPosX, currentPosY, posMovement)[1]});
 		}
 		//if not hovering on a nav button
 		if(isHover == 'container' || windowSizeWidth < 1024) {

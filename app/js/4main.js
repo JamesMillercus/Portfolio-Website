@@ -19,19 +19,18 @@
 
 //** CHECK POSITIONS **//
 function checkPositions() {
-	// store home page size to determine navigation movement distance
-	var backgroundWMover, backgroundHMover;
+
+	//1: RESET DATA VARIABLES
     //update window sizes
-    portfolioMovePosX = [ currentPosX / 1.2 + 'px', currentPosX * 1.16+'px', currentPosX/1.2+'px', currentPosX*1.16+'px', currentPosX+'px', currentPosX/1.3+'px', currentPosX*1.24+'px', currentPosX+'px'];
-    portfolioMovePosY = [ currentPosY*.7+'px', currentPosY*.7+'px', currentPosY*1.3+'px', currentPosY*1.3+'px', currentPosY*.6+'px', currentPosY+'px', currentPosY+'px', currentPosY*1.4+'px'];
     windowSizeWidth = $(window).width();
 	windowSizeHeight = $(window).height();
     // set size + position of each page within the website container
 	$('#homepage').css({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px'});
 	// set size + position of background
 	$('#container').css({'height':windowSizeHeight*3 +'px ', 'width':windowSizeWidth*3 + 'px', 'margin-left': '-'+windowSizeWidth + 'px', 'margin-top': '-'+windowSizeHeight + 'px'}); 	
-	//Find 37% of the size of the home page to use for movement calculations of navigation scroll overs
-	backgroundWMover = $('#homepage').width()*.375, backgroundHMover = $('#homepage').height()*.375;
+
+	//2 : CHECK SIZE OF SCREEN AND CALCULATE NEW SIZES OF CONTENT
+
 	//for each screen size (4), call the checkSize function
 	for(var windowResizeNumber = 0;windowResizeNumber < greaterThanResizer.length; windowResizeNumber++) checkSize(windowResizeNumber); 
 	//** CHECK SIZE OF SCREEN + LOAD NEW SIZES **//
@@ -66,7 +65,7 @@ function checkPositions() {
 		// write code that hides gifs and reveals iframes once all videos have been loaded in.
 	}
 
-	//** SORT POSITION DATA FROM ARRAY AND ASSIGN NEW ELEMENT POSITIONS **//
+	// 3: ** SORT POSITION DATA FROM ARRAY AND ASSIGN NEW ELEMENT POSITIONS **//
 	function resizeImages(resizedNumber, newSize){
 		//store chosen array data in a new array
 		imageSizeVariables[resizedNumber] = newSize;
@@ -79,13 +78,14 @@ function checkPositions() {
 		//set the margin top of all the content
 		navMarginTop = [windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[3]];
 	}
+
+	//4: SET NEWLY ASSIGNED IMAGE SIZES
+
 	//set the size of the background image based on the screen size
 	if(windowSizeWidth < 1900) $('.backgroundImage').css({'width': backgroundWSize + 'px ', 'height': backgroundHSize + 'px'});
 	else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
  	//get size of the outer btn holder for calculations on vertical/horizontal centering
     outerBtnHolderWSize = $('#outerBtnHolder').width(), outerBtnHolderHSize = $('#outerBtnHolder').height(), innerBtnHolderHSize = $('#innerBtnHolder').height(), middleImagesHeight = $('#middleImages').height(); 
-    //calculate the horizontal center
-	divCenter = ($(window).width() - outerBtnHolderWSize)/2;
 	//calculate the vertical center
     outerBtnHolderTop = ($('#homepage').height()-$('#outerBtnHolder').height())/2, innerBtnHolderTop = (outerBtnHolderHSize-innerBtnHolderHSize)/2;  
     // Selected page background image grows by 1.2 times its current size and other pages have their size divided by 1.8
@@ -175,7 +175,7 @@ $(document).ready(function () {
 	$(".animatingPage").mouseenter(function(){
 	    isHover = $(this).attr('id');
 	    //Detect what navigation button is being hovered, move the background to center the selected page 
-	    for(var pageNumber = 0;pageNumber<(portfolioMovePosX.length+1);pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollPortfolio(isHover, pageNumber-1);	   
+	    for(var pageNumber = 0;pageNumber<(PortfolioMovePos.totalPortfolioItems());pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollPortfolio(isHover, pageNumber-1);	   
 	});
 	//on mouse click
 	$(".animatingPage").click(function(){
@@ -186,7 +186,7 @@ $(document).ready(function () {
 		}
 		
 		//open the selected portfolio item
-		for(var pageNumber = 0;pageNumber<(portfolioMovePosX.length+1);pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
+		for(var pageNumber = 0;pageNumber<(PortfolioMovePos.totalPortfolioItems());pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
 	});
 
 	$("#videoExit").click(function(){
@@ -257,7 +257,7 @@ $(document).ready(function () {
 				//Make the container holding the nav buttons go back to its original size and position
 				$('#middleImages').stop().animate({'top':(innerBtnHolderHSize - middleImagesHeight)/2 +'px'});
 				$('#innerBtnHolder').stop().animate({'top':innerBtnHolderTop +'px'});
-				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':divCenter+'px', 'top':outerBtnHolderTop+'px'}); 
+				$('#outerBtnHolder').stop().animate({'width': outerBtnHolderWSize +'px', 'height': outerBtnHolderHSize+'px','margin-right':'','margin-left':'', 'top':outerBtnHolderTop+'px'}); 
 				if(lastScrolled != 'newUser') $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 				if(lastScrolled == "#portfolio5") {
 					$('#portfolio8page').css({"display":"none"});
@@ -300,7 +300,6 @@ $(document).ready(function () {
 				    lastScrolled = 'container';
 				    isHover='container';
 					checkPositions();
-					if(allowAnimation == true) $('#container').stop().animate({'margin-left': portfolioMovePosX[0], 'margin-top': portfolioMovePosY[0]},{complete: function(){isAnimating=false;}});
 				}
 			}
 		//if a video has been clicked and then you resize the screen, then return to the standard screen navigation

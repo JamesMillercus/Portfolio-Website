@@ -164,10 +164,11 @@ function scrollPortfolio(hovered, posmovement){
 	lastScrolled = '#' + hovered.substring(0,10);
 	//if the windowsize is desktop, mouse positions values are there, the height of the browser is over 500 and a video hasnt been clicked
 	if(windowSizeWidth > 1024 && windowSizeHeight >500 && clickedVideo == false && isNaN(currentPosX) == false){
+		var scrollMovement = PortfolioMovePos.portfolioMoveValue(currentPosX, currentPosY, posmovement);
 		//set animation to true
 		isAnimating = true;
 		//animate the container to the position of the item which was scrolled over, Once selected page is animated then set animation to false
-		$('#container').stop().animate({'margin-left': portfolioMovePosX[posmovement], 'margin-top': portfolioMovePosY[posmovement]},{complete: function(){isAnimating=false;}});
+		$('#container').stop().animate({'margin-left': scrollMovement[0], 'margin-top': scrollMovement[1]},{complete: function(){isAnimating=false;}});
 		//add a class which will alow that div to grow
 		$(lastScrolled).removeClass("backgroundImage").addClass("staticImage");
 		//Make the selected pages' content appear
@@ -186,7 +187,8 @@ function animateIn(){
 	//set the last video to what you've just scrolled over
 	lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
 	//play the selected video
-	players[lastVideo].playVideo();
+	//stops a bug that tries to play a video that doesn't exist
+	if(lastVideo>=0) players[lastVideo].playVideo();
 	//if the video is playing and it is currently hidden, then animate it in.
 	if (myPlayerState == 1 && $("#" + isHover + " .videoContainer").css('opacity') === '0' && clickedVideo == false) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
 	// $(".staticImage").stop().animate({'opacity': 0});
