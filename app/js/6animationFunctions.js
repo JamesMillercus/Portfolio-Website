@@ -116,7 +116,7 @@ function activateHeroAnimation(){
 	$( "#heroCharSpace" ).css({'width': $( "#heroCharNumber1" ).width()+'px', 'height':$( "#heroCharNumber1" ).height()+'px'});
 	$(".heroChar").mouseenter(function(){
 		charHover = $(this).attr('id');
-		if ($("#"+charHover).css('opacity')==='1' && windowSizeWidth > 1024 && isAnimating == false && $('.animatingPage').css('display')==='block') growChar(charHover, charLengthParser);
+		if ($("#"+charHover).css('opacity')==='1' && BrowserInfo.browserSize()[0] > 1024 && isAnimating == false && $('.animatingPage').css('display')==='block') growChar(charHover, charLengthParser);
 	});
 	
 	// $("#centerImage").mouseenter(function(){
@@ -130,7 +130,6 @@ function activateHeroAnimation(){
 	if(heroSpaceNumber>0) heroTotalTextWidth = heroTotalTextWidth + $("#heroCharSpace").width();
 	$('#heroText').css({'height':$('#heroCharNumber1').height() + 'px'});
   	$('#heroText').css({'top': heroTextHeight + 'px', 'width':heroTotalTextWidth + 'px'});
-
 }
 
 function growChar(selectedChar, numberOfChars){
@@ -163,8 +162,8 @@ function scrollPortfolio(hovered, posmovement){
     //set last scrolled to the div that has just been hovered over
 	lastScrolled = '#' + hovered.substring(0,10);
 	//if the windowsize is desktop, mouse positions values are there, the height of the browser is over 500 and a video hasnt been clicked
-	if(windowSizeWidth > 1024 && windowSizeHeight >500 && clickedVideo == false && isNaN(currentPosX) == false){
-		var scrollMovement = PortfolioMovePos.portfolioMoveValue(currentPosX, currentPosY, posmovement);
+	if(BrowserInfo.browserSize()[0] > 1024 && BrowserInfo.browserSize()[1] >500 && clickedVideo == false && isNaN(currentPosX) == false){
+		var scrollMovement = Portfolio.portfolioMoveValue(currentPosX, currentPosY, posmovement);
 		//set animation to true
 		isAnimating = true;
 		//animate the container to the position of the item which was scrolled over, Once selected page is animated then set animation to false
@@ -199,7 +198,7 @@ function openPortfolio(clicked){
 	//if is mobile and previously clicked on the same video
 	if(isNaN(lastScrolled) && lastScrolled == "container" && isMobile) players[wasPlayed].unMute().seekTo(0).playVideo();
 	//if a video hasn't been clicked yet, the videos have been loaded and the screen height is over 500
-	if(clickedVideo == false && isReady == true && windowSizeHeight > 500){
+	if(clickedVideo == false && isReady == true && BrowserInfo.browserSize()[1] > 500){
 		//set the last video to what you've just scrolled over
 		lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
 		//set up a variable which will be able to full screen the selected video

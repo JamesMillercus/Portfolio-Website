@@ -21,36 +21,32 @@
 function checkPositions() {
 
 	//1: RESET DATA VARIABLES
-    //update window sizes
-    windowSizeWidth = $(window).width();
-	windowSizeHeight = $(window).height();
     // set size + position of each page within the website container
-	$('#homepage').css({'margin-left': windowSizeWidth + 'px', 'margin-top': windowSizeHeight + 'px'});
+	$('#homepage').css({'margin-left': BrowserInfo.browserSize()[0] + 'px', 'margin-top': BrowserInfo.browserSize()[1] + 'px'});
 	// set size + position of background
-	$('#container').css({'height':windowSizeHeight*3 +'px ', 'width':windowSizeWidth*3 + 'px', 'margin-left': '-'+windowSizeWidth + 'px', 'margin-top': '-'+windowSizeHeight + 'px'}); 	
+	$('#container').css({'height':BrowserInfo.browserSize()[1]*3 +'px ', 'width':BrowserInfo.browserSize()[0]*3 + 'px', 'margin-left': '-'+BrowserInfo.browserSize()[0] + 'px', 'margin-top': '-'+BrowserInfo.browserSize()[1] + 'px'}); 	
 
 	//2 : CHECK SIZE OF SCREEN AND CALCULATE NEW SIZES OF CONTENT
-
 	//for each screen size (4), call the checkSize function
-	for(var windowResizeNumber = 0;windowResizeNumber < greaterThanResizer.length; windowResizeNumber++) checkSize(windowResizeNumber); 
+	for(var windowResizeNumber = 0;windowResizeNumber < BrowserInfo.browserResizer()[0].length; windowResizeNumber++) checkSize(windowResizeNumber); 
 	//** CHECK SIZE OF SCREEN + LOAD NEW SIZES **//
 	function checkSize(x){
 		//based on what screen size you are on, load in different arrays that resize the divs on the screen
-		if(windowSizeWidth > greaterThanResizer[x] && windowSizeWidth < lesserThanResizer[x]) {
+		if(BrowserInfo.browserSize()[0] > BrowserInfo.browserResizer()[0][x] && BrowserInfo.browserSize()[0] < BrowserInfo.browserResizer()[1][x]) {
 			//set the size of all the gifs
-			if(!isMobile && !isTablet) backgroundWSize = $('#homepage').width()/backgroundWImageResizerArr[x], backgroundHSize = $('#homepage').height()/backgroundHImageResizerArr[x];
+			if(!isMobile && !isTablet) Portfolio.setGifSizes($('#homepage').width()/Portfolio.deviceSpecificImgResizer.backgroundWImageResizerArr[x],$('#homepage').height()/Portfolio.deviceSpecificImgResizer.backgroundHImageResizerArr[x]);
 			//if tablet set the sizes to load the tablet array
-			if(isTablet) backgroundWSize = $('#homepage').width()/backgroundWImageResizerArr[2], backgroundHSize = $('#homepage').height()/backgroundHImageResizerArr[2];
+			if(isTablet) Portfolio.setGifSizes($('#homepage').width()/Portfolio.deviceSpecificImgResizer.backgroundWImageResizerArr[2],$('#homepage').height()/Portfolio.deviceSpecificImgResizer.backgroundHImageResizerArr[2]);
 			//if mobile set the sizes to load the mobile array
-			if(isMobile) backgroundWSize = $('#homepage').width()/backgroundWImageResizerArr[3], backgroundHSize = $('#homepage').height()/backgroundHImageResizerArr[3];
+			if(isMobile) Portfolio.setGifSizes($('#homepage').width()/Portfolio.deviceSpecificImgResizer.backgroundWImageResizerArr[3],$('#homepage').height()/Portfolio.deviceSpecificImgResizer.backgroundHImageResizerArr[3]);
 			//load in desktop sizes
-			desktopImageSizes = [/*topPagePos*/0.5, /*leftPagePos*/ .76, /*rightPagePos*/ 1.675, /*bottomPagePos*/ 1.7, /*leftCornerPos*/ 1.5, /*rightCornerPos*/ 1.734, /*centralPos*/ 1.272, /*middlePagePos*/ 1.32, /*large hitbox height */ backgroundHSize*4, /*large hitbox width */ backgroundWSize*4, /*med hitbox width */backgroundWSize*3, /*small hitbox height */backgroundHSize * 1.8, /*small hitbox width */backgroundWSize * 2];
+			desktopImageSizes = [/*topPagePos*/0.5, /*leftPagePos*/ .76, /*rightPagePos*/ 1.675, /*bottomPagePos*/ 1.7, /*leftCornerPos*/ 1.5, /*rightCornerPos*/ 1.734, /*centralPos*/ 1.272, /*middlePagePos*/ 1.32, /*large hitbox height */ Portfolio.gifSizes['backgroundHSize']*4, /*large hitbox width */ Portfolio.gifSizes['backgroundWSize']*4, /*med hitbox width */Portfolio.gifSizes['backgroundWSize']*3, /*small hitbox height */Portfolio.gifSizes['backgroundHSize'] * 1.8, /*small hitbox width */Portfolio.gifSizes['backgroundWSize'] * 2];
 			//load in small desktop sizes
-			smallDesktopImageSizes = [/*topPagePos*/0.58, /*leftPagePos*/.72, /*rightPagePos*/1.72, /*bottomPagePos*/ 1.74, /*leftCornerPos*/1.5, /*rightCornerPos*/ 1.77,/*centralPos*/ 1.4,/*middlePagePos*/1.345,/*large hitbox height */backgroundHSize*4, /*large hitbox width */backgroundWSize*4,/*med hitbox width */backgroundWSize *1.5, /*small hitbox height */backgroundHSize * 1.8, /*small hitbox width */ backgroundWSize * 2];
+			smallDesktopImageSizes = [/*topPagePos*/0.58, /*leftPagePos*/.72, /*rightPagePos*/1.72, /*bottomPagePos*/ 1.74, /*leftCornerPos*/1.5, /*rightCornerPos*/ 1.77,/*centralPos*/ 1.4,/*middlePagePos*/1.345,/*large hitbox height */Portfolio.gifSizes['backgroundHSize']*4, /*large hitbox width */Portfolio.gifSizes['backgroundWSize']*4,/*med hitbox width */Portfolio.gifSizes['backgroundWSize'] *1.5, /*small hitbox height */Portfolio.gifSizes['backgroundHSize'] * 1.8, /*small hitbox width */ Portfolio.gifSizes['backgroundWSize'] * 2];
 			//load in tablet sizes
-			tabletImageSizes = [/*topPagePos*/ 0.65, /*leftPagePos*/.42, /*rightPagePos*/ 1.78, /*bottomPagePos*/1.75,/*leftCornerPos*/2.3,/*rightCornerPos*/ 1.77,/*centralPos*/ 1.4,/*middlePagePos*/1.375,/*large hitbox height */backgroundHSize*4,/*large hitbox width */backgroundWSize*4,/*med hitbox width */backgroundWSize,/*small hitbox height */backgroundHSize * 1.8, /*small hitbox width */ backgroundWSize * 2];
+			tabletImageSizes = [/*topPagePos*/ 0.65, /*leftPagePos*/.42, /*rightPagePos*/ 1.78, /*bottomPagePos*/1.75,/*leftCornerPos*/2.3,/*rightCornerPos*/ 1.77,/*centralPos*/ 1.4,/*middlePagePos*/1.375,/*large hitbox height */Portfolio.gifSizes['backgroundHSize']*4,/*large hitbox width */Portfolio.gifSizes['backgroundHSize']*4,/*med hitbox width */Portfolio.gifSizes['backgroundWSize'],/*small hitbox height */Portfolio.gifSizes['backgroundHSize'] * 1.8, /*small hitbox width */ Portfolio.gifSizes['backgroundWSize'] * 2];
 			//load in mobile sizes
-			mobileImageSizes = [/*topPagePos*/.22,/*leftPagePos*/.42,/*rightPagePos*/1.78, /*bottomPagePos*/1.635,/*leftCornerPos*/8,/*rightCornerPos*/1.66,/*centralPos*/1.348,/*middlePagePos*/1.375,/*large hitbox height */backgroundHSize*4,/*large hitbox width */backgroundWSize*4,/*med hitbox width */backgroundWSize, /*small hitbox height */backgroundHSize * 1.8, /*small hitbox width */ backgroundWSize,1.348];
+			mobileImageSizes = [/*topPagePos*/.22,/*leftPagePos*/.42,/*rightPagePos*/1.78, /*bottomPagePos*/1.635,/*leftCornerPos*/8,/*rightCornerPos*/1.66,/*centralPos*/1.348,/*middlePagePos*/1.375,/*large hitbox height */Portfolio.gifSizes['backgroundHSize']*4,/*large hitbox width */Portfolio.gifSizes['backgroundHSize']*4,/*med hitbox width */Portfolio.gifSizes['backgroundWSize'], /*small hitbox height */Portfolio.gifSizes['backgroundHSize'] * 1.8, /*small hitbox width */ Portfolio.gifSizes['backgroundWSize'],1.348];
 			//store all loaded arrays into a larger array
 			imageResizingArr = [desktopImageSizes, smallDesktopImageSizes, tabletImageSizes, mobileImageSizes];
 			//set the current size of the content based on what size screen was loaded
@@ -74,22 +70,22 @@ function checkPositions() {
 		//set the width of all the content
 		navWidth = [imageSizeVariables[9], imageSizeVariables[9], imageSizeVariables[9], imageSizeVariables[9], imageSizeVariables[10], imageSizeVariables[9], imageSizeVariables[9], imageSizeVariables[10]]; 
 		//set the margin left
-		navMarginLeft = [windowSizeWidth/imageSizeVariables[4], windowSizeWidth*imageSizeVariables[5], windowSizeWidth/imageSizeVariables[4], windowSizeWidth*imageSizeVariables[5], windowSizeWidth*imageSizeVariables[6], windowSizeWidth*imageSizeVariables[1], windowSizeWidth*imageSizeVariables[2], windowSizeWidth*imageSizeVariables[6]];
+		navMarginLeft = [BrowserInfo.browserSize()[0]/imageSizeVariables[4], BrowserInfo.browserSize()[0]*imageSizeVariables[5], BrowserInfo.browserSize()[0]/imageSizeVariables[4], BrowserInfo.browserSize()[0]*imageSizeVariables[5], BrowserInfo.browserSize()[0]*imageSizeVariables[6], BrowserInfo.browserSize()[0]*imageSizeVariables[1], BrowserInfo.browserSize()[0]*imageSizeVariables[2], BrowserInfo.browserSize()[0]*imageSizeVariables[6]];
 		//set the margin top of all the content
-		navMarginTop = [windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[3], windowSizeHeight*imageSizeVariables[0], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[7], windowSizeHeight*imageSizeVariables[3]];
+		navMarginTop = [BrowserInfo.browserSize()[1]*imageSizeVariables[0], BrowserInfo.browserSize()[1]*imageSizeVariables[0], BrowserInfo.browserSize()[1]*imageSizeVariables[3], BrowserInfo.browserSize()[1]*imageSizeVariables[3], BrowserInfo.browserSize()[1]*imageSizeVariables[0], BrowserInfo.browserSize()[1]*imageSizeVariables[7], BrowserInfo.browserSize()[1]*imageSizeVariables[7], BrowserInfo.browserSize()[1]*imageSizeVariables[3]];
 	}
 
 	//4: SET NEWLY ASSIGNED IMAGE SIZES
 
 	//set the size of the background image based on the screen size
-	if(windowSizeWidth < 1900) $('.backgroundImage').css({'width': backgroundWSize + 'px ', 'height': backgroundHSize + 'px'});
-	else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
+	if(BrowserInfo.browserSize()[0] < 1900) $('.backgroundImage').css({'width': Portfolio.gifSizes['backgroundWSize'] + 'px ', 'height': Portfolio.gifSizes['backgroundHSize'] + 'px'});
+	else if(BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $('.backgroundImage').css({'width':Portfolio.gifSizes['backgroundWSize']/1.5 +'px ', 'height':Portfolio.gifSizes['backgroundHSize']/1.5+ 'px'});
  	//get size of the outer btn holder for calculations on vertical/horizontal centering
     outerBtnHolderWSize = $('#outerBtnHolder').width(), outerBtnHolderHSize = $('#outerBtnHolder').height(), innerBtnHolderHSize = $('#innerBtnHolder').height(), middleImagesHeight = $('#middleImages').height(); 
 	//calculate the vertical center
     outerBtnHolderTop = ($('#homepage').height()-$('#outerBtnHolder').height())/2, innerBtnHolderTop = (outerBtnHolderHSize-innerBtnHolderHSize)/2;  
     // Selected page background image grows by 1.2 times its current size and other pages have their size divided by 1.8
-	growBackgroundWSize = backgroundWSize*1.3, shrinkBackgroundWSize = backgroundWSize/1.9;
+	growBackgroundWSize = Portfolio.gifSizes['backgroundWSize']*1.3, shrinkBackgroundWSize = Portfolio.gifSizes['backgroundWSize']/1.9;
 	//if a video hasn't been clicked and the browser window is resized
     if(clickedVideo == false){
     	$('#container').css({'opacity':1,'display':'block'});
@@ -138,9 +134,9 @@ function startWebsite(){
     }, complete: function(){ 
     	// var v = window.document.createElement("video");
 		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
-	    if(!!document.getElementById("startUpVid").canPlayType == true && windowSizeWidth > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
+	    if(!!document.getElementById("startUpVid").canPlayType == true && BrowserInfo.browserSize()[0] > 1024 && lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
 	    //else load the page without video
-	    else if(!!document.getElementById("startUpVid").canPlayType == false || windowSizeWidth < 1024 || isMobile) staticHome();
+	    else if(!!document.getElementById("startUpVid").canPlayType == false || BrowserInfo.browserSize()[0] < 1024 || isMobile) staticHome();
 	}}); 
 }
 
@@ -175,7 +171,7 @@ $(document).ready(function () {
 	$(".animatingPage").mouseenter(function(){
 	    isHover = $(this).attr('id');
 	    //Detect what navigation button is being hovered, move the background to center the selected page 
-	    for(var pageNumber = 0;pageNumber<(PortfolioMovePos.totalPortfolioItems());pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollPortfolio(isHover, pageNumber-1);	   
+	    for(var pageNumber = 0;pageNumber<(Portfolio.totalNumberOfItems());pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollPortfolio(isHover, pageNumber-1);	   
 	});
 	//on mouse click
 	$(".animatingPage").click(function(){
@@ -186,7 +182,7 @@ $(document).ready(function () {
 		}
 		
 		//open the selected portfolio item
-		for(var pageNumber = 0;pageNumber<(PortfolioMovePos.totalPortfolioItems());pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
+		for(var pageNumber = 0;pageNumber<(Portfolio.totalNumberOfItems());pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '') openPortfolio(isHover);	
 	});
 
 	$("#videoExit").click(function(){
@@ -209,8 +205,8 @@ $(document).ready(function () {
 		  	count++;
 			lastClicked = "portfolio"+count+"page";
 		  	keyboardEvent=event.which;
-			currentPosX = -windowSizeWidth;
-			currentPosY = -windowSizeHeight;
+			currentPosX = -BrowserInfo.browserSize()[0];
+			currentPosY = -BrowserInfo.browserSize()[1];
 		  	triggerResponse(lastClicked,keyboardEvent);
 		}
 		// console.log(keyboardEvent);
@@ -235,7 +231,7 @@ $(document).ready(function () {
 	//** RESET TO HOME POSITION **//
 	function resetToHome(lastPage){
 		// if browser is above 1024 (is a desktop) and a video hasn't been clicked
-		if(clickedVideo == false && windowSizeWidth > 1024 && !isMobile){
+		if(clickedVideo == false && BrowserInfo.browserSize()[0] > 1024 && !isMobile){
 			// $(".staticImage").css({'opacity': 1});
 			// Get the page that was just scrolled out and shrink its background image to its normal size
 		    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
@@ -249,8 +245,8 @@ $(document).ready(function () {
 				// animation starts
 			    if(!isMobile) isAnimating = true;
 			    // console.log("background W size SLUT = " + backgroundWSize+'px');
-				if(windowSizeWidth < 1900) $(".backgroundImage").stop().animate({'width': backgroundWSize+'px'});
-    			else if (windowSizeWidth > 1900 || windowSizeHeight > 1100) $(".backgroundImage").stop().animate({'width': backgroundWSize/1.5+'px'});
+				if(BrowserInfo.browserSize()[0] < 1900) $(".backgroundImage").stop().animate({'width': Portfolio.gifSizes['backgroundWSize']+'px'});
+    			else if (BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $(".backgroundImage").stop().animate({'width': Portfolio.gifSizes['backgroundWSize']/1.5+'px'});
 				//Hide the scrolled out pages content back to opacity 0
 			    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
 			    $('.content').stop().animate({'opacity': 0});
@@ -280,8 +276,8 @@ $(document).ready(function () {
 				//if the user isn't using special electronics invitation (keyboard inputs)
 				if(lastClicked == ''){
 				    $(lastScrolled).removeClass("staticImage").addClass("backgroundImage");
-				    if(windowSizeWidth < 1900) $(".backgroundImage").css({'width': backgroundWSize+'px'});
-    				else if (windowSizeWidth > 1900 || windowSizeHeight > 1100) $(".backgroundImage").css({'width': backgroundWSize/1.5+'px'});
+				    if(BrowserInfo.browserSize()[0] < 1900) $(".backgroundImage").css({'width': Portfolio.gifSizes['backgroundWSize']+'px'});
+    				else if (BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $(".backgroundImage").css({'width': Portfolio.gifSizes['backgroundWSize']/1.5+'px'});
 				    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
 				    $('.videoContainer').css({'opacity': 0});
 				    $('.content').css({'opacity': 0});

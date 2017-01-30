@@ -13,11 +13,9 @@ var x, y, currentPosX, currentPosY;
 //movement strength of background
 var movementStrength = 10;
 // variables for resizing navigation images
-var backgroundWSize, backgroundHSize, backgroundWPos, backgroundHPos, smallHitboxWSize, smallHitboxHSize, largeHitboxWSize, largeHitboxHSize, medHitboxWSize, medHitboxHSize;
+var backgroundWPos, backgroundHPos, smallHitboxWSize, smallHitboxHSize, largeHitboxWSize, largeHitboxHSize, medHitboxWSize, medHitboxHSize;
 // variables for resizing the home page when nav images are scrolled over/out
 var outerBtnHolderWSize, outerBtnHolderHSize, innerBtnHolderHSize, newouterBtnHolderWSize, newInnerBtnHolderHSize, newouterBtnHolderHSize, innerBtnHolderTop, outerBtnHolderTop, newInnerBtnHolderTop;
-// global variables for window sizes
-var windowSizeWidth, windowSizeHeight;
 // boolean to detect in navigation images are animated once hovered over/out
 var isAnimating = false;
 // variable to check what is being hovered on, set up automatically as container
@@ -33,36 +31,120 @@ var middleImagesHeight;
 // var to track if a video has been clicked
 var clickedVideo = false;
 
-var PortfolioMovePos = {
-	portfolio1: [.83333333333333333,.7],
-	portfolio2: [1.16,.7],
-	portfolio3: [.83333333333333333,1.3],
-	portfolio4: [1.16,1.3],
-	portfolio5: [1,.6],
-	portfolio6: [.76923072999,1],
-	portfolio7: [1.24,1],
-	portfolio8: [1,1.4],
+var Portfolio = {
+	animationPositions: {
+		portfolio1: [.83333333333333333,.7],
+		portfolio2: [1.16,.7],
+		portfolio3: [.83333333333333333,1.3],
+		portfolio4: [1.16,1.3],
+		portfolio5: [1,.6],
+		portfolio6: [.76923072999,1],
+		portfolio7: [1.24,1],
+		portfolio8: [1,1.4]
+	},
+
+	gifSizes: {
+		backgroundWSize: 0,
+		backgroundHSize: 0
+	},
+
+	deviceSpecificImgResizer: {
+		backgroundWImageResizerArr: [7,7,5,3.3],
+		backgroundHImageResizerArr: [5,6,7,3.5]
+	},
+
+	hitBoxPosAndSizes:{
+		desktop: {
+			topPagePos:0.5,
+			leftPagePos:0.76,
+			rightPagePos: 1.675,
+			bottomPagePos: 1.7,
+			leftCornerPos: 1.5,
+			rightCornerPos: 1.734,
+			centralPos: 1.272,
+			middlePagePos: 1.32,
+			largeHitBoxHeight:0,
+			largeHitBoxWidth:0,
+			medHitBoxWidth:0,
+			smallHitBoxHeight:0,
+			smallHitBoxWidth:0
+		},
+		smallDesktop:{
+			topPagePos: 0.58,
+			leftPagePos: 0.72,
+			rightPagePos: 1.72,
+			bottomPagePos: 1.74,
+			leftCornerPos: 1.5,
+			rightCornerPos: 1.77,
+			centralPos: 1.4,
+			middlePagePos: 1.345
+		},
+		tablet:{
+			topPagePos: 0.65,
+			leftPagePos: 0.42,
+			rightPagePos: 1.78,
+			bottomPagePos: 1.75,
+			leftCornerPos: 2.3,
+			rightCornerPos: 1.77,
+			centralPos: 1.4,
+			middlePagePos: 1.375
+		},
+		mobile:{
+			topPagePos: 0.22,
+			leftPagePos: 0.42,
+			rightPagePos: 1.78,
+			bottomPagePos: 1.635,
+			leftCornerPos: 8,
+			rightCornerPos: 1.66,
+			centralPos: 1.348,
+			middlePagePos: 1.375
+		},
+		imageResizingArr:[]
+	},
+
     portfolioMoveValue : function(xpos, ypos, portfolioItem) {
-    	return [xpos*this[Object.keys(this)[portfolioItem]][0] + 'px', ypos*this[Object.keys(this)[portfolioItem]][1]+ 'px'];
+    	return [xpos*Portfolio.animationPositions['portfolio'+(portfolioItem+1)][0] + 'px', ypos*Portfolio.animationPositions['portfolio'+(portfolioItem+1)][1]+ 'px'];
     },
-    totalPortfolioItems : function(){
-    	// return Object.keys(this).length-1;
-    	return 9;
+    totalNumberOfItems : function(){
+    	return Object.keys(Portfolio.animationPositions).length+1;
     },
+    setGifSizes : function(width, height){
+    	Portfolio.gifSizes.backgroundWSize = width, Portfolio.gifSizes.backgroundHSize = height;
+    	return[Portfolio.gifSizes.backgroundWSize, Portfolio.gifSizes.backgroundHSize];
+    },
+    setHitBoxSizes : function(){
+    	Portfolio.hitBoxPosAndSizes.desktop['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
+    	Portfolio.hitBoxPosAndSizes.desktop['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
+    	Portfolio.hitBoxPosAndSizes.desktop['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*3;
+    	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
+    	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundHSize']*2;
+    	console.log(Portfolio.hitBoxPosAndSizes['desktop']);
+
+    	//Portfolio.setHitBoxSizes();
+    	//1. Are properties console logged in the order that they are declared or alphabetically?
+    	//2. How can I take properties from an object and push them into an array (in the order that I've declared them)?
+    }
 };
 
+var BrowserInfo = {
+	greaterThanResizer: [1024, 900, 551, 0],
+	lesserThanResizer: [99999999, 1024, 900, 550],
+	browserSize: function(){
+		return [$(window).width(),$(window).height()];
+	},
+	browserResizer: function(){
+		return [BrowserInfo.greaterThanResizer, BrowserInfo.lesserThanResizer];
+	}
+}
+
 //Array to store how portfolio items are animated based on mouse positions
-var portfolioMovePosX, portfolioMovePosY;
+var PortfolioX, PortfolioY;
 //math to decide positions of portfolio hit boxes (dynamically assigned)
 var topPagePos, bottomPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos;
 var desktopImageSizes, smallDesktopImageSizes, tabletImageSizes, mobileImageSizes, imageResizingArr;
 var imageSizeVariables = [topPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos, largeHitboxHSize, largeHitboxWSize, medHitboxWSize, smallHitboxHSize, smallHitboxWSize];
-//add greater than code here for large desktops ( < 1900)
-var greaterThanResizer = [1024, 900, 551, 0];
-var lesserThanResizer = [99999999, 1024, 900, 550];
+
 //what size large desktop items should be
-var backgroundWImageResizerArr = [7, 7, 5, 3.3];
-var backgroundHImageResizerArr = [5, 6, 7, 3.5];
 var navHeight = [imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[11], imageSizeVariables[11], imageSizeVariables[8]];
 var navWidth, navMarginLeft, navMarginTop;
 var grownChars = 0;

@@ -15,8 +15,7 @@ function checkWidth() {
 
     //set current position of browser as negative ints, so it can be used to moved via css
     //windowSize variables are referenced from homepage.js
-    windowSizeWidth = $(window).width(), windowSizeHeight = $(window).height();
-    var backgroundCurrentYPos = -windowSizeHeight, backgroundCurrentXPos = -windowSizeWidth;
+    var backgroundCurrentYPos = -BrowserInfo.browserSize()[1], backgroundCurrentXPos = -BrowserInfo.browserSize()[0];
 
     //creates a pace which is a half of the users mouse speed: currentMousePosX = current mouse position - (window width / 2)
     var currentMousePosY = y - ($(window).height() / 2);
@@ -27,7 +26,7 @@ function checkWidth() {
     var newBackgroundPosY = restrainedBrowserHeight * currentMousePosY * -1 + backgroundCurrentYPos;
 
     // // set view port as browser size (prevent mobile devices from scrolling)
-    // $('#viewport').css({'height':windowSizeHeight +'px ', 'width':windowSizeWidth + 'px'});
+    // $('#viewport').css({'height':BrowserInfo.browserSize()[1] +'px ', 'width':BrowserInfo.browserSize()[0] + 'px'});
 
     //send values to other js files that control each page
     if(lastScrolled != "newUser" && lastScrolled != "animatingHome"){
@@ -76,20 +75,20 @@ function updatePosition(posX, posY) {
 	currentPosY = posY;
 
   //if animation between navigation buttons isn't happening 
-  if (isAnimating == false && clickedVideo == false && windowSizeHeight >550){
+  if (isAnimating == false && clickedVideo == false && BrowserInfo.browserSize()[1] >550){
     //detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-    for(var pageNumber = 0;pageNumber<PortfolioMovePos.totalPortfolioItems();pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
+    for(var pageNumber = 0;pageNumber<Portfolio.totalNumberOfItems();pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
 
     function scrollingPage(currentHover, posMovement){
-      if(windowSizeWidth > 1024) $('#container').css({'margin-left': PortfolioMovePos.portfolioMoveValue(currentPosX, currentPosY, posMovement)[0], 'margin-top': PortfolioMovePos.portfolioMoveValue(currentPosX, currentPosY, posMovement)[1]});
+      if(BrowserInfo.browserSize()[0] > 1024) $('#container').css({'margin-left': Portfolio.portfolioMoveValue(currentPosX, currentPosY, posMovement)[0], 'margin-top': Portfolio.portfolioMoveValue(currentPosX, currentPosY, posMovement)[1]});
 		}
 		//if not hovering on a nav button
-		if(isHover == 'container' || windowSizeWidth < 1024) {
+		if(isHover == 'container' || BrowserInfo.browserSize()[0] < 1024) {
 			//animate based on normal mouse position
 			$('#container').css({'opacity': 1,'margin-left': posX+'px', 'margin-top': posY+'px'});
 			//clear any inline styles on navigation images that were created with js
-      if(windowSizeWidth < 1900) $('.backgroundImage').css({'width':backgroundWSize +'px ', 'height':backgroundHSize+ 'px'});
-  		else if(windowSizeWidth > 1900 || windowSizeHeight > 1100) $('.backgroundImage').css({'width':backgroundWSize/1.5 +'px ', 'height':backgroundHSize/1.5+ 'px'});
+      if(BrowserInfo.browserSize()[0] < 1900) $('.backgroundImage').css({'width':Portfolio.gifSizes['backgroundWSize'] +'px ', 'height':Portfolio.gifSizes['backgroundHSize']+ 'px'});
+  		else if(BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $('.backgroundImage').css({'width':Portfolio.gifSizes['backgroundWSize']/1.5 +'px ', 'height':Portfolio.gifSizes['backgroundHSize']/1.5+ 'px'});
       $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
       $('.videoContainer').css({'opacity':''});
       if(isHover == 'container') lastScrolled = 'container', allowAnimation = true;
