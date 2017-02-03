@@ -63,11 +63,6 @@ var Portfolio = {
 			rightCornerPos: 1.734,
 			centralPos: 1.272,
 			middlePagePos: 1.32,
-			largeHitBoxHeight:0,
-			largeHitBoxWidth:0,
-			medHitBoxWidth:0,
-			smallHitBoxHeight:0,
-			smallHitBoxWidth:0
 		},
 		smallDesktop:{
 			topPagePos: 0.58,
@@ -99,7 +94,12 @@ var Portfolio = {
 			centralPos: 1.348,
 			middlePagePos: 1.375
 		},
-		imageResizingArr:[]
+		newimageResizingarr:[
+			newDesktopImageSizes = [],
+			newSmallDesktopImageSizes=[],
+			newTabletImageSizes=[],
+			newMobileImageSizes=[]
+		],
 	},
 
     portfolioMoveValue : function(xpos, ypos, portfolioItem) {
@@ -113,16 +113,51 @@ var Portfolio = {
     	return[Portfolio.gifSizes.backgroundWSize, Portfolio.gifSizes.backgroundHSize];
     },
     setHitBoxSizes : function(){
+
     	Portfolio.hitBoxPosAndSizes.desktop['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
     	Portfolio.hitBoxPosAndSizes.desktop['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
     	Portfolio.hitBoxPosAndSizes.desktop['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*3;
     	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
-    	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundHSize']*2;
-    	console.log(Portfolio.hitBoxPosAndSizes['desktop']);
+    	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*2;
 
-    	//Portfolio.setHitBoxSizes();
-    	//1. Are properties console logged in the order that they are declared or alphabetically?
-    	//2. How can I take properties from an object and push them into an array (in the order that I've declared them)?
+		Portfolio.hitBoxPosAndSizes.smallDesktop['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
+    	Portfolio.hitBoxPosAndSizes.smallDesktop['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
+    	Portfolio.hitBoxPosAndSizes.smallDesktop['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*1.5;
+    	Portfolio.hitBoxPosAndSizes.smallDesktop['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
+    	Portfolio.hitBoxPosAndSizes.smallDesktop['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*2;
+
+    	Portfolio.hitBoxPosAndSizes.tablet['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
+    	Portfolio.hitBoxPosAndSizes.tablet['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
+    	Portfolio.hitBoxPosAndSizes.tablet['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize'];
+    	Portfolio.hitBoxPosAndSizes.tablet['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
+    	Portfolio.hitBoxPosAndSizes.tablet['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*2;
+
+    	Portfolio.hitBoxPosAndSizes.mobile['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
+    	Portfolio.hitBoxPosAndSizes.mobile['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
+    	Portfolio.hitBoxPosAndSizes.mobile['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize'];
+    	Portfolio.hitBoxPosAndSizes.mobile['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
+    	Portfolio.hitBoxPosAndSizes.mobile['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*1.348;
+
+    	for(var o = 0; o < Object.keys(Portfolio.hitBoxPosAndSizes).length-1; o++)
+    	{
+	    	var tempKeys = Object.keys(Portfolio.hitBoxPosAndSizes)[o];
+	    	var tempVals = Object.values(Portfolio.hitBoxPosAndSizes)[o];
+	    	for(var k = 0; k < Object.keys(Object.keys(Portfolio.hitBoxPosAndSizes)[o]).length; k++){
+	    		Portfolio.hitBoxPosAndSizes.newimageResizingarr[o].push(Object.values(Portfolio.hitBoxPosAndSizes)[o])[k];
+			}
+	    	// console.log(Object.keys(Portfolio.hitBoxPosAndSizes.newimageResizingarr)[o]);
+	    	// Portfolio.hitBoxPosAndSizes.newimageResizingarr.push(Portfolio.hitBoxPosAndSizes.newimageResizingarr[o]);
+	    	console.log(Portfolio.hitBoxPosAndSizes.newimageResizingarr[o]);
+    	}
+
+    	//put values from each object into each array inside of newimageResizingarr
+	
+
+
+			// Portfolio.hitBoxPosAndSizes.newImageResizingarr[o].push(Object.values(Portfolio.hitBoxPosAndSizes.desktop)[k]);
+	  //   	console.log(Object.values(Portfolio.hitBoxPosAndSizes.desktop)[k]);
+
+		return Portfolio.hitBoxPosAndSizes.newimageResizingarr;
     }
 };
 

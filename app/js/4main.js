@@ -19,7 +19,7 @@
 
 //** CHECK POSITIONS **//
 function checkPositions() {
-
+	console.log(Portfolio.setHitBoxSizes());
 	//1: RESET DATA VARIABLES
     // set size + position of each page within the website container
 	$('#homepage').css({'margin-left': BrowserInfo.browserSize()[0] + 'px', 'margin-top': BrowserInfo.browserSize()[1] + 'px'});
