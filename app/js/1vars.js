@@ -18,18 +18,13 @@ var backgroundWPos, backgroundHPos, smallHitboxWSize, smallHitboxHSize, largeHit
 var outerBtnHolderWSize, outerBtnHolderHSize, innerBtnHolderHSize, newouterBtnHolderWSize, newInnerBtnHolderHSize, newouterBtnHolderHSize, innerBtnHolderTop, outerBtnHolderTop, newInnerBtnHolderTop;
 // boolean to detect in navigation images are animated once hovered over/out
 var isAnimating = false;
-// variable to check what is being hovered on, set up automatically as container
-var isHover = 'container';
-// store the last scrolled item
-var lastScrolled = 'newUser';
 //stores the latest selected video for iphones
 var lastVideo;
 // store values to decide the size of selected and non selected nav buttons
 var growBackgroundWSize, shrinkBackgroundWSize;
 //calculate the vertical position of the 2 portfolio items in the center of the page
 var middleImagesHeight;
-// var to track if a video has been clicked
-var clickedVideo = false;
+
 
 var Portfolio = {
 	animationPositions: {
@@ -43,14 +38,19 @@ var Portfolio = {
 		portfolio8: [1,1.4]
 	},
 
-	gifSizes: {
+	gif: {
 		backgroundWSize: 0,
-		backgroundHSize: 0
-	},
-
-	deviceSpecificImgResizer: {
+		backgroundHSize: 0,
+		growWSize:0,
+		shrinkWSize:0,
 		backgroundWImageResizerArr: [7,7,5,3.3],
-		backgroundHImageResizerArr: [5,6,7,3.5]
+		backgroundHImageResizerArr: [5,6,7,3.5],
+		outerGridWSize:0,
+		outerGridHSize:0,
+		outerGridYPos:0,
+		innerGridHSize:0,
+		innerGridYPos:0,
+		centerGridHSize:0,
 	},
 
 	hitBoxPosAndSizes:{
@@ -102,64 +102,153 @@ var Portfolio = {
 		],
 	},
 
+	page:{
+		height:0,
+		width:0,
+		xPosition:0,
+		yPosition:0,
+		// store the last scrolled item
+		lastScrolled: 'newUser',
+		// variable to check what is being hovered on, set up automatically as container
+		isHover: 'container',
+		lastClicked: ''
+	},
+	video:{
+		// var to track if a video has been clicked
+		clicked:false
+	},
+
     portfolioMoveValue : function(xpos, ypos, portfolioItem) {
     	return [xpos*Portfolio.animationPositions['portfolio'+(portfolioItem+1)][0] + 'px', ypos*Portfolio.animationPositions['portfolio'+(portfolioItem+1)][1]+ 'px'];
     },
     totalNumberOfItems : function(){
     	return Object.keys(Portfolio.animationPositions).length+1;
     },
-    setGifSizes : function(width, height){
-    	Portfolio.gifSizes.backgroundWSize = width, Portfolio.gifSizes.backgroundHSize = height;
-    	return[Portfolio.gifSizes.backgroundWSize, Portfolio.gifSizes.backgroundHSize];
+    calcGifSizes : function(width, height){
+    	Portfolio.gif.backgroundWSize = width, Portfolio.gif.backgroundHSize = height;
+    	return[Portfolio.gif.backgroundWSize, Portfolio.gif.backgroundHSize];
     },
-    setHitBoxSizes : function(){
-
-    	Portfolio.hitBoxPosAndSizes.desktop['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
-    	Portfolio.hitBoxPosAndSizes.desktop['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
-    	Portfolio.hitBoxPosAndSizes.desktop['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*3;
-    	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
-    	Portfolio.hitBoxPosAndSizes.desktop['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*2;
-
-		Portfolio.hitBoxPosAndSizes.smallDesktop['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
-    	Portfolio.hitBoxPosAndSizes.smallDesktop['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
-    	Portfolio.hitBoxPosAndSizes.smallDesktop['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*1.5;
-    	Portfolio.hitBoxPosAndSizes.smallDesktop['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
-    	Portfolio.hitBoxPosAndSizes.smallDesktop['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*2;
-
-    	Portfolio.hitBoxPosAndSizes.tablet['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
-    	Portfolio.hitBoxPosAndSizes.tablet['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
-    	Portfolio.hitBoxPosAndSizes.tablet['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize'];
-    	Portfolio.hitBoxPosAndSizes.tablet['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
-    	Portfolio.hitBoxPosAndSizes.tablet['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*2;
-
-    	Portfolio.hitBoxPosAndSizes.mobile['largeHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*4;
-    	Portfolio.hitBoxPosAndSizes.mobile['largeHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*4;
-    	Portfolio.hitBoxPosAndSizes.mobile['medHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize'];
-    	Portfolio.hitBoxPosAndSizes.mobile['smallHitBoxHeight'] = Portfolio.gifSizes['backgroundHSize']*1.8;
-    	Portfolio.hitBoxPosAndSizes.mobile['smallHitBoxWidth'] = Portfolio.gifSizes['backgroundWSize']*1.348;
-
+    calcHitBoxSizes : function(){
+    	//loop through each of the screen sizes for hitbox arrays
     	for(var o = 0; o < Object.keys(Portfolio.hitBoxPosAndSizes).length-1; o++)
     	{
-	    	var tempKeys = Object.keys(Portfolio.hitBoxPosAndSizes)[o];
-	    	var tempVals = Object.values(Portfolio.hitBoxPosAndSizes)[o];
-	    	for(var k = 0; k < Object.keys(Object.keys(Portfolio.hitBoxPosAndSizes)[o]).length; k++){
-	    		Portfolio.hitBoxPosAndSizes.newimageResizingarr[o].push(Object.values(Portfolio.hitBoxPosAndSizes)[o])[k];
-			}
-	    	// console.log(Object.keys(Portfolio.hitBoxPosAndSizes.newimageResizingarr)[o]);
-	    	// Portfolio.hitBoxPosAndSizes.newimageResizingarr.push(Portfolio.hitBoxPosAndSizes.newimageResizingarr[o]);
-	    	console.log(Portfolio.hitBoxPosAndSizes.newimageResizingarr[o]);
+    		//loop through arrays of devices that can be used
+	    	var userDevice = Object.keys(Portfolio.hitBoxPosAndSizes)[o];
+	    	//the targetted device whose portfolio hitbox sizes will be defined
+	    	var deviceHitBoxSize = Portfolio.hitBoxPosAndSizes[userDevice];
+	    	//set the height of all large hit boxes heights
+	    	deviceHitBoxSize['largeHitBoxHeight'] = Portfolio.gif['backgroundHSize']*4;
+	    	//set the height of all large hit boxes widths
+	    	deviceHitBoxSize['largeHitBoxWidth'] = Portfolio.gif['backgroundWSize']*4;
+	    	//set the height of desktop med hit boxes widths
+	    	if(userDevice == "desktop") deviceHitBoxSize['medHitBoxWidth'] = Portfolio.gif['backgroundWSize']*3;
+	    	//set the height of small desktop med hit boxes widths
+	    	else if(userDevice == "smallDesktop") deviceHitBoxSize['medHitBoxWidth'] = Portfolio.gif['backgroundWSize']*1.5;
+	    	//set the height of tablet or mobile med hit boxes widths
+	    	else if(userDevice == "tablet" || userDevice == "mobile") deviceHitBoxSize['medHitBoxWidth'] = Portfolio.gif['backgroundWSize']*1.5;
+	    	//set the height of all small hit boxes heights
+	    	deviceHitBoxSize['smallHitBoxHeight'] = Portfolio.gif['backgroundHSize']*1.8;
+	    	//set the height of all but mobile small hit boxes widths
+	    	if(userDevice == "desktop" || userDevice == "smallDesktop" || userDevice == "tablet") deviceHitBoxSize['smallHitBoxWidth'] = Portfolio.gif['backgroundWSize']*2;
+	    	//set the height of only mobile small hit boxes widths
+	    	else if (userDevice == "mobile") deviceHitBoxSize['smallHitBoxWidth'] = Portfolio.gif['backgroundWSize']*1.348;
+	    	
+	    	//store values of position + sizes of hit boxes from the objects
+	    	var devicePositionMaths = Object.values(Portfolio.hitBoxPosAndSizes)[o];
+	    	//clear current set values in the image resizing array
+    		Portfolio.hitBoxPosAndSizes.newimageResizingarr[o] = [];
+	    	//for each value in each device object
+	    	for(var k = 0; k < Object.keys(devicePositionMaths).length; k++){
+	    		//store each individual value from the device size object
+				var positionMathValues = Object.values(devicePositionMaths)[k];
+				//push those values into the new image resizing array
+	    		Portfolio.hitBoxPosAndSizes.newimageResizingarr[o].push(positionMathValues);
+	    	}
     	}
-
-    	//put values from each object into each array inside of newimageResizingarr
-	
-
-
-			// Portfolio.hitBoxPosAndSizes.newImageResizingarr[o].push(Object.values(Portfolio.hitBoxPosAndSizes.desktop)[k]);
-	  //   	console.log(Object.values(Portfolio.hitBoxPosAndSizes.desktop)[k]);
-
+    	//return the new sizes and positions of all hitboxes
 		return Portfolio.hitBoxPosAndSizes.newimageResizingarr;
+    },
+    //** CHECK SIZE OF SCREEN + LOAD NEW SIZES **//
+    loadHitBoxPosAndSize: function(){
+    	var currentSize;
+		var browserResizingOptions = BrowserInfo.browserResizer()[0].length;
+		//for each screen size (4), set the size of all hit boxes based on the screen size
+		for(var x = 0;x < browserResizingOptions; x++) {
+			//based on what screen size you are on, load in different arrays that resize the divs on the screen
+			var currentBrowserSizeX = BrowserInfo.browserSize()[0];
+			var currentBrowserSizeY = BrowserInfo.browserSize()[1];
+			var lesserThanValue = BrowserInfo.browserResizer()[0][x];
+			var greaterThanValue = BrowserInfo.browserResizer()[1][x];
+			if(currentBrowserSizeX > lesserThanValue && currentBrowserSizeX < greaterThanValue) {
+				//set the size of all the gifs
+				if(isMobile == false && isTablet == false) {
+					Portfolio.calcGifSizes($('#homepage').width()/Portfolio.gif.backgroundWImageResizerArr[x],$('#homepage').height()/Portfolio.gif.backgroundHImageResizerArr[x]);
+					//set the current size of the content based on what size screen was loaded
+					currentSize = Portfolio.calcHitBoxSizes()[x];
+				}
+				//if tablet 
+				else if(isTablet) {
+					//set the sizes to load the tablet array
+					Portfolio.calcGifSizes($('#homepage').width()/Portfolio.gif.backgroundWImageResizerArr[2],$('#homepage').height()/Portfolio.gif.backgroundHImageResizerArr[2]);
+					//load the tablet array
+					currentSize = Portfolio.calcHitBoxSizes()[2];
+				}
+				//if mobile 
+				else if(isMobile) {
+					// set the sizes to load the mobile array
+					Portfolio.calcGifSizes($('#homepage').width()/Portfolio.gif.backgroundWImageResizerArr[3],$('#homepage').height()/Portfolio.gif.backgroundHImageResizerArr[3]);
+					// load the mobile array
+					currentSize = Portfolio.calcHitBoxSizes()[3];
+				}
+				//return the size and positions of all hitboxs based on screen size
+			}
+		}
+		return currentSize;
+    },
+    // ** SORT POSITION DATA FROM ARRAY AND ASSIGN NEW PAGE POSITIONS **
+    calcPagePosAndSizes: function(calculatedVals){
+    	//store the total length of values within desktopImageSizes
+		var desktopImageSizesLength =  Portfolio.calcHitBoxSizes()[0].length;
+		var hitBoxSizeAndPos = [];
+		var currentBrowserSizeX = BrowserInfo.browserSize()[0];
+		var currentBrowserSizeY = BrowserInfo.browserSize()[1];
+
+		//STORE NAV HEIGHT, NAV WIDTH, NAV MARGIN LEFT + TOP IN OBJECT
+	    for(var resizeNumber = 0; resizeNumber < desktopImageSizesLength; resizeNumber++){
+			//store chosen array data in a new array
+			hitBoxSizeAndPos[resizeNumber] = calculatedVals[resizeNumber];
+			//set the height of all the content
+		    Portfolio.page.height = [hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[11], hitBoxSizeAndPos[11], hitBoxSizeAndPos[8]];
+			//set the width of all the content
+			Portfolio.page.width = [hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[10], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[10]]; 
+			//set the margin left
+			Portfolio.page.xPosition = [currentBrowserSizeX/hitBoxSizeAndPos[4], currentBrowserSizeX*hitBoxSizeAndPos[5], currentBrowserSizeX/hitBoxSizeAndPos[4], currentBrowserSizeX*hitBoxSizeAndPos[5], currentBrowserSizeX*hitBoxSizeAndPos[6], currentBrowserSizeX*hitBoxSizeAndPos[1], currentBrowserSizeX*hitBoxSizeAndPos[2], currentBrowserSizeX*hitBoxSizeAndPos[6]];
+			//set the margin top of all the content
+			Portfolio.page.yPosition = [currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[3], currentBrowserSizeY*hitBoxSizeAndPos[3], currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[7], currentBrowserSizeY*hitBoxSizeAndPos[7], currentBrowserSizeY*hitBoxSizeAndPos[3]];
+	    }
+    },
+    setPageSizeAndPos: function(){
+    	//for each portfolio item on the page, resize and place each item based on screen size
+    	for(var pageNumber = 0;pageNumber<Portfolio.page.xPosition.length;pageNumber++){
+	    	$('#portfolio'+ (pageNumber+1) +'page').css({'height':Portfolio.page.height[pageNumber] +'px', 'width':Portfolio.page.width[pageNumber] +'px', 'margin-left': Portfolio.page.xPosition[pageNumber] +'px', 'margin-top': Portfolio.page.yPosition[pageNumber] +'px'});
+    	}
+    },
+    setGifGrid: function(){
+    	//SET GRID SIZE AND POSITION
+	    Portfolio.gif.outerGridWSize = $('#outerBtnHolder').width(), Portfolio.gif.outerGridHSize = $('#outerBtnHolder').height(), Portfolio.gif.innerGridHSize = $('#innerBtnHolder').height(), Portfolio.gif.centerGridHSize = $('#middleImages').height(); 
+	    Portfolio.gif.outerGridYPos = ($('#homepage').height()-$('#outerBtnHolder').height())/2, Portfolio.gif.innerGridYPos = (Portfolio.gif.outerGridHSize-Portfolio.gif.innerGridHSize)/2;  
+	    //reset and re-center all postions of all content
+	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':Portfolio.gif.outerGridYPos+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':Portfolio.gif.innerGridYPos,'bottom':''});
+	    $('#middleImages').css({'top':(Portfolio.gif.innerGridHSize - Portfolio.gif.centerGridHSize)/2 +'px'});
+    },
+    setGifSizes: function(){
+    	//set the size of the gifs based on the screen size
+    	if(BrowserInfo.browserSize()[0] < 1900) $('.backgroundImage').css({'width': Portfolio.gif['backgroundWSize'] + 'px ', 'height': Portfolio.gif['backgroundHSize'] + 'px'});
+		else if(BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $('.backgroundImage').css({'width':Portfolio.gif['backgroundWSize']/1.5 +'px ', 'height':Portfolio.gif['backgroundHSize']/1.5+ 'px'});
+		// Selected page background image grows by 1.2 times its current size and other pages have their size divided by 1.8
+		Portfolio.gif.growWSize = Portfolio.gif['backgroundWSize']*1.3, Portfolio.gif.shrinkWSize = Portfolio.gif['backgroundWSize']/1.9;
     }
-};
+}
 
 var BrowserInfo = {
 	greaterThanResizer: [1024, 900, 551, 0],
@@ -174,14 +263,7 @@ var BrowserInfo = {
 
 //Array to store how portfolio items are animated based on mouse positions
 var PortfolioX, PortfolioY;
-//math to decide positions of portfolio hit boxes (dynamically assigned)
-var topPagePos, bottomPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos;
-var desktopImageSizes, smallDesktopImageSizes, tabletImageSizes, mobileImageSizes, imageResizingArr;
-var imageSizeVariables = [topPagePos, leftPagePos, rightPagePos, bottomPagePos, leftCornerPos, rightCornerPos, centralPos, middlePagePos, largeHitboxHSize, largeHitboxWSize, medHitboxWSize, smallHitboxHSize, smallHitboxWSize];
 
-//what size large desktop items should be
-var navHeight = [imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[8], imageSizeVariables[11], imageSizeVariables[11], imageSizeVariables[8]];
-var navWidth, navMarginLeft, navMarginTop;
 var grownChars = 0;
 var currentHero = 0;
 var allowAnimation = false;
@@ -221,7 +303,6 @@ var count = 0;
 var keyboardEvent;
 var lowerCase, upperCase;
 var wasHover;
-var lastClicked;
 var oldHover;
 var heroTotalTextWidth = 0;
 var loadPercentage = 0;

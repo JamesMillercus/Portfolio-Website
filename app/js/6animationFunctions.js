@@ -12,13 +12,13 @@ function staticHome(){
 	$('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block', 'opacity':1});	
 	//reset all nav button positions
 	$('#topImage, #bottomImage, #portfolio1, #portfolio2, #portfolio3, #portfolio4, #portfolio5, #portfolio6, #portfolio7, #portfolio8').css({'margin-top': '', 'margin-left': '', 'margin-right':'', 'margin-bottom': '', 'opacity': '', 'display':''});
-	//activate navigation movement by clearing lastScrolled and resetting isHover + isAnimating
-	lastScrolled = '';
-	console.log("lastScrolled = " + lastScrolled);
-	isHover = 'container';
+	//activate navigation movement by clearing Portfolio.page.lastScrolled and resetting Portfolio.page.isHover + isAnimating
+	Portfolio.page.lastScrolled = '';
+	console.log("Portfolio.page.lastScrolled = " + Portfolio.page.lastScrolled);
+	Portfolio.page.isHover = 'container';
 	isAnimating = false;
 	//allow nav buttons to be scrolled over by revealing the scroll buttons
-	if(clickedVideo == false) $('.animatingPage').css({'display':''});
+	if(Portfolio.video.clicked == false) $('.animatingPage').css({'display':''});
 	// console.log("static home");
 	activateHeroAnimation();
 }
@@ -45,7 +45,7 @@ function animateHome(){
 	$('#bottomImage').css({'margin-bottom':'20%'});
 	var heroTextHeight = ($('#centerImage').height()-$('#heroText').height())/2;
   	$('#heroText').css({'top':heroTextHeight + 'px'});
-	lastScrolled = 'animatingHome';
+	Portfolio.page.lastScrolled = 'animatingHome';
 	// if(videoYeah.paused){
 	// 	staticHome();
 	// }
@@ -54,12 +54,12 @@ function animateHome(){
 	});
 	// console.log("animate home");
 	//set video vertical position and if the video is completed
-	console.log("lastScrolled = " + lastScrolled);
+	console.log("Portfolio.page.lastScrolled = " + Portfolio.page.lastScrolled);
 	var videoYeah = document.getElementById("startUpVid");
 	if(!videoYeah.paused) {
-		console.log("lastScrolled = " + lastScrolled);
+		console.log("Portfolio.page.lastScrolled = " + Portfolio.page.lastScrolled);
 		$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
-	      if(lastScrolled == 'animatingHome'){
+	      if(Portfolio.page.lastScrolled == 'animatingHome'){
 		      console.log('Video has ended!');
 		      $('video').css({'display':'none'});
 		      $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
@@ -77,9 +77,9 @@ function animateHome(){
 				  $('#portfolio6').stop().animate({'margin-left': '', 'opacity': 1}, 500);
 				  $('#portfolio7').stop().animate({'margin-right': '', 'opacity': 1}, 500);
 				  $('#bottomImage').stop().animate({'margin-bottom': '', 'opacity': 1},500);
-				  lastScrolled = '';
+				  Portfolio.page.lastScrolled = '';
 				  //reset all variables so that navigation scrolling will work
-				  isHover = 'container';
+				  Portfolio.page.isHover = 'container';
 				  isAnimating = false;
 				  //after a second, make the social links animate in
 				  setTimeout(function(){
@@ -160,18 +160,18 @@ function changeHero(){
 //Changes the math movement to match what navigation page the user has chosen
 function scrollPortfolio(hovered, posmovement){
     //set last scrolled to the div that has just been hovered over
-	lastScrolled = '#' + hovered.substring(0,10);
+	Portfolio.page.lastScrolled = '#' + hovered.substring(0,10);
 	//if the windowsize is desktop, mouse positions values are there, the height of the browser is over 500 and a video hasnt been clicked
-	if(BrowserInfo.browserSize()[0] > 1024 && BrowserInfo.browserSize()[1] >500 && clickedVideo == false && isNaN(currentPosX) == false){
+	if(BrowserInfo.browserSize()[0] > 1024 && BrowserInfo.browserSize()[1] >500 && Portfolio.video.clicked == false && isNaN(currentPosX) == false){
 		var scrollMovement = Portfolio.portfolioMoveValue(currentPosX, currentPosY, posmovement);
 		//set animation to true
 		isAnimating = true;
 		//animate the container to the position of the item which was scrolled over, Once selected page is animated then set animation to false
 		$('#container').stop().animate({'margin-left': scrollMovement[0], 'margin-top': scrollMovement[1]},{complete: function(){isAnimating=false;}});
 		//add a class which will alow that div to grow
-		$(lastScrolled).removeClass("backgroundImage").addClass("staticImage");
+		$(Portfolio.page.lastScrolled).removeClass("backgroundImage").addClass("staticImage");
 		//Make the selected pages' content appear
-		$(lastScrolled + 'page .content').stop().animate({'opacity': 1});
+		$(Portfolio.page.lastScrolled + 'page .content').stop().animate({'opacity': 1});
 		//Make the selected pages background image grow and once the image has grown and if the videos have been loaded, then animate the video in.
 		$(".staticImage").stop().animate({'width': growBackgroundWSize+'px'},{complete: function(){ if(isReady == true) animateIn(); }}); 
 		//Loop through all other pages and shrink them
@@ -184,28 +184,28 @@ function scrollPortfolio(hovered, posmovement){
 //** ANIMATING VIDEOS ON SCROLL OVER **//
 function animateIn(){
 	//set the last video to what you've just scrolled over
-	lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
+	lastVideo = (Portfolio.page.lastScrolled.substr(Portfolio.page.lastScrolled.length - 1))-1;
 	//play the selected video
 	//stops a bug that tries to play a video that doesn't exist
 	if(lastVideo>=0) players[lastVideo].playVideo();
 	//if the video is playing and it is currently hidden, then animate it in.
-	if (myPlayerState == 1 && $("#" + isHover + " .videoContainer").css('opacity') === '0' && clickedVideo == false) $("#" + isHover + " .videoContainer").stop().animate({'opacity': 1});	
+	if (myPlayerState == 1 && $("#" + Portfolio.page.isHover + " .videoContainer").css('opacity') === '0' && Portfolio.video.clicked == false) $("#" + Portfolio.page.isHover + " .videoContainer").stop().animate({'opacity': 1});	
 	// $(".staticImage").stop().animate({'opacity': 0});
 }
 
 //** OPEN VIDEO **//
 function openPortfolio(clicked){
 	//if is mobile and previously clicked on the same video
-	if(isNaN(lastScrolled) && lastScrolled == "container" && isMobile) players[wasPlayed].unMute().seekTo(0).playVideo();
+	if(isNaN(Portfolio.page.lastScrolled) && Portfolio.page.lastScrolled == "container" && isMobile) players[wasPlayed].unMute().seekTo(0).playVideo();
 	//if a video hasn't been clicked yet, the videos have been loaded and the screen height is over 500
-	if(clickedVideo == false && isReady == true && BrowserInfo.browserSize()[1] > 500){
+	if(Portfolio.video.clicked == false && isReady == true && BrowserInfo.browserSize()[1] > 500){
 		//set the last video to what you've just scrolled over
-		lastVideo = (lastScrolled.substr(lastScrolled.length - 1))-1;
+		lastVideo = (Portfolio.page.lastScrolled.substr(Portfolio.page.lastScrolled.length - 1))-1;
 		//set up a variable which will be able to full screen the selected video
 		var number = clicked.substring(9); //gets the substring from index position 3 to the end
 		number = parseInt(number)-1; //converts to a number
 		selectedVidLoader = 0;
-		clickedVideo = true;
+		Portfolio.video.clicked = true;
 		// var selectedVideo = document.getElementById("player"+ (lastVideo + 1));
 		// opens fullscreen video on mobile
 		if(isMobile) fullScreenMobile();

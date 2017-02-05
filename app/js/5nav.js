@@ -29,7 +29,7 @@ function checkWidth() {
     // $('#viewport').css({'height':BrowserInfo.browserSize()[1] +'px ', 'width':BrowserInfo.browserSize()[0] + 'px'});
 
     //send values to other js files that control each page
-    if(lastScrolled != "newUser" && lastScrolled != "animatingHome"){
+    if(Portfolio.page.lastScrolled != "newUser" && Portfolio.page.lastScrolled != "animatingHome"){
         $(function() { 
             updatePosition(newBackgroundPosX,newBackgroundPosY);
         });
@@ -73,30 +73,32 @@ function updatePosition(posX, posY) {
     //move background container based on mouse positions
 	currentPosX = posX;
 	currentPosY = posY;
+  var currentBrowserSizeX = BrowserInfo.browserSize()[0];
+  var currentBrowserSizeY = BrowserInfo.browserSize()[1];
 
   //if animation between navigation buttons isn't happening 
-  if (isAnimating == false && clickedVideo == false && BrowserInfo.browserSize()[1] >550){
+  if (isAnimating == false && Portfolio.video.clicked == false && currentBrowserSizeY >550){
     //detect what navigation button is being scrolled over and adjust maths mouse position accordingly
-    for(var pageNumber = 0;pageNumber<Portfolio.totalNumberOfItems();pageNumber++) if(isHover == 'portfolio'+pageNumber+'page' && lastScrolled != '' && allowAnimation == true) scrollingPage(isHover, pageNumber-1)
+    for(var pageNumber = 0;pageNumber<Portfolio.totalNumberOfItems();pageNumber++) if(Portfolio.page.isHover == 'portfolio'+pageNumber+'page' && Portfolio.page.lastScrolled != '' && allowAnimation == true) scrollingPage(Portfolio.page.isHover, pageNumber-1)
 
     function scrollingPage(currentHover, posMovement){
-      if(BrowserInfo.browserSize()[0] > 1024) $('#container').css({'margin-left': Portfolio.portfolioMoveValue(currentPosX, currentPosY, posMovement)[0], 'margin-top': Portfolio.portfolioMoveValue(currentPosX, currentPosY, posMovement)[1]});
+      if(currentBrowserSizeX > 1024) $('#container').css({'margin-left': Portfolio.portfolioMoveValue(currentPosX, currentPosY, posMovement)[0], 'margin-top': Portfolio.portfolioMoveValue(currentPosX, currentPosY, posMovement)[1]});
 		}
 		//if not hovering on a nav button
-		if(isHover == 'container' || BrowserInfo.browserSize()[0] < 1024) {
+		if(Portfolio.page.isHover == 'container' || currentBrowserSizeX < 1024) {
 			//animate based on normal mouse position
 			$('#container').css({'opacity': 1,'margin-left': posX+'px', 'margin-top': posY+'px'});
 			//clear any inline styles on navigation images that were created with js
-      if(BrowserInfo.browserSize()[0] < 1900) $('.backgroundImage').css({'width':Portfolio.gifSizes['backgroundWSize'] +'px ', 'height':Portfolio.gifSizes['backgroundHSize']+ 'px'});
-  		else if(BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $('.backgroundImage').css({'width':Portfolio.gifSizes['backgroundWSize']/1.5 +'px ', 'height':Portfolio.gifSizes['backgroundHSize']/1.5+ 'px'});
+      if(currentBrowserSizeX < 1900) $('.backgroundImage').css({'width':Portfolio.gif['backgroundWSize'] +'px ', 'height':Portfolio.gif['backgroundHSize']+ 'px'});
+  		else if(currentBrowserSizeX > 1900 || currentBrowserSizeY > 1100) $('.backgroundImage').css({'width':Portfolio.gif['backgroundWSize']/1.5 +'px ', 'height':Portfolio.gif['backgroundHSize']/1.5+ 'px'});
       $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':innerBtnHolderTop,'bottom':''}); 
       $('.videoContainer').css({'opacity':''});
-      if(isHover == 'container') lastScrolled = 'container', allowAnimation = true;
+      if(Portfolio.page.isHover == 'container') Portfolio.page.lastScrolled = 'container', allowAnimation = true;
 		}
         //if the initial start up video played, then hide it to reveal the still jpg
 		if($("video").css('display') === 'block') $('video').css({'display': 'none'});
 	}
-	// console.log("last Scrolled = "+ lastScrolled);
-	// console.log("is hover = "+ isHover);
+	// console.log("last Scrolled = "+ Portfolio.page.lastScrolled);
+	// console.log("is hover = "+ Portfolio.page.isHover);
 }
 

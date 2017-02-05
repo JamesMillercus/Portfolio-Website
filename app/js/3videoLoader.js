@@ -80,7 +80,7 @@ function pauseAllVideos(){
 
 function onPortfolioPlayerStateChange(event) {
   myPlayerState = event.data;
-  if (isHover!= 'container' && isReady == true) animateIn();
+  if (Portfolio.page.isHover!= 'container' && isReady == true) animateIn();
   //if video is played on mobile
   if(myPlayerState == 1) if(isMobile) players[lastVideo].seekTo(0).unMute();
   //if video is paused or stopped on mobile
@@ -111,7 +111,7 @@ function fullScreenMobile(){
   players[lastVideo].playVideo();
   wasPlayed = lastVideo;
   staticHome();
-  clickedVideo=false;
+  Portfolio.video.clicked=false;
 }
 
 function fullScreenVideoPlayer(portfolioSelection){
@@ -119,13 +119,13 @@ function fullScreenVideoPlayer(portfolioSelection){
   else player.unMute().playVideo();
   wasPlayed = playerYoutubeIds[portfolioSelection];
   //animate video
-  $("#" + isHover + " .videoContainer").css({'height': '100%', 'width':'100%','bottom':0,'right':0,'left':0, 'top':'0'});
-  $("#" + isHover ).css({'position':'fixed'});
-  $("#" + isHover + " .content" ).css({'display':'none'});
-  $("#" + isHover + " .videoPlayer").css({'overflow': 'visible','bottom':0,'right':0,'left':0, 'top':0});
-  $("#" + isHover + " .videoPlayer iframe").css({'width': '100%', 'height': '100%','bottom':0,'right':0,'left':0, 'top':0});
-  $("#" + isHover).stop().animate({'width':'100%', 'height':'100%', 'left':0, 'top':0, 'right':0, 'bottom':0, 'margin-top': 0, 'margin-left':0},{complete: function(){ 
-        $("#" + isHover ).css({'z-index': '-1000'});
+  $("#" + Portfolio.page.isHover + " .videoContainer").css({'height': '100%', 'width':'100%','bottom':0,'right':0,'left':0, 'top':'0'});
+  $("#" + Portfolio.page.isHover ).css({'position':'fixed'});
+  $("#" + Portfolio.page.isHover + " .content" ).css({'display':'none'});
+  $("#" + Portfolio.page.isHover + " .videoPlayer").css({'overflow': 'visible','bottom':0,'right':0,'left':0, 'top':0});
+  $("#" + Portfolio.page.isHover + " .videoPlayer iframe").css({'width': '100%', 'height': '100%','bottom':0,'right':0,'left':0, 'top':0});
+  $("#" + Portfolio.page.isHover).stop().animate({'width':'100%', 'height':'100%', 'left':0, 'top':0, 'right':0, 'bottom':0, 'margin-top': 0, 'margin-left':0},{complete: function(){ 
+        $("#" + Portfolio.page.isHover ).css({'z-index': '-1000'});
         $('#fullscreenVideoPlayer').css({'display':'block'});  
         $('#container, .animatingPage, iframe').css({'display':'none'}); 
         $('#fullscreenVideoPlayer, #videoExit').css({'display':'block'}); 
@@ -145,11 +145,11 @@ function fullScreenVideoPlayer(portfolioSelection){
 
 function exitFullScreen(){
   player.mute().pauseVideo();
-  $('#fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #' + isHover + ' .videoContainer, #'+ isHover+', #'+isHover+' .content, #'+isHover+' .videoPlayer, #'+isHover+' .videoPlayer iframe, #container, .animatingPage, iframe').css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':'', 'z-index':''});
+  $('#fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #' + Portfolio.page.isHover + ' .videoContainer, #'+ Portfolio.page.isHover+', #'+Portfolio.page.isHover+' .content, #'+Portfolio.page.isHover+' .videoPlayer, #'+Portfolio.page.isHover+' .videoPlayer iframe, #container, .animatingPage, iframe').css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':'', 'z-index':''});
   allowAnimation = false;
-  lastScrolled = '';
-  // $("#" + isHover + " .videoContainer, #fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #" + isHover + " .content", "#" + isHover + " .videoPlayer iframe, #" + isHover + " .videoPlayer").css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':''});
-  clickedVideo = false; 
+  Portfolio.page.lastScrolled = '';
+  // $("#" + Portfolio.page.isHover + " .videoContainer, #fullscreenVideoPlayer, #videoExit, #container, .animatingPage, #" + Portfolio.page.isHover + " .content", "#" + Portfolio.page.isHover + " .videoPlayer iframe, #" + Portfolio.page.isHover + " .videoPlayer").css({'height': '', 'width':'','bottom':'','right':'','left':'', 'top':'', 'display': '', 'opacity':'', 'overflow': '', 'position':''});
+  Portfolio.video.clicked = false; 
   checkPositions();
 }
 
