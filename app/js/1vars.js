@@ -3,6 +3,67 @@
 
 //** SET UP ALL VARIABLES **//
 
+var app = app || {};
+
+app.browser = {
+	has_touch: true,
+	isTablet: false,
+}
+
+function Portfolio() {
+	this.animationPositions = {};
+	this.x = 0;
+	this.y = 0;
+	this.currentPosX = 0;
+	this.currentPosY = 0;
+}
+
+Portfolio.prototype = {
+	init: function () {
+		var self = this;
+		console.log(self.animationPositions);
+	}
+}
+
+app.Portfolio1 = new Portfolio;
+
+
+// 	function RGBLed(r,g,b) {
+// 		// this.r = new five.Led(r);
+// 		// this.g = new five.Led(g);
+// 		// this.b = new five.Led(b);
+// 		this.init(r,g,b);
+
+// 		console.log("working slut");
+// 	}
+
+// 	RGBLed.prototype = {
+// 		r: null,
+// 		g: null,
+// 		b: null,
+// 		init: function (red,green,blue) {
+// 			var self = this;
+// 			self.r = new five.Led(red);
+// 			self.g = new five.Led(green);
+// 			self.b = new five.Led(blue);
+// 		},
+// 		on: function(color){
+// 			color.stop().off();
+// 			color.on();
+// 		},
+// 		off: function(){
+// 			this.r.stop().off();
+// 			this.g.stop().off();
+// 			this.b.stop().off();
+// 		},
+// 		blink(color){
+// 			color.strobe(500);
+// 		}
+// 	}
+
+// 	var rgbLed = new RGBLed("P1-11","P1-13","P1-15");
+// 	var red = rgbLed.r, green = rgbLed.g, blue = rgbLed.b;
+
 //setting up mobile device if statements by detecting touch availability
 var has_touch = 'ontouchstart' in document.documentElement;
 //adjust the below variables to select mobiles and tablets
@@ -50,7 +111,7 @@ var Portfolio = {
 		outerGridYPos:0,
 		innerGridHSize:0,
 		innerGridYPos:0,
-		centerGridHSize:0,
+		centerGridHSize:0
 	},
 
 	hitBoxPosAndSizes:{
@@ -62,7 +123,7 @@ var Portfolio = {
 			leftCornerPos: 1.5,
 			rightCornerPos: 1.734,
 			centralPos: 1.272,
-			middlePagePos: 1.32,
+			middlePagePos: 1.32
 		},
 		smallDesktop:{
 			topPagePos: 0.58,
