@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "/Users/jamesmiller/Desktop/Creative Technologist/Personal/portfolio/electronics/invitation.sch")
-    (date "Wednesday, 25 January 2017 'pmt' 20:41:16")
+    (date "Tuesday, 07 February 2017 'pmt' 22:24:43")
     (tool "Eeschema 4.0.4-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
