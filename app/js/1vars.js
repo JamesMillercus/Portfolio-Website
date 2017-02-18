@@ -3,91 +3,38 @@
 
 //** SET UP ALL VARIABLES **//
 
-var app = app || {};
+function designPortfolio() {
+	//setting up mobile device if statements by detecting touch availability
+	var has_touch = 'ontouchstart' in document.documentElement;
+	//adjust the below variables to select mobiles and tablets
+	var isTablet = /Tablet|ipad/i.test(navigator.userAgent.toLowerCase());
+	var isMobile = /webos|iphone|blackberry|ipod|android. +mobile|windows phone/i.test(navigator.userAgent.toLowerCase());
 
-app.browser = {
-	has_touch: true,
-	isTablet: false,
+	// Inject YouTube API script asynchronously
+	var tag = document.createElement('script');
+	tag.src = "//www.youtube.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-function Portfolio() {
-	this.animationPositions = {};
-	this.x = 0;
-	this.y = 0;
-	this.currentPosX = 0;
-	this.currentPosY = 0;
-}
+designPortfolio.prototype = {
+	loadPercentage:0,
+	//variables for determining mouse pos
+	mousePos: {
+		x: null,
+		y: null,
+		currentPosX: null,
+		currentPosY: null,
+		//movement strength of background
+		movementStrength: 10,
+		isAnimating: false,
+		allowAnimation: false
+	},
+	browser: {
+		greaterThanResizer: [1024, 900, 551, 0],
+		lesserThanResizer: [99999999, 1024, 900, 550],
+	},
 
-Portfolio.prototype = {
-	init: function () {
-		var self = this;
-		console.log(self.animationPositions);
-	}
-}
-
-app.Portfolio1 = new Portfolio;
-
-
-// 	function RGBLed(r,g,b) {
-// 		// this.r = new five.Led(r);
-// 		// this.g = new five.Led(g);
-// 		// this.b = new five.Led(b);
-// 		this.init(r,g,b);
-
-// 		console.log("working slut");
-// 	}
-
-// 	RGBLed.prototype = {
-// 		r: null,
-// 		g: null,
-// 		b: null,
-// 		init: function (red,green,blue) {
-// 			var self = this;
-// 			self.r = new five.Led(red);
-// 			self.g = new five.Led(green);
-// 			self.b = new five.Led(blue);
-// 		},
-// 		on: function(color){
-// 			color.stop().off();
-// 			color.on();
-// 		},
-// 		off: function(){
-// 			this.r.stop().off();
-// 			this.g.stop().off();
-// 			this.b.stop().off();
-// 		},
-// 		blink(color){
-// 			color.strobe(500);
-// 		}
-// 	}
-
-// 	var rgbLed = new RGBLed("P1-11","P1-13","P1-15");
-// 	var red = rgbLed.r, green = rgbLed.g, blue = rgbLed.b;
-
-//setting up mobile device if statements by detecting touch availability
-var has_touch = 'ontouchstart' in document.documentElement;
-//adjust the below variables to select mobiles and tablets
-var isTablet = /Tablet|ipad/i.test(navigator.userAgent.toLowerCase());
-var isMobile = /webos|iphone|blackberry|ipod|android. +mobile|windows phone/i.test(navigator.userAgent.toLowerCase());
-//variables for determining mouse pos
-var x, y, currentPosX, currentPosY;
-//movement strength of background
-var movementStrength = 10;
-// variables for resizing navigation images
-var backgroundWPos, backgroundHPos, smallHitboxWSize, smallHitboxHSize, largeHitboxWSize, largeHitboxHSize, medHitboxWSize, medHitboxHSize;
-// variables for resizing the home page when nav images are scrolled over/out
-var outerBtnHolderWSize, outerBtnHolderHSize, innerBtnHolderHSize, newouterBtnHolderWSize, newInnerBtnHolderHSize, newouterBtnHolderHSize, innerBtnHolderTop, outerBtnHolderTop, newInnerBtnHolderTop;
-// boolean to detect in navigation images are animated once hovered over/out
-var isAnimating = false;
-//stores the latest selected video for iphones
-var lastVideo;
-// store values to decide the size of selected and non selected nav buttons
-var growBackgroundWSize, shrinkBackgroundWSize;
-//calculate the vertical position of the 2 portfolio items in the center of the page
-var middleImagesHeight;
-
-
-var Portfolio = {
 	animationPositions: {
 		portfolio1: [.83333333333333333,.7],
 		portfolio2: [1.16,.7],
@@ -102,6 +49,7 @@ var Portfolio = {
 	gif: {
 		backgroundWSize: 0,
 		backgroundHSize: 0,
+		// store values to decide the size of selected and non selected nav buttons
 		growWSize:0,
 		shrinkWSize:0,
 		backgroundWImageResizerArr: [7,7,5,3.3],
@@ -174,198 +122,185 @@ var Portfolio = {
 		isHover: 'container',
 		lastClicked: ''
 	},
+
 	video:{
 		// var to track if a video has been clicked
-		clicked:false
+		clicked:false,
+		//stores the latest selected video for iphones
+		lastVideo: null,
+		// a counter to see how many videos have been loaded
+		isLoaded: 0,
+		//boolean to allow videos to be played once loaded
+		isReady:false,
+		//the number of videos that will be loaded
+		videoList:null,
+		//video players are stored in this array
+		players: [],
+		//video youtubeids
+		playerYoutubeIds: [],
+		ID: '',
+		//full screen vid player
+		player: null,
+		myPlayerState: null,
+		//a variable to store previously played video when on mobile
+		wasPlayed: null,
+		//variable to store whether the video is playing or not
+		selectedVidLoader: 0,
+		//variable to store the state of the mobile device video player
+		videoLoaderState: null
+	},
+
+	heroText:{
+		grownChars:0,
+		currentHero:0,
+		options: ["James Miller","Design", "Creative","Technology","Electronics", "Node", "Ideation", "Arduino", "Javascript", "Interactive", "Gamification", "Innovation", "Installations", "Prototyping", "Experiential", "Products"],
+		heroTotalTextWidth: 0
+	},
+
+	invitation:{
+		lowerCase: null,
+		upperCase: null,
+		count: 0,
+		keyboardArr:[/*a*/97,/*A*/65,/*b*/98,/*B*/66,/*c*/99,/*C*/67,/*d*/100,/*D*/68,/*e*/101,/*E*/69,/*f*/102,/*F*/70,/*g*/103,/*G*/71,/*h*/104,/*H*/72,/*m*/109,/*M*/77],
+		keyboardEvent: null
+	},
+
+	browserSize: function(){
+			return [$(window).width(),$(window).height()];
+		},
+	browserResizer: function(){
+		return [this.browser.greaterThanResizer, this.browser.lesserThanResizer];
 	},
 
     portfolioMoveValue : function(xpos, ypos, portfolioItem) {
-    	return [xpos*Portfolio.animationPositions['portfolio'+(portfolioItem+1)][0] + 'px', ypos*Portfolio.animationPositions['portfolio'+(portfolioItem+1)][1]+ 'px'];
+    	return [xpos*this.animationPositions['portfolio'+(portfolioItem+1)][0] + 'px', ypos*this.animationPositions['portfolio'+(portfolioItem+1)][1]+ 'px'];
     },
     totalNumberOfItems : function(){
-    	return Object.keys(Portfolio.animationPositions).length+1;
+    	return Object.keys(this.animationPositions).length+1;
     },
     calcGifSizes : function(width, height){
-    	Portfolio.gif.backgroundWSize = width, Portfolio.gif.backgroundHSize = height;
-    	return[Portfolio.gif.backgroundWSize, Portfolio.gif.backgroundHSize];
+    	this.gif.backgroundWSize = width, this.gif.backgroundHSize = height;
+    	return[this.gif.backgroundWSize, this.gif.backgroundHSize];
     },
     calcHitBoxSizes : function(){
     	//loop through each of the screen sizes for hitbox arrays
-    	for(var o = 0; o < Object.keys(Portfolio.hitBoxPosAndSizes).length-1; o++)
+    	for(var o = 0; o < Object.keys(this.hitBoxPosAndSizes).length-1; o++)
     	{
     		//loop through arrays of devices that can be used
-	    	var userDevice = Object.keys(Portfolio.hitBoxPosAndSizes)[o];
+	    	var userDevice = Object.keys(this.hitBoxPosAndSizes)[o];
 	    	//the targetted device whose portfolio hitbox sizes will be defined
-	    	var deviceHitBoxSize = Portfolio.hitBoxPosAndSizes[userDevice];
+	    	var deviceHitBoxSize = this.hitBoxPosAndSizes[userDevice];
 	    	//set the height of all large hit boxes heights
-	    	deviceHitBoxSize['largeHitBoxHeight'] = Portfolio.gif['backgroundHSize']*4;
+	    	deviceHitBoxSize['largeHitBoxHeight'] = this.gif['backgroundHSize']*4;
 	    	//set the height of all large hit boxes widths
-	    	deviceHitBoxSize['largeHitBoxWidth'] = Portfolio.gif['backgroundWSize']*4;
+	    	deviceHitBoxSize['largeHitBoxWidth'] = this.gif['backgroundWSize']*4;
 	    	//set the height of desktop med hit boxes widths
-	    	if(userDevice == "desktop") deviceHitBoxSize['medHitBoxWidth'] = Portfolio.gif['backgroundWSize']*3;
+	    	if(userDevice == "desktop") deviceHitBoxSize['medHitBoxWidth'] = this.gif['backgroundWSize']*3;
 	    	//set the height of small desktop med hit boxes widths
-	    	else if(userDevice == "smallDesktop") deviceHitBoxSize['medHitBoxWidth'] = Portfolio.gif['backgroundWSize']*1.5;
+	    	else if(userDevice == "smallDesktop") deviceHitBoxSize['medHitBoxWidth'] = this.gif['backgroundWSize']*1.5;
 	    	//set the height of tablet or mobile med hit boxes widths
-	    	else if(userDevice == "tablet" || userDevice == "mobile") deviceHitBoxSize['medHitBoxWidth'] = Portfolio.gif['backgroundWSize']*1.5;
+	    	else if(userDevice == "tablet" || userDevice == "mobile") deviceHitBoxSize['medHitBoxWidth'] = this.gif['backgroundWSize']*1.5;
 	    	//set the height of all small hit boxes heights
-	    	deviceHitBoxSize['smallHitBoxHeight'] = Portfolio.gif['backgroundHSize']*1.8;
+	    	deviceHitBoxSize['smallHitBoxHeight'] = this.gif['backgroundHSize']*1.8;
 	    	//set the height of all but mobile small hit boxes widths
-	    	if(userDevice == "desktop" || userDevice == "smallDesktop" || userDevice == "tablet") deviceHitBoxSize['smallHitBoxWidth'] = Portfolio.gif['backgroundWSize']*2;
+	    	if(userDevice == "desktop" || userDevice == "smallDesktop" || userDevice == "tablet") deviceHitBoxSize['smallHitBoxWidth'] = this.gif['backgroundWSize']*2;
 	    	//set the height of only mobile small hit boxes widths
-	    	else if (userDevice == "mobile") deviceHitBoxSize['smallHitBoxWidth'] = Portfolio.gif['backgroundWSize']*1.348;
-	    	
+	    	else if (userDevice == "mobile") deviceHitBoxSize['smallHitBoxWidth'] = this.gif['backgroundWSize']*1.348;
 	    	//store values of position + sizes of hit boxes from the objects
-	    	var devicePositionMaths = Object.values(Portfolio.hitBoxPosAndSizes)[o];
+	    	var devicePositionMaths = Object.values(this.hitBoxPosAndSizes)[o];
 	    	//clear current set values in the image resizing array
-    		Portfolio.hitBoxPosAndSizes.newimageResizingarr[o] = [];
+    		this.hitBoxPosAndSizes.newimageResizingarr[o] = [];
 	    	//for each value in each device object
 	    	for(var k = 0; k < Object.keys(devicePositionMaths).length; k++){
 	    		//store each individual value from the device size object
 				var positionMathValues = Object.values(devicePositionMaths)[k];
 				//push those values into the new image resizing array
-	    		Portfolio.hitBoxPosAndSizes.newimageResizingarr[o].push(positionMathValues);
+	    		this.hitBoxPosAndSizes.newimageResizingarr[o].push(positionMathValues);
 	    	}
     	}
     	//return the new sizes and positions of all hitboxes
-		return Portfolio.hitBoxPosAndSizes.newimageResizingarr;
+		return this.hitBoxPosAndSizes.newimageResizingarr;
     },
     //** CHECK SIZE OF SCREEN + LOAD NEW SIZES **//
     loadHitBoxPosAndSize: function(){
     	var currentSize;
-		var browserResizingOptions = BrowserInfo.browserResizer()[0].length;
+		var browserResizingOptions = this.browserResizer()[0].length;
 		//for each screen size (4), set the size of all hit boxes based on the screen size
 		for(var x = 0;x < browserResizingOptions; x++) {
 			//based on what screen size you are on, load in different arrays that resize the divs on the screen
-			var currentBrowserSizeX = BrowserInfo.browserSize()[0];
-			var currentBrowserSizeY = BrowserInfo.browserSize()[1];
-			var lesserThanValue = BrowserInfo.browserResizer()[0][x];
-			var greaterThanValue = BrowserInfo.browserResizer()[1][x];
+			var currentBrowserSizeX = this.browserSize()[0];
+			var currentBrowserSizeY = this.browserSize()[1];
+			var lesserThanValue = this.browserResizer()[0][x];
+			var greaterThanValue = this.browserResizer()[1][x];
 			if(currentBrowserSizeX > lesserThanValue && currentBrowserSizeX < greaterThanValue) {
 				//set the size of all the gifs
-				if(isMobile == false && isTablet == false) {
-					Portfolio.calcGifSizes($('#homepage').width()/Portfolio.gif.backgroundWImageResizerArr[x],$('#homepage').height()/Portfolio.gif.backgroundHImageResizerArr[x]);
+				if(!this.isMobile && !this.isTablet) {
+					this.calcGifSizes($('#homepage').width()/this.gif.backgroundWImageResizerArr[x],$('#homepage').height()/this.gif.backgroundHImageResizerArr[x]);
 					//set the current size of the content based on what size screen was loaded
-					currentSize = Portfolio.calcHitBoxSizes()[x];
+					currentSize = this.calcHitBoxSizes()[x];
 				}
 				//if tablet 
-				else if(isTablet) {
+				else if(this.isTablet) {
 					//set the sizes to load the tablet array
-					Portfolio.calcGifSizes($('#homepage').width()/Portfolio.gif.backgroundWImageResizerArr[2],$('#homepage').height()/Portfolio.gif.backgroundHImageResizerArr[2]);
+					this.calcGifSizes($('#homepage').width()/this.gif.backgroundWImageResizerArr[2],$('#homepage').height()/this.gif.backgroundHImageResizerArr[2]);
 					//load the tablet array
-					currentSize = Portfolio.calcHitBoxSizes()[2];
+					currentSize = this.calcHitBoxSizes()[2];
 				}
 				//if mobile 
-				else if(isMobile) {
+				else if(this.isMobile) {
 					// set the sizes to load the mobile array
-					Portfolio.calcGifSizes($('#homepage').width()/Portfolio.gif.backgroundWImageResizerArr[3],$('#homepage').height()/Portfolio.gif.backgroundHImageResizerArr[3]);
+					this.calcGifSizes($('#homepage').width()/this.gif.backgroundWImageResizerArr[3],$('#homepage').height()/this.gif.backgroundHImageResizerArr[3]);
 					// load the mobile array
-					currentSize = Portfolio.calcHitBoxSizes()[3];
+					currentSize = this.calcHitBoxSizes()[3];
 				}
-				//return the size and positions of all hitboxs based on screen size
 			}
 		}
+		//return the size and positions of all hitboxs based on screen size
 		return currentSize;
     },
     // ** SORT POSITION DATA FROM ARRAY AND ASSIGN NEW PAGE POSITIONS **
     calcPagePosAndSizes: function(calculatedVals){
     	//store the total length of values within desktopImageSizes
-		var desktopImageSizesLength =  Portfolio.calcHitBoxSizes()[0].length;
+		var desktopImageSizesLength =  this.calcHitBoxSizes()[0].length;
 		var hitBoxSizeAndPos = [];
-		var currentBrowserSizeX = BrowserInfo.browserSize()[0];
-		var currentBrowserSizeY = BrowserInfo.browserSize()[1];
+		var currentBrowserSizeX = this.browserSize()[0];
+		var currentBrowserSizeY = this.browserSize()[1];
 
 		//STORE NAV HEIGHT, NAV WIDTH, NAV MARGIN LEFT + TOP IN OBJECT
 	    for(var resizeNumber = 0; resizeNumber < desktopImageSizesLength; resizeNumber++){
 			//store chosen array data in a new array
 			hitBoxSizeAndPos[resizeNumber] = calculatedVals[resizeNumber];
 			//set the height of all the content
-		    Portfolio.page.height = [hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[11], hitBoxSizeAndPos[11], hitBoxSizeAndPos[8]];
+		    this.page.height = [hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[8], hitBoxSizeAndPos[11], hitBoxSizeAndPos[11], hitBoxSizeAndPos[8]];
 			//set the width of all the content
-			Portfolio.page.width = [hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[10], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[10]]; 
+			this.page.width = [hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[10], hitBoxSizeAndPos[9], hitBoxSizeAndPos[9], hitBoxSizeAndPos[10]]; 
 			//set the margin left
-			Portfolio.page.xPosition = [currentBrowserSizeX/hitBoxSizeAndPos[4], currentBrowserSizeX*hitBoxSizeAndPos[5], currentBrowserSizeX/hitBoxSizeAndPos[4], currentBrowserSizeX*hitBoxSizeAndPos[5], currentBrowserSizeX*hitBoxSizeAndPos[6], currentBrowserSizeX*hitBoxSizeAndPos[1], currentBrowserSizeX*hitBoxSizeAndPos[2], currentBrowserSizeX*hitBoxSizeAndPos[6]];
+			this.page.xPosition = [currentBrowserSizeX/hitBoxSizeAndPos[4], currentBrowserSizeX*hitBoxSizeAndPos[5], currentBrowserSizeX/hitBoxSizeAndPos[4], currentBrowserSizeX*hitBoxSizeAndPos[5], currentBrowserSizeX*hitBoxSizeAndPos[6], currentBrowserSizeX*hitBoxSizeAndPos[1], currentBrowserSizeX*hitBoxSizeAndPos[2], currentBrowserSizeX*hitBoxSizeAndPos[6]];
 			//set the margin top of all the content
-			Portfolio.page.yPosition = [currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[3], currentBrowserSizeY*hitBoxSizeAndPos[3], currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[7], currentBrowserSizeY*hitBoxSizeAndPos[7], currentBrowserSizeY*hitBoxSizeAndPos[3]];
+			this.page.yPosition = [currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[3], currentBrowserSizeY*hitBoxSizeAndPos[3], currentBrowserSizeY*hitBoxSizeAndPos[0], currentBrowserSizeY*hitBoxSizeAndPos[7], currentBrowserSizeY*hitBoxSizeAndPos[7], currentBrowserSizeY*hitBoxSizeAndPos[3]];
 	    }
     },
     setPageSizeAndPos: function(){
     	//for each portfolio item on the page, resize and place each item based on screen size
-    	for(var pageNumber = 0;pageNumber<Portfolio.page.xPosition.length;pageNumber++){
-	    	$('#portfolio'+ (pageNumber+1) +'page').css({'height':Portfolio.page.height[pageNumber] +'px', 'width':Portfolio.page.width[pageNumber] +'px', 'margin-left': Portfolio.page.xPosition[pageNumber] +'px', 'margin-top': Portfolio.page.yPosition[pageNumber] +'px'});
+    	for(var pageNumber = 0;pageNumber<this.page.xPosition.length;pageNumber++){
+	    	$('#portfolio'+ (pageNumber+1) +'page').css({'height':this.page.height[pageNumber] +'px', 'width':this.page.width[pageNumber] +'px', 'margin-left': this.page.xPosition[pageNumber] +'px', 'margin-top': this.page.yPosition[pageNumber] +'px'});
     	}
     },
     setGifGrid: function(){
     	//SET GRID SIZE AND POSITION
-	    Portfolio.gif.outerGridWSize = $('#outerBtnHolder').width(), Portfolio.gif.outerGridHSize = $('#outerBtnHolder').height(), Portfolio.gif.innerGridHSize = $('#innerBtnHolder').height(), Portfolio.gif.centerGridHSize = $('#middleImages').height(); 
-	    Portfolio.gif.outerGridYPos = ($('#homepage').height()-$('#outerBtnHolder').height())/2, Portfolio.gif.innerGridYPos = (Portfolio.gif.outerGridHSize-Portfolio.gif.innerGridHSize)/2;  
+	    this.gif.outerGridWSize = $('#outerBtnHolder').width(), this.gif.outerGridHSize = $('#outerBtnHolder').height(), this.gif.innerGridHSize = $('#innerBtnHolder').height(), this.gif.centerGridHSize = $('#middleImages').height(); 
+	    this.gif.outerGridYPos = ($('#homepage').height()-$('#outerBtnHolder').height())/2, this.gif.innerGridYPos = (this.gif.outerGridHSize-this.gif.innerGridHSize)/2;  
 	    //reset and re-center all postions of all content
-	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':Portfolio.gif.outerGridYPos+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':Portfolio.gif.innerGridYPos,'bottom':''});
-	    $('#middleImages').css({'top':(Portfolio.gif.innerGridHSize - Portfolio.gif.centerGridHSize)/2 +'px'});
+	    $('#outerBtnHolder').css({'width': '', 'height': '', 'top':this.gif.outerGridYPos+'px','margin-left':'', 'margin-right':'', 'left':'', 'right':''}), $('#innerBtnHolder').css({'width':'', 'height': '','margin-left':'', 'margin-right':'', 'left':'', 'right':'','top':this.gif.innerGridYPos,'bottom':''});
+	    $('#middleImages').css({'top':(this.gif.innerGridHSize - this.gif.centerGridHSize)/2 +'px'});
     },
     setGifSizes: function(){
     	//set the size of the gifs based on the screen size
-    	if(BrowserInfo.browserSize()[0] < 1900) $('.backgroundImage').css({'width': Portfolio.gif['backgroundWSize'] + 'px ', 'height': Portfolio.gif['backgroundHSize'] + 'px'});
-		else if(BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $('.backgroundImage').css({'width':Portfolio.gif['backgroundWSize']/1.5 +'px ', 'height':Portfolio.gif['backgroundHSize']/1.5+ 'px'});
+    	if(this.browserSize()[0] < 1900) $('.backgroundImage').css({'width': this.gif['backgroundWSize'] + 'px ', 'height': this.gif['backgroundHSize'] + 'px'});
+		else if(this.browserSize()[0] > 1900 || this.browserSize()[1] > 1100) $('.backgroundImage').css({'width':this.gif['backgroundWSize']/1.5 +'px ', 'height':this.gif['backgroundHSize']/1.5+ 'px'});
 		// Selected page background image grows by 1.2 times its current size and other pages have their size divided by 1.8
-		Portfolio.gif.growWSize = Portfolio.gif['backgroundWSize']*1.3, Portfolio.gif.shrinkWSize = Portfolio.gif['backgroundWSize']/1.9;
+		this.gif.growWSize = this.gif['backgroundWSize']*1.3, this.gif.shrinkWSize = this.gif['backgroundWSize']/1.9;
     }
 }
 
-var BrowserInfo = {
-	greaterThanResizer: [1024, 900, 551, 0],
-	lesserThanResizer: [99999999, 1024, 900, 550],
-	browserSize: function(){
-		return [$(window).width(),$(window).height()];
-	},
-	browserResizer: function(){
-		return [BrowserInfo.greaterThanResizer, BrowserInfo.lesserThanResizer];
-	}
-}
-
-//Array to store how portfolio items are animated based on mouse positions
-var PortfolioX, PortfolioY;
-
-var grownChars = 0;
-var currentHero = 0;
-var allowAnimation = false;
-var heroTextOptions = ["James Miller","Design", "Creative","Technology","Electronics", "Node", "Ideation", "Arduino", "Javascript", "Interactive", "Gamification", "Innovation", "Installations", "Prototyping", "Experiential", "Products"];
-$(document).ready(function () {
-	// Inject YouTube API script asynchronously
-	var tag = document.createElement('script');
-	tag.src = "//www.youtube.com/player_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-});
-// a counter to see how many videos have been loaded
-var isLoaded = 0;
-//boolean to allow videos to be played once loaded
-var isReady = false;
-//the number of videos that will be loaded
-var videoList;
-//video players are stored in this array
-var players = [];
-//video youtubeids
-var playerYoutubeIds = [];
-var ID = '';
-//video player for mobile devices
-var player;
-var myPlayerState;
-var fullScreenCounter = 0;
-//a variable to store previously played video when on mobile
-var wasPlayed;
-//variable to store whether the video is playing or not
-var selectedVidLoader = 0;
-//variable to store the state of the mobile device video player
-var videoLoaderState;
-var selectedVideo;
-
-var keyboardArr = [/*a*/97,/*A*/65,/*b*/98,/*B*/66,/*c*/99,/*C*/67,/*d*/100,/*D*/68,/*e*/101,/*E*/69,/*f*/102,/*F*/70,/*g*/103,/*G*/71,/*h*/104,/*H*/72,/*m*/109,/*M*/77];
-var count = 0;
-var keyboardEvent;
-var lowerCase, upperCase;
-var wasHover;
-var oldHover;
-var heroTotalTextWidth = 0;
-var loadPercentage = 0;
-
-
+var Portfolio = new designPortfolio();

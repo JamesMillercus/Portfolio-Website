@@ -5,9 +5,10 @@
 //PHASE ONE
 //1. Fix all bugs (check on different browsers with Kerve browser stack login details)
 //2. Check on windows/android mobile devices (problem with android selecting mobile version of site)
-//3. Recode site so that is runs more effieciently (constructor functions)
-//4. Re enable html videos and disable js video adding function
-//5. Green sock animation instead of jquery (does it have a .stop function?)
+//3. Re enable html videos and disable js video adding function
+//5. Code loading screen to play video for x seconds, then load another video, then play etc..
+//6. Green sock animation instead of jquery (does it have a .stop function?)
+//7. recode in es6 + ?
 
 // THINGS TO CHECK
 //1. Video Player Functionality: Allow pause button to work on tablet (check that this isn't just on my ipad)
@@ -21,8 +22,8 @@
 //** CHECK POSITIONS **//
 function checkPositions() {
     // set size + position of each page within the website container
-	var currentBrowserSizeX = BrowserInfo.browserSize()[0];
-	var currentBrowserSizeY = BrowserInfo.browserSize()[1];
+	var currentBrowserSizeX = Portfolio.browserSize()[0];
+	var currentBrowserSizeY = Portfolio.browserSize()[1];
 	$('#homepage').css({'margin-left': currentBrowserSizeX + 'px', 'margin-top': currentBrowserSizeY + 'px'});
 	// set size + position of background
 	$('#container').css({'height':currentBrowserSizeY*3 +'px ', 'width':currentBrowserSizeX*3 + 'px', 'margin-left': '-'+currentBrowserSizeX + 'px', 'margin-top': '-'+currentBrowserSizeY + 'px'}); 	
@@ -40,7 +41,7 @@ function checkPositions() {
 	    $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px', 'top':($('#centerImage').height()-$('#heroText').height())/2});
 	    //reveal social media buttons
 	    if(Portfolio.page.lastScrolled != "newUser") {
-	    	if(!isMobile) $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+	    	if(!Portfolio.isMobile) $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
 	    	$('#heroText').css({'opacity':1, 'display':'block'});
 	    	$('.videoContainer').css({'opacity': 0});
 		    $('.content').css({'opacity': 0});
@@ -66,9 +67,9 @@ function startWebsite(){
     }, complete: function(){ 
     	// var v = window.document.createElement("video");
 		//if there is a video that can be played, the window size is for desktops and if the use has just loaded the page then play video. 
-	    if(!!document.getElementById("startUpVid").canPlayType == true && BrowserInfo.browserSize()[0] > 1024 && Portfolio.page.lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
+	    if(!!document.getElementById("startUpVid").canPlayType == true && Portfolio.browserSize()[0] > 1024 && Portfolio.page.lastScrolled == "newUser") animateHome(); //change this to animateHome when not in dev mode
 	    //else load the page without video
-	    else if(!!document.getElementById("startUpVid").canPlayType == false || BrowserInfo.browserSize()[0] < 1024 || isMobile) staticHome();
+	    else if(!!document.getElementById("startUpVid").canPlayType == false || Portfolio.browserSize()[0] < 1024 || Portfolio.isMobile) staticHome();
 	}}); 
 }
 
@@ -76,14 +77,6 @@ function startWebsite(){
 
 //on document ready
 $(document).ready(function () {
-
-	// vid = document.getElementById("startUpVid");
-	// // console.log(vid);
-
-	// vid.ontimeupdate = function() { myFunction() };
-	// function myFunction() {
-	// 	// if(vid.currentTime >= .5) $("#centerImage").addClass("designBackground");
-	// }
 
 	//when all navigation images are loaded, call checkPositions()
     $('.backgroundImage').imagesLoaded().done( function( instance ) {
@@ -93,7 +86,7 @@ $(document).ready(function () {
 	// when browser is resized, call checkPositions()
 	$( window ).resize(function() {
   		checkPositions();
-		allowAnimation = false;
+		Portfolio.mousePos.allowAnimation = false;
 	    Portfolio.page.lastScrolled = '';
 	});
 	$(window).on( "orientationchange", function( event ) { checkPositions(); });
@@ -102,13 +95,13 @@ $(document).ready(function () {
 	$(".animatingPage").mouseenter(function(){
 	    Portfolio.page.isHover = $(this).attr('id');
 	    //Detect what navigation button is being hovered, move the background to center the selected page 
-	    for(var pageNumber = 0;pageNumber<(Portfolio.totalNumberOfItems());pageNumber++) if(Portfolio.page.isHover == 'portfolio'+pageNumber+'page' && Portfolio.page.lastScrolled != '' && allowAnimation == true) scrollPortfolio(Portfolio.page.isHover, pageNumber-1);	   
+	    for(var pageNumber = 0;pageNumber<(Portfolio.totalNumberOfItems());pageNumber++) if(Portfolio.page.isHover == 'portfolio'+pageNumber+'page' && Portfolio.page.lastScrolled != '' && Portfolio.mousePos.allowAnimation == true) scrollPortfolio(Portfolio.page.isHover, pageNumber-1);	   
 	});
 	//on mouse click
 	$(".animatingPage").click(function(){
-		if(Portfolio.page.isHover == "container" && isMobile) openPortfolio(wasPlayed);
+		if(Portfolio.page.isHover == "container" && Portfolio.isMobile) openPortfolio(Portfolio.video.wasPlayed);
 		
-		if(isTablet) {
+		if(Portfolio.isTablet) {
 			//open video full screen for ipad
 		}
 		
@@ -131,22 +124,22 @@ $(document).ready(function () {
 	});
 
 	$( "html" ).keypress(function( event ) {	
-		for(lowerCase = 0; lowerCase < keyboardArr.length; lowerCase+=2){
-		  	upperCase = (lowerCase+1);
-		  	count++;
-			Portfolio.page.lastClicked = "portfolio"+count+"page";
-		  	keyboardEvent=event.which;
-			currentPosX = -BrowserInfo.browserSize()[0];
-			currentPosY = -BrowserInfo.browserSize()[1];
-		  	triggerResponse(Portfolio.page.lastClicked,keyboardEvent);
+		for(Portfolio.invitation.lowerCase = 0; Portfolio.invitation.lowerCase < Portfolio.invitation.keyboardArr.length; Portfolio.invitation.lowerCase+=2){
+		  	Portfolio.invitation.upperCase = (Portfolio.invitation.lowerCase+1);
+		  	Portfolio.invitation.count++;
+			Portfolio.page.lastClicked = "portfolio"+Portfolio.invitation.count+"page";
+		  	Portfolio.invitation.keyboardEvent=event.which;
+			Portfolio.mousePos.currentPosX = -Portfolio.browserSize()[0];
+			Portfolio.mousePos.currentPosY = -Portfolio.browserSize()[1];
+		  	triggerResponse(Portfolio.page.lastClicked,Portfolio.invitation.keyboardEvent);
 		}
 		// console.log(keyboardEvent);
 	}); 
 	  
 	function triggerResponse(newHover, keyp){
-		if ( keyp == keyboardArr[lowerCase] || keyp == keyboardArr[upperCase] ) {
-			var counter = count-1;
-			if(Portfolio.video.clicked==false && counter<(keyboardArr.length/2)-1){
+		if ( keyp == Portfolio.invitation.keyboardArr[Portfolio.invitation.lowerCase] || keyp == Portfolio.invitation.keyboardArr[Portfolio.invitation.upperCase] ) {
+			var counter = Portfolio.invitation.count-1;
+			if(Portfolio.video.clicked==false && counter<(Portfolio.invitation.keyboardArr.length/2)-1){
 				if(newHover != Portfolio.page.isHover){
 				    resetToHome(newHover);
 				  	Portfolio.page.isHover = newHover;
@@ -154,89 +147,89 @@ $(document).ready(function () {
 					scrollPortfolio(newHover, counter);	
 				}else openPortfolio(Portfolio.page.isHover);
 			}else exitFullScreen(); 
-			if (counter==(keyboardArr.length/2)-1 && Portfolio.page.lastScrolled != '') resetToHome(newHover);
+			if (counter==(Portfolio.invitation.keyboardArr.length/2)-1 && Portfolio.page.lastScrolled != '') resetToHome(newHover);
 		}
-		if(count>=(keyboardArr.length/2)) count =0;
+		if(Portfolio.invitation.count>=(Portfolio.invitation.keyboardArr.length/2)) Portfolio.invitation.count =0;
 	}
-
-	//** RESET TO HOME POSITION **//
-	function resetToHome(lastPage){
-		// if browser is above 1024 (is a desktop) and a video hasn't been clicked
-		if(Portfolio.video.clicked == false && BrowserInfo.browserSize()[0] > 1024 && !isMobile){
-			// $(".staticImage").css({'opacity': 1});
-			// Get the page that was just scrolled out and shrink its background image to its normal size
-		    $(Portfolio.page.lastScrolled).removeClass("staticImage").addClass("backgroundImage");
-		    // $(Portfolio.page.lastScrolled + 'page .content').stop().animate({"opacity":0});
-			$('.videoContainer').stop().animate({"opacity": 0});
-			//if videos are loaded then pause all of them
-			if(isReady == true) pauseAllVideos();
-			//if you've just scrolled out of a nav button
-			// console.log("Last Scrolled (musn't be '') = " + Portfolio.page.lastScrolled);
-			if(lastPage != 'reset' && Portfolio.page.lastScrolled != ''){
-				// animation starts
-			    if(!isMobile) isAnimating = true;
-			    // console.log("background W size SLUT = " + backgroundWSize+'px');
-				if(BrowserInfo.browserSize()[0] < 1900) $(".backgroundImage").stop().animate({'width': Portfolio.gif['backgroundWSize']+'px'});
-    			else if (BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $(".backgroundImage").stop().animate({'width': Portfolio.gif['backgroundWSize']/1.5+'px'});
-				//Hide the scrolled out pages content back to opacity 0
-			    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
-			    $('.content').stop().animate({'opacity': 0});
-				//Make the container holding the nav buttons go back to its original size and position
-				$('#middleImages').stop().animate({'top':(Portfolio.gif.innerGridHSize - Portfolio.gif.centerGridHSize)/2 +'px'});
-				$('#innerBtnHolder').stop().animate({'top':Portfolio.gif.innerGridYPos +'px'});
-				$('#outerBtnHolder').stop().animate({'width': Portfolio.gif.outerGridWSize +'px', 'height': Portfolio.gif.outerGridHSize+'px','margin-right':'','margin-left':'', 'top':Portfolio.gif.outerGridYPos+'px'}); 
-				if(Portfolio.page.lastScrolled != 'newUser' && Portfolio.video.clicked == false) $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
-				
-				if(Portfolio.page.lastScrolled == "#portfolio5") {
-					$('#portfolio8page').css({"display":"none"});
-					setTimeout(function(){ $('#portfolio8page').css({"display":"block"}); }, 700);	
+	loadIframes();
+});
+//** RESET TO HOME POSITION **//
+function resetToHome(lastPage){
+	// if browser is above 1024 (is a desktop) and a video hasn't been clicked
+	if(Portfolio.video.clicked == false && Portfolio.browserSize()[0] > 1024 && !Portfolio.isMobile){
+		// Get the page that was just scrolled out and shrink its background image to its normal size
+	    $(Portfolio.page.lastScrolled).removeClass("staticImage").addClass("backgroundImage");
+	    // $(Portfolio.page.lastScrolled + 'page .content').stop().animate({"opacity":0});
+		$('.videoContainer').stop().animate({"opacity": 0});
+		//if videos are loaded then pause all of them
+		if(Portfolio.video.isReady == true) pauseAllVideos();
+		//if you've just scrolled out of a nav button
+		// console.log("Last Scrolled (musn't be '') = " + Portfolio.page.lastScrolled);
+		if(lastPage != 'reset' && Portfolio.page.lastScrolled != ''){
+			// animation starts
+		    if(!Portfolio.isMobile) Portfolio.isAnimating = true;
+		    // console.log("background W size SLUT = " + backgroundWSize+'px');
+			if(Portfolio.browserSize()[0] < 1900) $(".backgroundImage").stop().animate({'width': Portfolio.gif['backgroundWSize']+'px'});
+			else if (Portfolio.browserSize()[0] > 1900 || Portfolio.browserSize()[1] > 1100) $(".backgroundImage").stop().animate({'width': Portfolio.gif['backgroundWSize']/1.5+'px'});
+			//Hide the scrolled out pages content back to opacity 0
+		    // $('#' +lastPage + ' .content').stop().animate({'opacity': 0});
+		    $('.content').stop().animate({'opacity': 0});
+			//Make the container holding the nav buttons go back to its original size and position
+			$('#middleImages').stop().animate({'top':(Portfolio.gif.innerGridHSize - Portfolio.gif.centerGridHSize)/2 +'px'});
+			$('#innerBtnHolder').stop().animate({'top':Portfolio.gif.innerGridYPos +'px'});
+			$('#outerBtnHolder').stop().animate({'width': Portfolio.gif.outerGridWSize +'px', 'height': Portfolio.gif.outerGridHSize+'px','margin-right':'','margin-left':'', 'top':Portfolio.gif.outerGridYPos+'px'}); 
+			if(Portfolio.page.lastScrolled != 'newUser' && Portfolio.video.clicked == false) $( "#linksTop, #linksBottom" ).stop().animate({'opacity': 1});
+			
+			if(Portfolio.page.lastScrolled == "#portfolio5") {
+				$('#portfolio8page').css({"display":"none"});
+				setTimeout(function(){ $('#portfolio8page').css({"display":"block"}); }, 700);	
+			}
+			else if(Portfolio.page.lastScrolled == "#portfolio8"){
+			 $('#portfolio5page').css({"display":"none"});
+				setTimeout(function(){ $('#portfolio5page').css({"display":"block"}); }, 700);	
+			}
+			//if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
+		    for(var pageNumber = 1;pageNumber<8;pageNumber++){
+				if(Portfolio.page.isHover != 'portfolio'+pageNumber+'page'){ 
+					Portfolio.page.isHover = 'container';
+			        if(Portfolio.mousePos.allowAnimation == true) $('#container').stop().animate({'margin-left': Portfolio.mousePos.currentPosX+'px', 'margin-top': Portfolio.mousePos.currentPosY+'px'},{complete: function(){ Portfolio.isAnimating=false; }});
 				}
-				else if(Portfolio.page.lastScrolled == "#portfolio8"){
-				 $('#portfolio5page').css({"display":"none"});
-					setTimeout(function(){ $('#portfolio5page').css({"display":"block"}); }, 700);	
-				}
-				//if another navigation item isn't selected, then set hover state to container and animate by normal mouse position
-			    for(var pageNumber = 1;pageNumber<8;pageNumber++){
-					if(Portfolio.page.isHover != 'portfolio'+pageNumber+'page'){ 
-						Portfolio.page.isHover = 'container';
-				        if(allowAnimation == true) $('#container').stop().animate({'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'},{complete: function(){ isAnimating=false; }});
-					}
-				}
-				// console.log("animate page to home position")
-			//if you've just resized the screen.
-			}else{
-				//if the user isn't using special electronics invitation (keyboard inputs)
-				if(Portfolio.page.lastClicked == ''){
+			}
+			// console.log("animate page to home position")
+		//if you've just resized the screen.
+		}else{
+			//if the user isn't using special electronics invitation (keyboard inputs)
+			if(Portfolio.page.lastClicked == ''){
+				if(lastPage == 'reset'){
 				    $(Portfolio.page.lastScrolled).removeClass("staticImage").addClass("backgroundImage");
-				    if(BrowserInfo.browserSize()[0] < 1900) $(".backgroundImage").css({'width': Portfolio.gif['backgroundWSize']+'px'});
-    				else if (BrowserInfo.browserSize()[0] > 1900 || BrowserInfo.browserSize()[1] > 1100) $(".backgroundImage").css({'width': Portfolio.gif['backgroundWSize']/1.5+'px'});
-				    $('#container').css({'opacity': 0, 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
+				    if(Portfolio.browserSize()[0] < 1900) $(".backgroundImage").css({'width': Portfolio.gif['backgroundWSize']+'px'});
+					else if (Portfolio.browserSize()[0] > 1900 || Portfolio.browserSize()[1] > 1100) $(".backgroundImage").css({'width': Portfolio.gif['backgroundWSize']/1.5+'px'});
+				    $('#container').css({'opacity': 0, 'margin-left': Portfolio.mousePos.currentPosX+'px', 'margin-top': Portfolio.mousePos.currentPosY+'px'});
 				    $('.videoContainer').css({'opacity': 0});
 				    $('.content').css({'opacity': 0});
 				    // $(Portfolio.page.lastScrolled).css({"opacity":1});
 				    setTimeout(function(){
-					    isAnimating=false;
+					    Portfolio.isAnimating=false;
 					    $(Portfolio.page.lastScrolled + 'page .content').css({'opacity':0});
-					    $('#container').css({'opacity': '1', 'margin-left': currentPosX+'px', 'margin-top': currentPosY+'px'});
+					    $('#container').css({'opacity': '1', 'margin-left': Portfolio.mousePos.currentPosX+'px', 'margin-top': Portfolio.mousePos.currentPosY+'px'});
 					    Portfolio.page.isHover='container';
 					    checkPositions();
-					    // console.log("reset");
+					    console.log("reset");
 					    // $('body').css({'background-color': 'orange'});
-					}, 50);		    
-					//if the user is navigating the site with the electronics invitation (keyboard inputs)
-				} else{
-				    Portfolio.page.lastScrolled = 'container';
-				    Portfolio.page.isHover='container';
-					checkPositions();
-				}
+					}, 50);	
+					//else if full screen is exited	    
+				}else Portfolio.page.isHover='container';
+				//if the user is navigating the site with the electronics invitation (keyboard inputs)
+			} else{
+			    Portfolio.page.lastScrolled = 'container';
+			    Portfolio.page.isHover='container';
+				checkPositions();
 			}
-		//if a video has been clicked and then you resize the screen, then return to the standard screen navigation
-		} else {
-			// $('body').css({'background-color': 'red'});
-		     // players[lastVideo].stopVideo();
-			if(!isMobile && !isTablet) Portfolio.page.isHover = 'container';
 		}
+	//if a video has been clicked and then you resize the screen, then return to the standard screen navigation
+	} else {
+		// $('body').css({'background-color': 'red'});
+	     // players[lastVideo].stopVideo();
+		if(!Portfolio.isMobile && !Portfolio.isTablet) Portfolio.page.isHover = 'container';
 	}
-
-	loadIframes();
-});
+}
