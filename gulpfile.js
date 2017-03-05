@@ -11,6 +11,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
+var babel = require('gulp-babel');
 
 //runs sass, browserSync and watch tasks (for development)
 gulp.task('default', function (callback){
@@ -77,6 +78,9 @@ gulp.task('jsLibs', function(){
 gulp.task('scripts', function(){
 	return gulp.src('app/js/*.js')
 	.pipe(concat('main.min.js'))
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	// .pipe(uglify())
 	.pipe(gulp.dest('dist/js'));
 });
