@@ -27,6 +27,37 @@ h1, p {
   font-family: 'Open Sans', sans-serif;
   color: #7c7c7c; }
 
+#loadPercentage {
+  font-family: 'Open Sans', sans-serif;
+  color: #7c7c7c;
+  display: block;
+  width: 100px;
+  height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
+
+#loadPercentage p {
+  font-size: 20px; }
+
+#loadScreen {
+  background-image: url(../assets/loading.gif);
+  width: 200px;
+  height: 130px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+  background-position: 50%; }
+
+#loadScreenHolder {
+  position: relative;
+  top: 40%; }
+
+.hide {
+  opacity: 0; }
+
 .heroChar, #heroCharSpace {
   color: black;
   float: left; }
@@ -413,7 +444,7 @@ iframe {
   opacity: 0; }
 
 #linksTop {
-  display: block;
+  /*display:block;*/
   width: 100%;
   height: 30px;
   position: absolute;
