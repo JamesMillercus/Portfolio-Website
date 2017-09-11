@@ -3,7 +3,7 @@
 
 //** SET UP ALL VARIABLES **//
 
-class Variables{
+export class Variables{
 	constructor(){
 		this.init();
 		this.loadPercentage = 0;

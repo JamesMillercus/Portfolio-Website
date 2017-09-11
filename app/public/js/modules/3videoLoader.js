@@ -1,5 +1,6 @@
+import { LoadingFunctions } from './2pageLoader'; 
 
-class VideoLoader extends LoadingFunctions {
+export class VideoLoader extends LoadingFunctions {
   
   constructor(){
     super();
@@ -35,7 +36,6 @@ class VideoLoader extends LoadingFunctions {
 
   loadIframes(){
     for(var x = 0;x<this.youtubeVidArr.length;x++){
-      console.log("happening?");
       if(x == 0) $( "#viewport" ).append( '<iframe id = "fullscreenVideoPlayer" src="https://www.youtube.com/embed/'+this.youtubeVidArr[x]+'?enablejsapi=1&loop=1&modestbranding=1&playlist='+this.youtubeVidArr[x]+'&rel=0&showinfo=0"></iframe>' );
       else $( "#portfolio"+x+"page .videoPlayer" ).append( '<iframe src="https://www.youtube.com/embed/'+this.youtubeVidArr[x]+'?enablejsapi=1&loop=1&modestbranding=1&playlist='+this.youtubeVidArr[x]+'&rel=0&showinfo=0" frameborder="0" allowfullscreen id="player'+x+'" class = "yPlayer" width="560" height="315"></iframe>' );
       $( "#loadPercentage p" ).html((this.loadPercentage+=5) +'%')
@@ -43,7 +43,6 @@ class VideoLoader extends LoadingFunctions {
   }
 
   createPortfolioPlayers(playerInfo, idNumber, noOfVideos) {
-    console.log("cunt");
     var src = $("#"+playerInfo.id).attr('src');
     this.YouTubeGetID(src);
     this.video.playerYoutubeIds[idNumber]=this.video.ID;
@@ -77,20 +76,20 @@ class VideoLoader extends LoadingFunctions {
 
   onPortfolioPlayerReady(event){
     //bind events
-    Portfolio.video.isLoaded++;
+    self.video.isLoaded++;
     var src = $('iframe',this).attr('src');
     // console.log("video id = "+playerInfoID);
     event.target.mute();
-    console.log('isLoaded = ' + Portfolio.video.isLoaded);
-    console.log('videoList = ' + Portfolio.video.videoList);
-    $( "#loadPercentage p" ).html((Portfolio.loadPercentage+=6) +'%')
-    if(Portfolio.video.isLoaded == Portfolio.video.videoList){
+    console.log('isLoaded = ' + self.video.isLoaded);
+    console.log('videoList = ' + self.video.videoList);
+    $( "#loadPercentage p" ).html((self.loadPercentage+=6) +'%')
+    if(self.video.isLoaded == self.video.videoList){
       // YouTubeGetID("https://www.youtube.com/embed/abU5I9Tj6ZU?enablejsapi=1&loop=1&modestbranding=1&playlist=abU5I9Tj6ZU&rel=0&showinfo=0");
-      $( "#loadPercentage p" ).html((Portfolio.loadPercentage+=7) +'%')
+      $( "#loadPercentage p" ).html((self.loadPercentage+=7) +'%')
       console.log("videos ready");
-      Portfolio.video.isReady = true;
+      self.video.isReady = true;
 
-      Portfolio.startWebsite();
+      self.startWebsite();
     } 
   }
   //loop through and pause all videos
@@ -175,9 +174,9 @@ class VideoLoader extends LoadingFunctions {
 }
 
 // loop through each iframe and create a video player for it
-function onYouTubeIframeAPIReady() {
+window.onYouTubeIframeAPIReady = function() {
   var iframes = document.querySelectorAll('.yPlayer')
-  for(Portfolio.video.videoList = 0; Portfolio.video.videoList < iframes.length;Portfolio.video.videoList++) Portfolio.video.players[Portfolio.video.videoList] = Portfolio.createPortfolioPlayers(iframes[Portfolio.video.videoList], Portfolio.video.videoList, iframes.length);
-  Portfolio.loadFullScreenVideoPlayer();
+  for(self.video.videoList = 0; self.video.videoList < iframes.length; self.video.videoList++) self.video.players[self.video.videoList] = self.createPortfolioPlayers(iframes[self.video.videoList], self.video.videoList, iframes.length);
+  self.loadFullScreenVideoPlayer();
 }
 

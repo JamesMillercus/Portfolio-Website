@@ -1,8 +1,8 @@
-
+import { VideoLoader } from './3videoLoader'; 
 
 //** MOUSE MOVEMENT NAVIGATION **//
 
-class Navigation extends VideoLoader {
+export class Navigation extends VideoLoader {
   constructor(){
     super();
     //variables for determining mouse pos

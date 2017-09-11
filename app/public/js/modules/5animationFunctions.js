@@ -1,4 +1,6 @@
-class animationFunctions extends Navigation {
+import { Navigation } from './4nav'; 
+
+export class animationFunctions extends Navigation {
 	constructor(){
 		super();
 		this.charLength; 

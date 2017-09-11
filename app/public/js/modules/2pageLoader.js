@@ -1,10 +1,10 @@
-
+import { Variables } from './1vars'; 
 
 // //** LOAD IN ALL IMAGES **//
 // //CHANGE THIS FILE TO A PAGELOADER.JS
 // // PUT ALL FUNCITIONS FROM VARS.JS IN HERE
 //LoadingFunctions
-class LoadingFunctions extends Variables{
+export class LoadingFunctions extends Variables{
 	constructor(){
 		super();
 	}
