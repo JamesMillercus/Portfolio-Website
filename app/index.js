@@ -3,7 +3,7 @@
 // IMPLEMENT ON LOAD CHECK IF THE BOARD HAS BEEN PLUGGED IN
 
 //implement mongoDB to seen who has accessed the site and what they looked at.
-
+// discontinued
 //** SET UP ALL VARIABLES **//
 var app = require('express')();
 var http = require('http').Server(app);
