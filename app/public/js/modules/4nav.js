@@ -21,7 +21,6 @@ export class Navigation extends VideoLoader {
   }
   initNav(){
     self = this;
-    console.log("neeeewbie");
     // prevent touch screen from srolling 
     $(document).bind('touchmove', function(e) {
       e.preventDefault();
@@ -115,7 +114,7 @@ export class Navigation extends VideoLoader {
   }
 
   scrollingPage(currentHover, posMovement, currentBrowserSizeX){
-    if(currentBrowserSizeX > 1024) $('#container').css({'margin-left': this.portfolioMoveValue(this.mousePos.currentPosX, this.mousePos.currentPosY, posMovement)[0], 'margin-top': Portfolio.portfolioMoveValue(this.mousePos.currentPosX, this.mousePos.currentPosY, posMovement)[1]});
+    if(currentBrowserSizeX > 1024) $('#container').css({'margin-left': this.portfolioMoveValue(this.mousePos.currentPosX, this.mousePos.currentPosY, posMovement)[0], 'margin-top': this.portfolioMoveValue(this.mousePos.currentPosX, this.mousePos.currentPosY, posMovement)[1]});
   }
 
   //** CHECK POSITIONS **//

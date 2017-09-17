@@ -10,7 +10,7 @@ export class animationFunctions extends Navigation {
 	//** START ON STATIC SCREEN **//
 	staticHome(){
 		// hide video
-		console.log("static home triggered!");
+		
 		$('video').css({'display': 'none'});
 		$( "#viewport" ).removeClass( "hide" );
 		$( "#loadScreenHolder" ).addClass( "hide" ).css({'display':'none'});
@@ -58,7 +58,7 @@ export class animationFunctions extends Navigation {
 		// 	staticHome();
 		// }
 		$( window ).resize(function() {
-	  		staticHome();
+	  		self.staticHome();
 		});
 		// console.log("animate home");
 		//set video vertical position and if the video is completed
@@ -68,7 +68,7 @@ export class animationFunctions extends Navigation {
 			console.log("Portfolio.page.lastScrolled = " + this.page.lastScrolled);
 			$('video').css({'top':videoHeight + 'px'}).on('ended',function(){
 		      if(self.page.lastScrolled == 'animatingHome'){
-			      console.log('Video has ended!');
+			      // console.log('Video has ended!');
 			      $('video').css({'display':'none'});
 			      $('#heroText').css({'font-size':$('#centerImage').width()/8 +'px','display':'block'});
 				  self.activateHeroAnimation();
@@ -278,7 +278,6 @@ export class animationFunctions extends Navigation {
 		    $('#container').css({'opacity': '1', 'margin-left': self.mousePos.currentPosX+'px', 'margin-top': self.mousePos.currentPosY+'px'});
 		    self.page.isHover='container';
 		    self.checkPositions();
-		    console.log("reset");
 		    // $('body').css({'background-color': 'orange'});
 		}, 50);	
     }

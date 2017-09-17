@@ -56,7 +56,8 @@ export class VideoLoader extends LoadingFunctions {
        }
     });
   }
-  loadFullScreenVideoPlayer(){
+
+  loadFullScreenVideoPlayer() {
     self = this;
     this.video.player = new YT.Player('fullscreenVideoPlayer', {
       height: '100%',
@@ -100,19 +101,19 @@ export class VideoLoader extends LoadingFunctions {
   }
 
   onPortfolioPlayerStateChange(event) {
-    Portfolio.video.myPlayerState = event.data;
-    if (Portfolio.page.isHover!= 'container' && Portfolio.video.isReady == true) Portfolio.animateIn();
+    self.video.myPlayerState = event.data;
+    if (self.page.isHover!= 'container' && self.video.isReady == true) self.animateIn();
     //if video is played on mobile
-    if(Portfolio.video.myPlayerState == 1) if(Portfolio.isMobile) Portfolio.video.players[Portfolio.video.lastVideo].seekTo(0).unMute();
+    if(self.video.myPlayerState == 1) if(self.isMobile) self.video.players[self.video.lastVideo].seekTo(0).unMute();
     //if video is paused or stopped on mobile
-    if(Portfolio.video.myPlayerState == 2 || Portfolio.video.myPlayerState == 0) if(Portfolio.isMobile) Portfolio.video.players[Portfolio.video.lastVideo].mute();
+    if(self.video.myPlayerState == 2 || self.video.myPlayerState == 0) if(self.isMobile) self.video.players[self.video.lastVideo].mute();
      
   }
 
   onFullScreenPlayerStateChange(event){
-    Portfolio.video.videoLoaderState = event.data;
-    if(Portfolio.video.selectedVidLoader == 1 && Portfolio.video.videoLoaderState == 3) Portfolio.video.player.unMute().playVideo();
-    if(Portfolio.video.videoLoaderState == 1) Portfolio.video.selectedVidLoader ++;
+    self.video.videoLoaderState = event.data;
+    if(self.video.selectedVidLoader == 1 && self.video.videoLoaderState == 3) self.video.player.unMute().playVideo();
+    if(self.video.videoLoaderState == 1) self.video.selectedVidLoader ++;
   }
 
   YouTubeGetID(url){
@@ -146,8 +147,8 @@ export class VideoLoader extends LoadingFunctions {
     $("#" + this.page.isHover + " .content" ).css({'display':'none'});
     $("#" + this.page.isHover + " .videoPlayer").css({'overflow': 'visible','bottom':0,'right':0,'left':0, 'top':0});
     $("#" + this.page.isHover + " .videoPlayer iframe").css({'width': '100%', 'height': '100%','bottom':0,'right':0,'left':0, 'top':0});
-    $("#" + Portfolio.page.isHover).stop().animate({'width':'100%', 'height':'100%', 'left':0, 'top':0, 'right':0, 'bottom':0, 'margin-top': 0, 'margin-left':0},{complete: function(){ 
-          $("#" + Portfolio.page.isHover ).css({'z-index': '-1000'});
+    $("#" + self.page.isHover).stop().animate({'width':'100%', 'height':'100%', 'left':0, 'top':0, 'right':0, 'bottom':0, 'margin-top': 0, 'margin-left':0},{complete: function(){ 
+          $("#" + self.page.isHover ).css({'z-index': '-1000'});
           $('#fullscreenVideoPlayer').css({'display':'block'});  
           $('#container, .animatingPage, iframe').css({'display':'none'}); 
           $('#fullscreenVideoPlayer, #videoExit').css({'display':'block'}); 
