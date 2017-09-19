@@ -2,7 +2,7 @@
 //** SET UP ALL VARIABLES **//
 var express = require('express');
 var app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 80);
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
