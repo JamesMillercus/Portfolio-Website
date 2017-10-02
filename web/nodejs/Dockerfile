@@ -14,6 +14,3 @@ RUN npm rebuild node-sass --force
 
 # Bundle app source
 COPY . /usr/src/app
-
-# Expose the server on 3000 and 80
-EXPOSE 80 3000
