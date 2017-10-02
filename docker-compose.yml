@@ -5,12 +5,16 @@ services:
     command: gulp
   nginx:
     build: ./web/nginx
+    volumes:
+      - certs: /etc/letsencrypt
+      - certs-data: /data/letsencrypt
     ports:
       - "80:80"
       - "443:443"
     # prod
     # command: bash -c "npm install && node ./dist/index.js"
     
+    # /etc/letsencrypt/live/jamesmiller.design/fullchain.pem
 
   # to start: docker-compose up
 
