@@ -1,5 +1,4 @@
 (fp_lib_table
   (lib (name assets)(type KiCad)(uri "$(KIPRJMOD)/assets")(options "")(descr ""))
-  (lib (name ESP8266)(type KiCad)(uri /Users/jamesmiller/Downloads/kicad-ESP8266-master/ESP8266.pretty)(options "")(descr ""))
-  (lib (name KicadLibrary-master)(type KiCad)(uri /Users/jamesmiller/Downloads/KicadLibrary-master)(options "")(descr ""))
+  (lib (name newAssets)(type KiCad)(uri "$(KIPRJMOD)/assets/newAssets")(options "")(descr ""))
 )

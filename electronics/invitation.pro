@@ -1,4 +1,4 @@
-update=Thursday, 09 February 2017 'pmt' 19:13:40
+update=Thursday, 21 September 2017 'pmt' 21:15:33
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,13 +59,3 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=assets/crystal(4pin)
-LibName31=/Users/jamesmiller/Downloads/KicadLibrary-master/74HC4050D_652
-LibName32=/Users/jamesmiller/Downloads/KicadLibrary-master/ATMEGA328P-AU
-LibName33=/Users/jamesmiller/Downloads/KicadLibrary-master/ATWINC1500-MR210PA
-LibName34=/Users/jamesmiller/Downloads/KicadLibrary-master/ESP8266
-LibName35=/Users/jamesmiller/Downloads/KicadLibrary-master/L80-M39
-LibName36=/Users/jamesmiller/Downloads/KicadLibrary-master/RFM12_SMD
-LibName37=/Users/jamesmiller/Downloads/KicadLibrary-master/RFM95W-868S2
-LibName38=/Users/jamesmiller/Downloads/KicadLibrary-master/rpi_a _b _2b_hat
-LibName39=/Users/jamesmiller/Downloads/KicadLibrary-master/teensy
-LibName40=/Users/jamesmiller/Downloads/KicadLibrary-master/theinventorhouse
