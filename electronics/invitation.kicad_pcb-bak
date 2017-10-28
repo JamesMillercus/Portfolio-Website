@@ -3,7 +3,7 @@
   (general
     (links 102)
     (no_connects 0)
-    (area 119.169999 71.123999 205.320001 128.274001)
+    (area 114.707999 56.990001 222.734 130.910001)
     (thickness 1.6)
     (drawings 42)
     (tracks 631)
@@ -87,7 +87,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory productionFiles-V1/))
+      (outputdirectory productionfiles-V2/))
   )
 
   (net 0 "")
@@ -2830,6 +2830,9 @@
     )
   )
 
+  (gr_arc (start 204.245 127.199) (end 205.245 127.199) (angle 90) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 204.245 128.199) (end 122.245 128.199) (angle 90) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 205.245 73.199) (end 205.245 127.199) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_text "     Connect this card to your PC with a USB cable\n\n     Open                         in a web browser\n\n     Tap the silver icons on this card's reverse side" (at 194.056 105.156) (layer B.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.25)) (justify left mirror))
   )
@@ -2963,9 +2966,6 @@
   (gr_line (start 119.126 78.74) (end 119.126 69.596) (angle 90) (layer Dwgs.User) (width 0.2))
   (gr_line (start 162.56 86.36) (end 161.798 86.36) (angle 90) (layer Dwgs.User) (width 0.2))
   (gr_line (start 162.052 86.106) (end 162.052 86.868) (angle 90) (layer Dwgs.User) (width 0.2))
-  (gr_line (start 204.245 128.199) (end 122.245 128.199) (angle 90) (layer Edge.Cuts) (width 0.15))
-  (gr_arc (start 204.245 127.199) (end 205.245 127.199) (angle 90) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 205.245 73.199) (end 205.245 127.199) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 203.245 71.199) (end 121.245 71.199) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_arc (start 203.245 73.199) (end 203.245 71.199) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 119.245 125.199) (end 119.245 73.199) (angle 90) (layer Edge.Cuts) (width 0.15))
