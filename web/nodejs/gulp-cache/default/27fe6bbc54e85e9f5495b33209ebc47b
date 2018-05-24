@@ -1,0 +1,29 @@
+{
+  "cwd": "/usr/src/app",
+  "base": "/usr/src/app/client/src/assets/",
+  "contents": {
+    "type": "Buffer",
+    "data": []
+  },
+  "stat": {
+    "dev": 71,
+    "mode": 33188,
+    "nlink": 1,
+    "uid": 0,
+    "gid": 0,
+    "rdev": 0,
+    "blksize": 4194304,
+    "ino": 8689924453,
+    "size": 0,
+    "blocks": 0,
+    "atime": "2018-05-24T18:30:19.000Z",
+    "mtime": "2017-03-15T15:58:35.000Z",
+    "ctime": "2018-05-23T17:49:44.000Z",
+    "birthtime": "2018-05-23T17:49:44.000Z"
+  },
+  "history": [
+    "/usr/src/app/client/src/assets/image.jpg"
+  ],
+  "path": "/usr/src/app/client/src/assets/image.jpg",
+  "originalPath": "/usr/src/app/client/src/assets/image.jpg"
+}

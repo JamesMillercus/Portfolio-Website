@@ -1,4 +1,0 @@
-(fp_lib_table
-  (lib (name assets)(type KiCad)(uri "$(KIPRJMOD)/assets")(options "")(descr ""))
-  (lib (name newAssets)(type KiCad)(uri "$(KIPRJMOD)/assets/newAssets")(options "")(descr ""))
-)
