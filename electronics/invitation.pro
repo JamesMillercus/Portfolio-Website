@@ -1,4 +1,4 @@
-update=Thursday, 01 December 2016 'pmt' 17:19:13
+update=Thursday, 21 September 2017 'pmt' 21:15:33
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -56,5 +58,4 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
-[general]
-version=1
+LibName30=assets/crystal(4pin)
