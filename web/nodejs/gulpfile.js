@@ -82,7 +82,7 @@ gulp.task('sass', function(){
 });
 
 // our gulp-nodemon task
-gulp.task('nodemon', function (cb) {
+gulp.task('nodemon', function () {
 	var started = false;
 	return nodemon({
 		script: 'host/index.js'
@@ -90,7 +90,6 @@ gulp.task('nodemon', function (cb) {
 		//avoid nodemon being started multiple times
 		if (!started) {
 			console.log("server started");
-			cb();
 			started = true;
 			setTimeout(function reload(){
 				browserSync.reload({

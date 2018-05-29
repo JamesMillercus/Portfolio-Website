@@ -65,7 +65,7 @@ for active in [0...portfolio_sections.length]
 	portfolio_sections[active].onMouseOver (event, layer) ->
 			animateIn(layer)
 			switchImage(layer)
-			animateText(layer)
+# 			animateText(layer)
 			
 	portfolio_sections[active].onMouseOut (event, layer) -> 
 			previousChild.states.switch("nonactive")
@@ -73,7 +73,7 @@ for active in [0...portfolio_sections.length]
 # DO THIS NEXT 		
 # Create array of Text0 - Text 7
 # Adjust below for loop to include texts 	
-animateText = (layer) ->
+# animateText = (layer) ->
 # 	layer.children[0].children.animate
 # 		x: portfolio_x_positions[active]
 # 		y: portfolio_y_positions[active]
