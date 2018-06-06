@@ -1,55 +1,259 @@
-body {
-  /*test*/
+/* adjustable variables for icon positioning */
+
+/* adjustable variables for icon hiding*/
+
+/*$iconHideVertical: 60%;
+$iconHideHorizontal: -60%;*/
+
+/*** set grid container animation ***/
+
+.grid-container {
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.item4 .icon {
+  -webkit-transition: opacity 500ms, margin 500ms ease;
+  -moz-transition: opacity 500ms, margin 500ms ease;
+  -o-transition: opacity 500ms, margin 500ms ease;
+  transition: opacity 500ms, margin 500ms ease;
+}
+
+/* animate grid to item0 hovered state */
+
+.grid-container.item0scroll {
+  margin-top: -20vh;
+  margin-left: 0;
+}
+
+/* animate grid to item1 hovered state */
+
+.grid-container.item1scroll {
+  margin-top: -15vh;
+}
+
+/* animate grid to item2 hovered state */
+
+.grid-container.item2scroll {
+  margin-top: -20vh;
+  margin-left: -50vw;
+}
+
+/* animate grid to item3 hovered state */
+
+.grid-container.item3scroll {
+  margin-left: 0;
+}
+
+/* animate grid to item5 hovered state */
+
+.grid-container.item5scroll {
+  margin-left: -50vw;
+}
+
+/* animate grid to item6 hovered state */
+
+.grid-container.item6scroll {
+  margin-left: 0;
+  margin-top: -30vh;
+}
+
+/* animate grid to item7 hovered state */
+
+.grid-container.item7scroll {
+  margin-top: -35vh;
+}
+
+/* animate grid to item8 hovered state */
+
+.grid-container.item8scroll {
+  margin-left: -50vw;
+  margin-top: -30vh;
+}
+
+/* animate grid to item0 active state */
+
+.grid-container.item0active {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+/* animate grid to item1 active state */
+
+.grid-container.item1active {
+  margin-top: 0;
+}
+
+/* animate grid to item2 active state */
+
+.grid-container.item2active {
+  margin-top: 0;
+  margin-left: -50vw;
+}
+
+/* animate grid to item3 active state */
+
+.grid-container.item3active {
+  margin-left: 0;
+}
+
+/* animate grid to item5 active state */
+
+.grid-container.item5active {
+  margin-left: -50vw;
+}
+
+/* animate grid to item6 active state */
+
+.grid-container.item6active {
+  margin-top: -50vh;
+  margin-left: 0;
+}
+
+/* animate grid to item7 active state */
+
+.grid-container.item7active {
+  margin-top: -50vh;
+}
+
+/* animate grid to item8 active state */
+
+.grid-container.item8active {
+  margin-top: -50vh;
+  margin-left: -50vw;
+}
+
+.item4 .mail.active {
+  margin-top: 28%;
+  margin-right: 0;
+}
+
+.item4 .linkedin.active {
+  margin-top: 28%;
+}
+
+.item4 .github.active {
+  margin-top: 28%;
+  margin-left: 0;
+}
+
+.item4 .twitter.active {
+  margin-right: 0;
+  margin-top: 5%;
+  /*margin: auto $iconHorizontalSpace $iconVerticalSpace auto;*/
+}
+
+.item4 .instagram.active {
+  margin-top: 5%;
+  /*margin: auto auto $iconVerticalSpace auto;*/
+}
+
+.item4 .pinterest.active {
+  margin-top: 5%;
+  margin-left: 0;
+  /*margin: auto auto $iconVerticalSpace $iconHorizontalSpace;*/
+}
+
+.item4 .icon.active {
+  opacity: .5;
 }
 /* adjustable variables for icon positioning */
 
-/* set body styling */
-
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-}
-
-/* assigning item divs to css grid */
-
-.item0 {
-  grid-area: topleft;
-}
-
-.item1 {
-  grid-area: topcenter;
-}
-
-.item2 {
-  grid-area: topright;
-}
-
-.item3 {
-  grid-area: middleleft;
-}
+/* adjustable variables for icon hiding*/
 
 .item4 {
   grid-area: middlecenter;
 }
 
-.item5 {
-  grid-area: middleright;
+/* set center text pos & src */
+
+.item4 p {
+  grid-area: hero;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 0;
 }
 
-.item6 {
-  grid-area: bottomleft;
+/* set mail icon pos & src */
+
+.item4 .mail {
+  grid-area: mail;
+  background-image: url("../assets/icons/mail.jpg");
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-top: 60%;
+  margin-right: -60%;
 }
 
-.item7 {
-  grid-area: bottomcenter;
+/* set linkedin icon pos & src */
+
+.item4 .linkedin {
+  grid-area: linkedin;
+  background-image: url("../assets/icons/linkedin.jpg");
+  margin: 60% auto auto auto;
 }
 
-.item8 {
-  grid-area: bottomright;
+/* set github icon pos & src */
+
+.item4 .github {
+  grid-area: github;
+  background-image: url("../assets/icons/github.jpg");
+  margin: 60% auto auto -60%;
 }
 
+/* set twitter icon pos & src */
+
+.item4 .twitter {
+  grid-area: twitter;
+  background-image: url("../assets/icons/twitter.jpg");
+  margin: -10% -60% auto auto;
+}
+
+/* set instagram icon pos & src */
+
+.item4 .instagram {
+  grid-area: instagram;
+  background-image: url("../assets/icons/instagram.jpg");
+  margin: -10% auto auto auto;
+}
+
+/* set pinterest icon pos & src */
+
+.item4 .pinterest {
+  grid-area: pinterest;
+  background-image: url("../assets/icons/pinterest.jpg");
+  margin: -10% auto auto -60%;
+}
+
+/* set icon dimensions & settings */
+
+.icon {
+  background-size: auto 200%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  /*display:none;*/
+  height: 30%;
+  width: 30%;
+}
+
+/* if icon has been unlocked, allow it to be pointed at */
+
+.unlocked {
+  /*display:inline-block;*/
+  cursor: pointer;
+}
+
+/* set all unlocked icons hover styling */
+
+.item4 .unlocked:hover {
+  background-position: 50% 100%;
+  opacity: 1;
+}
 /* setting up css gird into 3x3 @ 1.5x viewport */
 
 .grid-container {
@@ -62,26 +266,9 @@ body {
   /*background-color: #2196F3;*/
   padding: 0;
   margin: -25vh 0 0 -25vw;
-  min-height: 800px;
+  /*margin: 0 0 0 0;*/
+  min-height: 950px;
   min-width: 1400px;
-}
-
-/* set all item divs to relative position (to center the item's content) */
-
-.item {
-  position: relative;
-}
-
-/* on item hover, reveal colour img */
-
-.item:hover > .img {
-  background-position: 50% 100%;
-}
-
-/* on item hover hover, make the cursor a pointer */
-
-.item:hover {
-  cursor: pointer;
 }
 
 /* set top left corner grid rules */
@@ -162,6 +349,57 @@ body {
   display: grid;
   grid-template-areas: 'centerimg centerimg centerimg' 'text text text';
 }
+/* assigning item divs to css grid */
+
+.item0 {
+  grid-area: topleft;
+}
+
+.item1 {
+  grid-area: topcenter;
+}
+
+.item2 {
+  grid-area: topright;
+}
+
+.item3 {
+  grid-area: middleleft;
+}
+
+.item5 {
+  grid-area: middleright;
+}
+
+.item6 {
+  grid-area: bottomleft;
+}
+
+.item7 {
+  grid-area: bottomcenter;
+}
+
+.item8 {
+  grid-area: bottomright;
+}
+
+/* set all item divs to relative position (to center the item's content) */
+
+.item {
+  position: relative;
+}
+
+/* on item hover, reveal colour img */
+
+.item:hover > .img {
+  background-position: 50% 100%;
+}
+
+/* on item hover hover, make the cursor a pointer */
+
+.item:hover {
+  cursor: pointer;
+}
 
 /* set top left corner img pos & src */
 
@@ -205,84 +443,6 @@ body {
   /*left: 0;*/
   top: 0;
   bottom: 0;
-}
-
-/* set center text pos & src */
-
-.item4 p {
-  grid-area: hero;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 40px;
-  margin: auto auto auto auto;
-  cursor: pointer;
-  height: 50%;
-  line-height: 100%;
-}
-
-/* set mail icon pos & src */
-
-.item4 .mail {
-  grid-area: mail;
-  background-image: url("../assets/icons/mail.jpg");
-  margin: 28% 0 auto auto;
-}
-
-/* set linkedin icon pos & src */
-
-.item4 .linkedin {
-  grid-area: linkedin;
-  background-image: url("../assets/icons/linkedin.jpg");
-  margin: 28% auto auto auto;
-}
-
-/* set github icon pos & src */
-
-.item4 .github {
-  grid-area: github;
-  background-image: url("../assets/icons/github.jpg");
-  margin: 28% auto auto 0;
-}
-
-/* set twitter icon pos & src */
-
-.item4 .twitter {
-  grid-area: twitter;
-  background-image: url("../assets/icons/twitter.jpg");
-  margin: auto 0 28% auto;
-}
-
-/* set instagram icon pos & src */
-
-.item4 .instagram {
-  grid-area: instagram;
-  background-image: url("../assets/icons/instagram.jpg");
-  margin: auto auto 28% auto;
-}
-
-/* set pinterest icon pos & src */
-
-.item4 .pinterest {
-  grid-area: pinterest;
-  background-image: url("../assets/icons/pinterest.jpg");
-  margin: auto auto 28% 0;
-}
-
-/* set icon dimensions & settings */
-
-.icon {
-  background-size: auto 200%;
-  background-position: 50% 0%;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  height: 30%;
-  width: 30%;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.icon:hover {
-  background-position: 50% 100%;
-  opacity: 0.9;
 }
 
 /* set right middle img pos & src */
@@ -345,4 +505,15 @@ body {
   background-position: 50% 0;
   margin: auto;
   position: absolute;
+}
+body {
+  /*test*/
+}
+/* set body styling */
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
 }

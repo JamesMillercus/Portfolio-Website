@@ -1,0 +1,109 @@
+/* assigning item divs to css grid */
+.item0 { grid-area: topleft; }
+.item1 { grid-area: topcenter; }
+.item2 { grid-area: topright; }
+.item3 { grid-area: middleleft; }
+.item5 { grid-area: middleright; }
+.item6 { grid-area: bottomleft; }
+.item7 { grid-area: bottomcenter; }
+.item8 { grid-area: bottomright; }
+/* set all item divs to relative position (to center the item's content) */
+.item {
+	position:relative;
+}
+/* on item hover, reveal colour img */
+.item:hover > .img {
+	background-position: 50% 100%;
+}
+/* on item hover hover, make the cursor a pointer */
+.item:hover {
+	cursor:pointer;
+}
+/* set top left corner img pos & src */
+.item0 .img {
+  grid-area: rightimg;
+  background-image: url(../assets/images/topleft.png);
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set top middle img pos & src */
+.item1 .img {
+  grid-area: centerimg;
+  background-image: url(../assets/images/topcenter.png);
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+/* set top right corner img pos & src */
+.item2 .img {
+  grid-area: leftimg;
+  background-image: url(../assets/images/topright.png);
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set left middle img pos & src */
+.item3 .img {
+  grid-area: img;
+  height:45%;
+  background-image: url(../assets/images/middleleft.png);
+  right: 0;
+  /*left: 0;*/
+  top: 0;
+  bottom: 0;
+}
+/* set right middle img pos & src */
+.item5 .img {
+  /*background-color: pink;*/
+  grid-area: img;
+  height:45%;
+  background-image: url(../assets/images/middleright.png);
+  /*right: 0;*/
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set bottom left corner img pos & src */
+.item6 .img {
+  /*background-color: pink;*/
+  grid-area: rightimg;
+  background-image: url(../assets/images/bottomleft.png);
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set bottom middle img pos & src */
+.item7 .img {
+  /*background-color: pink;*/
+  grid-area: centerimg;
+  background-image: url(../assets/images/bottomcenter.png);
+  right: 0;
+  left: 0;
+  top: 0;
+  /*bottom: 0;*/
+}
+/* set bottom right corner img pos & src */
+.item8 .img {
+  /*background-color: pink;*/
+  grid-area: leftimg;
+  background-image: url(../assets/images/bottomright.png);
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set each item img's dimensions & img settings */
+.img {
+  height: 60%;
+  /*max-width: 220px;*/
+  width:162px;
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+  background-position: 50% 0;
+  margin: auto;
+  position: absolute;
+}

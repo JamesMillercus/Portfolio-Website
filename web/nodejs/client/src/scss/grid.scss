@@ -1,0 +1,96 @@
+/* setting up css gird into 3x3 @ 1.5x viewport */
+.grid-container {
+  width: 150vw;
+  height: 150vh;
+  grid-template-rows: 37.5% 25% 37.5%;
+  grid-template-columns: 37.5% 25% 37.5%;
+  display: grid;
+  grid-template-areas:
+    'topleft topcenter topright'
+    'middleleft middlecenter middleright'
+    'bottomleft bottomcenter bottomright';
+  /*background-color: #2196F3;*/
+  padding: 0;
+  margin: -25vh 0 0 -25vw;
+  /*margin: 0 0 0 0;*/
+  min-height:950px;
+  min-width:1400px;
+}
+/* set top left corner grid rules */
+.topleftcorner {
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas:
+  'text text text'
+  'leftimg rightimg rightimg';
+}
+/* set top middle grid rules */
+.topmiddle {
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas:
+  'text text text'
+  'centerimg centerimg centerimg';
+}
+/* set top right corner grid rules */
+.toprightcorner {
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas:
+  'text text text'
+  'leftimg leftimg rightimg';
+}
+/* set middle left grid rules */
+.middleleft {
+  grid-template-columns: 50% 50%;
+  display: grid;
+  grid-template-areas:
+  'text img';
+}
+/* set middle center grid rules */
+.middlecenter {
+  display: grid;
+  grid-template-rows: 33.3% 33.3% 33.3%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-areas:
+  'mail linkedin github'
+  'hero hero hero'
+  'twitter instagram pinterest';
+}
+/* set middle right grid rules */
+.middleright {
+  grid-template-columns: 50% 50%;
+  display: grid;
+  grid-template-areas:
+  'img text';
+}
+/* set bottom left corner grid rules */
+.bottomleftcorner {
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas:
+  'leftimg rightimg rightimg'
+  'text text text';
+}
+/* set bottom right corner grid rules */
+.bottomrightcorner {
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas:
+  'leftimg leftimg rightimg'
+  'text text text';
+}
+/* set bottom middle grid rules */
+.bottommiddle {
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas:
+  'centerimg centerimg centerimg'
+  'text text text';
+}
