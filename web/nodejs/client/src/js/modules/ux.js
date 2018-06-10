@@ -1,6 +1,7 @@
-import { content } from './content';
-import { animationSetup } from './animation';
+// import { content } from './content';
+import * as animation from './animation';
+
 
 export function start() {
-	animationSetup();
+	animation.setup();
 }

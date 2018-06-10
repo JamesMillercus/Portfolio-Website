@@ -1,27 +1,30 @@
-export function animationSetup() {
+// import heroText animations
+import * as heroText from './heroTextAnimations.js';
+
+// animation set up
+export let setup = () => {
+ // for each portfolio item
  for(let x = 0; x < $(".grid-container").children().length; x++ ){
+ 	// check if a portfolio item has been hovered on
 	$( ".item" + x ).hover(function() {
-		// if (item x has class "active") {}
-		// else {}
+		// if any item other than the center has been selected, transition between animation classes to move background
   		if(x != 4) $( ".grid-container" ).toggleClass("item"+x+"scroll");
+  		// else if the chosen is selected
   		else {
-  			console.log("4 scrolled in");
-  			// $(".icon").toggleClass("iconActive");
-  			// $(".item4 .mail").toggleClass("mailnonActive");
-  			// $(".item4 .mail").toggleClass("nonActive");
-  			$(".item4 .unlocked").toggleClass("active");
+  			// reveal icons
+  			$(".item4 .unlocked").addClass("active");
+  			// trigger the heroText to animate
+			heroText.animate();
   		}
+  	// check if a portfolio item has been hovered out
 	}, function() {
+		// if any item other than the center has been selected, transition between animation classes to move background
 		if(x != 4) $( ".grid-container" ).toggleClass("item"+x+"scroll");
+  		// else if the chosen is selected
 		else {
-			$(".item4 .unlocked").toggleClass("active");
-  			// $(".item4 .mail").toggleClass("nonActive");
-			// $(".item4 .mail").toggleClass("nonActive");
-			// $(".icon").toggleClass("iconActive");
+			//trigger the heroText to animate
+			$(".item4 .unlocked").removeClass("active");
   		}
-	  	// $( ".grid-container" ).removeClass("animate"+x+"in");
-	  	// $( ".grid-container" ).addClass("animate"+x+"out");
-	    // $( this ).find( "span:last" ).remove();
 	});
  }
 }
