@@ -9,7 +9,7 @@
   "deviceType" : "apple-macbook-pro",
   "sharedPrototype" : 0,
   "propertyPanelToggleStates" : {
-    "Filters" : false
+
   },
   "projectId" : "ED1F16BF-7AFE-42FC-A97B-9FDC8F6675B4",
   "deviceOrientation" : 0,
@@ -21,8 +21,8 @@
     "{1314, 55}",
     "{1369, 188}",
     "{2382, 334}",
-    "{2718, 290}",
-    "{3009, 208}"
+    "{2783, 290}",
+    "{3074, 208}"
   ],
   "deviceScale" : "fit"
 }

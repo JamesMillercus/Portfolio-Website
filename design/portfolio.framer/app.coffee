@@ -80,6 +80,11 @@ switchImage = (layer) ->
 						previousChild = child
 
 
+		J.animate
+			options:
+				time: 1
+				curve: Bezier.easeInOut
+
 # animation in			
 animateIn = (layer) ->
 	for active in [0...portfolio_sections.length]
