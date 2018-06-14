@@ -23,7 +23,7 @@
 .item0 .img {
   grid-area: rightimg;
   background-image: url(../assets/images/topleft.png);
-  right: 0;
+  /*right: 0;*/
   left: 0;
   top: 0;
   bottom: 0;
@@ -35,13 +35,14 @@
   right: 0;
   left: 0;
   bottom: 0;
+  height:90%;
 }
 /* set top right corner img pos & src */
 .item2 .img {
   grid-area: leftimg;
   background-image: url(../assets/images/topright.png);
   right: 0;
-  left: 0;
+  /*left: 0;*/
   top: 0;
   bottom: 0;
 }
@@ -55,6 +56,22 @@
   top: 0;
   bottom: 0;
 }
+
+.video {
+  grid-area: video;
+  /*background-color:red;*/
+}
+
+.text {
+  grid-area: text;
+  /*background-color:green;*/
+}
+
+.spacer {
+  grid-area: spacer;
+  /*background-color: yellow;*/
+}
+
 /* set right middle img pos & src */
 .item5 .img {
   /*background-color: pink;*/
@@ -71,7 +88,7 @@
   /*background-color: pink;*/
   grid-area: rightimg;
   background-image: url(../assets/images/bottomleft.png);
-  right: 0;
+  /*right: 0;*/
   left: 0;
   top: 0;
   bottom: 0;
@@ -84,6 +101,7 @@
   right: 0;
   left: 0;
   top: 0;
+  height:90%;
   /*bottom: 0;*/
 }
 /* set bottom right corner img pos & src */
@@ -98,7 +116,7 @@
 }
 /* set each item img's dimensions & img settings */
 .img {
-  height: 60%;
+  height: 45%;
   /*max-width: 220px;*/
   width:162px;
   background-repeat: no-repeat;

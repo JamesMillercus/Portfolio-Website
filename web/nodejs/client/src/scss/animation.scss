@@ -25,41 +25,41 @@ $animationSpeed: 500ms;
 
 /* animate grid to item0 hovered state */
 .grid-container.item0scroll {
-	margin-top:-20vh;
-	margin-left:0;
+	margin-top:-53.5vh;
+	margin-left:-16vw;
 }
 
 /* animate grid to item1 hovered state */
 .grid-container.item1scroll {
-	margin-top:-15vh;
+	margin-top:-35.6vh;
 }
 
 /* animate grid to item2 hovered state */
 .grid-container.item2scroll {
-	margin-top:-20vh;
-	margin-left:-50vw;
+	margin-top:-53.5vh;
+	margin-left:-92vw;
 }
 /* animate grid to item3 hovered state */
 .grid-container.item3scroll {
-	margin-left:0;
+	margin-left:-40vw;
 }
 /* animate grid to item5 hovered state */
 .grid-container.item5scroll {
-	margin-left:-50vw;
+	margin-left:-60vw;
 }
 /* animate grid to item6 hovered state */
 .grid-container.item6scroll {
-	margin-left:0;
-	margin-top: -30vh;
+	margin-left:-16vw;
+	margin-top: -71.5vh;
 }
 /* animate grid to item7 hovered state */
 .grid-container.item7scroll {
-	margin-top: -35vh;
+	margin-top: -89.4vh;
 }
 /* animate grid to item8 hovered state */
 .grid-container.item8scroll {
-	margin-left:-50vw;
-	margin-top: -30vh;
+	margin-left:-92vw;
+	margin-top: -71.5vh;
 }
 
 /* animate grid to item0 active state */
@@ -154,12 +154,12 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -10px) rotate(1deg); 
+    	transform: translate(0px, -5px) rotate(10deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 10px) rotate(1deg); 
+    	transform: translate(0px, 5px) rotate(-10deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #0099d2; 
     }
@@ -182,12 +182,12 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -20px) rotate(1deg); 
+    	transform: translate(5px, -10px) rotate(50deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 20px) rotate(1deg); 
+    	transform: translate(-5px, 10px) rotate(-50deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #007bb6; 
     }
@@ -210,12 +210,12 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -30px) rotate(1deg); 
+    	transform: translate(20px, -20px) rotate(80deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 30px) rotate(1deg); 
+    	transform: translate(-20px, 20px) rotate(-80deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #742e86; 
     }
@@ -238,12 +238,12 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -40px) rotate(1deg); 
+    	transform: translate(-30px, -30px) rotate(-180deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 40px) rotate(1deg); 
+    	transform: translate(30px, 30px) rotate(180deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #07bd18; 
     }
@@ -266,12 +266,12 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -50px) rotate(1deg); 
+    	transform: translate(0px, -40px) rotate(1deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 50px) rotate(1deg); 
+    	transform: translate(0px, 40px) rotate(1deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #f9be02; 
     }
@@ -294,17 +294,17 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -60px) rotate(1deg); 
+    	transform: translate(50px, -50px) rotate(108deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 60px) rotate(1deg); 
+    	transform: translate(-50px, 50px) rotate(252deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #bd071d; 
     }
     100% { 
-    	transform: translate(0px, 0px) rotate(0deg); 
+    	transform: translate(0px, 0px) rotate(360deg); 
     	-webkit-filter: hue-rotate(0deg);
     }
 }
@@ -322,17 +322,17 @@ $animationSpeed: 500ms;
     	-webkit-filter: hue-rotate(0deg);
     }
     30% {     	
-    	transform: translate(0px, -60px) rotate(1deg); 
+    	transform: translate(0px, -30px) rotate(-108deg); 
     	-webkit-filter: hue-rotate(300deg); 
     }
 
     70% {
-    	transform: translate(0px, 60px) rotate(1deg); 
+    	transform: translate(0px, 30px) rotate(-252deg); 
     	-webkit-filter: hue-rotate(360deg);
     	color: #7c7c7c;
     }
     100% { 
-    	transform: translate(0px, 0px) rotate(0deg); 
+    	transform: translate(0px, 0px) rotate(-360deg); 
     	-webkit-filter: hue-rotate(0deg);
     }
 }
@@ -360,27 +360,183 @@ $animationSpeed: 500ms;
     }
 }
 
-.item4 p span.animateboomarang {
+.item4 p span.animateboomarang0 {
 	/* Start the shake animation and make the animation last for 0.5 seconds */
-    animation: boomarang 3.5s; 
+    animation: boomarang0 1s; 
     /*color: #7c7c7c;*/
-    color: #bd071d;
+    color: #0099d2;
 }
 
-@keyframes boomarang {
+@keyframes boomarang0 {
   10% {
     z-index: 1;
     transform:rotate(-20deg);
   }
   35% {
     z-index: 1;
-    transform: translate(220%, -55%) scale(0.5) rotate(-200deg);
+    transform: translate(900%, -305px) scale(0.5) rotate(-200deg);
   }
   74% {
     z-index: -1;
   }
   75% {
-    transform: translate(-200%, 55%) scale(0.9) rotate(-860deg);
+    transform: translate(-900%, 305px) scale(0.9) rotate(-860deg);
+  }
+  80% {
+     z-index: 1;
+  }
+   90% { 
+    z-index: 1;
+    transform: translate(0%, 0%) rotate(10deg);
+  }
+}
+
+.item4 p span.animateboomarang1 {
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: boomarang1 1s; 
+    /*color: #7c7c7c;*/
+    color: #007bb6;
+}
+
+@keyframes boomarang1 {
+  10% {
+    z-index: 1;
+    transform:rotate(-20deg);
+  }
+  35% {
+    z-index: 1;
+    transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+  }
+  74% {
+    z-index: -1;
+  }
+  75% {
+    transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+  }
+  80% {
+     z-index: 1;
+  }
+   90% { 
+    z-index: 1;
+    transform: translate(0%, 0%) rotate(10deg);
+  }
+}
+
+.item4 p span.animateboomarang2 {
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: boomarang2 1s; 
+    /*color: #7c7c7c;*/
+    color: #742e86;
+}
+
+@keyframes boomarang1 {
+  10% {
+    z-index: 1;
+    transform:rotate(-20deg);
+  }
+  35% {
+    z-index: 1;
+    transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+  }
+  74% {
+    z-index: -1;
+  }
+  75% {
+    transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+  }
+  80% {
+     z-index: 1;
+  }
+   90% { 
+    z-index: 1;
+    transform: translate(0%, 0%) rotate(10deg);
+  }
+}
+
+.item4 p span.animateboomarang3 {
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: boomarang3 1s; 
+    /*color: #7c7c7c;*/
+    color: #07bd18;
+}
+
+@keyframes boomarang3 {
+  10% {
+    z-index: 1;
+    transform:rotate(-20deg);
+  }
+  35% {
+    z-index: 1;
+    transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+  }
+  74% {
+    z-index: -1;
+  }
+  75% {
+    transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+  }
+  80% {
+     z-index: 1;
+  }
+   90% { 
+    z-index: 1;
+    transform: translate(0%, 0%) rotate(10deg);
+  }
+}
+
+
+.item4 p span.animateboomarang4 {
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: boomarang4 1s; 
+    /*color: #7c7c7c;*/
+    color: #f9be02;
+}
+
+@keyframes boomarang4 {
+  10% {
+    z-index: 1;
+    transform:rotate(-20deg);
+  }
+  35% {
+    z-index: 1;
+    transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+  }
+  74% {
+    z-index: -1;
+  }
+  75% {
+    transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+  }
+  80% {
+     z-index: 1;
+  }
+   90% { 
+    z-index: 1;
+    transform: translate(0%, 0%) rotate(10deg);
+  }
+}
+
+.item4 p span.animateboomarang5 {
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: boomarang5 1s; 
+    /*color: #7c7c7c;*/
+    color: #bd071d;
+}
+
+@keyframes boomarang5 {
+  10% {
+    z-index: 1;
+    transform:rotate(-20deg);
+  }
+  35% {
+    z-index: 1;
+    transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+  }
+  74% {
+    z-index: -1;
+  }
+  75% {
+    transform: translate(900%, -305px) scale(0.9) rotate(860deg);
   }
   80% {
      z-index: 1;
