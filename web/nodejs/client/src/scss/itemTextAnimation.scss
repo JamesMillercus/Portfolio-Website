@@ -1,0 +1,8 @@
+$animationSpeed: 250ms;
+
+.item .text p, .item .text h1 {
+	-webkit-transition: opacity $animationSpeed;
+	-moz-transition: opacity $animationSpeed;
+	-o-transition: opacity $animationSpeed;
+	transition: opacity $animationSpeed; 
+}

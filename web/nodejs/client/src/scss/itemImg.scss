@@ -1,23 +1,6 @@
-/* assigning item divs to css grid */
-.item0 { grid-area: topleft; }
-.item1 { grid-area: topcenter; }
-.item2 { grid-area: topright; }
-.item3 { grid-area: middleleft; }
-.item5 { grid-area: middleright; }
-.item6 { grid-area: bottomleft; }
-.item7 { grid-area: bottomcenter; }
-.item8 { grid-area: bottomright; }
-/* set all item divs to relative position (to center the item's content) */
-.item {
-	position:relative;
-}
 /* on item hover, reveal colour img */
 .item:hover > .img {
-	background-position: 50% 100%;
-}
-/* on item hover hover, make the cursor a pointer */
-.item:hover {
-	cursor:pointer;
+  background-position: 50% 100%;
 }
 /* set top left corner img pos & src */
 .item0 .img {
@@ -55,21 +38,6 @@
   /*left: 0;*/
   top: 0;
   bottom: 0;
-}
-
-.video {
-  grid-area: video;
-  /*background-color:red;*/
-}
-
-.text {
-  grid-area: text;
-  /*background-color:green;*/
-}
-
-.spacer {
-  grid-area: spacer;
-  /*background-color: yellow;*/
 }
 
 /* set right middle img pos & src */

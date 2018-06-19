@@ -1,0 +1,32 @@
+/* assigning item divs to css grid */
+.item0 { grid-area: topleft; }
+.item1 { grid-area: topcenter; }
+.item2 { grid-area: topright; }
+.item3 { grid-area: middleleft; }
+.item5 { grid-area: middleright; }
+.item6 { grid-area: bottomleft; }
+.item7 { grid-area: bottomcenter; }
+.item8 { grid-area: bottomright; }
+/* set all item divs to relative position (to center the item's content) */
+.item {
+	position:relative;
+}
+/* on item hover hover, make the cursor a pointer */
+.item:hover {
+	cursor:pointer;
+}
+.video {
+  grid-area: video;
+  /*background-color:red;*/
+}
+
+.text {
+  grid-area: text;
+  /*opacity:0;*/
+  /*background-color:green;*/
+}
+
+.spacer {
+  grid-area: spacer;
+  /*background-color: yellow;*/
+}

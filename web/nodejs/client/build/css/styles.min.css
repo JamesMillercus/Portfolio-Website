@@ -1,10 +1,98 @@
-/* adjustable variables for icon positioning */
+/* setting up css gird into 3x3 @ 1.5x viewport */
 
-/* adjustable variables for icon hiding*/
+.grid-container {
+  width: 200vw;
+  height: 250vh;
+  grid-template-rows: 37.5% 15% 37.5%;
+  grid-template-columns: 42.5% 15% 42.5%;
+  display: grid;
+  grid-template-areas: 'topleft topcenter topright' 'middleleft middlecenter middleright' 'bottomleft bottomcenter bottomright';
+  /*background-color: #2196F3;*/
+  padding: 0;
+  margin: -62.5vh 0 0 -50vw;
+  /*margin: 0vh 0 0 -50vw;*/
+  min-height: 1550px;
+  min-width: 2200px;
+}
 
-/*$iconHideVertical: 60%;
-$iconHideHorizontal: -60%;*/
+/* set top left corner grid rules */
 
+.topleftcorner {
+  grid-template-rows: 19% 19% 19% 3% 40%;
+  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+  display: grid;
+  grid-template-areas: 'spacer video video video video video' 'spacer video video video video video' 'spacer video video video video video' 'extra extra extra extra extra extra' 'notext notext text text rightimg rightimg';
+}
+
+/* set top middle grid rules */
+
+.topmiddle {
+  grid-template-rows: 19% 19% 2% 20% 20% 20%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas: 'video video video' 'video video video' 'extra extra extra' 'text text text' 'text text text' 'centerimg centerimg centerimg';
+}
+
+/* set top right corner grid rules */
+
+.toprightcorner {
+  grid-template-rows: 19% 19% 19% 3% 40%;
+  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+  display: grid;
+  grid-template-areas: 'video video video video spacer spacer' 'video video video video spacer spacer' 'video video video video spacer spacer' 'extra extra extra extra extra extra' 'leftimg leftimg text text notext notext';
+}
+
+/* set middle left grid rules */
+
+.middleleft {
+  grid-template-columns: 15.66% 15.66% 15.66% 3% 16.66% 16.66% 16.66%;
+  display: grid;
+  grid-template-areas: 'video video video spacer text text img';
+}
+
+/* set middle center grid rules */
+
+.middlecenter {
+  display: grid;
+  grid-template-rows: 33.3% 33.3% 33.3%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-areas: 'mail linkedin github' 'hero hero hero' 'twitter instagram pinterest';
+}
+
+/* set middle right grid rules */
+
+.middleright {
+  grid-template-columns: 16.66% 16.66% 16.66% 3% 15.66% 15.66% 15.66%;
+  display: grid;
+  grid-template-areas: 'img text text spacer video video video';
+}
+
+/* set bottom left corner grid rules */
+
+.bottomleftcorner {
+  grid-template-rows: 40% 3% 19% 19% 19%;
+  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+  display: grid;
+  grid-template-areas: 'notext notext text text rightimg rightimg' 'extra extra extra extra extra extra' 'spacer spacer video video video video' 'spacer spacer video video video video' 'spacer spacer video video video video';
+}
+
+/* set bottom right corner grid rules */
+
+.bottomrightcorner {
+  grid-template-rows: 40% 3% 19% 19% 19%;
+  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+  display: grid;
+  grid-template-areas: 'leftimg leftimg text text notext notext' 'extra extra extra extra extra extra' 'video video video video spacer spacer' 'video video video video spacer spacer' 'video video video video spacer spacer';
+}
+
+/* set bottom middle grid rules */
+
+.bottommiddle {
+  grid-template-rows: 20% 20% 20% 2% 19% 19%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  display: grid;
+  grid-template-areas: 'centerimg centerimg centerimg' 'text text text' 'text text text' 'extra extra extra' 'video video video' 'video video video';
+}
 /*** set grid container animation ***/
 
 .grid-container {
@@ -14,18 +102,11 @@ $iconHideHorizontal: -60%;*/
   transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.item4 .icon {
-  -webkit-transition: opacity 500ms, margin 500ms ease;
-  -moz-transition: opacity 500ms, margin 500ms ease;
-  -o-transition: opacity 500ms, margin 500ms ease;
-  transition: opacity 500ms, margin 500ms ease;
-}
-
 /* animate grid to item0 hovered state */
 
 .grid-container.item0scroll {
   margin-top: -53.5vh;
-  margin-left: -16vw;
+  margin-left: -26vw;
 }
 
 /* animate grid to item1 hovered state */
@@ -38,7 +119,7 @@ $iconHideHorizontal: -60%;*/
 
 .grid-container.item2scroll {
   margin-top: -53.5vh;
-  margin-left: -92vw;
+  margin-left: -74vw;
 }
 
 /* animate grid to item3 hovered state */
@@ -56,7 +137,7 @@ $iconHideHorizontal: -60%;*/
 /* animate grid to item6 hovered state */
 
 .grid-container.item6scroll {
-  margin-left: -16vw;
+  margin-left: -26vw;
   margin-top: -71.5vh;
 }
 
@@ -69,7 +150,7 @@ $iconHideHorizontal: -60%;*/
 /* animate grid to item8 hovered state */
 
 .grid-container.item8scroll {
-  margin-left: -92vw;
+  margin-left: -74vw;
   margin-top: -71.5vh;
 }
 
@@ -124,6 +205,14 @@ $iconHideHorizontal: -60%;*/
   margin-top: -50vh;
   margin-left: -50vw;
 }
+/* adjustable variables for icon positioning */
+
+.item4 .icon {
+  -webkit-transition: opacity 500ms, margin 500ms ease;
+  -moz-transition: opacity 500ms, margin 500ms ease;
+  -o-transition: opacity 500ms, margin 500ms ease;
+  transition: opacity 500ms, margin 500ms ease;
+}
 
 .item4 .mail.active {
   margin-top: 28%;
@@ -159,7 +248,94 @@ $iconHideHorizontal: -60%;*/
 .item4 .icon.active {
   opacity: .5;
 }
+/* adjustable variables for icon positioning */
 
+/* adjustable variables for icon hiding*/
+
+.item4 {
+  grid-area: middlecenter;
+}
+
+.grey {
+  color: #7c7c7c !important;
+}
+
+/* set mail icon pos & src */
+
+.item4 .mail {
+  grid-area: mail;
+  background-image: url("../assets/icons/mail.jpg");
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-top: 60%;
+  margin-right: -60%;
+}
+
+/* set linkedin icon pos & src */
+
+.item4 .linkedin {
+  grid-area: linkedin;
+  background-image: url("../assets/icons/linkedin.jpg");
+  margin: 60% auto auto auto;
+}
+
+/* set github icon pos & src */
+
+.item4 .github {
+  grid-area: github;
+  background-image: url("../assets/icons/github.jpg");
+  margin: 60% auto auto -60%;
+}
+
+/* set twitter icon pos & src */
+
+.item4 .twitter {
+  grid-area: twitter;
+  background-image: url("../assets/icons/twitter.jpg");
+  margin: -10% -60% auto auto;
+}
+
+/* set instagram icon pos & src */
+
+.item4 .instagram {
+  grid-area: instagram;
+  background-image: url("../assets/icons/instagram.jpg");
+  margin: -10% auto auto auto;
+}
+
+/* set pinterest icon pos & src */
+
+.item4 .pinterest {
+  grid-area: pinterest;
+  background-image: url("../assets/icons/pinterest.jpg");
+  margin: -10% auto auto -60%;
+}
+
+/* set icon dimensions & settings */
+
+.icon {
+  background-size: auto 200%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  /*display:none;*/
+  height: 30%;
+  width: 30%;
+}
+
+/* if icon has been unlocked, allow it to be pointed at */
+
+.unlocked {
+  /*display:inline-block;*/
+  cursor: pointer;
+}
+
+/* set all unlocked icons hover styling */
+
+.item4 .unlocked:hover {
+  background-position: 50% 100%;
+  opacity: 1;
+}
 .item4 p span {
   display: inline-block;
   min-width: 10px;
@@ -640,14 +816,6 @@ $iconHideHorizontal: -60%;*/
     transform: translate(0%, 0%) rotate(10deg);
   }
 }
-/* adjustable variables for icon positioning */
-
-/* adjustable variables for icon hiding*/
-
-.item4 {
-  grid-area: middlecenter;
-}
-
 /* set center text pos & src */
 
 .item4 p {
@@ -661,181 +829,6 @@ $iconHideHorizontal: -60%;*/
   z-index: 1;
 }
 
-.grey {
-  color: #7c7c7c !important;
-}
-
-/* set mail icon pos & src */
-
-.item4 .mail {
-  grid-area: mail;
-  background-image: url("../assets/icons/mail.jpg");
-  margin-left: auto;
-  margin-bottom: auto;
-  margin-top: 60%;
-  margin-right: -60%;
-}
-
-/* set linkedin icon pos & src */
-
-.item4 .linkedin {
-  grid-area: linkedin;
-  background-image: url("../assets/icons/linkedin.jpg");
-  margin: 60% auto auto auto;
-}
-
-/* set github icon pos & src */
-
-.item4 .github {
-  grid-area: github;
-  background-image: url("../assets/icons/github.jpg");
-  margin: 60% auto auto -60%;
-}
-
-/* set twitter icon pos & src */
-
-.item4 .twitter {
-  grid-area: twitter;
-  background-image: url("../assets/icons/twitter.jpg");
-  margin: -10% -60% auto auto;
-}
-
-/* set instagram icon pos & src */
-
-.item4 .instagram {
-  grid-area: instagram;
-  background-image: url("../assets/icons/instagram.jpg");
-  margin: -10% auto auto auto;
-}
-
-/* set pinterest icon pos & src */
-
-.item4 .pinterest {
-  grid-area: pinterest;
-  background-image: url("../assets/icons/pinterest.jpg");
-  margin: -10% auto auto -60%;
-}
-
-/* set icon dimensions & settings */
-
-.icon {
-  background-size: auto 200%;
-  background-position: 50% 0%;
-  background-repeat: no-repeat;
-  opacity: 0;
-  /*display:none;*/
-  height: 30%;
-  width: 30%;
-}
-
-/* if icon has been unlocked, allow it to be pointed at */
-
-.unlocked {
-  /*display:inline-block;*/
-  cursor: pointer;
-}
-
-/* set all unlocked icons hover styling */
-
-.item4 .unlocked:hover {
-  background-position: 50% 100%;
-  opacity: 1;
-}
-/* setting up css gird into 3x3 @ 1.5x viewport */
-
-.grid-container {
-  width: 200vw;
-  height: 250vh;
-  grid-template-rows: 37.5% 15% 37.5%;
-  grid-template-columns: 42.5% 15% 42.5%;
-  display: grid;
-  grid-template-areas: 'topleft topcenter topright' 'middleleft middlecenter middleright' 'bottomleft bottomcenter bottomright';
-  /*background-color: #2196F3;*/
-  padding: 0;
-  margin: -62.5vh 0 0 -50vw;
-  /*margin: 0vh 0 0 -50vw;*/
-  min-height: 1550px;
-  min-width: 2200px;
-}
-
-/* set top left corner grid rules */
-
-.topleftcorner {
-  grid-template-rows: 19% 19% 19% 3% 40%;
-  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-  display: grid;
-  grid-template-areas: 'spacer video video video video video' 'spacer video video video video video' 'spacer video video video video video' 'extra extra extra extra extra extra' 'text text text text rightimg rightimg';
-}
-
-/* set top middle grid rules */
-
-.topmiddle {
-  grid-template-rows: 19% 19% 2% 20% 20% 20%;
-  grid-template-columns: 33.3% 33.3% 33.3%;
-  display: grid;
-  grid-template-areas: 'video video video' 'video video video' 'extra extra extra' 'text text text' 'text text text' 'centerimg centerimg centerimg';
-}
-
-/* set top right corner grid rules */
-
-.toprightcorner {
-  grid-template-rows: 19% 19% 19% 3% 40%;
-  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-  display: grid;
-  grid-template-areas: 'video video video video spacer spacer' 'video video video video spacer spacer' 'video video video video spacer spacer' 'extra extra extra extra extra extra' 'leftimg leftimg text text text text';
-}
-
-/* set middle left grid rules */
-
-.middleleft {
-  grid-template-columns: 15.66% 15.66% 15.66% 3% 16.66% 16.66% 16.66%;
-  display: grid;
-  grid-template-areas: 'video video video spacer text text img';
-}
-
-/* set middle center grid rules */
-
-.middlecenter {
-  display: grid;
-  grid-template-rows: 33.3% 33.3% 33.3%;
-  grid-template-columns: 33.3% 33.3% 33.3%;
-  grid-template-areas: 'mail linkedin github' 'hero hero hero' 'twitter instagram pinterest';
-}
-
-/* set middle right grid rules */
-
-.middleright {
-  grid-template-columns: 16.66% 16.66% 16.66% 3% 15.66% 15.66% 15.66%;
-  display: grid;
-  grid-template-areas: 'img text text spacer video video video';
-}
-
-/* set bottom left corner grid rules */
-
-.bottomleftcorner {
-  grid-template-rows: 40% 3% 19% 19% 19%;
-  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-  display: grid;
-  grid-template-areas: 'text text text text rightimg rightimg' 'extra extra extra extra extra extra' 'spacer spacer video video video video' 'spacer spacer video video video video' 'spacer spacer video video video video';
-}
-
-/* set bottom right corner grid rules */
-
-.bottomrightcorner {
-  grid-template-rows: 40% 3% 19% 19% 19%;
-  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-  display: grid;
-  grid-template-areas: 'leftimg leftimg text text text text' 'extra extra extra extra extra extra' 'video video video video spacer spacer' 'video video video video spacer spacer' 'video video video video spacer spacer';
-}
-
-/* set bottom middle grid rules */
-
-.bottommiddle {
-  grid-template-rows: 20% 20% 20% 2% 19% 19%;
-  grid-template-columns: 33.3% 33.3% 33.3%;
-  display: grid;
-  grid-template-areas: 'centerimg centerimg centerimg' 'text text text' 'text text text' 'extra extra extra' 'video video video' 'video video video';
-}
 .mailrevealed {
   color: #0099d2;
 }
@@ -899,16 +892,31 @@ $iconHideHorizontal: -60%;*/
   position: relative;
 }
 
-/* on item hover, reveal colour img */
-
-.item:hover > .img {
-  background-position: 50% 100%;
-}
-
 /* on item hover hover, make the cursor a pointer */
 
 .item:hover {
   cursor: pointer;
+}
+
+.video {
+  grid-area: video;
+  /*background-color:red;*/
+}
+
+.text {
+  grid-area: text;
+  /*opacity:0;*/
+  /*background-color:green;*/
+}
+
+.spacer {
+  grid-area: spacer;
+  /*background-color: yellow;*/
+}
+/* on item hover, reveal colour img */
+
+.item:hover > .img {
+  background-position: 50% 100%;
 }
 
 /* set top left corner img pos & src */
@@ -954,21 +962,6 @@ $iconHideHorizontal: -60%;*/
   /*left: 0;*/
   top: 0;
   bottom: 0;
-}
-
-.video {
-  grid-area: video;
-  /*background-color:red;*/
-}
-
-.text {
-  grid-area: text;
-  /*background-color:green;*/
-}
-
-.spacer {
-  grid-area: spacer;
-  /*background-color: yellow;*/
 }
 
 /* set right middle img pos & src */
@@ -1032,6 +1025,34 @@ $iconHideHorizontal: -60%;*/
   background-position: 50% 0;
   margin: auto;
   position: absolute;
+}
+.text p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  color: #7c7c7c;
+  margin: 0;
+  opacity: 0;
+}
+
+.text h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+  color: #7c7c7c;
+  margin: 0 0 10px 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.item:hover > .text p,
+.item:hover > .text h1 {
+  opacity: 1;
+}
+.item .text p,
+.item .text h1 {
+  -webkit-transition: opacity 250ms;
+  -moz-transition: opacity 250ms;
+  -o-transition: opacity 250ms;
+  transition: opacity 250ms;
 }
 body {
   /*test*/

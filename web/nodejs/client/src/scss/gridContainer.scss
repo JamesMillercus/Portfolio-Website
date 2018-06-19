@@ -26,7 +26,7 @@
   'spacer video video video video video'
   'spacer video video video video video'
   'extra extra extra extra extra extra'
-  'text text text text rightimg rightimg';
+  'notext notext text text rightimg rightimg';
 }
 /* set top middle grid rules */
 .topmiddle {
@@ -51,7 +51,7 @@
   'video video video video spacer spacer'
   'video video video video spacer spacer'
   'extra extra extra extra extra extra'
-  'leftimg leftimg text text text text';
+  'leftimg leftimg text text notext notext';
 }
 /* set middle left grid rules */
 .middleleft {
@@ -83,7 +83,7 @@
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
   grid-template-areas:
-  'text text text text rightimg rightimg'
+  'notext notext text text rightimg rightimg'
   'extra extra extra extra extra extra'
   'spacer spacer video video video video'
   'spacer spacer video video video video'
@@ -95,7 +95,7 @@
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
   grid-template-areas:
-  'leftimg leftimg text text text text'
+  'leftimg leftimg text text notext notext'
   'extra extra extra extra extra extra'
   'video video video video spacer spacer'
   'video video video video spacer spacer'

@@ -1,0 +1,20 @@
+.text p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  color: #7c7c7c;
+  margin:0;
+  opacity:0;
+}
+
+.text h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+  color: #7c7c7c;
+  margin:0 0 10px 0;
+  padding:0;
+  opacity:0;
+}
+
+.item:hover > .text p, .item:hover > .text h1 {
+  opacity:1;
+}

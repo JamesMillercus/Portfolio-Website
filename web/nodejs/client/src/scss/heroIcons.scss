@@ -11,17 +11,6 @@ $iconHideBottomVertical: -10%;
 .item4 { 
     grid-area: middlecenter; 
 }
-/* set center text pos & src */
-.item4 p {
-	grid-area: hero;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 40px;
-    text-align: center;
-    cursor: pointer;
-    line-height: 0;
-    color: #7c7c7c;
-    z-index:1;
-}
 
 .grey {
     color: #7c7c7c !important;
