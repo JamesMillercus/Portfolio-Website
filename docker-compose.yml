@@ -1,13 +1,14 @@
 version: "2"
 services:
-  nodejs:
-    build: ./web/nodejs
+  react:
+    build: ./web/react
     ports:
       - "3000:3000"
       - "4000:4000"
     volumes:
-      - "./web/nodejs:/usr/src/app"
+      - "./web/react:/usr/src/app"
     command: npm run dev
+    # command: npm install --save-dev ua-parser-js
   nginx:
     build: ./web/nginx
     ports:
