@@ -1,16 +1,15 @@
 // import fetch users action
-import { FETCH_USERS } from '../actions';
+import { BLANK } from '../actions';
 
-// export a reducer with state with list of users and FETCH_USERS action 
-export default (state = [], action) => {
+export default function(state =  null, action) {
 	// if actions.type
 	switch (action.type) {
 		//if actions.type is FETCH_USERS
-		case FETCH_USERS:
+		case false:
 			// if action has data attached to it, then store the data
-			return action.payload.data;
+			return action.payload.data || false;
 		default:
 			// else return state
 			return state;
 	}
-};
+}

@@ -8,8 +8,6 @@ import { Helmet } from 'react-helmet';
 import Routes from './../../client/routes/Routes';
 
 export default (req, store, context) => {
-	console.log('req.badBrowser = ' + req.badBrowser);
-	console.log('req.device = ' + req.device);
 	// load react components
 	const content = renderToString(
 		// connect the redux store to the react application
