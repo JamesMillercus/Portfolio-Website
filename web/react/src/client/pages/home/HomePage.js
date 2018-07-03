@@ -17,7 +17,6 @@ class Home extends Component {
       <CustomView condition={browserName === "Chrome"}>
         <div>"lol?"</div>
       </CustomView>
-      // test
 	  )
   }
 };
