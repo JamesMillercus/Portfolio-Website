@@ -15,20 +15,6 @@ node {
 		commit_id = readFile('.git/commit-id').trim()
 	}	
 
-	stage('test') {
-		// define a container with latest version of node
-		def myTestContainer = docker.image('node:latest')
-		// pull this latest docker image
-		myTestContainer.pull();
-		// inside the docker container, run the test script
-		myTestContainer.inside {
-			// only install dependencies required for testing
-			// sh 'npm install --only=dev'
-			// run script to start test
-			// sh 'npm test'
-		}
-	}
-
 	stage('docker build/push') {
 		// we want to use the docker registry using the credentials stored in 'dockerhub'
 		docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
