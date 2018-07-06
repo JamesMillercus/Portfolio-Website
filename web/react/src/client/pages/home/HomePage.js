@@ -9,7 +9,6 @@ class Home extends Component {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
       <div> 
-        {this.props.browserComponent()} 
         {this.props.deviceComponent()} 
       </div>
     )
@@ -18,8 +17,5 @@ class Home extends Component {
 
 export default {
   // take props from admins and pass them into require Auth
-  component: compose(
-    getDevice,
-    getBrowser
-    )(Home)
+  component: getDevice(Home)
 };

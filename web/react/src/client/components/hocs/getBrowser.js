@@ -1,52 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import './HomePage.scss';
-// import './react.png';
-import { IEView } from "react-device-detect";
+import Desktop from './../../pages/home/desktop/Desktop';
+import BadBrowser from './../../pages/bad-browser/BadBrowserPage';
 import { UserAgent } from '@quentin-sommer/react-useragent';
 
-/*
-	TO DO:
-		1. REPLICATE THE ALLOWED BROWSERS FUNCTION FROM PREVIOUS APP
-		2. CREATE A SWITCH STATEMENT BASED ON THE RESULT OF THE FUNCTION
-		3. SERVE 'ALLOWED BROWSER PAGE' VS 'NOT ALLOWED BROWSER PAGE'
-		4. ATTEMPT TO STORE USER AGENT (FROM APP.JS) IN REDUX STORE AND LOAD HOME PAGE ONCE THIS DATA IS LOADED INTO FRONT END
-*/
+class GetBrowser extends Component {
 
-export default (ChildComponent) => {
-	class GetBrowser extends Component {
-		constructor(props) {
-	        super(props);
-	        this.browserComponent = () => {
-	    		return (
-	    			<div> 
-						<UserAgent returnfullParser>
-              				{parser => (
-								<div className = "class"> 
-								    <h3> Home page </h3>
-								    <p> Built in ssr React and Redux </p>
-			                        {console.log('getBrowser', parser.getBrowser().name)}
-								    // <img src="/assets/images/react.png" />
-								</div>
-							)}
-						</UserAgent>
+    browserComponent() {
+		return (
+			<UserAgent returnfullParser>
+  				{parser => (
+					<div className = "class"> {this.content(parser.getBrowser().name)} </div>
+				)}
+			</UserAgent>
+		)
+	}
 
-						<IEView>
-						  <div className = "class"> 
-						    oops lol
-						  </div>
-						</IEView>
-	    			</div>
-	    		)
-	    	}
-    	}
-
-		render() {
-			return(
-				<ChildComponent browserComponent = {this.browserComponent} deviceComponent = {this.props.deviceComponent} />
-			)
+	content(browserName) {
+		switch (this.allowedBrowser(browserName)) {
+			// accessed is not authorised
+			case false:
+				return <BadBrowser />
+			// if not yet fetehed the auth state
+			case null:
+				return <BadBrowser />
+			// if is authorised, then load child component and load props from render auth into child
+			default:
+				return <Desktop />
 		}
 	}
 
-	return GetBrowser;
-};
+	allowedBrowser(browserName) {
+		const allowedBrowsers = ["Chrome", "Safari", "Firefox", "Edge", "Chromium"];
+		for(let x = 0; x < allowedBrowsers.length; x++) {
+			if(browserName == allowedBrowsers[x]) return true;
+			else if(browserName != allowedBrowsers[x] && x == allowedBrowsers.length-1) return false; 
+		}
+	}
+
+	render() {
+		return (
+			<div>
+				{this.browserComponent()}
+			</div>
+		)
+	}
+}
+
+export default GetBrowser;

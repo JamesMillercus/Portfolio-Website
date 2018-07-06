@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import './HomePage.scss';
-// import './react.png';
+import GetBrowser from './getBrowser';
 import { BrowserView, TabletView, MobileOnlyView } from "react-device-detect";
+
+/*
+	TO DO:
+		1. CREATE (AND TEST) MOBILE AND TABLET VIEWS
+		2. ATTEMPT TO STORE USER AGENT (FROM APP.JS) IN REDUX STORE AND LOAD HOME PAGE ONCE THIS DATA IS LOADED INTO FRONT END
+		3. DO THIS BY STORING THE USER AGENT IN REDUX STATE AND THEN REFERENCE THAT STATE IN APP.JS
+*/
 
 export default (ChildComponent) => {
 	class GetDevice extends Component {
@@ -11,31 +17,16 @@ export default (ChildComponent) => {
 	        this.deviceComponent = () => {
 	    		return (
 					<BrowserView>
-						<div> device view lol </div>
+						<GetBrowser />
 					</BrowserView>
 	    		)
 	    	}
     	}
 
 		render() {
-			return(
-				<ChildComponent deviceComponent = {this.deviceComponent} />
-			)
+			return <ChildComponent deviceComponent = {this.deviceComponent} />
 		}
 	}
 
 	return GetDevice;
 };
-// <UserAgent chrome safari firefox edge>
-//   <div className = "class"> 
-//     <h3> Home page </h3>
-//     <p> Built in ssr React and Redux </p>
-//     // <img src="/assets/images/react.png" />
-//   </div>
-// </UserAgent>
-
-// <IEView>
-//   <div className = "class"> 
-//     oops lol
-//   </div>
-// </IEView>

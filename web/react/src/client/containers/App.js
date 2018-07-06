@@ -9,8 +9,6 @@ import './App.scss';
 class App extends Component {
   render() {
   	const route = this.props.route;
-  	var func = (x, y) => { return x + y; }; 
-
   	const userAgent = getUserAgent(this);
   	
     return (
