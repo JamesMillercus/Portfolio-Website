@@ -2842,15 +2842,15 @@
 
 /*! no static exports found */
 
-/*!*********************************************!*\
-  !*** ./src/client/reducers/blankReducer.js ***!
-  \*********************************************/
-
-/*! no static exports found */
-
 /*!**************************************!*\
   !*** ./src/client/reducers/index.js ***!
   \**************************************/
+
+/*! no static exports found */
+
+/*!*************************************************!*\
+  !*** ./src/client/reducers/userAgentReducer.js ***!
+  \*************************************************/
 
 /*! no static exports found */
 

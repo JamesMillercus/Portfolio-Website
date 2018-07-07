@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 // import usersReducer
-import blankReducer from './blankReducer';
+import userAgentReducer from './userAgentReducer';
 // combine all existing reducers
 export default combineReducers({
-	blank: blankReducer
+	userAgent: userAgentReducer
 });

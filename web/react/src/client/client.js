@@ -19,8 +19,10 @@ import { renderRoutes } from 'react-router-config';
 // import routes
 import Routes from './routes/Routes';
 
+const userAgent = window.navigator.userAgent;
+
 // set up the redux store on the client side, with the state that has been sent from the server
-const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(userAgent)));
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
 ReactDOM.hydrate(
