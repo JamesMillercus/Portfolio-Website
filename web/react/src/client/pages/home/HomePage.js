@@ -13,6 +13,7 @@ class Home extends Component {
         <UserAgent computer>
             <Desktop />
         </UserAgent>
+        
         <UserAgent tablet>
             <div> Tablet view </div>
         </UserAgent>

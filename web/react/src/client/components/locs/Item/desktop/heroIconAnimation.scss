@@ -1,0 +1,46 @@
+/* adjustable variables for icon positioning */
+$iconVerticalSpace: 28%;
+$iconBottomVerticalSpace: 5%;
+$iconHorizontalSpace: 0;
+
+$animationSpeed: 500ms;
+
+.item4 .icon {
+  -webkit-transition: opacity $animationSpeed, margin $animationSpeed ease;
+  -moz-transition: opacity $animationSpeed, margin $animationSpeed ease;
+  -o-transition: opacity $animationSpeed, margin $animationSpeed ease;
+  transition: opacity $animationSpeed, margin $animationSpeed ease; 
+}
+
+.item4 .mail.active {
+    margin-top: $iconVerticalSpace; 
+    margin-right: $iconHorizontalSpace;
+}
+
+.item4 .linkedin.active {
+	margin-top:$iconVerticalSpace;
+}
+
+.item4 .github.active {
+	margin-top:$iconVerticalSpace;
+	margin-left:$iconHorizontalSpace;
+}
+
+.item4 .twitter.active {
+	margin-right:$iconHorizontalSpace;
+	margin-top:$iconBottomVerticalSpace;
+    /*margin: auto $iconHorizontalSpace $iconVerticalSpace auto;*/
+}
+.item4 .instagram.active {
+	margin-top:$iconBottomVerticalSpace;
+    /*margin: auto auto $iconVerticalSpace auto;*/
+}
+.item4 .pinterest.active {
+	margin-top:$iconBottomVerticalSpace;
+	margin-left:$iconHorizontalSpace;
+    /*margin: auto auto $iconVerticalSpace $iconHorizontalSpace;*/
+}
+
+.item4 .icon.active {
+     opacity:.5;
+}
