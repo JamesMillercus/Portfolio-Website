@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
-import getDevice from './../../components/hocs/getDevice';
+// import getDevice from './../../components/hocs/getDevice';
 import getBrowser from './../../components/hocs/getBrowser';
+import { UserAgent } from '@quentin-sommer/react-useragent';
+import Desktop from './../../pages/home/desktop/Desktop';
 import { compose } from 'redux'
 
 class Home extends Component {
-  
   render() {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
       <div> 
-        {this.props.deviceComponent()} 
+        <UserAgent computer>
+            <Desktop />
+        </UserAgent>
+        <UserAgent tablet>
+            <div> Tablet view </div>
+        </UserAgent>
+
+        <UserAgent mobile>
+            <div> Mobile view </div>
+        </UserAgent>
+
       </div>
     )
   }
@@ -17,5 +28,5 @@ class Home extends Component {
 
 export default {
   // take props from admins and pass them into require Auth
-  component: getDevice(Home)
+  component: getBrowser(Home)
 };

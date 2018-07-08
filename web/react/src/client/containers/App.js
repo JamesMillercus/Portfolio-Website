@@ -27,7 +27,7 @@ class App extends Component {
 
 // map the data from the state of fetchUserAgent, to a prop called userAgent 
 function mapStateToProps(state) {
-	return { userAgent: state.userAgent };
+	return { userAgent: state.userAgent }
 }
 
 // load this component with the data that is requires from redux - mapped as props from state
