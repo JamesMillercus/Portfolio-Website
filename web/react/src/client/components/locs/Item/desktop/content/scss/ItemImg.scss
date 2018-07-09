@@ -5,7 +5,7 @@
 /* set top left corner img pos & src */
 .item0 .img {
   grid-area: rightimg;
-  background-image: url(../assets/images/topleft.png);
+  background-image: url(/assets/images/topleft.png);
   /*right: 0;*/
   left: 0;
   top: 0;
@@ -14,7 +14,7 @@
 /* set top middle img pos & src */
 .item1 .img {
   grid-area: centerimg;
-  background-image: url(../assets/images/topcenter.png);
+  background-image: url(/assets/images/topcenter.png);
   right: 0;
   left: 0;
   bottom: 0;
@@ -23,9 +23,9 @@
 /* set top right corner img pos & src */
 .item2 .img {
   grid-area: leftimg;
-  background-image: url(../assets/images/topright.png);
+  background-image: url(/assets/images/topright.png);
   right: 0;
-  /*left: 0;*/
+  left: 50%;
   top: 0;
   bottom: 0;
 }
@@ -33,7 +33,7 @@
 .item3 .img {
   grid-area: img;
   height:45%;
-  background-image: url(../assets/images/middleleft.png);
+  background-image: url(/assets/images/middleleft.png);
   right: 0;
   /*left: 0;*/
   top: 0;
@@ -45,7 +45,7 @@
   /*background-color: pink;*/
   grid-area: img;
   height:45%;
-  background-image: url(../assets/images/middleright.png);
+  background-image: url(/assets/images/middleright.png);
   /*right: 0;*/
   left: 0;
   top: 0;
@@ -55,7 +55,7 @@
 .item6 .img {
   /*background-color: pink;*/
   grid-area: rightimg;
-  background-image: url(../assets/images/bottomleft.png);
+  background-image: url(/assets/images/bottomleft.png);
   /*right: 0;*/
   left: 0;
   top: 0;
@@ -65,7 +65,7 @@
 .item7 .img {
   /*background-color: pink;*/
   grid-area: centerimg;
-  background-image: url(../assets/images/bottomcenter.png);
+  background-image: url(/assets/images/bottomcenter.png);
   right: 0;
   left: 0;
   top: 0;
@@ -76,9 +76,9 @@
 .item8 .img {
   /*background-color: pink;*/
   grid-area: leftimg;
-  background-image: url(../assets/images/bottomright.png);
+  background-image: url(/assets/images/bottomright.png);
   right: 0;
-  left: 0;
+  left: 50%;
   top: 0;
   bottom: 0;
 }

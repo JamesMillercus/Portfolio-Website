@@ -1,7 +1,8 @@
 /* adjustable variables for icon positioning */
 $iconVerticalSpace: 28%;
-$iconBottomVerticalSpace: 5%;
-$iconHorizontalSpace: 0;
+$iconBottomVerticalSpace: 28%;
+$iconSmallHorizontalSpace: 20%;
+$iconLargeHorizontalSpace: 50%;
 
 $animationSpeed: 500ms;
 
@@ -13,32 +14,25 @@ $animationSpeed: 500ms;
 }
 
 .item4 .mail.active {
-    margin-top: $iconVerticalSpace; 
-    margin-right: $iconHorizontalSpace;
+  margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
 .item4 .linkedin.active {
-	margin-top:$iconVerticalSpace;
+  margin: $iconVerticalSpace auto auto auto;
 }
 
 .item4 .github.active {
-	margin-top:$iconVerticalSpace;
-	margin-left:$iconHorizontalSpace;
+  margin: $iconVerticalSpace $iconSmallHorizontalSpace 100% $iconLargeHorizontalSpace;
 }
 
 .item4 .twitter.active {
-	margin-right:$iconHorizontalSpace;
-	margin-top:$iconBottomVerticalSpace;
-    /*margin: auto $iconHorizontalSpace $iconVerticalSpace auto;*/
+  margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 .item4 .instagram.active {
-	margin-top:$iconBottomVerticalSpace;
-    /*margin: auto auto $iconVerticalSpace auto;*/
+  margin: $iconVerticalSpace auto auto auto;
 }
 .item4 .pinterest.active {
-	margin-top:$iconBottomVerticalSpace;
-	margin-left:$iconHorizontalSpace;
-    /*margin: auto auto $iconVerticalSpace $iconHorizontalSpace;*/
+  margin: $iconVerticalSpace 100% 100% $iconLargeHorizontalSpace;
 }
 
 .item4 .icon.active {

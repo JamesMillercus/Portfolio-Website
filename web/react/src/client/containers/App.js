@@ -12,9 +12,7 @@ class App extends Component {
 
 		return (
 		  	<UserAgentProvider ua={userAgent}>
-				<div>
-					<div>{renderRoutes(route.routes)}</div>
-				</div>
+				<div>{renderRoutes(route.routes)}</div>	
 			</UserAgentProvider>
 	  	)
 	}

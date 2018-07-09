@@ -1,7 +1,3 @@
-/* adjustable variables for icon positioning */
-$iconVerticalSpace: 28%;
-$iconHorizontalSpace: 0;
-
 /* adjustable variables for icon hiding*/
 $iconHideVertical: 60%;
 $iconHideHorizontal: -60%;
@@ -18,40 +14,37 @@ $iconHideBottomVertical: -10%;
 /* set mail icon pos & src */
 .item4 .mail {
     grid-area: mail;
-    background-image: url(../assets/icons/mail.jpg);
-    margin-left:auto;
-    margin-bottom:auto;
-    margin-top: $iconHideVertical; 
-    margin-right: $iconHideHorizontal;
+    background-image: url(/assets/images/mail.jpg);
+    margin: $iconHideVertical $iconHideHorizontal 100% 100%;
 }
 
 /* set linkedin icon pos & src */
 .item4 .linkedin {
-	grid-area: linkedin;
-	background-image: url(../assets/icons/linkedin.jpg);
+    grid-area: linkedin;
+    background-image: url(/assets/images/linkedin.jpg);
     margin: $iconHideVertical auto auto auto;
 }
 
 /* set github icon pos & src */
 .item4 .github {
-	grid-area: github;
-	background-image: url(../assets/icons/github.jpg);
-    margin: $iconHideVertical auto auto $iconHideHorizontal;
+    grid-area: github;
+    background-image: url(/assets/images/github.jpg);
+    margin: $iconHideVertical 100% 100% $iconHideHorizontal;
 }
 
 
 /* set twitter icon pos & src */
 .item4 .twitter {
     grid-area: twitter;
-    background-image: url(../assets/icons/twitter.jpg);
-    margin: $iconHideBottomVertical $iconHideHorizontal auto auto;
+    background-image: url(/assets/images/twitter.jpg);
+    margin: $iconHideBottomVertical $iconHideHorizontal 100% 100%;
 }
 
 
 /* set instagram icon pos & src */
 .item4 .instagram {
     grid-area: instagram;
-    background-image: url(../assets/icons/instagram.jpg);
+    background-image: url(/assets/images/instagram.jpg);
     margin: $iconHideBottomVertical auto auto auto;
 }
 
@@ -59,8 +52,8 @@ $iconHideBottomVertical: -10%;
 /* set pinterest icon pos & src */
 .item4 .pinterest {
     grid-area: pinterest;
-    background-image: url(../assets/icons/pinterest.jpg);
-    margin: $iconHideBottomVertical auto auto $iconHideHorizontal;
+    background-image: url(/assets/images/pinterest.jpg);
+    margin: $iconHideBottomVertical 100% 100% $iconHideHorizontal;
 }
 
 /* set icon dimensions & settings */
@@ -69,17 +62,18 @@ $iconHideBottomVertical: -10%;
     background-position: 50% 0%;
     background-repeat: no-repeat;
     opacity: 0;
-    /*display:none;*/
+    cursor: none;
     height: 30%;
     width: 30%;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.unlocked {
+.active {
     /*display:inline-block;*/
     cursor:pointer;
 }
+
 /* set all unlocked icons hover styling */
-.item4 .unlocked:hover {
+.item4 .active:hover {
 	background-position: 50% 100%;
-	opacity: 1;
+	opacity: 1 !important;
 }
