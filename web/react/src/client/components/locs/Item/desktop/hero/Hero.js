@@ -6,12 +6,12 @@ import './scss/HeroText.scss';
 import './scss/HeroTextAnimation.scss';
 import './scss/HeroIcons.scss';
 import './scss/HeroIconAnimation.scss';
-import './assets/github.jpg';
-import './assets/instagram.jpg';
-import './assets/linkedin.jpg';
-import './assets/mail.jpg';
-import './assets/pinterest.jpg';
-import './assets/twitter.jpg';
+import './../../assets/hero/github.jpg';
+import './../../assets/hero/instagram.jpg';
+import './../../assets/hero/linkedin.jpg';
+import './../../assets/hero/mail.jpg';
+import './../../assets/hero/pinterest.jpg';
+import './../../assets/hero/twitter.jpg';
 // import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 

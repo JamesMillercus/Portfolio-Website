@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { fetchScrolledItem } from './../../../actions';
 import { connect } from 'react-redux';
-import Item from './../../../components/locs/Item/desktop/content/Item';
+import Item from './../../../components/locs/Item/desktop/content/Item/Item';
 import Hero from './../../../components/locs/Item/desktop/hero/Hero';
+import Video from './../../../components/locs/Video/Video';
 import './gridContainer.scss';
 import './gridContainerAnimation.scss';
 
@@ -15,7 +16,7 @@ class Desktop extends Component {
 			if (x == 4) items.push(<Hero number={x} key={x} />);
 			else items.push(<Item number={x} key={x} />);
 		}
-  		
+  		items.push(<Video key={9} />);
   		return items;
 	}
 
@@ -39,6 +40,5 @@ class Desktop extends Component {
 function mapStateToProps(state) {
 	return { scrolledItem: state.scrolledItem };
 }
-
 
 export default connect(mapStateToProps, { fetchScrolledItem })(Desktop);

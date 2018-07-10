@@ -8,7 +8,7 @@ services:
     volumes:
       - "./web/react:/usr/src/app"
     command: npm run dev
-    # command: npm uninstall -save react-device-detect
+    # command: npm install --save react-youtube-player
   nginx:
     build: ./web/nginx
     ports:

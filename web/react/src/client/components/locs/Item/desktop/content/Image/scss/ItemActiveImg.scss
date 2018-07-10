@@ -1,0 +1,91 @@
+/* set top left corner img pos & src */
+.item0 .activeImg {
+  grid-area: rightimg;
+  background-image: url(/assets/images/topleft.gif);
+  /*right: 0;*/
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set top middle img pos & src */
+.item1 .activeImg {
+  grid-area: centerimg;
+  background-image: url(/assets/images/topcenter.gif);
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height:90%;
+}
+/* set top right corner img pos & src */
+.item2 .activeImg {
+  grid-area: leftimg;
+  background-image: url(/assets/images/topright.gif);
+  right: 0;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+}
+/* set left middle img pos & src */
+.item3 .activeImg {
+  grid-area: img;
+  height:45%;
+  background-image: url(/assets/images/middleleft.gif);
+  right: 0;
+  /*left: 0;*/
+  top: 0;
+  bottom: 0;
+}
+
+/* set right middle img pos & src */
+.item5 .activeImg {
+  /*background-color: pink;*/
+  grid-area: img;
+  height:45%;
+  background-image: url(/assets/images/middleright.gif);
+  /*right: 0;*/
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set bottom left corner img pos & src */
+.item6 .activeImg {
+  /*background-color: pink;*/
+  grid-area: rightimg;
+  background-image: url(/assets/images/bottomleft.gif);
+  /*right: 0;*/
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set bottom middle img pos & src */
+.item7 .activeImg {
+  /*background-color: pink;*/
+  grid-area: centerimg;
+  background-image: url(/assets/images/bottomcenter.gif);
+  right: 0;
+  left: 0;
+  top: 0;
+  height:90%;
+  /*bottom: 0;*/
+}
+/* set bottom right corner img pos & src */
+.item8 .activeImg {
+  /*background-color: pink;*/
+  grid-area: leftimg;
+  background-image: url(/assets/images/bottomright.gif);
+  right: 0;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+}
+/* set each item img's dimensions & img settings */
+.activeImg {
+  height: 45%;
+  /*max-width: 220px;*/
+  width:162px;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  margin: auto;
+  position: absolute;
+  background-position: center;
+}
