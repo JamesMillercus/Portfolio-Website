@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Image from './../Image/Image';
-import { fetchScrolledItem } from './../../../../../../actions';
-import { fetchActiveItem } from './../../../../../../actions';
-import { fetchClickedItems } from './../../../../../../actions';
-import {itemConfig} from './../../../config/itemConfig'
-import './scss/ItemContainer.scss';
-import './scss/ItemText.scss';
-import './scss/ItemTextAnimation.scss';
+import ItemImage from './ItemImage/ItemImage';
+import { fetchScrolledItem, fetchActiveItem, fetchClickedItems } from './../../../actions';
+import itemConfig from './assets/config/itemConfig';
+import './assets/scss/ItemContainer.scss';
+import './assets/scss/ItemText.scss';
+import './assets/scss/ItemTextAnimation.scss';
 
 class Item extends Component {
 
@@ -32,7 +30,7 @@ class Item extends Component {
 
 		return (
 			<div className = {`item${number} item ${position}`} onMouseOver={scroll} onClick={click}>
-				<Image itemNumber={number} />
+				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} />
 				<div className = "video" />
 				<div className = "text"> 
 					<h1> {header} </h1>
@@ -42,9 +40,7 @@ class Item extends Component {
 			</div>
 		)
 	}
-
 }
-
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => {

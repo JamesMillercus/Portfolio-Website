@@ -1,4 +1,4 @@
-export const videoConfig = [
+export default [
 	{
 		videoID: "yVKqqdlHPLI" // moodtree
 	},{

@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YoutubePlayer from 'react-youtube-player';
-import { fetchScrolledItem } from './../../../actions';
-import { fetchActiveItem } from './../../../actions';
 import { connect } from 'react-redux';
-import { videoConfig } from './config/videoConfig';
-import './scss/Video.scss';
+import { fetchScrolledItem, fetchActiveItem } from './../../../actions';
+import videoConfig from './assets/config/videoConfig';
+import './assets/scss/Video.scss';
 
 class Video extends Component {
-
+	constructor(props){
+		super(props);
+		this.escFunction = this.escFunction.bind(this);
+	}
+	escFunction(event){
+		if(event.keyCode === 27 && this.props.activeItem != "hidden") this.exitVideo();
+	}
+	componentDidMount(){
+		document.addEventListener("keydown", this.escFunction, false);
+	}
+	componentWillUnmount(){
+		document.removeEventListener("keydown", this.escFunction, false);
+	}
 
 	render(){
-
 		const item = this.props.activeItem;
 
 		this.exitVideo = () => {
@@ -23,6 +33,9 @@ class Video extends Component {
 		)
 	}
 
+	playing(){
+		// test
+	}
 
 	videoContent(selectedVideo) {
 		if(selectedVideo == "hidden") return null;
@@ -33,12 +46,15 @@ class Video extends Component {
 					<YoutubePlayer             
 					    videoId= {videoConfig[selectedVideo].videoID}
 					    playbackState='playing'
+					    onPlay= {this.playing}
+					    onEnd = {this.exitVideo}
 					    configuration={
 					        {
 					            showinfo: 0,
-					            controls: 0,
+					            controls: 1,
 					            frameborder: 0,
-					            rel: 0
+					            rel: 0,
+					            fs: 0
 					        }
 					    }
 					/>
@@ -46,9 +62,9 @@ class Video extends Component {
 			)
 		}
 	}
-
 }
 
+// player.getPlayerState():Number
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => {

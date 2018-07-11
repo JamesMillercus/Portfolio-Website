@@ -1,6 +1,6 @@
 import App from './../containers/App';
-import HomePage from './../pages/home/HomePage';
-import NotFoundPage from './../pages/not-found/NotFoundPage';
+import HomePage from './../pages/Home/HomePage';
+import NotFoundPage from './../pages/NotFound/NotFoundPage';
 
 export default [
 	{

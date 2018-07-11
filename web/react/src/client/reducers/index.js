@@ -4,10 +4,12 @@ import userAgentReducer from './userAgentReducer';
 import scrolledItemReducer from './scrolledItemReducer';
 import activeItemReducer from './activeItemReducer';
 import clickedItemsReducer from './clickedItemsReducer';
+import activeHeroIconReducer from './activeHeroIconReducer';
 // combine all existing reducers
 export default combineReducers({
 	userAgent: userAgentReducer,
 	scrolledItem: scrolledItemReducer,
 	activeItem: activeItemReducer,
-	clickedItems: clickedItemsReducer
+	clickedItems: clickedItemsReducer,
+	activeHeroIcon: activeHeroIconReducer
 });

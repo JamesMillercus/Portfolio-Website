@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { fetchScrolledItem } from './../../../actions';
 import { connect } from 'react-redux';
-import Item from './../../../components/locs/Item/desktop/content/Item/Item';
-import Hero from './../../../components/locs/Item/desktop/hero/Hero';
+import Item from './../../../components/locs/Item/Item';
+import Hero from './../../../components/locs/Hero/Hero';
 import Video from './../../../components/locs/Video/Video';
-import './gridContainer.scss';
-import './gridContainerAnimation.scss';
+import './assets/scss/gridContainer.scss';
+import './assets/scss/gridContainerAnimation.scss';
 
 class Desktop extends Component {
   

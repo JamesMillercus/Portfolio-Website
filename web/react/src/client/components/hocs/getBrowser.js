@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import BadBrowser from './../../pages/bad-browser/BadBrowserPage';
-import NotFoundPage from './../../pages/not-found/NotFoundPage';
+import BadBrowser from './../../pages/BadBrowser/BadBrowserPage';
+import NotFoundPage from './../../pages/NotFound/NotFoundPage';
 import { UserAgent } from '@quentin-sommer/react-useragent';
 import { Redirect } from 'react-router-dom';
 

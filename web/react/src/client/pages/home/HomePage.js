@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import getDevice from './../../components/hocs/getDevice';
 import getBrowser from './../../components/hocs/getBrowser';
 import { UserAgent } from '@quentin-sommer/react-useragent';
-import Desktop from './../../pages/home/desktop/Desktop';
+import Desktop from './../../pages/home/Desktop/Desktop';
 import { compose } from 'redux'
 
 class Home extends Component {

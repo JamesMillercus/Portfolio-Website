@@ -1,4 +1,4 @@
-export const itemConfig = [
+export default [
 	{
 		header: "Mood Tree",
 		paragraph: "D&AD wanted an installation, that would promote social activity during their design festival. We created a tree that utilised Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.",
@@ -16,9 +16,9 @@ export const itemConfig = [
 		paragraph: "SAP wanted to use data to help golf enthusiasts improve their game during the BMW International Golf Open. We designed an experience, that captured users data, generated metrics and analysed their golfing performance in preparation for a session with a professional coach, who used this projection mapped data to mentor players.",
 		position: "middleleft"
 	}, {
-		header: "Welcome to my portfolio",
-		paragraph: ["h","i", "@", "j", "a", "m", "e", "s", "m", "i", "l", "l", "e", "r", ".", "d", "e", "s", "i", "g", "n"],
-		footer: "Made from React & Redux"
+		// header: "Welcome to my portfolio",
+		// paragraph: ["h","i", "@", "j", "a", "m", "e", "s", "m", "i", "l", "l", "e", "r", ".", "d", "e", "s", "i", "g", "n"],
+		// footer: "Made from React & Redux"
 	}, {
 		header: "Next Gen VR",
 		paragraph: "Merck created a new drug to help MS patients manage their symptoms and wanted to show how it was changing lives. To help users empathise with living through the symptoms, we used the HTC Vive to create a VR experience that put users inside the daily life of suffers. Unity and custom made hardware, allowed us to fully immerse users with smell, haptics and temperature.",
