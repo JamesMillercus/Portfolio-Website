@@ -64,3 +64,16 @@ export const fetchActiveHeroIcon = (activeHeroIcon) => async (dispatch, getState
 		payload: res
 	});
 }
+
+
+// stored data of clicked items
+export const FETCH_DEVICE_TYPE = 'fetch_device_type';
+// action creator
+export const fetchDeviceType = (deviceType) => async (dispatch, getState) => {
+	const res = deviceType;
+
+	dispatch({
+		type: FETCH_DEVICE_TYPE,
+		payload: res
+	});
+}

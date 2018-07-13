@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchActiveHeroIcon, fetchScrolledItem } from './../../../../actions';
+import { fetchActiveHeroIcon, fetchScrolledItem } from './../../../../../actions';
 import heroTextConfig from './assets/config/heroTextConfig.js';
 import './assets/scss/HeroText.scss';
 import './assets/scss/HeroTextAnimation.scss';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchScrolledItem } from './../../../actions';
+import { fetchScrolledItem } from './../../../../actions';
 import { connect } from 'react-redux';
 import heroConfig from './assets/config/heroConfig.js';
 import HeroIcon from './HeroIcon/HeroIcon';

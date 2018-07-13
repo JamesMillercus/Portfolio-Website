@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchClickedItems, fetchActiveItem } from './../../../../actions';
+import { fetchClickedItems, fetchActiveItem } from './../../../../../actions';
 import './assets/scss/ItemImg.scss';
 import './assets/scss/ItemActiveImg.scss';
 import './assets/images/bottomcenter.png';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemImage from './ItemImage/ItemImage';
-import { fetchScrolledItem, fetchActiveItem, fetchClickedItems } from './../../../actions';
+import { fetchScrolledItem, fetchActiveItem, fetchClickedItems } from './../../../../actions';
 import itemConfig from './assets/config/itemConfig';
 import './assets/scss/ItemContainer.scss';
 import './assets/scss/ItemText.scss';

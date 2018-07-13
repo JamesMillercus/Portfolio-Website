@@ -5,11 +5,13 @@ import scrolledItemReducer from './scrolledItemReducer';
 import activeItemReducer from './activeItemReducer';
 import clickedItemsReducer from './clickedItemsReducer';
 import activeHeroIconReducer from './activeHeroIconReducer';
+import deviceTypeReducer from './deviceTypeReducer';
 // combine all existing reducers
 export default combineReducers({
 	userAgent: userAgentReducer,
 	scrolledItem: scrolledItemReducer,
 	activeItem: activeItemReducer,
 	clickedItems: clickedItemsReducer,
-	activeHeroIcon: activeHeroIconReducer
+	activeHeroIcon: activeHeroIconReducer,
+	deviceType: deviceTypeReducer 
 });

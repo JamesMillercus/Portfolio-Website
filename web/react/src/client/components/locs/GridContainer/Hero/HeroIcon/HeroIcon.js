@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchActiveHeroIcon } from './../../../../actions';
+import { fetchActiveHeroIcon } from './../../../../../actions';
 import { connect } from 'react-redux';
 import './assets/scss/HeroIcons.scss';
 import './assets/scss/HeroIconAnimation.scss';

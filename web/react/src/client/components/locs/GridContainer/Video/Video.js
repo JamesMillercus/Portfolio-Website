@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YoutubePlayer from 'react-youtube-player';
 import { connect } from 'react-redux';
-import { fetchScrolledItem, fetchActiveItem } from './../../../actions';
+import { fetchScrolledItem, fetchActiveItem } from './../../../../actions';
 import videoConfig from './assets/config/videoConfig';
 import './assets/scss/Video.scss';
 
