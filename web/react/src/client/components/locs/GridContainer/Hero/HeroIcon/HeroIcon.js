@@ -1,13 +1,8 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { fetchActiveHeroIcon } from './../../../../../actions';
-import './assets/scss/HeroIcons.scss';
-import './assets/scss/HeroIconAnimation.scss';
-import './assets/images/github.jpg';
-import './assets/images/instagram.jpg';
-import './assets/images/linkedIn.jpg';
-import './assets/images/mail.jpg';
-import './assets/images/pinterest.jpg';
+import './assets/scss';
+import './assets/images';
 
 class HeroIcon extends Component {
 
