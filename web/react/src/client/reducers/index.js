@@ -13,5 +13,5 @@ export default combineReducers({
 	activeItem: activeItemReducer,
 	clickedItems: clickedItemsReducer,
 	activeHeroIcon: activeHeroIconReducer,
-	deviceType: deviceTypeReducer 
+	deviceType: deviceTypeReducer
 });

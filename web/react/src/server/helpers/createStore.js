@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 // handle asynchronous acion creators
 import thunk from 'redux-thunk';
-import axios from 'axios';
 // import reducers from client
 import reducers from '../../client/reducers';
 

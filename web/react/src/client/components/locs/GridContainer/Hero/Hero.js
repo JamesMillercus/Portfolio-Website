@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { fetchScrolledItem } from './../../../../actions';
 import { connect } from 'react-redux';
+import { fetchScrolledItem } from './../../../../actions';
 import heroConfig from './assets/config/heroConfig.js';
 import HeroIcon from './HeroIcon/HeroIcon';
 import HeroText from './HeroText/HeroText';
@@ -12,18 +12,20 @@ class Hero extends Component {
 	}
 
 	revealHeroIcons() {
-		if(this.props.scrolledItem == 4) return true;
-		else return false;
+		if (this.props.scrolledItem === 4) return true;
+		return false;
 	}
 
-	renderHeroIcons(){
+	renderHeroIcons() {
 		const icons = [];
+		const reveal = this.revealHeroIcons();
 		// push all content into the items array
-		for(let x = 0; x<6; x++) {
-			icons.push(<HeroIcon className={heroConfig[x].className} href={heroConfig[x].href} revealIcons={this.revealHeroIcons()} key={x} />);
+		for (let x = 0; x < 6; x++) {
+			const css = heroConfig[x].className;
+			const href = heroConfig[x].href;
+			icons.push(<HeroIcon className={css} href={href} revealIcons={reveal} key={x} />);
 		}
-
-  		return icons;
+		return icons;
 	}
 
 	render() {
@@ -31,21 +33,18 @@ class Hero extends Component {
 		const heroContainerMouseOver = () => this.scrolledItem(number);
 
 		return (
-			<div className = "item4 middlecenter" onMouseOver={heroContainerMouseOver}>
+			<div className="item4 middlecenter" onMouseOver={heroContainerMouseOver}>
 				<HeroText />
 				{this.renderHeroIcons()}
 			</div>
-		)
+		);
 	}
-};
-
+}
 
 // map the state of data called from fetchUsers to users[state.users]
-const mapStateToProps = (state) => {
-	return { 
-		scrolledItem: state.scrolledItem
-	};
-}
+const mapStateToProps = (state) => ({
+	scrolledItem: state.scrolledItem
+});
 
 
 export default connect(mapStateToProps, { fetchScrolledItem })(Hero);

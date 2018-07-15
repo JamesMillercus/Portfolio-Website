@@ -1,7 +1,7 @@
 // import fetch users action
 import { FETCH_CLICKED_ITEMS } from '../actions';
 
-export default function(state = [], action) {
+export default function (state = [], action) {
 	// if actions.type
 	switch (action.type) {
 		//if actions.type is FETCH_USERS
@@ -11,5 +11,5 @@ export default function(state = [], action) {
 		default:
 			// else return state
 			return state;
-	};
+	}
 }

@@ -1,7 +1,7 @@
 // import fetch users action
 import { FETCH_ACTIVE_HERO_ICON } from '../actions';
 
-export default function(state = "none", action) {
+export default function (state = 'none', action) {
 	// if actions.type
 	switch (action.type) {
 		//if actions.type is FETCH_USERS
@@ -11,5 +11,5 @@ export default function(state = "none", action) {
 		default:
 			// else return state
 			return state;
-	};
+	}
 }

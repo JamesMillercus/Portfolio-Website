@@ -7,10 +7,10 @@ const app = express();
 require('./middlewares/apiProxy')(app);
 // //** SET CLIENT ASSETS **//
 //** Declare Gzipped content to serve **//
-const expressStaticGzip = require("express-static-gzip");
+const expressStaticGzip = require('express-static-gzip');
 //** SET CLIENT ASSETS **//
-app.use(expressStaticGzip('./build/client', { 
-	indexFromEmptyFile: false, 
+app.use(expressStaticGzip('./build/client', {
+	indexFromEmptyFile: false,
 	enableBrotli: true
 }));
 //** SET HOME ROUTE **//
@@ -19,4 +19,3 @@ require('./routes/routes')(app);
 app.listen(3000, () => {
 	console.log('Listening on port 3000');
 });
-

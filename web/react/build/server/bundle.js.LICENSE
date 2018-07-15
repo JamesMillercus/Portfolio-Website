@@ -47,7 +47,7 @@
 /*! no static exports found */
 
 /*!*******************************************************************************************!*\
-  !*** ./src/client/components/locs/GridContainer/Hero/HeroIcon/assets/images/linkedin.jpg ***!
+  !*** ./src/client/components/locs/GridContainer/Hero/HeroIcon/assets/images/linkedIn.jpg ***!
   \*******************************************************************************************/
 
 /*! no static exports found */
@@ -154,6 +154,12 @@
 
 /*! no static exports found */
 
+/*!****************************************************************************************!*\
+  !*** ./src/client/components/locs/GridContainer/Item/ItemImage/assets/images/index.js ***!
+  \****************************************************************************************/
+
+/*! no static exports found */
+
 /*!**********************************************************************************************!*\
   !*** ./src/client/components/locs/GridContainer/Item/ItemImage/assets/images/middleleft.gif ***!
   \**********************************************************************************************/
@@ -226,6 +232,12 @@
 
 /*! no static exports found */
 
+/*!**************************************************************************************!*\
+  !*** ./src/client/components/locs/GridContainer/Item/ItemImage/assets/scss/index.js ***!
+  \**************************************************************************************/
+
+/*! no static exports found */
+
 /*!***********************************************************************************!*\
   !*** ./src/client/components/locs/GridContainer/Item/assets/config/itemConfig.js ***!
   \***********************************************************************************/
@@ -247,6 +259,12 @@
 /*!******************************************************************************************!*\
   !*** ./src/client/components/locs/GridContainer/Item/assets/scss/ItemTextAnimation.scss ***!
   \******************************************************************************************/
+
+/*! no static exports found */
+
+/*!****************************************************************************!*\
+  !*** ./src/client/components/locs/GridContainer/Item/assets/scss/index.js ***!
+  \****************************************************************************/
 
 /*! no static exports found */
 
@@ -277,6 +295,12 @@
 /*!******************************************************************************************!*\
   !*** ./src/client/components/locs/GridContainer/assets/scss/gridContainerAnimation.scss ***!
   \******************************************************************************************/
+
+/*! no static exports found */
+
+/*!***********************************************************************!*\
+  !*** ./src/client/components/locs/GridContainer/assets/scss/index.js ***!
+  \***********************************************************************/
 
 /*! no static exports found */
 
@@ -400,12 +424,6 @@
 
 /*! no static exports found */
 
-/*!************************!*\
-  !*** external "axios" ***!
-  \************************/
-
-/*! no static exports found */
-
 /*!*********************************!*\
   !*** external "babel-polyfill" ***!
   \*********************************/
@@ -433,12 +451,6 @@
 /*!************************!*\
   !*** external "react" ***!
   \************************/
-
-/*! no static exports found */
-
-/*!****************************!*\
-  !*** external "react-dom" ***!
-  \****************************/
 
 /*! no static exports found */
 

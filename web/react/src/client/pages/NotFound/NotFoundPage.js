@@ -1,3 +1,5 @@
+/*eslint no-param-reassign: ["error", { "props": false }]*/
+
 import React from 'react';
 
 const NotFoundPage = ({ staticContext = {} }) => {
@@ -7,4 +9,4 @@ const NotFoundPage = ({ staticContext = {} }) => {
 
 export default {
 	component: NotFoundPage
-}
+};

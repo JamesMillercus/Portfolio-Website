@@ -1,7 +1,7 @@
 // import fetch users action
 import { FETCH_DEVICE_TYPE } from '../actions';
 
-export default function(state = null, action) {
+export default function (state = null, action) {
 	// if actions.type
 	switch (action.type) {
 		//if actions.type is FETCH_USERS
@@ -11,5 +11,5 @@ export default function(state = null, action) {
 		default:
 			// else return state
 			return state;
-	};
+	}
 }

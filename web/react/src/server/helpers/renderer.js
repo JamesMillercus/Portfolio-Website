@@ -13,7 +13,7 @@ export default (req, store, context) => {
 		// connect the redux store to the react application
 		// send the route req and redux store to the react router
 		<Provider store={store}>
-			<StaticRouter location = {req.path} context={context}>
+			<StaticRouter location={req.path} context={context}>
 				<div>{renderRoutes(Routes)}</div>
 			</StaticRouter>
 		</Provider>
@@ -24,14 +24,14 @@ export default (req, store, context) => {
 	// load front end js
 	return `
 		<html>
-			<head> 
+			<head>
 				${helmet.title.toString()}
 				${helmet.meta.toString()}
 			    <link rel="stylesheet" type="text/css" href="/css/bundle.css">
 			</head>
-			<body> 
+			<body>
 				<div id ="root">${content}</div>
-				<script> 
+				<script>
 					window.INITIAL_STATE = ${serialize(store.getState())}
 				</script>
 				<script src ="/js/bundle.js"></script>
