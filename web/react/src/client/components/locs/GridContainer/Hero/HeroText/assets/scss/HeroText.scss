@@ -1,10 +1,10 @@
 /* set center text pos & src */
-.item4 .heroTextContainer {
+.item4 .heroTextContainer-laptop {
 	grid-area: hero;
     position: relative;
 }
 
-.item4 div h1 {
+.item4 .heroTextContainer-laptop h1 {
     font-family: Source Sans Pro,sans-serif;
     color: #7c7c7c;
     font-size: 30px;
@@ -16,51 +16,51 @@
     letter-spacing: -2px;
 }
 
-.item4 p {
+.heroTextContainer-laptop p {
 	margin: 0;
 	opacity: 0;
 	z-index:-1;
 }
 
-.item4 {
+.heroTextContainer-laptop {
 	font-family: Source Sans Pro,sans-serif;
     color: #7c7c7c;
 }
 
-.item4 .heroHeaderText {
+.item4 .heroHeaderText-laptop {
     margin-top: 40px;
     position: absolute;
     width: 100%;
     text-align: center;
 }
 
-.item4 .heroFooterText {
+.item4 .heroFooterText-laptop {
 	margin-top: -50px;
     position: absolute;
     width: 100%;
     text-align: center;
 }
 
-.mailrevealed {
-	color: #0099d2;
-}
-
-.linkedinrevealed {
-	color: #007bb6;
-}
-
-.githubrevealed {
-	color: #742e86;
-}
-
-.twitterrevealed {
-	color: #07bd18;
-}	
-
-.instagramrevealed {
-	color: #f9be02;
-}
-
-.pinterestrevealed {
-	color: #bd071d;
-}
+// .mailrevealed {
+// 	color: #0099d2;
+// }
+//
+// .linkedinrevealed {
+// 	color: #007bb6;
+// }
+//
+// .githubrevealed {
+// 	color: #742e86;
+// }
+//
+// .twitterrevealed {
+// 	color: #07bd18;
+// }
+//
+// .instagramrevealed {
+// 	color: #f9be02;
+// }
+//
+// .pinterestrevealed {
+// 	color: #bd071d;
+// }

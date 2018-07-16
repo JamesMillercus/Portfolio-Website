@@ -1,6 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.js');
+const baseConfig = require('./webpack.base');
 const webpackNodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 
@@ -16,17 +16,17 @@ const config = {
 	},
 	module: {
 		rules: [
-	  		{ test: /\.(scss|png|jpg|gif)$/, loader: 'ignore-loader' }
+			{ test: /\.(scss|png|jpg|gif)$/, loader: 'ignore-loader' }
 		]
 	},
 	plugins: [
 		new webpack.DefinePlugin({
-	      __isBrowser__: "false"
-	    })
-    ],
-	// tell webpack to not bundle any libraries into the output bundle in server if it already exists in the node modules
+			__isBrowser__: 'false'
+		})
+	],
+	// tell webpack to not bundle any libraries into the output bundle in
+	// server if it already exists in the node modules
 	externals: [webpackNodeExternals()]
 };
-
 
 module.exports = merge(baseConfig, config);

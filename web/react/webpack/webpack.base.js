@@ -1,6 +1,4 @@
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const BrotliPlugin = require("brotli-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 	// Tell webpack to run babel on every file it runs through
@@ -14,23 +12,19 @@ module.exports = {
 					presets: [
 						'react', // run react
 						'stage-0', //async code
-						['env', 
-							{ 
+						['env',
+							{
 								targets: { browsers: ['last 2 versions'] },
 								debug: false
 							}
 						] //make code all work for all browsers last 2 versions
 					],
-					compact: false 
+					compact: false
 				}
 			}
 		]
 	},
 	plugins: [
-	    new UglifyJSPlugin({ extractComments: true }),
-	    new CompressionPlugin({
-	    	algorithm: "gzip"
-	    }),
-	    new BrotliPlugin()
+		new UglifyJSPlugin({ extractComments: true })
 	]
 };

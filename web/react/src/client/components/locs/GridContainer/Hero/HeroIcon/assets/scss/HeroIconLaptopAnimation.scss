@@ -10,28 +10,28 @@ $animationSpeed: 500ms;
   -webkit-transition: opacity $animationSpeed, margin $animationSpeed ease;
   -moz-transition: opacity $animationSpeed, margin $animationSpeed ease;
   -o-transition: opacity $animationSpeed, margin $animationSpeed ease;
-  transition: opacity $animationSpeed, margin $animationSpeed ease; 
+  transition: opacity $animationSpeed, margin $animationSpeed ease;
 }
 
-.item4 .mail.active {
+.item4 .mail-laptop.active {
   margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
-.item4 .linkedin.active {
+.item4 .linkedin-laptop.active {
   margin: $iconVerticalSpace auto auto auto;
 }
 
-.item4 .github.active {
+.item4 .github-laptop.active {
   margin: $iconVerticalSpace $iconSmallHorizontalSpace 100% $iconLargeHorizontalSpace;
 }
 
-.item4 .twitter.active {
+.item4 .twitter-laptop.active {
   margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
-.item4 .instagram.active {
+.item4 .instagram-laptop.active {
   margin: $iconVerticalSpace auto auto auto;
 }
-.item4 .pinterest.active {
+.item4 .pinterest-laptop.active {
   margin: $iconVerticalSpace 100% 100% $iconLargeHorizontalSpace;
 }
 

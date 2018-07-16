@@ -1,2 +1,2 @@
-export { default as gridContainer } from './gridContainer.scss';
-export { default as gridContainerAnimation } from './gridContainerAnimation.scss';
+export { default as gridContainerLaptop } from './gridContainerLaptop.scss';
+export { default as gridContainerLaptopAnimation } from './gridContainerLaptopAnimation.scss';

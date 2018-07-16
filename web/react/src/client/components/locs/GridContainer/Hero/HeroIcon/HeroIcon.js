@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { fetchActiveHeroIcon } from './../../../../../actions';
+import { fetchActiveHeroIcon, fetchDeviceType } from './../../../../../actions';
 import './assets/scss';
 import './assets/images';
 
 class HeroIcon extends Component {
 
 	setClass() {
-		const iconClasses = [this.props.className, 'icon'];
+		const iconClasses = [`${this.props.className}-${this.props.deviceType}`, 'icon'];
 		if (this.props.revealIcons) iconClasses.push('active');
 		return iconClasses.join(' ');
 	}
 
 	activateHero(className) {
-		this.props.fetchActiveHeroIcon(className);
+		if (this.props.deviceType === 'laptop') this.props.fetchActiveHeroIcon(className);
 	}
 
 	render() {
@@ -30,8 +30,9 @@ class HeroIcon extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	activeHeroIcon: state.activeHeroIcon
+	activeHeroIcon: state.activeHeroIcon,
+	deviceType: state.deviceType
 });
 
 
-export default connect(mapStateToProps, { fetchActiveHeroIcon })(HeroIcon);
+export default connect(mapStateToProps, { fetchActiveHeroIcon, fetchDeviceType })(HeroIcon);

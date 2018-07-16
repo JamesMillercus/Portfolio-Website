@@ -1,9 +1,11 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.js');
+const baseConfig = require('./webpack.base');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 const webpack = require('webpack');
 
 const config = {
@@ -22,8 +24,8 @@ const config = {
 				// an array of loaders to be used top happens last, bottom happens first
 				use: [
 					{ loader: MiniCSSExtractPlugin.loader },
-					{ loader: "css-loader" }, 
-					{ loader: "sass-loader" }
+					{ loader: 'css-loader' },
+					{ loader: 'sass-loader' }
 				]
 			},
 			{
@@ -31,11 +33,11 @@ const config = {
 				test: /\.(jpg|gif|png)$/,
 				use: [
 					{
-						// 
-						loader: "file-loader",
+						//
+						loader: 'file-loader',
 						options: {
 							// name the file in the name of the file + extnsion in images folder
-							name: "./../assets/images/[name].[ext]"
+							name: './../assets/images/[name].[ext]'
 						}
 					}
 				]
@@ -45,11 +47,11 @@ const config = {
 				test: /\.(mp4|mov)$/,
 				use: [
 					{
-						// 
-						loader: "file-loader",
+						//
+						loader: 'file-loader',
 						options: {
 							// name the file in the name of the file + extnsion in images folder
-							name: "./../assets/videos/[name].[ext]"
+							name: './../assets/videos/[name].[ext]'
 						}
 					}
 				]
@@ -57,30 +59,34 @@ const config = {
 		]
 	},
 	plugins: [
-	    new BrowserSyncPlugin(
-	      // BrowserSync options
-	      {
-	        // browse to http://localhost:3000/ during development
-	        host: 'localhost',
-	        port: 4000,
-	        // proxy the Webpack Dev Server endpoint
-	        // (which should be serving on http://localhost:4000/)
-	        // through BrowserSync
-	        proxy: 'http://localhost:3000/'
-	      },
-	      // plugin options
-	      {
-	        // allow BrowserSync to reload the page
-	        reload: true
-	      }
-	    ),
+		new BrowserSyncPlugin(
+			// BrowserSync options
+			{
+				// browse to http://localhost:3000/ during development
+				host: 'localhost',
+				port: 4000,
+				// proxy the Webpack Dev Server endpoint
+				// (which should be serving on http://localhost:4000/)
+				// through BrowserSync
+				proxy: 'http://localhost:3000/'
+			},
+			// plugin options
+			{
+				// allow BrowserSync to reload the page
+				reload: true
+			}
+		),
 		new MiniCSSExtractPlugin({
-			filename: "../css/bundle.css"
+			filename: '../css/bundle.css'
 		}),
 		new OptimizeCssAssetsPlugin(),
-	    new webpack.DefinePlugin({
-	      __isBrowser__: "true"
-	    })
+		new webpack.DefinePlugin({
+			__isBrowser__: 'true'
+		}),
+		new CompressionPlugin({
+			algorithm: 'gzip'
+		}),
+		new BrotliPlugin()
 	]
 };
 
