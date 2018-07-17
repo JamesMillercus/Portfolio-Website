@@ -1,0 +1,79 @@
+/* adjustable variables for icon hiding*/
+$iconHideVertical: 60%;
+$iconHideHorizontal: -60%;
+
+$iconHideBottomVertical: -10%;
+
+.item4 {
+    grid-area: middlecenter;
+}
+
+.grey {
+    color: #7c7c7c !important;
+}
+/* set mail icon pos & src */
+.item4 .mail-laptop {
+    grid-area: mail;
+    background-image: url(/assets/images/mail.jpg);
+    margin: $iconHideVertical $iconHideHorizontal 100% 100%;
+}
+
+/* set linkedin icon pos & src */
+.item4 .linkedin-laptop {
+    grid-area: linkedin;
+    background-image: url(/assets/images/linkedin.jpg);
+    margin: $iconHideVertical auto auto auto;
+}
+
+/* set github icon pos & src */
+.item4 .github-laptop {
+    grid-area: github;
+    background-image: url(/assets/images/github.jpg);
+    margin: $iconHideVertical 100% 100% $iconHideHorizontal;
+}
+
+
+/* set twitter icon pos & src */
+.item4 .twitter-laptop {
+    grid-area: twitter;
+    background-image: url(/assets/images/twitter.jpg);
+    margin: $iconHideBottomVertical $iconHideHorizontal 100% 100%;
+}
+
+
+/* set instagram icon pos & src */
+.item4 .instagram-laptop {
+    grid-area: instagram;
+    background-image: url(/assets/images/instagram.jpg);
+    margin: $iconHideBottomVertical auto auto auto;
+}
+
+
+/* set pinterest icon pos & src */
+.item4 .pinterest-laptop {
+    grid-area: pinterest;
+    background-image: url(/assets/images/pinterest.jpg);
+    margin: $iconHideBottomVertical 100% 100% $iconHideHorizontal;
+}
+
+/* set icon dimensions & settings */
+.icon {
+    background-size: auto 200%;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    cursor: none;
+    height: 30%;
+    width: 30%;
+}
+/* if icon has been unlocked, allow it to be pointed at */
+.active {
+    /*display:inline-block;*/
+    cursor:pointer;
+}
+
+/* set all unlocked icons hover styling */
+.item4 .active:hover {
+	background-position: 50% 100%;
+	opacity: 1 !important;
+}

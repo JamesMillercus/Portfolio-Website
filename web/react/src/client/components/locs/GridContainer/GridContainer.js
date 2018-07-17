@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchScrolledItem, fetchDeviceType } from './../../../actions';
-import Item from './Item/Item';
+import ItemContainer from './ItemContainer/ItemContainer';
 import Hero from './Hero/Hero';
 import Video from './Video/Video';
 import './assets/scss';
@@ -28,7 +28,7 @@ class GridContainer extends Component {
     // push all content into the items array
     for (let x = 0; x < 9; x++) {
       if (x === 4) items.push(<Hero number={x} key={x} />);
-      else items.push(<Item number={x} key={x} />);
+      else items.push(<ItemContainer number={x} key={x} />);
     }
     items.push(<Video key={9} />);
     return items;

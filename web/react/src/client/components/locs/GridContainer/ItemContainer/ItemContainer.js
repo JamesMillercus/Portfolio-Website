@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemImage from './ItemImage/ItemImage';
+import ItemText from './ItemText/ItemText';
 import { fetchScrolledItem, fetchActiveItem, fetchClickedItems } from './../../../../actions';
-import itemConfig from './assets/config/itemConfig';
+import itemContainerConfig from './assets/config/itemContainerConfig';
 import './assets/scss';
 
-class Item extends Component {
+class ItemContainer extends Component {
 
 	scrolledItem(item) {
 		this.props.fetchScrolledItem(item);
@@ -22,18 +23,13 @@ class Item extends Component {
 		const click = () => this.clickedItem(this.props.number);
 
 		const number = this.props.number;
-		const position = itemConfig[number].position;
-		const header = itemConfig[number].header;
-		const paragraph = itemConfig[number].paragraph;
+		const position = itemContainerConfig[number].position;
 
 		return (
 			<div className={`item${number} item ${position}`} onMouseOver={scroll} onClick={click}>
 				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} />
 				<div className="video" />
-				<div className="text">
-					<h1> {header} </h1>
-					<p> {paragraph} </p>
-				</div>
+				<ItemText itemNumber={number} />
 				<div className="spacer" />
 			</div>
 		);
@@ -49,4 +45,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(
 	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems }
-)(Item);
+)(ItemContainer);
