@@ -1,10 +1,10 @@
 /* set center text pos & src */
-.item4 .heroTextContainer-tablet {
+.item4 .heroTextContainer-mobile {
 	grid-area: hero;
     position: relative;
 }
 
-.item4 .heroTextContainer-tablet h1 {
+.item4 .heroTextContainer-mobile h1 {
     font-family: Source Sans Pro,sans-serif;
     color: #7c7c7c;
     font-size: 30px;
@@ -16,25 +16,25 @@
     letter-spacing: -2px;
 }
 
-.heroTextContainer-tablet p {
+.heroTextContainer-mobile p {
 	margin: 0;
 	opacity: 0;
 	z-index:-1;
 }
 
-.heroTextContainer-tablet {
+.heroTextContainer-mobile {
 	font-family: Source Sans Pro,sans-serif;
     color: #7c7c7c;
 }
 
-.item4 .heroHeaderText-tablet {
+.item4 .heroHeaderText-mobile {
     margin-top: 40px;
     position: absolute;
     width: 100%;
     text-align: center;
 }
 
-.item4 .heroFooterText-tablet {
+.item4 .heroFooterText-mobile {
 	margin-top: -50px;
     position: absolute;
     width: 100%;

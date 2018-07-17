@@ -7,7 +7,7 @@ body {
 }
 
 /* setting up css gird into 3x3 @ 1.5x viewport */
-.grid-container-tablet {
+.grid-container-mobile {
   width: 200vw;
   height: 250vh;
   grid-template-rows: 37.5% 15% 37.5%;
@@ -21,11 +21,11 @@ body {
   padding: 0;
   margin: -62.5vh 0 0 -50vw;
   /*margin: 0vh 0 0 -50vw;*/
-  // min-height:1550px;
-  // min-width:2200px;
+  min-height:1550px;
+  min-width:2200px;
 }
 /* set top left corner grid rules */
-.grid-container-tablet .topleftcorner {
+.grid-container-mobile .topleftcorner {
   grid-template-rows: 19% 19% 19% 3% 40%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -37,7 +37,7 @@ body {
   'notext notext text text rightimg rightimg';
 }
 /* set top middle grid rules */
-.grid-container-tablet .topmiddle {
+.grid-container-mobile .topmiddle {
   grid-template-rows: 19% 19% 2% 20% 20% 20%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   display: grid;
@@ -50,7 +50,7 @@ body {
   'centerimg centerimg centerimg';
 }
 /* set top right corner grid rules */
-.grid-container-tablet .toprightcorner {
+.grid-container-mobile .toprightcorner {
   grid-template-rows: 19% 19% 19% 3% 40%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -62,14 +62,14 @@ body {
   'leftimg leftimg text text notext notext';
 }
 /* set middle left grid rules */
-.grid-container-tablet .middleleft {
+.grid-container-mobile .middleleft {
   grid-template-columns: 15.66% 15.66% 15.66% 3% 16.66% 16.66% 16.66%;
   display: grid;
   grid-template-areas:
   'video video video spacer text text img';
 }
 /* set middle center grid rules */
-.grid-container-tablet .middlecenter {
+.grid-container-mobile .middlecenter {
   display: grid;
   grid-template-rows: 33.3% 33.3% 33.3%;
   grid-template-columns: 33.3% 33.3% 33.3%;
@@ -79,14 +79,14 @@ body {
   'twitter instagram pinterest';
 }
 /* set middle right grid rules */
-.grid-container-tablet .middleright {
+.grid-container-mobile .middleright {
   grid-template-columns: 16.66% 16.66% 16.66% 3% 15.66% 15.66% 15.66%;
   display: grid;
   grid-template-areas:
   'img text text spacer video video video';
 }
 /* set bottom left corner grid rules */
-.grid-container-tablet .bottomleftcorner {
+.grid-container-mobile .bottomleftcorner {
   grid-template-rows: 40% 3% 19% 19% 19%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -98,7 +98,7 @@ body {
   'spacer spacer video video video video';
 }
 /* set bottom right corner grid rules */
-.grid-container-tablet .bottomrightcorner {
+.grid-container-mobile .bottomrightcorner {
   grid-template-rows: 40% 3% 19% 19% 19%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -110,7 +110,7 @@ body {
   'video video video video spacer spacer';
 }
 /* set bottom middle grid rules */
-.grid-container-tablet .bottommiddle {
+.grid-container-mobile .bottommiddle {
   grid-template-rows: 20% 20% 20% 2% 19% 19%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   display: grid;

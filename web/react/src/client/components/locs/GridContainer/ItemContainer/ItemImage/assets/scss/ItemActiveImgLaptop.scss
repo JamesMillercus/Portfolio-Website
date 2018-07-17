@@ -1,5 +1,5 @@
 /* set top left corner img pos & src */
-.item0 .activeImg {
+.laptop-item0 .activeImg {
   grid-area: rightimg;
   background-image: url(/assets/images/topleft.gif);
   /*right: 0;*/
@@ -8,7 +8,7 @@
   bottom: 0;
 }
 /* set top middle img pos & src */
-.item1 .activeImg {
+.laptop-item1.laptop-item .activeImg {
   grid-area: centerimg;
   background-image: url(/assets/images/topcenter.gif);
   right: 0;
@@ -17,7 +17,7 @@
   height:90%;
 }
 /* set top right corner img pos & src */
-.item2 .activeImg {
+.laptop-item2 .activeImg {
   grid-area: leftimg;
   background-image: url(/assets/images/topright.gif);
   right: 0;
@@ -26,7 +26,7 @@
   bottom: 0;
 }
 /* set left middle img pos & src */
-.item3 .activeImg {
+.laptop-item3 .activeImg {
   grid-area: img;
   height:45%;
   background-image: url(/assets/images/middleleft.gif);
@@ -37,7 +37,7 @@
 }
 
 /* set right middle img pos & src */
-.item5 .activeImg {
+.laptop-item5 .activeImg {
   /*background-color: pink;*/
   grid-area: img;
   height:45%;
@@ -48,7 +48,7 @@
   bottom: 0;
 }
 /* set bottom left corner img pos & src */
-.item6 .activeImg {
+.laptop-item6 .activeImg {
   /*background-color: pink;*/
   grid-area: rightimg;
   background-image: url(/assets/images/bottomleft.gif);
@@ -58,7 +58,7 @@
   bottom: 0;
 }
 /* set bottom middle img pos & src */
-.item7 .activeImg {
+.laptop-item7.laptop-item .activeImg {
   /*background-color: pink;*/
   grid-area: centerimg;
   background-image: url(/assets/images/bottomcenter.gif);
@@ -69,7 +69,7 @@
   /*bottom: 0;*/
 }
 /* set bottom right corner img pos & src */
-.item8 .activeImg {
+.laptop-item8 .activeImg {
   /*background-color: pink;*/
   grid-area: leftimg;
   background-image: url(/assets/images/bottomright.gif);
@@ -79,7 +79,7 @@
   bottom: 0;
 }
 /* set each item img's dimensions & img settings */
-.activeImg {
+.grid-container-laptop .activeImg {
   height: 45%;
   /*max-width: 220px;*/
   width:162px;

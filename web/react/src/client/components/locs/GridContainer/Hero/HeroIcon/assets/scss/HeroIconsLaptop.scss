@@ -4,15 +4,15 @@ $iconHideHorizontal: -60%;
 
 $iconHideBottomVertical: -10%;
 
-.item4 {
+.grid-container-laptop .item4 {
     grid-area: middlecenter;
 }
 
-.grey {
+.grid-container-laptop .grey {
     color: #7c7c7c !important;
 }
 /* set mail icon pos & src */
-.item4 .mail-laptop {
+.grid-container-laptop .item4 .mail-laptop {
     grid-area: mail;
     background-image: url(/assets/images/mail.jpg);
     margin: $iconHideVertical $iconHideHorizontal 100% 100%;
@@ -57,7 +57,7 @@ $iconHideBottomVertical: -10%;
 }
 
 /* set icon dimensions & settings */
-.icon {
+.grid-container-laptop .icon {
     background-size: auto 200%;
     background-position: 50% 0%;
     background-repeat: no-repeat;
@@ -67,13 +67,13 @@ $iconHideBottomVertical: -10%;
     width: 30%;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.active {
+.grid-container-laptop .active {
     /*display:inline-block;*/
     cursor:pointer;
 }
 
 /* set all unlocked icons hover styling */
-.item4 .active:hover {
+.grid-container-laptop .item4 .active:hover {
 	background-position: 50% 100%;
 	opacity: 1 !important;
 }

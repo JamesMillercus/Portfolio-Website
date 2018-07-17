@@ -9,14 +9,6 @@ import './assets/scss';
 class GridContainer extends Component {
 
   setClass() {
-    // console.log(this.props.deviceType);
-    /* include deviceType into the class name of:
-      - GridContainer (LAPTOP DONE, NEED TABLET + MOBILE STYLING)
-      - HeroIcon (LAPTOP DONE, PREVENTED HERO TEXT UPDATING)
-      - HeroText
-      - Rename Item to ItemContainer (Create child called ItemText and move code to there)
-      - then include ItemText there
-    */
     const deviceType = this.props.deviceType;
     const gridContainerClasses = [`grid-container-${deviceType}`];
     if (deviceType === 'laptop') gridContainerClasses.push(`item${this.props.scrolledItem}scroll`);

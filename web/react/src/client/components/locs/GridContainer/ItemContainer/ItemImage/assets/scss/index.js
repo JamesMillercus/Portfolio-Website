@@ -1,2 +1,6 @@
-export { default as ItemIMG } from './ItemImg.scss';
-export { default as ItemActiveImg } from './ItemActiveImg.scss';
+export { default as ItemImgLaptop } from './ItemImgLaptop.scss';
+export { default as ItemImgTablet } from './ItemImgTablet.scss';
+export { default as ItemImgMobile } from './ItemImgMobile.scss';
+export { default as ItemActiveImgLaptop } from './ItemActiveImgLaptop.scss';
+export { default as ItemActiveImgTablet } from './ItemActiveImgTablet.scss';
+export { default as ItemActiveImgMobile } from './ItemActiveImgMobile.scss';

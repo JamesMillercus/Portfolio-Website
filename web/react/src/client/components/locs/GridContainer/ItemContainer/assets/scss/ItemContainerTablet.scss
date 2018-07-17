@@ -1,0 +1,27 @@
+/* assigning item divs to css grid */
+.tablet-item0 { grid-area: topleft; }
+.tablet-item1 { grid-area: topcenter; }
+.tablet-item2 { grid-area: topright; }
+.tablet-item3 { grid-area: middleleft; }
+.tablet-item5 { grid-area: middleright; }
+.tablet-item6 { grid-area: bottomleft; }
+.tablet-item7 { grid-area: bottomcenter; }
+.tablet-item8 { grid-area: bottomright; }
+/* set all item divs to relative position (to center the item's content) */
+.tablet-item {
+	position:relative;
+}
+
+/* on item hover hover, make the cursor a pointer */
+.tablet-item:hover {
+	cursor:pointer;
+}
+.tablet-item .video {
+  grid-area: video;
+  // background-color:red;
+}
+
+.tablet-item .spacer {
+  grid-area: spacer;
+  /*background-color: yellow;*/
+}

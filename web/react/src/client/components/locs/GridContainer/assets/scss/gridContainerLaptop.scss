@@ -25,7 +25,7 @@ body {
   min-width:2200px;
 }
 /* set top left corner grid rules */
-.topleftcorner {
+.grid-container-laptop .topleftcorner {
   grid-template-rows: 19% 19% 19% 3% 40%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -37,7 +37,7 @@ body {
   'notext notext text text rightimg rightimg';
 }
 /* set top middle grid rules */
-.topmiddle {
+.grid-container-laptop .topmiddle {
   grid-template-rows: 19% 19% 2% 20% 20% 20%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   display: grid;
@@ -50,7 +50,7 @@ body {
   'centerimg centerimg centerimg';
 }
 /* set top right corner grid rules */
-.toprightcorner {
+.grid-container-laptop .toprightcorner {
   grid-template-rows: 19% 19% 19% 3% 40%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -62,14 +62,14 @@ body {
   'leftimg leftimg text text notext notext';
 }
 /* set middle left grid rules */
-.middleleft {
+.grid-container-laptop .middleleft {
   grid-template-columns: 15.66% 15.66% 15.66% 3% 16.66% 16.66% 16.66%;
   display: grid;
   grid-template-areas:
   'video video video spacer text text img';
 }
 /* set middle center grid rules */
-.middlecenter {
+.grid-container-laptop .middlecenter {
   display: grid;
   grid-template-rows: 33.3% 33.3% 33.3%;
   grid-template-columns: 33.3% 33.3% 33.3%;
@@ -79,14 +79,14 @@ body {
   'twitter instagram pinterest';
 }
 /* set middle right grid rules */
-.middleright {
+.grid-container-laptop .middleright {
   grid-template-columns: 16.66% 16.66% 16.66% 3% 15.66% 15.66% 15.66%;
   display: grid;
   grid-template-areas:
   'img text text spacer video video video';
 }
 /* set bottom left corner grid rules */
-.bottomleftcorner {
+.grid-container-laptop .bottomleftcorner {
   grid-template-rows: 40% 3% 19% 19% 19%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -98,7 +98,7 @@ body {
   'spacer spacer video video video video';
 }
 /* set bottom right corner grid rules */
-.bottomrightcorner {
+.grid-container-laptop .bottomrightcorner {
   grid-template-rows: 40% 3% 19% 19% 19%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
@@ -110,7 +110,7 @@ body {
   'video video video video spacer spacer';
 }
 /* set bottom middle grid rules */
-.bottommiddle {
+.grid-container-laptop .bottommiddle {
   grid-template-rows: 20% 20% 20% 2% 19% 19%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   display: grid;

@@ -1,10 +1,17 @@
+/*eslint max-len: ["error", { "code": 200 }]*/
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemImage from './ItemImage/ItemImage';
 import ItemText from './ItemText/ItemText';
-import { fetchScrolledItem, fetchActiveItem, fetchClickedItems } from './../../../../actions';
 import itemContainerConfig from './assets/config/itemContainerConfig';
 import './assets/scss';
+import {
+	fetchScrolledItem,
+	fetchActiveItem,
+	fetchClickedItems,
+	fetchDeviceType
+} from './../../../../actions';
 
 class ItemContainer extends Component {
 
@@ -24,13 +31,14 @@ class ItemContainer extends Component {
 
 		const number = this.props.number;
 		const position = itemContainerConfig[number].position;
+		const device = this.props.deviceType;
 
 		return (
-			<div className={`item${number} item ${position}`} onMouseOver={scroll} onClick={click}>
+			<div className={`${device}-item${number} ${device}-item ${position}`} onMouseOver={scroll} onClick={click}>
 				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} />
-				<div className="video" />
+				<div className={'video'} />
 				<ItemText itemNumber={number} />
-				<div className="spacer" />
+				<div className={'spacer'} />
 			</div>
 		);
 	}
@@ -40,9 +48,10 @@ class ItemContainer extends Component {
 const mapStateToProps = (state) => ({
 		scrolledItem: state.scrolledItem,
 		activeItem: state.activeItem,
-		clickedItems: state.clickedItems
+		clickedItems: state.clickedItems,
+		deviceType: state.deviceType
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchDeviceType }
 )(ItemContainer);

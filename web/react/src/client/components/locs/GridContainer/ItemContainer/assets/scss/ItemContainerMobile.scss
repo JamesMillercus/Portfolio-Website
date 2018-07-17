@@ -1,0 +1,27 @@
+/* assigning item divs to css grid */
+.mobile-item0 { grid-area: topleft; }
+.mobile-item1 { grid-area: topcenter; }
+.mobile-item2 { grid-area: topright; }
+.mobile-item3 { grid-area: middleleft; }
+.mobile-item5 { grid-area: middleright; }
+.mobile-item6 { grid-area: bottomleft; }
+.mobile-item7 { grid-area: bottomcenter; }
+.mobile-item8 { grid-area: bottomright; }
+/* set all item divs to relative position (to center the item's content) */
+.mobile-item {
+	position:relative;
+}
+
+/* on item hover hover, make the cursor a pointer */
+.mobile-item:hover {
+	cursor:pointer;
+}
+.mobile-item .video {
+  grid-area: video;
+  /*background-color:red;*/
+}
+
+.mobile-item .spacer {
+  grid-area: spacer;
+  /*background-color: yellow;*/
+}

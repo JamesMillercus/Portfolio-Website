@@ -1,2 +1,2 @@
-export { default as ItemText } from './ItemText.scss';
-export { default as ItemTextAnimation } from './ItemTextAnimation.scss';
+export { default as ItemTextLaptop } from './ItemTextLaptop.scss';
+export { default as ItemTextAnimationLaptop } from './ItemTextAnimationLaptop.scss';
