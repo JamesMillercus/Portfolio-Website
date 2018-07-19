@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import getDevice from './../../components/hocs/getDevice';
 import getBrowser from './../../components/hocs/getBrowser';
+import getOSVersion from './../../components/hocs/getOSVersion';
 import GridContainer from './../../components/locs/GridContainer/GridContainer';
 
 class Home extends Component {
@@ -14,5 +15,5 @@ class Home extends Component {
 
 export default {
   // take props from admins and pass them into require Auth
-  component: compose(getDevice, getBrowser)(Home)
+  component: compose(getDevice, getOSVersion, getBrowser)(Home)
 };
