@@ -55,7 +55,7 @@ class Video extends Component {
 		};
 
 		return (
-			<div className="videoContainer">{this.videoContent(item)}</div>
+			this.videoContent(item)
 		);
 	}
 

@@ -1,0 +1,28 @@
+.tablet-item .text p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  color: #7c7c7c;
+  margin:0;
+  opacity:0;
+}
+
+.tablet-item .text h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+  color: #7c7c7c;
+  margin:0 0 10px 0;
+  padding:0;
+  opacity:0;
+}
+.tablet-item .text {
+  grid-area: text;
+  /*opacity:0;*/
+  /*background-color:green;*/
+}
+/*.item3 h1, .item5 h1, .item6 h1, .item8 h1 {
+  margin-top:20px;
+}*/
+
+.tablet-item:hover > .text p, .tablet-item:hover > .text h1 {
+  opacity:1;
+}

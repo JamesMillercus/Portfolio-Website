@@ -8,8 +8,8 @@ body {
 
 /* setting up css gird into 3x3 @ 1.5x viewport */
 .grid-container-tablet {
-  width: 200vw;
-  height: 250vh;
+  width: 100vw;
+  height: 100vh;
   grid-template-rows: 37.5% 15% 37.5%;
   grid-template-columns: 42.5% 15% 42.5%;
   display: grid;
@@ -17,9 +17,9 @@ body {
     'topleft topcenter topright'
     'middleleft middlecenter middleright'
     'bottomleft bottomcenter bottomright';
-  /*background-color: #2196F3;*/
+  background-color: blue;
   padding: 0;
-  margin: -62.5vh 0 0 -50vw;
+  margin:0;
   /*margin: 0vh 0 0 -50vw;*/
   // min-height:1550px;
   // min-width:2200px;
@@ -29,6 +29,7 @@ body {
   grid-template-rows: 19% 19% 19% 3% 40%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
+  background-color:yellow;
   grid-template-areas:
   'spacer video video video video video'
   'spacer video video video video video'
@@ -48,6 +49,7 @@ body {
   'text text text'
   'text text text'
   'centerimg centerimg centerimg';
+  background-color:orange;
 }
 /* set top right corner grid rules */
 .grid-container-tablet .toprightcorner {
@@ -60,6 +62,7 @@ body {
   'video video video video spacer spacer'
   'extra extra extra extra extra extra'
   'leftimg leftimg text text notext notext';
+  background-color:pink;
 }
 /* set middle left grid rules */
 .grid-container-tablet .middleleft {
@@ -67,6 +70,7 @@ body {
   display: grid;
   grid-template-areas:
   'video video video spacer text text img';
+  background-color:brown;
 }
 /* set middle center grid rules */
 .grid-container-tablet .middlecenter {
@@ -77,6 +81,7 @@ body {
   'mail linkedin github'
   'hero hero hero'
   'twitter instagram pinterest';
+  background-color:darkblue;
 }
 /* set middle right grid rules */
 .grid-container-tablet .middleright {
@@ -84,6 +89,7 @@ body {
   display: grid;
   grid-template-areas:
   'img text text spacer video video video';
+  background-color:darkred;
 }
 /* set bottom left corner grid rules */
 .grid-container-tablet .bottomleftcorner {
@@ -96,6 +102,7 @@ body {
   'spacer spacer video video video video'
   'spacer spacer video video video video'
   'spacer spacer video video video video';
+  background-color:grey;
 }
 /* set bottom right corner grid rules */
 .grid-container-tablet .bottomrightcorner {
@@ -108,6 +115,7 @@ body {
   'video video video video spacer spacer'
   'video video video video spacer spacer'
   'video video video video spacer spacer';
+  background-color:lightyellow;
 }
 /* set bottom middle grid rules */
 .grid-container-tablet .bottommiddle {
@@ -121,4 +129,5 @@ body {
   'extra extra extra'
   'video video video'
   'video video video';
+  background-color:lightblue;
 }
