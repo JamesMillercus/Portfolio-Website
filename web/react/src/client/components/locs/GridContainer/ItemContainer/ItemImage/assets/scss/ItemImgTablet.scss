@@ -1,9 +1,9 @@
 /* on item hover, reveal colour img */
-.grid-container-tablet .tablet-item:hover > .img {
+.grid-container-tablet .item:hover > .img {
   background-position: 50% 100%;
 }
 /* set top left corner img pos & src */
-.tablet-item0 .img {
+.grid-container-tablet .item0 .img {
   grid-area: rightimg;
   background-image: url(/assets/images/topleft.png);
   /*right: 0;*/
@@ -12,7 +12,7 @@
   bottom: 0;
 }
 /* set top middle img pos & src */
-.tablet-item1.tablet-item .img {
+.grid-container-tablet .item1.item .img {
   grid-area: centerimg;
   background-image: url(/assets/images/topcenter.png);
   right: 0;
@@ -21,7 +21,7 @@
   height:90%;
 }
 /* set top right corner img pos & src */
-.tablet-item2 .img {
+.grid-container-tablet .item2 .img {
   grid-area: leftimg;
   background-image: url(/assets/images/topright.png);
   right: 0;
@@ -30,7 +30,7 @@
   bottom: 0;
 }
 /* set left middle img pos & src */
-.tablet-item3 .img {
+.grid-container-tablet .item3 .img {
   grid-area: img;
   height:45%;
   background-image: url(/assets/images/middleleft.png);
@@ -41,7 +41,7 @@
 }
 
 /* set right middle img pos & src */
-.tablet-item5 .img {
+.grid-container-tablet .item5 .img {
   /*background-color: pink;*/
   grid-area: img;
   height:45%;
@@ -52,7 +52,7 @@
   bottom: 0;
 }
 /* set bottom left corner img pos & src */
-.tablet-item6 .img {
+.grid-container-tablet .item6 .img {
   /*background-color: pink;*/
   grid-area: rightimg;
   background-image: url(/assets/images/bottomleft.png);
@@ -62,7 +62,7 @@
   bottom: 0;
 }
 /* set bottom middle img pos & src */
-.tablet-item7.tablet-item .img {
+.grid-container-tablet .item7.item .img {
   /*background-color: pink;*/
   grid-area: centerimg;
   background-image: url(/assets/images/bottomcenter.png);
@@ -73,7 +73,7 @@
   /*bottom: 0;*/
 }
 /* set bottom right corner img pos & src */
-.tablet-item8 .img {
+.grid-container-tablet .item8 .img {
   /*background-color: pink;*/
   grid-area: leftimg;
   background-image: url(/assets/images/bottomright.png);
@@ -83,7 +83,7 @@
   bottom: 0;
 }
 /* set each item img's dimensions & img settings */
-.tablet-item .img {
+.grid-container-tablet .item .img {
   height: 45%;
   /*max-width: 220px;*/
   width:162px;

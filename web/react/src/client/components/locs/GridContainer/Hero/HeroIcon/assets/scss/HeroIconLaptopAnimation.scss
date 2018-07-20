@@ -6,35 +6,35 @@ $iconLargeHorizontalSpace: 50%;
 
 $animationSpeed: 500ms;
 
-.item4 .icon {
+.grid-container-laptop .item4 .icon {
   -webkit-transition: opacity $animationSpeed, margin $animationSpeed ease;
   -moz-transition: opacity $animationSpeed, margin $animationSpeed ease;
   -o-transition: opacity $animationSpeed, margin $animationSpeed ease;
   transition: opacity $animationSpeed, margin $animationSpeed ease;
 }
 
-.item4 .mail-laptop.active {
+.grid-container-laptop .item4 .mail.active {
   margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
-.item4 .linkedin-laptop.active {
+.grid-container-laptop .item4 .linkedin.active {
   margin: $iconVerticalSpace auto auto auto;
 }
 
-.item4 .github-laptop.active {
+.grid-container-laptop .item4 .github.active {
   margin: $iconVerticalSpace $iconSmallHorizontalSpace 100% $iconLargeHorizontalSpace;
 }
 
-.item4 .twitter-laptop.active {
+.grid-container-laptop .item4 .twitter.active {
   margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
-.item4 .instagram-laptop.active {
+.grid-container-laptop .item4 .instagram.active {
   margin: $iconVerticalSpace auto auto auto;
 }
-.item4 .pinterest-laptop.active {
+.grid-container-laptop .item4 .pinterest.active {
   margin: $iconVerticalSpace 100% 100% $iconLargeHorizontalSpace;
 }
 
-.item4 .icon.active {
+.grid-container-laptop .item4 .icon.active {
      opacity:.5;
 }

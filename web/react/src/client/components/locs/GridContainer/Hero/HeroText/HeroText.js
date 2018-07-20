@@ -55,12 +55,11 @@ class HeroText extends Component {
 
 	render() {
 		const activeHero = this.props.activeHeroIcon;
-		const device = this.props.deviceType;
 		return (
-			<div className={`heroTextContainer-${device}`}>
-				<p className={this.setClass(`heroHeaderText-${device}`)}> {this.heroHeader(activeHero)} </p>
+			<div className={'heroTextContainer'}>
+				<p className={this.setClass('heroHeaderText')}> {this.heroHeader(activeHero)} </p>
 				<h1> { this.heroParagraph(activeHero) } </h1>
-				<p className={this.setClass(`heroFooterText-${device}`)}> {this.heroFooter(activeHero)} </p>
+				<p className={this.setClass('heroFooterText')}> {this.heroFooter(activeHero)} </p>
 			</div>
 		);
 	}

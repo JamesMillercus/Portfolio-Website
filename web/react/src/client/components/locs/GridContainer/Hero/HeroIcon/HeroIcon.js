@@ -7,7 +7,7 @@ import './assets/images';
 class HeroIcon extends Component {
 
 	setClass() {
-		const iconClasses = [`${this.props.className}-${this.props.deviceType}`, 'icon'];
+		const iconClasses = [`${this.props.className}`, 'icon'];
 		if (this.props.revealIcons) iconClasses.push('active');
 		return iconClasses.join(' ');
 	}

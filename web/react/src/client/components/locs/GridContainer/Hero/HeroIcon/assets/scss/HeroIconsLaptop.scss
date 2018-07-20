@@ -12,21 +12,21 @@ $iconHideBottomVertical: -10%;
     color: #7c7c7c !important;
 }
 /* set mail icon pos & src */
-.grid-container-laptop .item4 .mail-laptop {
+.grid-container-laptop .item4 .mail {
     grid-area: mail;
     background-image: url(/assets/images/mail.jpg);
     margin: $iconHideVertical $iconHideHorizontal 100% 100%;
 }
 
 /* set linkedin icon pos & src */
-.item4 .linkedin-laptop {
+.grid-container-laptop .item4 .linkedin {
     grid-area: linkedin;
     background-image: url(/assets/images/linkedin.jpg);
     margin: $iconHideVertical auto auto auto;
 }
 
 /* set github icon pos & src */
-.item4 .github-laptop {
+.grid-container-laptop .item4 .github {
     grid-area: github;
     background-image: url(/assets/images/github.jpg);
     margin: $iconHideVertical 100% 100% $iconHideHorizontal;
@@ -34,7 +34,7 @@ $iconHideBottomVertical: -10%;
 
 
 /* set twitter icon pos & src */
-.item4 .twitter-laptop {
+.grid-container-laptop .item4 .twitter {
     grid-area: twitter;
     background-image: url(/assets/images/twitter.jpg);
     margin: $iconHideBottomVertical $iconHideHorizontal 100% 100%;
@@ -42,7 +42,7 @@ $iconHideBottomVertical: -10%;
 
 
 /* set instagram icon pos & src */
-.item4 .instagram-laptop {
+.grid-container-laptop .item4 .instagram {
     grid-area: instagram;
     background-image: url(/assets/images/instagram.jpg);
     margin: $iconHideBottomVertical auto auto auto;
@@ -50,14 +50,14 @@ $iconHideBottomVertical: -10%;
 
 
 /* set pinterest icon pos & src */
-.item4 .pinterest-laptop {
+.grid-container-laptop .item4 .pinterest {
     grid-area: pinterest;
     background-image: url(/assets/images/pinterest.jpg);
     margin: $iconHideBottomVertical 100% 100% $iconHideHorizontal;
 }
 
 /* set icon dimensions & settings */
-.grid-container-laptop .icon {
+.grid-container-laptop  .icon {
     background-size: auto 200%;
     background-position: 50% 0%;
     background-repeat: no-repeat;
@@ -67,7 +67,7 @@ $iconHideBottomVertical: -10%;
     width: 30%;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.grid-container-laptop .active {
+.grid-container-laptop  .active {
     /*display:inline-block;*/
     cursor:pointer;
 }

@@ -12,21 +12,21 @@ $iconHideBottomVertical: -10%;
     color: #7c7c7c !important;
 }
 /* set mail icon pos & src */
-.grid-container-tablet .item4 .mail-tablet {
+.grid-container-tablet .item4 .mail {
     grid-area: mail;
     background-image: url(/assets/images/mail.jpg);
     margin: $iconHideVertical $iconHideHorizontal 100% 100%;
 }
 
 /* set linkedin icon pos & src */
-.item4 .linkedin-tablet {
+.grid-container-tablet .item4 .linkedin {
     grid-area: linkedin;
     background-image: url(/assets/images/linkedin.jpg);
     margin: $iconHideVertical auto auto auto;
 }
 
 /* set github icon pos & src */
-.item4 .github-tablet {
+.grid-container-tablet .item4 .github {
     grid-area: github;
     background-image: url(/assets/images/github.jpg);
     margin: $iconHideVertical 100% 100% $iconHideHorizontal;
@@ -34,7 +34,7 @@ $iconHideBottomVertical: -10%;
 
 
 /* set twitter icon pos & src */
-.item4 .twitter-tablet {
+.item4 .twitter {
     grid-area: twitter;
     background-image: url(/assets/images/twitter.jpg);
     margin: $iconHideBottomVertical $iconHideHorizontal 100% 100%;
@@ -42,7 +42,7 @@ $iconHideBottomVertical: -10%;
 
 
 /* set instagram icon pos & src */
-.item4 .instagram-tablet {
+.item4 .instagram {
     grid-area: instagram;
     background-image: url(/assets/images/instagram.jpg);
     margin: $iconHideBottomVertical auto auto auto;
@@ -50,14 +50,14 @@ $iconHideBottomVertical: -10%;
 
 
 /* set pinterest icon pos & src */
-.item4 .pinterest-tablet {
+.item4 .pinterest {
     grid-area: pinterest;
     background-image: url(/assets/images/pinterest.jpg);
     margin: $iconHideBottomVertical 100% 100% $iconHideHorizontal;
 }
 
 /* set icon dimensions & settings */
-.grid-container-tablet .icon {
+.grid-container .icon {
     background-size: auto 200%;
     background-position: 50% 0%;
     background-repeat: no-repeat;
@@ -67,13 +67,13 @@ $iconHideBottomVertical: -10%;
     width: 30%;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.grid-container-tablet .active {
+.grid-container .active {
     /*display:inline-block;*/
     cursor:pointer;
 }
 
 /* set all unlocked icons hover styling */
-.grid-container-tablet .item4 .active:hover {
+.grid-container .item4 .active:hover {
 	background-position: 50% 100%;
 	opacity: 1 !important;
 }

@@ -1,27 +1,27 @@
 /* assigning item divs to css grid */
-.laptop-item0 { grid-area: topleft; }
-.laptop-item1 { grid-area: topcenter; }
-.laptop-item2 { grid-area: topright; }
-.laptop-item3 { grid-area: middleleft; }
-.laptop-item5 { grid-area: middleright; }
-.laptop-item6 { grid-area: bottomleft; }
-.laptop-item7 { grid-area: bottomcenter; }
-.laptop-item8 { grid-area: bottomright; }
+.grid-container-laptop .item0 { grid-area: topleft; }
+.grid-container-laptop .item1 { grid-area: topcenter; }
+.grid-container-laptop .item2 { grid-area: topright; }
+.grid-container-laptop .item3 { grid-area: middleleft; }
+.grid-container-laptop .item5 { grid-area: middleright; }
+.grid-container-laptop .item6 { grid-area: bottomleft; }
+.grid-container-laptop .item7 { grid-area: bottomcenter; }
+.grid-container-laptop .item8 { grid-area: bottomright; }
 /* set all item divs to relative position (to center the item's content) */
-.laptop-item {
+.grid-container-laptop .item {
 	position:relative;
 }
 
 /* on item hover hover, make the cursor a pointer */
-.laptop-item:hover {
+.grid-container-laptop .item:hover {
 	cursor:pointer;
 }
-.laptop-item .video {
+.grid-container-laptop .item .video {
   grid-area: video;
   /*background-color:red;*/
 }
 
-.laptop-item .spacer {
+.grid-container-laptop .item .spacer {
   grid-area: spacer;
   /*background-color: yellow;*/
 }

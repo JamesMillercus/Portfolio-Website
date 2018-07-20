@@ -9,8 +9,7 @@ import './assets/scss';
 import {
 	fetchScrolledItem,
 	fetchActiveItem,
-	fetchClickedItems,
-	fetchDeviceType
+	fetchClickedItems
 } from './../../../../actions';
 
 class ItemContainer extends Component {
@@ -31,10 +30,9 @@ class ItemContainer extends Component {
 
 		const number = this.props.number;
 		const position = itemContainerConfig[number].position;
-		const device = this.props.deviceType;
 
 		return (
-			<div className={`${device}-item${number} ${device}-item ${position}`} onMouseOver={scroll} onClick={click}>
+			<div className={`item${number} item ${position}`} onMouseOver={scroll} onClick={click}>
 				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} />
 				<div className={'video'} />
 				<ItemText itemNumber={number} />
@@ -48,10 +46,9 @@ class ItemContainer extends Component {
 const mapStateToProps = (state) => ({
 		scrolledItem: state.scrolledItem,
 		activeItem: state.activeItem,
-		clickedItems: state.clickedItems,
-		deviceType: state.deviceType
+		clickedItems: state.clickedItems
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchDeviceType }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems }
 )(ItemContainer);

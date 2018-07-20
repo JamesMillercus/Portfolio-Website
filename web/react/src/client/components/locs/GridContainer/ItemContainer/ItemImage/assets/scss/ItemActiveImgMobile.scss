@@ -1,5 +1,5 @@
 /* set top left corner img pos & src */
-.mobile-item0 .activeImg {
+.grid-container-mobile .item0 .activeImg {
   grid-area: rightimg;
   background-image: url(/assets/images/topleft.gif);
   /*right: 0;*/
@@ -8,7 +8,7 @@
   bottom: 0;
 }
 /* set top middle img pos & src */
-.mobile-item1.mobile-item .activeImg {
+.grid-container-mobile .item1.item .activeImg {
   grid-area: centerimg;
   background-image: url(/assets/images/topcenter.gif);
   right: 0;
@@ -17,7 +17,7 @@
   height:90%;
 }
 /* set top right corner img pos & src */
-.mobile-item2 .activeImg {
+.grid-container-mobile .item2 .activeImg {
   grid-area: leftimg;
   background-image: url(/assets/images/topright.gif);
   right: 0;
@@ -26,7 +26,7 @@
   bottom: 0;
 }
 /* set left middle img pos & src */
-.mobile-item3 .activeImg {
+.grid-container-mobile .item3 .activeImg {
   grid-area: img;
   height:45%;
   background-image: url(/assets/images/middleleft.gif);
@@ -37,7 +37,7 @@
 }
 
 /* set right middle img pos & src */
-.mobile-item5 .activeImg {
+.grid-container-mobile .item5 .activeImg {
   /*background-color: pink;*/
   grid-area: img;
   height:45%;
@@ -48,7 +48,7 @@
   bottom: 0;
 }
 /* set bottom left corner img pos & src */
-.mobile-item6 .activeImg {
+.grid-container-mobile .item6 .activeImg {
   /*background-color: pink;*/
   grid-area: rightimg;
   background-image: url(/assets/images/bottomleft.gif);
@@ -58,7 +58,7 @@
   bottom: 0;
 }
 /* set bottom middle img pos & src */
-.mobile-item7.mobile-item .activeImg {
+.grid-container-mobile .item7.item .activeImg {
   /*background-color: pink;*/
   grid-area: centerimg;
   background-image: url(/assets/images/bottomcenter.gif);
@@ -69,7 +69,7 @@
   /*bottom: 0;*/
 }
 /* set bottom right corner img pos & src */
-.mobile-item8 .activeImg {
+.grid-container-mobile .item8 .activeImg {
   /*background-color: pink;*/
   grid-area: leftimg;
   background-image: url(/assets/images/bottomright.gif);

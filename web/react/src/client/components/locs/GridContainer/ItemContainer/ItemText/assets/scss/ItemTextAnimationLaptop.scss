@@ -1,6 +1,6 @@
 $animationSpeed: 250ms;
 
-.laptop-item .text p, .laptop-item .text h1 {
+.grid-container-laptop .item .text p, .grid-container-laptop .item .text h1 {
 	-webkit-transition: opacity $animationSpeed;
 	-moz-transition: opacity $animationSpeed;
 	-o-transition: opacity $animationSpeed;

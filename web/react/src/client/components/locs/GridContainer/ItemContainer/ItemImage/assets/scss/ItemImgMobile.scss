@@ -1,9 +1,9 @@
 /* on item hover, reveal colour img */
-.grid-container-mobile .mobile-item:hover > .img {
+.grid-container-mobile .item:hover > .img {
   background-position: 50% 100%;
 }
 /* set top left corner img pos & src */
-.mobile-item0 .img {
+.grid-container-mobile .item0 .img {
   grid-area: rightimg;
   background-image: url(/assets/images/topleft.png);
   /*right: 0;*/
@@ -12,7 +12,7 @@
   bottom: 0;
 }
 /* set top middle img pos & src */
-.mobile-item1.mobile-item .img {
+.grid-container-mobile .item1.item .img {
   grid-area: centerimg;
   background-image: url(/assets/images/topcenter.png);
   right: 0;
@@ -21,7 +21,7 @@
   height:90%;
 }
 /* set top right corner img pos & src */
-.mobile-item2 .img {
+.grid-container-mobile .item2 .img {
   grid-area: leftimg;
   background-image: url(/assets/images/topright.png);
   right: 0;
@@ -30,7 +30,7 @@
   bottom: 0;
 }
 /* set left middle img pos & src */
-.mobile-item3 .img {
+.grid-container-mobile .item3 .img {
   grid-area: img;
   height:45%;
   background-image: url(/assets/images/middleleft.png);
@@ -41,7 +41,7 @@
 }
 
 /* set right middle img pos & src */
-.mobile-item5 .img {
+.grid-container-mobile .item5 .img {
   /*background-color: pink;*/
   grid-area: img;
   height:45%;
@@ -52,7 +52,7 @@
   bottom: 0;
 }
 /* set bottom left corner img pos & src */
-.mobile-item6 .img {
+.grid-container-mobile .item6 .img {
   /*background-color: pink;*/
   grid-area: rightimg;
   background-image: url(/assets/images/bottomleft.png);
@@ -62,7 +62,7 @@
   bottom: 0;
 }
 /* set bottom middle img pos & src */
-.mobile-item7.mobile-item .img {
+.grid-container-mobile .item7.item .img {
   /*background-color: pink;*/
   grid-area: centerimg;
   background-image: url(/assets/images/bottomcenter.png);
@@ -73,7 +73,7 @@
   /*bottom: 0;*/
 }
 /* set bottom right corner img pos & src */
-.mobile-item8 .img {
+.grid-container-mobile .item8 .img {
   /*background-color: pink;*/
   grid-area: leftimg;
   background-image: url(/assets/images/bottomright.png);
@@ -83,7 +83,7 @@
   bottom: 0;
 }
 /* set each item img's dimensions & img settings */
-.mobile-item .img {
+.grid-container-mobile .item .img {
   height: 45%;
   /*max-width: 220px;*/
   width:162px;
