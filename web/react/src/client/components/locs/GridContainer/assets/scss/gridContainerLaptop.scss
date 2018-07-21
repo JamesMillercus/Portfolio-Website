@@ -1,13 +1,12 @@
 /* set body styling */
 body {
-  width:100%;
   margin:0;
   padding:0;
-  position:fixed;
 }
 
 /* setting up css gird into 3x3 @ 1.5x viewport */
 .grid-container-laptop {
+  position:fixed;
   width: 200vw;
   height: 250vh;
   grid-template-rows: 37.5% 15% 37.5%;

@@ -1,8 +1,8 @@
 /* adjustable variables for icon hiding*/
-$iconHideVertical: 60%;
-$iconHideHorizontal: -60%;
-
-$iconHideBottomVertical: -10%;
+$iconVerticalSpace: 28%;
+$iconBottomVerticalSpace: 28%;
+$iconSmallHorizontalSpace: 20%;
+$iconLargeHorizontalSpace: 50%;
 
 .grid-container-tablet .item4 {
     grid-area: middlecenter;
@@ -15,65 +15,64 @@ $iconHideBottomVertical: -10%;
 .grid-container-tablet .item4 .mail {
     grid-area: mail;
     background-image: url(/assets/images/mail.jpg);
-    margin: $iconHideVertical $iconHideHorizontal 100% 100%;
+    margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
 /* set linkedin icon pos & src */
 .grid-container-tablet .item4 .linkedin {
     grid-area: linkedin;
     background-image: url(/assets/images/linkedin.jpg);
-    margin: $iconHideVertical auto auto auto;
+    margin: $iconVerticalSpace auto auto auto;
 }
 
 /* set github icon pos & src */
 .grid-container-tablet .item4 .github {
     grid-area: github;
     background-image: url(/assets/images/github.jpg);
-    margin: $iconHideVertical 100% 100% $iconHideHorizontal;
+    margin: $iconVerticalSpace $iconSmallHorizontalSpace 100% $iconLargeHorizontalSpace;
 }
 
 
 /* set twitter icon pos & src */
-.item4 .twitter {
+.grid-container-tablet .item4 .twitter {
     grid-area: twitter;
     background-image: url(/assets/images/twitter.jpg);
-    margin: $iconHideBottomVertical $iconHideHorizontal 100% 100%;
+    margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
 
 /* set instagram icon pos & src */
-.item4 .instagram {
+.grid-container-tablet .item4 .instagram {
     grid-area: instagram;
     background-image: url(/assets/images/instagram.jpg);
-    margin: $iconHideBottomVertical auto auto auto;
+    margin: $iconVerticalSpace auto auto auto;
 }
 
 
 /* set pinterest icon pos & src */
-.item4 .pinterest {
+.grid-container-tablet .pinterest {
     grid-area: pinterest;
     background-image: url(/assets/images/pinterest.jpg);
-    margin: $iconHideBottomVertical 100% 100% $iconHideHorizontal;
+    margin: $iconVerticalSpace 100% 100% $iconLargeHorizontalSpace;
 }
 
 /* set icon dimensions & settings */
-.grid-container .icon {
-    background-size: auto 200%;
+.grid-container-tablet .icon {
+    background-size: auto 201%;
     background-position: 50% 0%;
     background-repeat: no-repeat;
-    opacity: 0;
-    cursor: none;
+    opacity: 1 !important;
     height: 30%;
     width: 30%;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.grid-container .active {
+.grid-container-tablet .active {
     /*display:inline-block;*/
     cursor:pointer;
 }
 
 /* set all unlocked icons hover styling */
-.grid-container .item4 .active:hover {
+.grid-container-tablet .item4 .active:hover {
 	background-position: 50% 100%;
 	opacity: 1 !important;
 }

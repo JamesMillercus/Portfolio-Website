@@ -25,15 +25,16 @@ class Video extends Component {
 		// test
 	}
 
-	videoContent(selectedVideo) {
+	videoContent(selectedVideo, playerState) {
 		if (selectedVideo === 'hidden') return null;
-
 		return (
 			<div className={`videoPlayer video${selectedVideo}`}>
 			<div className="exitBtn" onClick={this.exitVideo} />
 			<YoutubePlayer
 			videoId={videoConfig[selectedVideo].videoID}
-			playbackState='playing'
+			// MAKE THIS DEPENDENT ON DEVICE TYPE
+			// IF LAPTOP START PLAYING ELSE PAUSED
+			playbackState={playerState}
 			onPlay={this.playing}
 			onEnd={this.exitVideo}
 			configuration={{
@@ -47,6 +48,12 @@ class Video extends Component {
 			</div>
 		);
 	}
+
+	getDeviceType() {
+		if (this.props.deviceType === 'laptop') return 'playing';
+		return 'paused';
+	}
+
 	render() {
 		const item = this.props.activeItem;
 
@@ -54,8 +61,9 @@ class Video extends Component {
 			this.props.fetchActiveItem('hidden');
 		};
 
+
 		return (
-			this.videoContent(item)
+			this.videoContent(item, this.getDeviceType())
 		);
 	}
 
@@ -65,7 +73,8 @@ class Video extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-		activeItem: state.activeItem
+		activeItem: state.activeItem,
+		deviceType: state.deviceType
 	});
 
 export default connect(mapStateToProps, { fetchActiveItem })(Video);
