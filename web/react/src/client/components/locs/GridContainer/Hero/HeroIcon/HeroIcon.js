@@ -16,15 +16,21 @@ class HeroIcon extends Component {
 		if (this.props.deviceType === 'laptop') this.props.fetchActiveHeroIcon(className);
 	}
 
+	checkTarget() {
+		if (this.props.className === 'mail') return '_self';
+		return '_blank';
+	}
+
 	render() {
 		const href = this.props.href;
 		const rel = 'noreferrer noopener';
 		const ovr = this.activateHero.bind(this, this.props.className);
 		const out = this.activateHero.bind(this, 'none');
 		const css = this.setClass();
+		const target = this.checkTarget();
 
 		return (
-			<a className={css} href={href} target='_blank' rel={rel} onMouseOver={ovr} onMouseOut={out} />
+			<a className={css} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} />
 		);
 	}
 }
