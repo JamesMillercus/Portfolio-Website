@@ -15,29 +15,25 @@ $iconLargeHorizontalSpace: 50%;
 .grid-container-tablet .item4 .mail {
     grid-area: mail;
     background-image: url(/assets/images/mail.jpg);
-    margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
 /* set linkedin icon pos & src */
 .grid-container-tablet .item4 .linkedin {
     grid-area: linkedin;
     background-image: url(/assets/images/linkedin.jpg);
-    margin: $iconVerticalSpace auto auto auto;
 }
 
 /* set github icon pos & src */
 .grid-container-tablet .item4 .github {
     grid-area: github;
     background-image: url(/assets/images/github.jpg);
-    margin: $iconVerticalSpace $iconSmallHorizontalSpace 100% $iconLargeHorizontalSpace;
-}
+  }
 
 
 /* set twitter icon pos & src */
 .grid-container-tablet .item4 .twitter {
     grid-area: twitter;
     background-image: url(/assets/images/twitter.jpg);
-    margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
 }
 
 
@@ -45,7 +41,6 @@ $iconLargeHorizontalSpace: 50%;
 .grid-container-tablet .item4 .instagram {
     grid-area: instagram;
     background-image: url(/assets/images/instagram.jpg);
-    margin: $iconVerticalSpace auto auto auto;
 }
 
 
@@ -53,7 +48,6 @@ $iconLargeHorizontalSpace: 50%;
 .grid-container-tablet .pinterest {
     grid-area: pinterest;
     background-image: url(/assets/images/pinterest.jpg);
-    margin: $iconVerticalSpace 100% 100% $iconLargeHorizontalSpace;
 }
 
 /* set icon dimensions & settings */
@@ -64,6 +58,7 @@ $iconLargeHorizontalSpace: 50%;
     opacity: 1 !important;
     height: 30%;
     width: 30%;
+    margin:auto;
 }
 /* if icon has been unlocked, allow it to be pointed at */
 .grid-container-tablet .active {

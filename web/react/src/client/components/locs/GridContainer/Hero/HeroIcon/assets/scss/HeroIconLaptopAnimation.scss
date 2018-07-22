@@ -1,5 +1,5 @@
 /* adjustable variables for icon positioning */
-$iconVerticalSpace: 28%;
+$iconVerticalSpace: 25%;
 $iconBottomVerticalSpace: 28%;
 $iconSmallHorizontalSpace: 20%;
 $iconLargeHorizontalSpace: 50%;
@@ -7,34 +7,14 @@ $iconLargeHorizontalSpace: 50%;
 $animationSpeed: 500ms;
 
 .grid-container-laptop .item4 .icon {
-  -webkit-transition: opacity $animationSpeed, margin $animationSpeed ease;
-  -moz-transition: opacity $animationSpeed, margin $animationSpeed ease;
-  -o-transition: opacity $animationSpeed, margin $animationSpeed ease;
-  transition: opacity $animationSpeed, margin $animationSpeed ease;
-}
-
-.grid-container-laptop .item4 .mail.active {
-  margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
-}
-
-.grid-container-laptop .item4 .linkedin.active {
-  margin: $iconVerticalSpace auto auto auto;
-}
-
-.grid-container-laptop .item4 .github.active {
-  margin: $iconVerticalSpace $iconSmallHorizontalSpace 100% $iconLargeHorizontalSpace;
-}
-
-.grid-container-laptop .item4 .twitter.active {
-  margin: $iconVerticalSpace 100% 100% $iconSmallHorizontalSpace;
-}
-.grid-container-laptop .item4 .instagram.active {
-  margin: $iconVerticalSpace auto auto auto;
-}
-.grid-container-laptop .item4 .pinterest.active {
-  margin: $iconVerticalSpace 100% 100% $iconLargeHorizontalSpace;
+  -webkit-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
+  -moz-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
+  -o-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
+  transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
 }
 
 .grid-container-laptop .item4 .icon.active {
-     opacity:.5;
+  opacity: .5;
+  top: 0;
+  left:0;
 }

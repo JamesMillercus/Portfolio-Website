@@ -6,18 +6,18 @@ $fasterSpeed: 250ms;
 }
 
 .grid-container-laptop .heroTextContainer p {
-  -webkit-transition: margin-top $animationSpeed, opacity $fasterSpeed;
-  -moz-transition: margin-top $animationSpeed, opacity $fasterSpeed;
-  -o-transition: margin-top $animationSpeed, opacity $fasterSpeed;
-  transition: margin-top $animationSpeed, opacity $fasterSpeed;
+  -webkit-transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+  -moz-transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+  -o-transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+  transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
 }
 
 .grid-container-laptop .item4 .heroHeaderText.reveal {
-  margin-top: -15px;
+  margin: 0;
 }
 
 .grid-container-laptop .item4 .heroFooterText.reveal {
-  margin-top: -0px;
+  margin: 0;
 }
 
 .grid-container-laptop .heroTextContainer p span {

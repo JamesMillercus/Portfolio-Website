@@ -1,7 +1,8 @@
 /* set center text pos & src */
 .grid-container-tablet .item4 .heroTextContainer {
 	grid-area: hero;
-    position: relative;
+	margin: auto;
+	width: 100%;
 }
 
 .grid-container-tablet .item4 .heroTextContainer h1 {

@@ -22,6 +22,7 @@ class HeroIcon extends Component {
 		const ovr = this.activateHero.bind(this, this.props.className);
 		const out = this.activateHero.bind(this, 'none');
 		const css = this.setClass();
+
 		return (
 			<a className={css} href={href} target='_blank' rel={rel} onMouseOver={ovr} onMouseOut={out} />
 		);

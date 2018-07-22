@@ -1,8 +1,8 @@
 /* adjustable variables for icon hiding*/
-$iconHideVertical: 60%;
-$iconHideHorizontal: -60%;
-
-$iconHideBottomVertical: -10%;
+$iconHideTopVertical: 40%;
+$iconHideBottomVertical: -40%;
+$iconHideRightHorizontal: -35%;
+$iconHideLeftHorizontal: 35%;
 
 .grid-container-laptop .item4 {
     grid-area: middlecenter;
@@ -15,21 +15,23 @@ $iconHideBottomVertical: -10%;
 .grid-container-laptop .item4 .mail {
     grid-area: mail;
     background-image: url(/assets/images/mail.jpg);
-    margin: $iconHideVertical $iconHideHorizontal 100% 100%;
+    top: $iconHideTopVertical;
+    left:$iconHideLeftHorizontal;
 }
 
 /* set linkedin icon pos & src */
 .grid-container-laptop .item4 .linkedin {
     grid-area: linkedin;
     background-image: url(/assets/images/linkedin.jpg);
-    margin: $iconHideVertical auto auto auto;
+    top: $iconHideTopVertical;
 }
 
 /* set github icon pos & src */
 .grid-container-laptop .item4 .github {
     grid-area: github;
     background-image: url(/assets/images/github.jpg);
-    margin: $iconHideVertical 100% 100% $iconHideHorizontal;
+    top: $iconHideTopVertical;
+    left: $iconHideRightHorizontal;
 }
 
 
@@ -37,7 +39,8 @@ $iconHideBottomVertical: -10%;
 .grid-container-laptop .item4 .twitter {
     grid-area: twitter;
     background-image: url(/assets/images/twitter.jpg);
-    margin: $iconHideBottomVertical $iconHideHorizontal 100% 100%;
+    left: $iconHideLeftHorizontal;
+    top: $iconHideBottomVertical;
 }
 
 
@@ -45,7 +48,7 @@ $iconHideBottomVertical: -10%;
 .grid-container-laptop .item4 .instagram {
     grid-area: instagram;
     background-image: url(/assets/images/instagram.jpg);
-    margin: $iconHideBottomVertical auto auto auto;
+    top: $iconHideBottomVertical;
 }
 
 
@@ -53,18 +56,21 @@ $iconHideBottomVertical: -10%;
 .grid-container-laptop .item4 .pinterest {
     grid-area: pinterest;
     background-image: url(/assets/images/pinterest.jpg);
-    margin: $iconHideBottomVertical 100% 100% $iconHideHorizontal;
+    top: $iconHideBottomVertical;
+    left: $iconHideRightHorizontal;
 }
 
 /* set icon dimensions & settings */
 .grid-container-laptop .icon {
-    background-size: auto 200%;
-    background-position: 50% 0%;
-    background-repeat: no-repeat;
-    opacity: 0;
-    cursor: none;
-    height: 30%;
-    width: 30%;
+  background-size: auto 200%;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  opacity: 0;
+  cursor: none;
+  height: 40%;
+  width: 40%;
+  position: relative;
+  margin:auto;
 }
 /* if icon has been unlocked, allow it to be pointed at */
 .grid-container-laptop  .active {

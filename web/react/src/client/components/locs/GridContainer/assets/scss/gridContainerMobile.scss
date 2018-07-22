@@ -19,3 +19,14 @@
   padding: 0;
   /*margin: 0vh 0 0 -50vw;*/
 }
+
+/* set middle center grid rules */
+.grid-container-mobile .middlecenter {
+  display: grid;
+  grid-template-rows: 100% 100%;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-areas:
+  'hero hero hero'
+  'mail linkedin twitter';
+  position:relative;
+}

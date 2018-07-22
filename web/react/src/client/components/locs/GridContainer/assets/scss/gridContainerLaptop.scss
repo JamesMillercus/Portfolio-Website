@@ -70,12 +70,15 @@ body {
 /* set middle center grid rules */
 .grid-container-laptop .middlecenter {
   display: grid;
-  grid-template-rows: 33.3% 33.3% 33.3%;
+  grid-template-rows: 26.67% 10% 26.67% 10% 26.67%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-areas:
   'mail linkedin github'
+  'heroTopText heroTopText heroTopText'
   'hero hero hero'
+  'heroBottomText heroBottomText heroBottomText'
   'twitter instagram pinterest';
+  position:relative;
 }
 /* set middle right grid rules */
 .grid-container-laptop .middleright {
