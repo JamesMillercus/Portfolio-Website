@@ -24,9 +24,7 @@ module.exports = (app, req, res) => {
 
 	// once all our data requests have been completed
 	Promise.all(promises).then(() => {
-		const context = {
-			userAgent: req.headers['user-agent']
-		};
+		const context = {};
 		const content = renderer(req, store, context);
 		// if a url is loaded into the context then redirect to the url in the context
 		if (context.url) return res.redirect(301, context.url);
