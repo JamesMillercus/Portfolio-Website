@@ -10,6 +10,7 @@
 /* set all item divs to relative position (to center the item's content) */
 .grid-container-laptop .item {
 	position:relative;
+	cursor:pointer;
 }
 
 /* on item hover hover, make the cursor a pointer */
