@@ -24,13 +24,20 @@ class HeroText extends Component {
 		return returntext;
 	}
 
+	checkCharacter(character, index) {
+		if (character === ' ') {
+			return <span key={index} className="herotext start space"> {character} </span>;
+		}
+		return <span key={index} className="herotext start"> {character} </span>;
+	}
+
 	heroParagraph(activeHeroText) {
 		let returntext;
 		Reflect.ownKeys(heroTextConfig).forEach(key => {
 			if (activeHeroText === key) {
 				returntext = heroTextConfig[this.confirmLaptop(key)].paragraph.map((character, index) => (
-					<span key={index} className="herotext start"> {character} </span>)
-				);
+					this.checkCharacter(character, index)
+				));
 			}
 		});
 		return returntext;

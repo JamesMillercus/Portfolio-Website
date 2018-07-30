@@ -11,43 +11,43 @@ $iconLargeHorizontalSpace: 50%;
 .grid-container-tablet .grey {
     color: #7c7c7c !important;
 }
-/* set mail icon pos & src */
-.grid-container-tablet .item4 .mail {
-    grid-area: mail;
-    background-image: url(/assets/images/mail.jpg);
+/* set topleft icon pos & src */
+.grid-container-tablet .item4 .topleft {
+    grid-area: topleft;
+    background-image: url(/assets/images/topleft.jpg);
 }
 
-/* set linkedin icon pos & src */
-.grid-container-tablet .item4 .linkedin {
-    grid-area: linkedin;
-    background-image: url(/assets/images/linkedin.jpg);
+/* set topcenter icon pos & src */
+.grid-container-tablet .item4 .topcenter {
+    grid-area: topcenter;
+    background-image: url(/assets/images/topcenter.jpg);
 }
 
-/* set github icon pos & src */
-.grid-container-tablet .item4 .github {
-    grid-area: github;
-    background-image: url(/assets/images/github.jpg);
+/* set topright icon pos & src */
+.grid-container-tablet .item4 .topright {
+    grid-area: topright;
+    background-image: url(/assets/images/topright.jpg);
   }
 
 
-/* set twitter icon pos & src */
-.grid-container-tablet .item4 .twitter {
-    grid-area: twitter;
-    background-image: url(/assets/images/twitter.jpg);
+/* set bottomleft icon pos & src */
+.grid-container-tablet .item4 .bottomleft {
+    grid-area: bottomleft;
+    background-image: url(/assets/images/bottomleft.jpg);
 }
 
 
-/* set instagram icon pos & src */
-.grid-container-tablet .item4 .instagram {
-    grid-area: instagram;
-    background-image: url(/assets/images/instagram.jpg);
+/* set bottomcenter icon pos & src */
+.grid-container-tablet .item4 .bottomcenter {
+    grid-area: bottomcenter;
+    background-image: url(/assets/images/bottomcenter.jpg);
 }
 
 
-/* set pinterest icon pos & src */
-.grid-container-tablet .pinterest {
-    grid-area: pinterest;
-    background-image: url(/assets/images/pinterest.jpg);
+/* set bottomright icon pos & src */
+.grid-container-tablet .bottomright {
+    grid-area: bottomright;
+    background-image: url(/assets/images/bottomright.jpg);
 }
 
 /* set icon dimensions & settings */

@@ -11,51 +11,51 @@ $iconHideLeftHorizontal: 35%;
 .grid-container-laptop .grey {
     color: #7c7c7c !important;
 }
-/* set mail icon pos & src */
-.grid-container-laptop .item4 .mail {
-    grid-area: mail;
-    background-image: url(/assets/images/mail.jpg);
+/* set topleft icon pos & src */
+.grid-container-laptop .item4 .topLeftIcon {
+    grid-area: topLeftIcon;
+    background-image: url(/assets/images/topLeftIcon.jpg);
     top: $iconHideTopVertical;
     left:$iconHideLeftHorizontal;
 }
 
-/* set linkedin icon pos & src */
-.grid-container-laptop .item4 .linkedin {
-    grid-area: linkedin;
-    background-image: url(/assets/images/linkedin.jpg);
+/* set topcenter icon pos & src */
+.grid-container-laptop .item4 .topCenterIcon {
+    grid-area: topCenterIcon;
+    background-image: url(/assets/images/topCenterIcon.jpg);
     top: $iconHideTopVertical;
 }
 
-/* set github icon pos & src */
-.grid-container-laptop .item4 .github {
-    grid-area: github;
-    background-image: url(/assets/images/github.jpg);
+/* set topright icon pos & src */
+.grid-container-laptop .item4 .topRightIcon {
+    grid-area: topRightIcon;
+    background-image: url(/assets/images/topRightIcon.jpg);
     top: $iconHideTopVertical;
     left: $iconHideRightHorizontal;
 }
 
 
-/* set twitter icon pos & src */
-.grid-container-laptop .item4 .twitter {
-    grid-area: twitter;
-    background-image: url(/assets/images/twitter.jpg);
+/* set bottomleft icon pos & src */
+.grid-container-laptop .item4 .bottomLeftIcon {
+    grid-area: bottomLeftIcon;
+    background-image: url(/assets/images/bottomLeftIcon.jpg);
     left: $iconHideLeftHorizontal;
     top: $iconHideBottomVertical;
 }
 
 
-/* set instagram icon pos & src */
-.grid-container-laptop .item4 .instagram {
-    grid-area: instagram;
-    background-image: url(/assets/images/instagram.jpg);
+/* set bottomcenter icon pos & src */
+.grid-container-laptop .item4 .bottomCenterIcon {
+    grid-area: bottomCenterIcon;
+    background-image: url(/assets/images/bottomCenterIcon.jpg);
     top: $iconHideBottomVertical;
 }
 
 
-/* set pinterest icon pos & src */
-.grid-container-laptop .item4 .pinterest {
-    grid-area: pinterest;
-    background-image: url(/assets/images/pinterest.jpg);
+/* set bottomright icon pos & src */
+.grid-container-laptop .item4 .bottomRightIcon {
+    grid-area: bottomRightIcon;
+    background-image: url(/assets/images/bottomRightIcon.jpg);
     top: $iconHideBottomVertical;
     left: $iconHideRightHorizontal;
 }

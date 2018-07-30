@@ -17,7 +17,7 @@ class HeroIcon extends Component {
 	}
 
 	checkTarget() {
-		if (this.props.className === 'mail') return '_self';
+		if (this.props.className === 'topLeftIcon') return '_self';
 		return '_blank';
 	}
 

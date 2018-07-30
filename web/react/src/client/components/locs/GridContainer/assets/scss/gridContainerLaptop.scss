@@ -21,7 +21,7 @@ body {
   margin: -62.5vh 0 0 -50vw;
   /*margin: 0vh 0 0 -50vw;*/
   min-height:1550px;
-  min-width:2200px;
+  min-width:2500px;
 }
 /* set top left corner grid rules */
 .grid-container-laptop .topleftcorner {
@@ -73,11 +73,11 @@ body {
   grid-template-rows: 26.67% 10% 26.67% 10% 26.67%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-areas:
-  'mail linkedin github'
+  'topLeftIcon topCenterIcon topRightIcon'
   'heroTopText heroTopText heroTopText'
   'hero hero hero'
   'heroBottomText heroBottomText heroBottomText'
-  'twitter instagram pinterest';
+  'bottomLeftIcon bottomCenterIcon bottomRightIcon';
   position:relative;
 }
 /* set middle right grid rules */
