@@ -130,10 +130,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -149,11 +149,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -165,6 +160,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -173,7 +173,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">r<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">r<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -241,10 +241,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -260,11 +260,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -276,6 +271,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -284,7 +284,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">e<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">e<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -352,10 +352,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -371,11 +371,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -387,6 +382,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -394,6 +394,15 @@
                           "type" : "unstyled"
                         }
                       ],
+                      "cached" : {
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">l<\/span><\/span>",
+                        "os" : "10_13",
+                        "size" : {
+                          "height" : 57,
+                          "width" : 27
+                        },
+                        "width" : 26
+                      },
                       "entityMap" : {
 
                       }
@@ -454,10 +463,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -473,11 +482,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -489,6 +493,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -497,7 +506,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">l<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">l<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -565,10 +574,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -584,11 +593,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -600,6 +604,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -608,7 +617,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">i<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">i<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -676,10 +685,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -695,11 +704,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -711,6 +715,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -719,7 +728,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">M<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">M<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -787,10 +796,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -806,11 +815,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -822,6 +826,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -830,7 +839,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">s<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">s<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -898,10 +907,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -917,11 +926,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -933,6 +937,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -941,7 +950,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">e<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">e<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -1009,10 +1018,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -1028,11 +1037,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -1044,6 +1048,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -1052,7 +1061,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">m<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">m<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -1120,10 +1129,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:#9E9E9E"
                             ]
                           },
                           "depth" : 0,
@@ -1139,11 +1148,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -1155,6 +1159,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:#9E9E9E"
                             }
                           ],
                           "key" : "5n0jl",
@@ -1163,7 +1172,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">a<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">a<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -1231,10 +1240,10 @@
                           "data" : {
                             "emptyStyle" : [
                               "FONT:HelveticaNeue",
-                              "COLOR:rgb(0, 0, 0)",
                               "LETTERSPACING:0",
                               "LINEHEIGHT:1.2",
-                              "SIZE:48"
+                              "SIZE:48",
+                              "COLOR:hsl(0, 0%, 62%)"
                             ]
                           },
                           "depth" : 0,
@@ -1250,11 +1259,6 @@
                             {
                               "length" : 1,
                               "offset" : 0,
-                              "style" : "COLOR:rgb(0, 0, 0)"
-                            },
-                            {
-                              "length" : 1,
-                              "offset" : 0,
                               "style" : "LETTERSPACING:0"
                             },
                             {
@@ -1266,6 +1270,11 @@
                               "length" : 1,
                               "offset" : 0,
                               "style" : "SIZE:48"
+                            },
+                            {
+                              "length" : 1,
+                              "offset" : 0,
+                              "style" : "COLOR:hsl(0, 0%, 62%)"
                             }
                           ],
                           "key" : "5n0jl",
@@ -1274,7 +1283,7 @@
                         }
                       ],
                       "cached" : {
-                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">J<\/span><\/span>",
+                        "html" : "<span data-offset-key=\"5n0jl-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:hsl(0, 0%, 62%);font-size:48px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">J<\/span><\/span>",
                         "os" : "10_13",
                         "size" : {
                           "height" : 57,
@@ -3879,6 +3888,125 @@
                 "visible" : true,
                 "width" : 832,
                 "widthFactor" : null
+              },
+              {
+                "__class" : "TextNode",
+                "autoSize" : false,
+                "blendingEnabled" : 0,
+                "blendingMode" : "normal",
+                "blur" : 12,
+                "blurEnabled" : 0,
+                "blurType" : "layer",
+                "bottom" : null,
+                "brightness" : 100,
+                "brightnessEnabled" : 0,
+                "centerAnchorX" : 0.49814814814814817,
+                "centerAnchorY" : 0.45666666666666667,
+                "constraintsLocked" : false,
+                "contrast" : 100,
+                "contrastEnabled" : 0,
+                "editable" : false,
+                "exportOptions" : [
+
+                ],
+                "grayscale" : 0,
+                "grayScaleEnabled" : 0,
+                "height" : 55,
+                "heightFactor" : null,
+                "hueRotate" : 0,
+                "hueRotateEnabled" : 0,
+                "id" : "QfhYS1RwN",
+                "invert" : 0,
+                "invertEnabled" : 0,
+                "left" : 898,
+                "locked" : false,
+                "name" : null,
+                "opacity" : 1,
+                "parentid" : "rg8Vhaz0g",
+                "right" : null,
+                "rotation" : 0,
+                "saturate" : 100,
+                "saturateEnabled" : 0,
+                "sepia" : 0,
+                "sepiaEnabled" : 0,
+                "shadows" : [
+
+                ],
+                "styledText" : {
+                  "__class" : "StyledTextDraft",
+                  "blocks" : [
+                    {
+                      "data" : {
+                        "emptyStyle" : [
+                          "FONT:HelveticaNeue",
+                          "COLOR:#9E9E9E",
+                          "SIZE:16",
+                          "LETTERSPACING:0",
+                          "LINEHEIGHT:1.2",
+                          "ALIGN:center"
+                        ]
+                      },
+                      "depth" : 0,
+                      "entityRanges" : [
+
+                      ],
+                      "inlineStyleRanges" : [
+                        {
+                          "length" : 35,
+                          "offset" : 0,
+                          "style" : "FONT:HelveticaNeue"
+                        },
+                        {
+                          "length" : 35,
+                          "offset" : 0,
+                          "style" : "COLOR:#9E9E9E"
+                        },
+                        {
+                          "length" : 35,
+                          "offset" : 0,
+                          "style" : "SIZE:16"
+                        },
+                        {
+                          "length" : 35,
+                          "offset" : 0,
+                          "style" : "LETTERSPACING:0"
+                        },
+                        {
+                          "length" : 35,
+                          "offset" : 0,
+                          "style" : "LINEHEIGHT:1.2"
+                        },
+                        {
+                          "length" : 35,
+                          "offset" : 0,
+                          "style" : "ALIGN:center"
+                        }
+                      ],
+                      "key" : "c1352",
+                      "text" : "Freelance designer and technologist",
+                      "type" : "unstyled"
+                    }
+                  ],
+                  "cached" : {
+                    "html" : "<span data-offset-key=\"c1352-0-0\" style=\"tab-size:4;font-weight:400;font-family:&quot;HelveticaNeue&quot;, &quot;Helvetica Neue&quot;, sans-serif;-webkit-text-fill-color:#9E9E9E;font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Freelance designer and technologist<\/span><\/span>",
+                    "os" : "10_13",
+                    "size" : {
+                      "height" : 19,
+                      "width" : 357
+                    },
+                    "width" : 356
+                  },
+                  "entityMap" : {
+
+                  }
+                },
+                "targetName" : null,
+                "top" : 589,
+                "visible" : true,
+                "width" : 356,
+                "widthFactor" : null,
+                "x" : 898,
+                "y" : 589
               }
             ],
             "clip" : true,

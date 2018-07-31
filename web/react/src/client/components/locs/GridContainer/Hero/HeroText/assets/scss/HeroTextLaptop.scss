@@ -8,13 +8,17 @@
 	grid-area: hero;
 	font-family: Source Sans Pro,sans-serif;
 	color: #7c7c7c;
-	font-size: 30px;
+	// font-size: 30px;
+	font-size: 50px;
+	// letter-spacing: -2px;
+	letter-spacing: -12.2px;
 	text-align: center;
 	cursor: pointer;
 	z-index: 1;
-	line-height: 1;
-	font-weight: 400;
-	letter-spacing: -2px;
+	// line-height: .7;
+	line-height: 0;
+	-webkit-text-stroke-width: 2px;
+	font-weight: bold;
 	width: 100%;
 	top: -8%;
 }
