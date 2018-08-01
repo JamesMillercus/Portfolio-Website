@@ -6,32 +6,27 @@ body {
 
 /* setting up css gird into 3x3 @ 1.5x viewport */
 .grid-container-laptop {
-  position:fixed;
-  width: 200vw;
-  height: 250vh;
-  grid-template-rows: 37.5% 15% 37.5%;
+  grid-template-areas:
+  'topleft topcenter topright'
+  'middleleft middlecenter middleright'
+  'bottomleft bottomcenter bottomright';
+  position: fixed;
+  grid-template-rows: 37.5% 25% 37.5%;
   grid-template-columns: 42.5% 15% 42.5%;
   display: grid;
-  grid-template-areas:
-    'topleft topcenter topright'
-    'middleleft middlecenter middleright'
-    'bottomleft bottomcenter bottomright';
-  /*background-color: #2196F3;*/
   padding: 0;
-  margin: -62.5vh 0 0 -50vw;
-  /*margin: 0vh 0 0 -50vw;*/
-  min-height:1550px;
-  min-width:2500px;
+  margin: 0;
+  min-height: 650px;
+  min-width: 1100px;
+  width: 100vw;
+  height: 100vh;
 }
 /* set top left corner grid rules */
 .grid-container-laptop .topleftcorner {
-  grid-template-rows: 19% 19% 19% 3% 40%;
+  grid-template-rows: 50% 50%;
   grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
   display: grid;
   grid-template-areas:
-  'spacer video video video video video'
-  'spacer video video video video video'
-  'spacer video video video video video'
   'extra extra extra extra extra extra'
   'notext notext text text rightimg rightimg';
 }
@@ -70,7 +65,7 @@ body {
 /* set middle center grid rules */
 .grid-container-laptop .middlecenter {
   display: grid;
-  grid-template-rows: 26.67% 10% 26.67% 10% 26.67%;
+  grid-template-rows: 21.67% 15% 26.67% 15% 21.67%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-areas:
   'topLeftIcon topCenterIcon topRightIcon'

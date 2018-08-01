@@ -9,7 +9,7 @@
 	font-family: Source Sans Pro,sans-serif;
 	color: #7c7c7c;
 	// font-size: 30px;
-	font-size: 50px;
+	font-size: 45px;
 	// letter-spacing: -2px;
 	letter-spacing: -12.2px;
 	text-align: center;
@@ -41,8 +41,8 @@
   text-align: center;
 	grid-area: heroTopText;
 	position: absolute;
-	bottom:0;
-	margin: 0px 0px -10% 0px;
+	top:0;
+	margin: 18% 0px 0px 0px;
 }
 
 .grid-container-laptop .item4 .heroFooterText {
@@ -52,8 +52,8 @@
   text-align: center;
 	grid-area: heroBottomText;
 	position: absolute;
-	margin: -10% 0px 0px 0px;
-	top:0;
+	margin: 0px 0px 17% 0px;
+	bottom:0;
 }
 
 .grid-container-laptop .item4 .herotext.space {

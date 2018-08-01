@@ -34,9 +34,7 @@ class ItemContainer extends Component {
 		return (
 			<div className={`item${number} item ${position}`} onMouseOver={scroll} onClick={click}>
 				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} />
-				<div className={'video'} />
 				<ItemText itemNumber={number} />
-				<div className={'spacer'} />
 			</div>
 		);
 	}
