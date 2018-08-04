@@ -4004,9 +4004,7 @@
                 "top" : 589,
                 "visible" : true,
                 "width" : 356,
-                "widthFactor" : null,
-                "x" : 898,
-                "y" : 589
+                "widthFactor" : null
               }
             ],
             "clip" : true,

@@ -1,8 +1,9 @@
 export default {
 	none: {
-		header: 'Freelance designer and creative technologist',
+		header: 'Interactive designer and creative technologist',
 		// paragraph: ['j', 'a', 'm', 'e', 's', ' ', 'm', 'i', 'l', 'l', 'e', 'r'],
 		paragraph: ['j', 'm'],
+		// paragraph: [' ', ' '],
 		footer: 'I help you bring technology ideas to life!'
 	},
 	topLeftIcon: {
@@ -17,13 +18,13 @@ export default {
 	},
 	topRightIcon: {
 		header: 'Turn the idea into an IoT product or installation with',
-		paragraph: ['e', 'l', 'e', 'c', 't', 'r', 'o', 'n', 'i', 'c', 's'],
-		footer: 'using Arduino, Raspberry Pi, sensors and actuators.'
+		paragraph: ['t', 'e', 'c', 'h', 'n', 'o', 'l', 'o', 'g', 'y'],
+		footer: 'such as Arduino, Raspberry Pi, sensors and actuators.'
 	},
 	bottomLeftIcon: {
-		header: 'Launch the idea as an AR, VR, or Blockchain app by',
-		paragraph: ['d', 'e', 'v', 'e', 'l', 'o', 'p', 'i', 'n', 'g'],
-		footer: 'with React(JS/Native/360/Viro), Solidity and more.. '
+		header: 'Launch the idea as an AR, VR, or Blockchain app using',
+		paragraph: ['s', 'o', 'f', 't', 'w', 'a', 'r', 'e'],
+		footer: 'stacks like React(JS/Native/360/Viro) and Solidity. '
 	},
 	bottomCenterIcon: {
 		header: 'Lets connect and ',

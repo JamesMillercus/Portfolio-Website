@@ -11,37 +11,34 @@ body {
   'middleleft middlecenter middleright'
   'bottomleft bottomcenter bottomright';
   position: fixed;
-  grid-template-rows: 37.5% 25% 37.5%;
-  grid-template-columns: 42.5% 15% 42.5%;
+  grid-template-rows: 37.5% 33% 37.5%;
+  grid-template-columns: 40% 20% 40%;
   display: grid;
   padding: 0;
-  margin: 0;
+  margin: -10vh 0 0 -25vw;
   min-height: 650px;
   min-width: 1100px;
-  width: 100vw;
-  height: 100vh;
+  width: 150vw;
+  height: 110vh;
 }
 /* set top left corner grid rules */
 .grid-container-laptop .topleftcorner {
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+  grid-template-rows: 100%;
+  grid-template-columns: 10% 40% 10% 40%;
   display: grid;
   grid-template-areas:
-  'extra extra extra extra extra extra'
-  'notext notext text text rightimg rightimg';
+  'notext text noimg rightimg';
 }
 /* set top middle grid rules */
 .grid-container-laptop .topmiddle {
-  grid-template-rows: 19% 19% 2% 20% 20% 20%;
-  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 5% 42.5% 10% 42.5%;
+  grid-template-columns: 100%;
   display: grid;
   grid-template-areas:
-  'video video video'
-  'video video video'
-  'extra extra extra'
-  'text text text'
-  'text text text'
-  'centerimg centerimg centerimg';
+  'notext'
+  'text'
+  'noimg'
+  'centerimg';
 }
 /* set top right corner grid rules */
 .grid-container-laptop .toprightcorner {

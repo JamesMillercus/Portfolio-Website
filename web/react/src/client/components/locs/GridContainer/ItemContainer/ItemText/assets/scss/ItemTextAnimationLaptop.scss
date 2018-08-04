@@ -1,8 +1,20 @@
 $animationSpeed: 250ms;
 
 .grid-container-laptop .item .text p, .grid-container-laptop .item .text h1 {
-	-webkit-transition: opacity $animationSpeed;
-	-moz-transition: opacity $animationSpeed;
-	-o-transition: opacity $animationSpeed;
-	transition: opacity $animationSpeed;
+	-webkit-transition: opacity $animationSpeed, margin $animationSpeed;
+	-moz-transition: opacity $animationSpeed, margin $animationSpeed;
+	-o-transition: opacity $animationSpeed, margin $animationSpeed;
+	transition: opacity $animationSpeed, margin $animationSpeed;
+}
+
+.grid-container-laptop .item .scrolledText p, .grid-container-laptop .item .scrolledText h1 {
+  opacity:1;
+}
+
+.grid-container-laptop .item0 .scrolledText h1 {
+	margin: 5vh 0 2vh 0;
+}
+
+.grid-container-laptop .item1 .scrolledText h1 {
+	margin: 0vh 0 2vh 0;
 }

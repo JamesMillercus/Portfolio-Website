@@ -2,7 +2,7 @@
 portfolio_sections = [Top_right, Top_centre, Top_left, Middle_right, Middle_left, Bottom_right, Bottom_centre, Bottom_left]
 
 portfolio_items = [Krispy_Kreme, Beerpump, Mood_Tree, Leap_Tassimo, WIYWI, Hacky_xmas, Maker, Epic_Mind_Drive]
-# portfolio item states 
+# portfolio item states
 Krispy_Kreme.states.active =
 	image: "images/krispyKreme-colour.png"
 Krispy_Kreme.states.nonactive =
@@ -35,22 +35,22 @@ Epic_Mind_Drive.states.active =
 	image: "images/MSMgif-colour.png"
 Epic_Mind_Drive.states.nonactive =
 	image: "images/MSMgif-bw.png"
-# reset positions 
+# reset positions
 centerposX = -360
 centerposY = -225
 # animation positions
 portfolio_x_positions = [-500, centerposX, -220, -500, -220, -500, centerposX, -220]
-portfolio_y_positions = [-50,-50, -50, centerposY, centerposY, -400, -400, -400]
+portfolio_y_positions = [-50,-50, -210, centerposY, centerposY, -400, -400, -400]
 previousChild = null
 
-# mouse over detection 
-for active in [0...portfolio_sections.length] 
+# mouse over detection
+for active in [0...portfolio_sections.length]
 	portfolio_sections[active].onMouseOver (event, layer) ->
 			animateIn(layer)
-			switchImage(layer)	
-	portfolio_sections[active].onMouseOut (event, layer) -> 
+			switchImage(layer)
+	portfolio_sections[active].onMouseOut (event, layer) ->
 			previousChild.states.switch("nonactive")
-			animateOut(layer)	
+			animateOut(layer)
 
 centerText = [J, a, m, e, s, M, i, l, l_1, e_1, r]
 
@@ -59,20 +59,20 @@ for active in [0...centerText.length]
 		layer.animate
 			options:
 				time: 1
-				curve: Bezier.ease		
-		
+				curve: Bezier.ease
+
 # 		for child in layer.subLayers
-# 				for current in [0...portfolio_items.length] 
+# 				for current in [0...portfolio_items.length]
 # 					if child.name == portfolio_items[current].name
 # # 						if child.children[0].name == "Text"
 # # 							animateText(child.children[0])
 # 						child.states.switch("active")
 # 						previousChild = child
-			
+
 # Switch image on scroll over
 switchImage = (layer) ->
 	for child in layer.subLayers
-				for current in [0...portfolio_items.length] 
+				for current in [0...portfolio_items.length]
 					if child.name == portfolio_items[current].name
 # 						if child.children[0].name == "Text"
 # 							animateText(child.children[0])
@@ -85,7 +85,7 @@ switchImage = (layer) ->
 				time: 1
 				curve: Bezier.easeInOut
 
-# animation in			
+# animation in
 animateIn = (layer) ->
 	for active in [0...portfolio_sections.length]
 		if portfolio_sections[active] == layer
@@ -93,10 +93,10 @@ animateIn = (layer) ->
 				x: portfolio_x_positions[active]
 				y: portfolio_y_positions[active]
 				options:
-					time: 1
-					curve: Spring(damping: 0.57)
+					time: 0.6
+					curve: Bezier.easeInOut
 
-# animation out		 
+# animation out
 animateOut = (layer) ->
 	for active in [0...portfolio_sections.length]
 		site_background.animate
@@ -107,7 +107,7 @@ animateOut = (layer) ->
 				curve: Spring
 				delay: 0.00
 
-	
+Framer.Device.fullScreen = true
 # Fold above code into scrolling functionality
 # Create panning functionality
 # Center text animation

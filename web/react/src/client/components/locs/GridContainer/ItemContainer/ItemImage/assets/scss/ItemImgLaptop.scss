@@ -1,16 +1,36 @@
-/* on item hover, reveal colour img */
-.grid-container-laptop .item:hover > .img {
-  background-position: 50% 100%;
+$animationSpeed: 500ms;
+/*** set grid container animation ***/
+.grid-container-laptop .item .img{
+	-webkit-transition: margin $animationSpeed, height $animationSpeed;
+	-moz-transition: margin $animationSpeed, height $animationSpeed;
+	-o-transition: margin $animationSpeed, height $animationSpeed;
+	transition: margin $animationSpeed, height $animationSpeed;
 }
+
+/* set each item img's dimensions & img settings */
+.grid-container-laptop .item .img {
+  // margin: auto;
+  height: 35%;
+  width: 162px;
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+  background-position: 50% 0;
+  margin: 35% 0 0 0;
+  position: absolute;
+}
+
 /* set top left corner img pos & src */
 .grid-container-laptop .item0 .img {
   grid-area: rightimg;
   background-image: url(/assets/images/topleft.png);
-  /*right: 0;*/
+  // right: 0;
   left: 0;
   top: 0;
   bottom: 0;
+  margin: 14vh 0 0 0;
 }
+
+
 /* set top middle img pos & src */
 .grid-container-laptop .item1.item .img {
   grid-area: centerimg;
@@ -18,7 +38,9 @@
   right: 0;
   left: 0;
   bottom: 0;
-  height:90%;
+  height: 80%;
+  width: 100%;
+  margin-bottom: 1vh;
 }
 /* set top right corner img pos & src */
 .grid-container-laptop .item2 .img {
@@ -81,15 +103,4 @@
   left: 50%;
   top: 0;
   bottom: 0;
-}
-/* set each item img's dimensions & img settings */
-.grid-container-laptop .item .img {
-  height: 45%;
-  /*max-width: 220px;*/
-  width:162px;
-  background-repeat: no-repeat;
-  background-size: auto 200%;
-  background-position: 50% 0;
-  margin: auto;
-  position: absolute;
 }

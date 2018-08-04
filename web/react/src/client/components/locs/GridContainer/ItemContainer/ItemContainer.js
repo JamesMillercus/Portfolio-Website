@@ -16,6 +16,7 @@ class ItemContainer extends Component {
 
 	scrolledItem(item) {
 		this.props.fetchScrolledItem(item);
+		// console.log(this.props.scrolledItem);
 	}
 
 	clickedItem(item) {
@@ -24,17 +25,22 @@ class ItemContainer extends Component {
 		if (!itemAlreadyClicked) this.props.fetchClickedItems(item);
 	}
 
+	scrolledCheck(number, scrolledItem) {
+		if (scrolledItem === number) return true;
+		return false;
+	}
+
 	render() {
 		const scroll = () => this.scrolledItem(this.props.number);
 		const click = () => this.clickedItem(this.props.number);
-
+		const scrollCheck = () => this.scrolledCheck(this.props.number, this.props.scrolledItem);
 		const number = this.props.number;
 		const position = itemContainerConfig[number].position;
 
 		return (
 			<div className={`item${number} item ${position}`} onMouseOver={scroll} onClick={click}>
-				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} />
-				<ItemText itemNumber={number} />
+				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} scrolledItem={scrollCheck()} />
+				<ItemText itemNumber={number} scrolledItem={scrollCheck()} />
 			</div>
 		);
 	}
