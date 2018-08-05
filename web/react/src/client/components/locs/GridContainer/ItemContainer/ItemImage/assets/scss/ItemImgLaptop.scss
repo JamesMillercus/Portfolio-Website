@@ -47,52 +47,49 @@ $animationSpeed: 500ms;
   grid-area: leftimg;
   background-image: url(/assets/images/topright.png);
   right: 0;
-  left: 50%;
   top: 0;
   bottom: 0;
+  margin: 14vh 0 0 0;
 }
 /* set left middle img pos & src */
 .grid-container-laptop .item3 .img {
   grid-area: img;
-  height:45%;
   background-image: url(/assets/images/middleleft.png);
   right: 0;
-  /*left: 0;*/
   top: 0;
-  bottom: 0;
+  height: 40%;
+  margin: 10vh 0 0 0;
 }
 
 /* set right middle img pos & src */
 .grid-container-laptop .item5 .img {
-  /*background-color: pink;*/
   grid-area: img;
-  height:45%;
   background-image: url(/assets/images/middleright.png);
-  /*right: 0;*/
   left: 0;
   top: 0;
-  bottom: 0;
+  height:40%;
+  margin: 10vh 0 0 0;
 }
 /* set bottom left corner img pos & src */
 .grid-container-laptop .item6 .img {
   /*background-color: pink;*/
   grid-area: rightimg;
   background-image: url(/assets/images/bottomleft.png);
-  /*right: 0;*/
   left: 0;
-  top: 0;
   bottom: 0;
+  margin: 0 0 14vh 0;
 }
 /* set bottom middle img pos & src */
 .grid-container-laptop .item7.item .img {
-  /*background-color: pink;*/
+
   grid-area: centerimg;
   background-image: url(/assets/images/bottomcenter.png);
   right: 0;
   left: 0;
   top: 0;
-  height:90%;
-  /*bottom: 0;*/
+  height: 90%;
+  width: 100%;
+  margin: 0;
 }
 /* set bottom right corner img pos & src */
 .grid-container-laptop .item8 .img {
@@ -100,7 +97,6 @@ $animationSpeed: 500ms;
   grid-area: leftimg;
   background-image: url(/assets/images/bottomright.png);
   right: 0;
-  left: 50%;
-  top: 0;
   bottom: 0;
+  margin: 0 0 14vh 0;
 }

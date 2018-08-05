@@ -1,3 +1,15 @@
+/* set each item img's dimensions & img settings */
+.grid-container-laptop .item .activeImg {
+
+  position: absolute;
+  height: 35%;
+  width: 162px;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 35% 0 0 0;
+}
+
 /* set top left corner img pos & src */
 .grid-container-laptop .item0 .activeImg {
   grid-area: rightimg;
@@ -14,7 +26,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  height:90%;
+  height:80%;
 }
 /* set top right corner img pos & src */
 .grid-container-laptop .item2 .activeImg {
@@ -28,24 +40,23 @@
 /* set left middle img pos & src */
 .grid-container-laptop .item3 .activeImg {
   grid-area: img;
-  height:45%;
+  height:40%;
   background-image: url(/assets/images/middleleft.gif);
   right: 0;
-  /*left: 0;*/
   top: 0;
-  bottom: 0;
+  margin: 10vh 0 0 0;
 }
 
 /* set right middle img pos & src */
 .grid-container-laptop .item5 .activeImg {
   /*background-color: pink;*/
   grid-area: img;
-  height:45%;
   background-image: url(/assets/images/middleright.gif);
   /*right: 0;*/
   left: 0;
   top: 0;
-  bottom: 0;
+  height:40%;
+  margin: 10vh 0 0 0;
 }
 /* set bottom left corner img pos & src */
 .grid-container-laptop .item6 .activeImg {
@@ -54,8 +65,8 @@
   background-image: url(/assets/images/bottomleft.gif);
   /*right: 0;*/
   left: 0;
-  top: 0;
   bottom: 0;
+  margin: 0 0 14vh 0;
 }
 /* set bottom middle img pos & src */
 .grid-container-laptop .item7.item .activeImg {
@@ -66,7 +77,8 @@
   left: 0;
   top: 0;
   height:90%;
-  /*bottom: 0;*/
+  width: 100%;
+  margin: 0;
 }
 /* set bottom right corner img pos & src */
 .grid-container-laptop .item8 .activeImg {
@@ -74,18 +86,6 @@
   grid-area: leftimg;
   background-image: url(/assets/images/bottomright.gif);
   right: 0;
-  left: 50%;
-  top: 0;
   bottom: 0;
-}
-/* set each item img's dimensions & img settings */
-.grid-container-laptop .activeImg {
-  height: 45%;
-  /*max-width: 220px;*/
-  width:162px;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  margin: auto;
-  position: absolute;
-  background-position: center;
+  margin: 0 0 14vh 0;
 }

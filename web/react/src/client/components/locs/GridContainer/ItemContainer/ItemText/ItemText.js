@@ -14,8 +14,10 @@ const setClass = () => {
 
 	return (
     <div className={setClass().join(' ')}>
-      <h1> {header} </h1>
-      <p> {paragraph} </p>
+			<span className='textContainer'>
+				<h1> {header} </h1>
+				<p> {paragraph} </p>
+			</span>
     </div>
   );
 };
