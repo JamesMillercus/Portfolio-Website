@@ -14,6 +14,14 @@ class HeroText extends Component {
 		return iconClasses.join(' ');
 	}
 
+	setHeroStyle(selectedIcon, selectedItem) {
+		console.log('selectedItem');
+		console.log(selectedItem);
+		if (selectedItem === null) return 'heroLogo';
+		if (selectedIcon === 'none' && selectedItem === 4) return 'heroLogo';
+		return 'heroIconText';
+	}
+
 	heroHeader(activeHeroText) {
 		let returntext;
 		Reflect.ownKeys(heroTextConfig).forEach(key => {
@@ -31,10 +39,20 @@ class HeroText extends Component {
 		return <span key={index} className="herotext start"> {character} </span>;
 	}
 
-	heroParagraph(activeHeroText) {
+// detect if scrolled in zone 4
+// if so then update icons as normal
+// if not then update with new logic
+
+	heroParagraph(activeHeroText, selectedItem) {
 		let returntext;
 		Reflect.ownKeys(heroTextConfig).forEach(key => {
-			if (activeHeroText === key) {
+			if (selectedItem === 4 || selectedItem === null) {
+				if (activeHeroText === key) {
+					returntext = heroTextConfig[this.confirmLaptop(key)].paragraph.map((character, index) => (
+						this.checkCharacter(character, index)
+					));
+				}
+			} else if (`item${selectedItem}` === key) {
 				returntext = heroTextConfig[this.confirmLaptop(key)].paragraph.map((character, index) => (
 					this.checkCharacter(character, index)
 				));
@@ -62,10 +80,11 @@ class HeroText extends Component {
 
 	render() {
 		const activeHero = this.props.activeHeroIcon;
+		const scrolledItem = this.props.scrolledItem;
 		return (
 			<div className={'heroTextContainer'}>
 				<p className={this.setClass('heroHeaderText')}> {this.heroHeader(activeHero)} </p>
-				<h1> { this.heroParagraph(activeHero) } </h1>
+				<h1 className={this.setHeroStyle(activeHero, scrolledItem)}> { this.heroParagraph(activeHero, scrolledItem) } </h1>
 				<p className={this.setClass('heroFooterText')}> {this.heroFooter(activeHero)} </p>
 			</div>
 		);

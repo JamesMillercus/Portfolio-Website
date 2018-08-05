@@ -8,19 +8,28 @@
 	grid-area: hero;
 	font-family: Source Sans Pro,sans-serif;
 	color: #7c7c7c;
-	// font-size: 30px;
 	font-size: 45px;
-	// letter-spacing: -2px;
 	letter-spacing: -12.2px;
 	text-align: center;
 	cursor: pointer;
 	z-index: 1;
-	// line-height: .7;
 	line-height: 0;
-	-webkit-text-stroke-width: 2px;
 	font-weight: bold;
 	width: 100%;
 	top: -8%;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.heroLogo {
+	-webkit-text-stroke-width: 2px;
+	font-size: 45px;
+	letter-spacing: -12.2px;
+	line-height: 0;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.heroIconText {
+	font-size: 30px;
+	letter-spacing: -2px;
+	line-height: .7;
 }
 
 .grid-container-laptop .heroTextContainer p {

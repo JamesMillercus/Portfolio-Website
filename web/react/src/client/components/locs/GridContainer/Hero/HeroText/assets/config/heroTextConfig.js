@@ -35,5 +35,29 @@ export default {
 		header: 'Stay in touch to see the latest',
 		paragraph: ['u', 'p', 'd', 'a', 't', 'e', 's'],
 		footer: 'and ideas within creative technology!'
+	},
+	item0: {
+		paragraph: ['I', 'n', 's', 't', 'a', 'l', 'l', 'a', 't', 'i', 'o', 'n'],
+	},
+	item1: {
+		paragraph: ['P', 'r', 'o', 'd', 'u', 'c', 't'],
+	},
+	item2: {
+		paragraph: ['R', 'e', 't', 'a', 'i', 'l'],
+	},
+	item3: {
+		paragraph: ['E', 'v', 'e', 'n', 't']
+	},
+	item5: {
+		paragraph: ['I', 'm', 'm', 'e', 'r', 's', 'i', 'v', 'e']
+	},
+	item6: {
+		paragraph: ['E', 'x', 'p', 'e', 'r', 'i', 'e', 'n', 't', 'i', 'a', 'l']
+	},
+	item7: {
+		paragraph: ['R', 'e', 's', 'e', 'a', 'r', 'c', 'h']
+	},
+	item8: {
+		paragraph: ['I', 'O', 'T']
 	}
 };
