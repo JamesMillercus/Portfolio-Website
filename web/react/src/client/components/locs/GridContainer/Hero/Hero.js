@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchScrolledItem } from './../../../../actions';
 import heroConfig from './assets/config/heroConfig.js';
 import HeroIcon from './HeroIcon/HeroIcon';
-import HeroText from './HeroText/HeroText';
+import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 
 class Hero extends Component {
 
@@ -34,7 +34,7 @@ class Hero extends Component {
 
 		return (
 			<div className="item4 middlecenter" onMouseOver={heroContainerMouseOver}>
-				<HeroText />
+				<HeroTextContainer />
 				{this.renderHeroIcons()}
 			</div>
 		);

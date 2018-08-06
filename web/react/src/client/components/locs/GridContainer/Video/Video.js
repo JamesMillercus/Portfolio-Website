@@ -35,23 +35,23 @@ class Video extends Component {
 		if (selectedVideo === 'hidden') return null;
 		return (
 			<div className={`videoPlayer video${selectedVideo}`}>
-			<div className="exitBtn" onClick={this.exitVideo} />
-			<YoutubePlayer
-				videoId={videoConfig[selectedVideo].videoID}
-				// MAKE THIS DEPENDENT ON DEVICE TYPE
-				// IF LAPTOP START PLAYING ELSE PAUSED
-				playbackState={playerState}
-				onPlay={this.playing}
-				onEnd={this.exitVideo}
-				configuration={{
-					showinfo: 0,
-					controls: 1,
-					frameborder: 0,
-					rel: 0,
-					fs: 0,
-					origin: 'https://www.youtube.com'
-				}}
-			/>
+				<div className="exitBtn" onClick={this.exitVideo} />
+				<YoutubePlayer
+					videoId={videoConfig[selectedVideo].videoID}
+					// MAKE THIS DEPENDENT ON DEVICE TYPE
+					// IF LAPTOP START PLAYING ELSE PAUSED
+					playbackState={playerState}
+					onPlay={this.playing}
+					onEnd={this.exitVideo}
+					configuration={{
+						showinfo: 0,
+						controls: 1,
+						frameborder: 0,
+						rel: 0,
+						fs: 0,
+						origin: 'https://www.youtube.com'
+					}}
+				/>
 			</div>
 		);
 	}

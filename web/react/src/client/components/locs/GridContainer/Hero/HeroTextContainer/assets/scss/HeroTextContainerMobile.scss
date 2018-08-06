@@ -4,18 +4,6 @@
     position: relative;
 }
 
-.grid-container-mobile .item4 .heroTextContainer h1 {
-    font-family: Source Sans Pro,sans-serif;
-    color: #7c7c7c;
-    font-size: 60px;
-    text-align: center;
-    cursor: pointer;
-    line-height: 1.6;
-    z-index: 1;
-    font-weight: 400;
-    letter-spacing: -2px;
-}
-
 .grid-container-mobile .heroTextContainer p {
 	margin: 0;
 	opacity: 0;
@@ -25,20 +13,6 @@
 .grid-container-mobile .heroTextContainer {
 	font-family: Source Sans Pro,sans-serif;
     color: #7c7c7c;
-}
-
-.grid-container-mobile .item4 .heroHeaderText {
-    margin-top: 40px;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
-
-.grid-container-mobile .item4 .heroFooterText {
-	margin-top: -50px;
-    position: absolute;
-    width: 100%;
-    text-align: center;
 }
 
 // .mailrevealed {
