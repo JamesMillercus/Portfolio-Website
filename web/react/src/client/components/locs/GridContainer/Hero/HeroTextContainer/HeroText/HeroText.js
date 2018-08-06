@@ -4,8 +4,14 @@ import './assets/scss';
 
 const HeroText = ({ activeHero, scrolledItem, deviceType }) => {
   const setHeroStyle = (selectedIcon, selectedItem) => {
+    // const element = document.getElementByC("slidingMenu");
+		//   element.addEventListener("transitionend", function(event) {
+		//   element.innerHTML = "Done!";
+		// }, false);
+
 		if (selectedItem === null) return 'heroLogo';
 		if (selectedIcon === 'none' && selectedItem === 4) return 'heroLogo';
+    else if (selectedIcon === 'topLeftIcon') return 'heroEmailText';
 		return 'heroIconText';
 	};
 

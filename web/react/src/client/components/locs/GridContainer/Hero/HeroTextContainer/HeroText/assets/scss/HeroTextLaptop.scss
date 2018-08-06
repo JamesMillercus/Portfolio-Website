@@ -1,7 +1,8 @@
 .grid-container-laptop .item4 .heroTextContainer h1 {
 	/* height: 100%; */
 	grid-area: hero;
-	font-family: Source Sans Pro,sans-serif;
+	// font-family: Source Sans Pro,sans-serif;
+	font-family: 'Baloo Bhaina', cursive;
 	color: #7c7c7c;
 	font-size: 45px;
 	letter-spacing: -12.2px;
@@ -9,21 +10,33 @@
 	cursor: pointer;
 	z-index: 1;
 	line-height: 0;
-	font-weight: bold;
+	font-weight: 100;
 	width: 100%;
 	top: -8%;
 	-webkit-text-stroke-width: 1px;
 }
 
 .grid-container-laptop .item4 .heroTextContainer h1.heroLogo {
-	font-size: 45px;
-	letter-spacing: -12.2px;
-	line-height: 0;
-	-webkit-text-stroke-width: 2px;
+	font-size: 60px;
+  letter-spacing: -17px;
+  line-height: 0;
+  -webkit-text-stroke-width: 0;
+	font-weight: normal;
+	margin-left:-1%;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.heroLogo .herotext:first-child {
+	font-size:62px;
 }
 
 .grid-container-laptop .item4 .heroTextContainer h1.heroIconText {
+	font-size: 40px;
+	letter-spacing: -2px;
+	line-height: .5;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.heroEmailText {
 	font-size: 30px;
 	letter-spacing: -2px;
-	line-height: .7;
+	line-height: 1;
 }

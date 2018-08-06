@@ -1,10 +1,18 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { fetchActiveHeroIcon, fetchDeviceType } from './../../../../../actions';
 import './assets/scss';
 import './assets/images';
 
 class HeroIcon extends Component {
+
+	componentDidUpdate() {
+		const elem = ReactDOM.findDOMNode(this.refs.icon);
+		if (window.getComputedStyle(elem).getPropertyValue('opacity')) {
+			console.log('ready!!');
+		}
+	}
 
 	setClass() {
 		const iconClasses = [`${this.props.className}`, 'icon'];
@@ -30,7 +38,7 @@ class HeroIcon extends Component {
 		const target = this.checkTarget();
 
 		return (
-			<a className={css} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} />
+			<a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} />
 		);
 	}
 }

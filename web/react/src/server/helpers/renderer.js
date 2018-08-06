@@ -27,7 +27,7 @@ export default (req, store, context) => {
 			<head>
 				${helmet.title.toString()}
 				${helmet.meta.toString()}
-					<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+					<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Baloo+Bhaina" rel="stylesheet">
 			    <link rel="stylesheet" type="text/css" href="/css/bundle.css">
 			</head>
 			<body>
