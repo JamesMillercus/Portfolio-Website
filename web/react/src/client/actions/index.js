@@ -77,3 +77,15 @@ export const fetchDeviceType = (deviceType) => async (dispatch) => {
 		payload: res
 	});
 };
+
+// stored data of clicked items
+export const FETCH_HERO_TEXT_ANIMATION = 'fetch_hero_text_animation';
+// action creator
+export const fetchHeroTextAnimation = (allowed) => async (dispatch) => {
+	const res = allowed || false;
+
+	dispatch({
+		type: FETCH_HERO_TEXT_ANIMATION,
+		payload: res
+	});
+};

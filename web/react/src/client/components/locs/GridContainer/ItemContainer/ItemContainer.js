@@ -16,7 +16,6 @@ class ItemContainer extends Component {
 
 	scrolledItem(item) {
 		this.props.fetchScrolledItem(item);
-		// console.log(this.props.scrolledItem);
 	}
 
 	clickedItem(item) {

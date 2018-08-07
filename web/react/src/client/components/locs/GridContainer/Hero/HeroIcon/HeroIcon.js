@@ -1,17 +1,25 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { fetchActiveHeroIcon, fetchDeviceType } from './../../../../../actions';
+import {
+	fetchActiveHeroIcon,
+	fetchDeviceType,
+	fetchHeroTextAnimation
+} from './../../../../../actions';
 import './assets/scss';
 import './assets/images';
+
+// IMPORT STATE FROM REDUCER
+// UPDATE STATE WITH RECUCER FROM ICONOPACITYCHECK()
+// THIS SHOULD REFRESH THE COMPONENT AND TRIGGER THE OPACITY VALUE TO UPDATE
 
 class HeroIcon extends Component {
 
 	componentDidUpdate() {
 		const elem = ReactDOM.findDOMNode(this.refs.icon);
-		if (window.getComputedStyle(elem).getPropertyValue('opacity')) {
-			console.log('ready!!');
-		}
+		this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
+		if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
+		else this.props.fetchHeroTextAnimation(true);
 	}
 
 	setClass() {
@@ -36,7 +44,6 @@ class HeroIcon extends Component {
 		const out = this.activateHero.bind(this, 'none');
 		const css = this.setClass();
 		const target = this.checkTarget();
-
 		return (
 			<a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} />
 		);
@@ -46,8 +53,13 @@ class HeroIcon extends Component {
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
-	deviceType: state.deviceType
+	deviceType: state.deviceType,
+	scrolledItem: state.scrolledItem
 });
 
 
-export default connect(mapStateToProps, { fetchActiveHeroIcon, fetchDeviceType })(HeroIcon);
+export default connect(mapStateToProps, {
+	fetchActiveHeroIcon,
+	fetchDeviceType,
+	fetchHeroTextAnimation
+})(HeroIcon);

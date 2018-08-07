@@ -2,36 +2,42 @@ import React from 'react';
 import heroTextConfig from './assets/config/heroTextConfig.js';
 import './assets/scss';
 
-const HeroText = ({ activeHero, scrolledItem, deviceType }) => {
+const HeroText = ({ activeHero, scrolledItem, deviceType, allowedAnimation }) => {
   const setHeroStyle = (selectedIcon, selectedItem) => {
-    // const element = document.getElementByC("slidingMenu");
-		//   element.addEventListener("transitionend", function(event) {
-		//   element.innerHTML = "Done!";
-		// }, false);
-
 		if (selectedItem === null) return 'heroLogo';
 		if (selectedIcon === 'none' && selectedItem === 4) return 'heroLogo';
-    else if (selectedIcon === 'topLeftIcon') return 'heroEmailText';
-		return 'heroIconText';
+    if (allowedAnimation || selectedItem !== 4) {
+      if (selectedIcon === 'topLeftIcon') return 'heroEmailText';
+      return 'heroIconText';
+    }
+    return 'heroLogo';
 	};
 
   const heroText = (activeHeroText, selectedItem) => {
-		let returntext;
-		Reflect.ownKeys(heroTextConfig).forEach(key => {
-			if (selectedItem === 4 || selectedItem === null) {
-				if (activeHeroText === key) {
-					returntext = heroTextConfig[confirmLaptop(key)].map((character, index) => (
-						checkCharacter(character, index)
-					));
-				}
-			} else if (`item${selectedItem}` === key) {
-				returntext = heroTextConfig[confirmLaptop(key)].map((character, index) => (
-					checkCharacter(character, index)
-				));
-			}
-		});
-		return returntext;
+    if (selectedItem === 4) {
+      if (allowedAnimation) return updateHero(activeHeroText, selectedItem);
+      return updateHero('none', null);
+    }
+    return updateHero(activeHeroText, selectedItem);
 	};
+
+  const updateHero = (activeHeroText, selectedItem) => {
+    let returntext;
+    Reflect.ownKeys(heroTextConfig).forEach(key => {
+      if (selectedItem === 4 || selectedItem === null) {
+        if (activeHeroText === key) {
+          returntext = heroTextConfig[confirmLaptop(key)].map((character, index) => (
+            checkCharacter(character, index)
+          ));
+        }
+      } else if (`item${selectedItem}` === key) {
+        returntext = heroTextConfig[confirmLaptop(key)].map((character, index) => (
+          checkCharacter(character, index)
+        ));
+      }
+    });
+    return returntext;
+  };
 
   const checkCharacter = (character, index) => {
 		if (character === ' ') {
