@@ -89,3 +89,15 @@ export const fetchHeroTextAnimation = (allowed) => async (dispatch) => {
 		payload: res
 	});
 };
+
+// stored data of clicked items
+export const FETCH_BACKGROUND_POS = 'fetch_background_pos';
+// action creator
+export const fetchBackgroundPos = (pos) => async (dispatch) => {
+	const res = pos;
+
+	dispatch({
+		type: FETCH_BACKGROUND_POS,
+		payload: res
+	});
+};

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+
 import {
 	fetchActiveHeroIcon,
 	fetchDeviceType,
@@ -9,14 +9,10 @@ import {
 import './assets/scss';
 import './assets/images';
 
-// IMPORT STATE FROM REDUCER
-// UPDATE STATE WITH RECUCER FROM ICONOPACITYCHECK()
-// THIS SHOULD REFRESH THE COMPONENT AND TRIGGER THE OPACITY VALUE TO UPDATE
-
 class HeroIcon extends Component {
 
 	componentDidUpdate() {
-		const elem = ReactDOM.findDOMNode(this.refs.icon);
+		const elem = this.refs.icon;
 		this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
 		if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
 		else this.props.fetchHeroTextAnimation(true);
