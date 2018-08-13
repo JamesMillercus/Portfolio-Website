@@ -2,6 +2,13 @@ import React from 'react';
 import heroTextConfig from './assets/config/heroTextConfig.js';
 import './assets/scss';
 
+/*
+1. edit updateHero function to update the text by each char
+  - change returntext into returnchar
+  - iterate over each char and create copy of old char + return new char
+2. on each char added, animate out old and animate in new char
+*/
+
 const HeroText = ({ activeHero, scrolledItem, deviceType, allowedAnimation }) => {
   const setHeroStyle = (selectedIcon, selectedItem) => {
 		if (selectedItem === null) return 'heroLogo';
@@ -27,19 +34,19 @@ const HeroText = ({ activeHero, scrolledItem, deviceType, allowedAnimation }) =>
       if (selectedItem === 4 || selectedItem === null) {
         if (activeHeroText === key) {
           returntext = heroTextConfig[confirmLaptop(key)].map((character, index) => (
-            checkCharacter(character, index)
+            checkCharForSpace(character, index)
           ));
         }
       } else if (`item${selectedItem}` === key) {
         returntext = heroTextConfig[confirmLaptop(key)].map((character, index) => (
-          checkCharacter(character, index)
+          checkCharForSpace(character, index)
         ));
       }
     });
     return returntext;
   };
 
-  const checkCharacter = (character, index) => {
+  const checkCharForSpace = (character, index) => {
 		if (character === ' ') {
 			return <span key={index} className="herotext start space"> {character} </span>;
 		}

@@ -1,10 +1,10 @@
 $animationSpeed: 500ms;
 /*** set grid container animation ***/
 .grid-container-laptop {
-	// -webkit-transition: all $animationSpeed;
-	// -moz-transition: all $animationSpeed;
-	// -o-transition: all $animationSpeed;
-	// transition: all $animationSpeed cubic-bezier(0.645, 0.045, 0.355, 1);
+	-webkit-transition: all $animationSpeed;
+	-moz-transition: all $animationSpeed;
+	-o-transition: all $animationSpeed;
+	transition: all $animationSpeed cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* animate grid to item0 hovered state */

@@ -15,43 +15,21 @@ class GridContainer extends Component {
   }
 
   onMouseMove(e) {
-    const elem = this.refs.background;
-
-    const backgroundX = window.getComputedStyle(elem).getPropertyValue('margin-left');
-    const backgroundY = window.getComputedStyle(elem).getPropertyValue('margin-top');
-    const background = { x: backgroundX, y: backgroundY };
-    // console.log('background pos y');
-    // console.log(background.y);
-
-    const lMouseX = ((window.innerWidth * 1.24) / 2) - e.screenX;
-    const lMouseY = ((window.innerHeight * 1.15) / 2) - e.screenY;
+    const yMouseAlign = 0.63;
+    const xMouseAlign = 0.695;
+    const lMouseX = (window.innerWidth * xMouseAlign) - e.screenX;
+    const lMouseY = (window.innerHeight * yMouseAlign) - e.screenY;
     const mouse = { x: lMouseX, y: lMouseY };
 
-    this.calcBackgroundMovement(mouse, background);
+    this.calcBackgroundMovement(mouse);
   }
 
-  calcBackgroundMovement(mousePos, backgroundPos) {
-    const x = parseInt(((parseInt(mousePos.x) - window.innerWidth) + parseInt(backgroundPos.x)) * 0.25);
-    const y = parseInt(((parseInt(mousePos.y) - window.innerHeight) + parseInt(backgroundPos.y)) * 0.046);
+  calcBackgroundMovement(mousePos) {
+    const speed = 0.1;
+    const x = mousePos.x * speed;
+    const y = mousePos.y * speed;
     const background = { x, y };
-    this.backgroundMovement(background);
-  }
-
-  backgroundMovement(background) {
-    let posX,
-    posY;
-    // console.log(this.props.scrolledItem);
-    if (this.props.scrolledItem == 1) {
-      console.log(background.y);
-      posY = background.y * 0.01;
-      console.log(posY);
-      posX = background.x;
-    } else {
-      posX = background.x;
-      posY = background.y;
-    }
-    const backgroundPos = { x: posX, y: posY };
-    this.props.fetchBackgroundPos(backgroundPos);
+    this.props.fetchBackgroundPos(background);
   }
 
   setClass() {
@@ -80,8 +58,10 @@ class GridContainer extends Component {
     };
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
-        <div className={this.setClass().join(' ')} ref={'background'} onMouseMove={this.onMouseMove.bind(this)} style={divStyle}>
-          {this.renderItems()}
+        <div className='mouseMovementContainer' onMouseMove={this.onMouseMove.bind(this)} style={divStyle}>
+          <div className={this.setClass().join(' ')}>
+            {this.renderItems()}
+          </div>
         </div>
     );
   }

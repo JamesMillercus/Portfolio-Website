@@ -30,7 +30,7 @@ class HeroTextContainer extends Component {
 					activeHero={activeHero}
 					scrolledItem={scrolledItem}
 					deviceType={deviceType}
-					allowedAnimation={allowedAnimation} 
+					allowedAnimation={allowedAnimation}
 				/>
 			</div>
 		);
