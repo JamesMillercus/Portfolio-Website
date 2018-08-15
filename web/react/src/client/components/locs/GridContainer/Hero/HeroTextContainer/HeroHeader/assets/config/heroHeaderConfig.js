@@ -1,9 +1,9 @@
 export default {
-	none: 'Interactive designer and creative technologist',
-	topLeftIcon: 'Drop me an email',
-	topCenterIcon: "Let's visualise how the ideas could work with",
-	topRightIcon: 'Turn the idea into an IoT product or installation with',
-	bottomLeftIcon: 'Launch the idea as an AR, VR, or Blockchain app using',
-	bottomCenterIcon: "Let's connect and ",
-	bottomRightIcon: 'Stay in touch to see the latest'
+	none: 'designer and developer',
+	topLeftIcon: 'drop me an email',
+	topCenterIcon: 'visualise the ideas with',
+	topRightIcon: 'bring the idea to life with',
+	bottomLeftIcon: 'launch the idea as a digital',
+	bottomCenterIcon: "let's connect and ",
+	bottomRightIcon: 'stay in touch to see the latest'
 };

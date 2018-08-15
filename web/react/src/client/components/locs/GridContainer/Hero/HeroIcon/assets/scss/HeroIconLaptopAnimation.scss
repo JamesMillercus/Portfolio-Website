@@ -18,3 +18,11 @@ $animationSpeed: 500ms;
   top: 0;
   left:0;
 }
+
+.grid-container-laptop .item4 .bottomRightIcon.active, .grid-container-laptop .item4 .bottomLeftIcon.active {
+    top: -15%;
+}
+
+.grid-container-laptop .item4 .topRightIcon.active, .grid-container-laptop .item4 .topLeftIcon.active {
+    top: 15%;
+}
