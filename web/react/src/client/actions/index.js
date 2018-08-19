@@ -101,3 +101,29 @@ export const fetchBackgroundPos = (pos) => async (dispatch) => {
 		payload: res
 	});
 };
+
+// stored data of clicked items
+export const FETCH_CHAR_LOADER = 'fetch_char_loader';
+// action creator
+export const fetchCharLoader = (charArr) => async (dispatch) => {
+	const res = charArr;
+
+	dispatch({
+		type: FETCH_CHAR_LOADER,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_CURRENT_CHARS = 'fetch_current_chars';
+// action creator
+export const fetchCurrentChars = (charArr) => async (dispatch) => {
+	const res = charArr;
+	// console.log('res');
+	// console.log(res);
+	
+	dispatch({
+		type: FETCH_CURRENT_CHARS,
+		payload: res
+	});
+};

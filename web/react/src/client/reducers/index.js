@@ -8,6 +8,8 @@ import activeHeroIconReducer from './activeHeroIconReducer';
 import deviceTypeReducer from './deviceTypeReducer';
 import heroTextAnimationReducer from './heroTextAnimationReducer';
 import backgroundPosReducer from './backgroundPosReducer';
+import charLoaderReducer from './charLoaderReducer';
+import currentCharsReducer from './currentCharsReducer';
 // combine all existing reducers
 export default combineReducers({
 	userAgent: userAgentReducer,
@@ -17,5 +19,7 @@ export default combineReducers({
 	activeHeroIcon: activeHeroIconReducer,
 	deviceType: deviceTypeReducer,
 	heroTextAnimation: heroTextAnimationReducer,
-	backgroundPos: backgroundPosReducer
+	backgroundPos: backgroundPosReducer,
+	charLoader: charLoaderReducer,
+	currentChars: currentCharsReducer
 });

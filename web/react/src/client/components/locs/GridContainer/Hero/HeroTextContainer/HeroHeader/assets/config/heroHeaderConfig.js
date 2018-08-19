@@ -1,5 +1,5 @@
 export default {
-	none: 'designer and developer',
+	none: 'i use design and code',
 	topLeftIcon: 'drop me an email',
 	topCenterIcon: 'visualise the ideas with',
 	topRightIcon: 'bring the idea to life with',

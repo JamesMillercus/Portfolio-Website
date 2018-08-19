@@ -12,6 +12,7 @@ class HeroTextContainer extends Component {
 		const scrolledItem = this.props.scrolledItem;
 		const deviceType = this.props.deviceType;
 		const allowedAnimation = this.props.heroTextAnimation;
+
 		return (
 			<div className={'heroTextContainer'}>
 				<HeroHeader
@@ -20,12 +21,7 @@ class HeroTextContainer extends Component {
 					deviceType={deviceType}
 					allowedAnimation={allowedAnimation}
 				/>
-				<HeroText
-					activeHero={activeHero}
-					scrolledItem={scrolledItem}
-					deviceType={deviceType}
-					allowedAnimation={allowedAnimation}
-				/>
+				<HeroText />
 				<HeroFooter
 					activeHero={activeHero}
 					scrolledItem={scrolledItem}
@@ -42,7 +38,9 @@ const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
 	scrolledItem: state.scrolledItem,
 	deviceType: state.deviceType,
-	heroTextAnimation: state.heroTextAnimation
+	heroTextAnimation: state.heroTextAnimation,
+	currentChars: state.currentChars,
+	charLoader: state.charLoader
 });
 
 export default connect(mapStateToProps, null)(HeroTextContainer);
