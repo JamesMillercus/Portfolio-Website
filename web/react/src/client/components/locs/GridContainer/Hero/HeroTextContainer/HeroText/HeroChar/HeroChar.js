@@ -5,14 +5,24 @@ import { fetchCurrentChars } from './../../../../../../../actions';
 class HeroChar extends Component {
 
   /* to do
-    1. Make the chars update 1 by one (currently they all update at once)
-      - each char needs to know if it has been updated (from beginning to end)
-      - once that char has updated, that enables the following char to update
-    2. Animate chars
+    1. pass style from heroText into heroChar (make sure the styles of the text do not change on state change)
+    2. rename heroChar to heroChars
+    3. create a function that adds an animate out animation class
+    4. create a function that reads ths opacity of the animated element
+    5. when the animated element is at 0, animate in the new chars and update the state
   */
   componentDidUpdate() {
-    this.animateChars();
+    // setTimeout(() => this.animateChars(), 2000);
+    // console.log('charLoader');
+    // console.log(this.props.charLoader.length);
+    // console.log('currentChars');
+    // console.log(this.props.currentChars);
+    if (!this.arraysEqual(this.props.currentChars, this.props.charLoader)) {
+      if (this.props.charLoader.length > 0) this.animateChars();
+      else this.updateState(['j', 'm']);
+    }
   }
+
 
   // check the character for a space
   setClass() {
@@ -21,35 +31,45 @@ class HeroChar extends Component {
     return heroCharClass;
 	}
 
-  animateChars() {
-    // if the current char !== to the char in the char loader
-    const number = this.props.number;
-    const currentChar = this.props.charArr[number];
-    const newChar = this.props.charLoader[number];
-    // console.log(`current char = ${currentChar}`);
-    // console.log(`new char = ${newChar}`);
-
-    // // do animation logic here
-    /*
-      create if statement with number variable to make sure characters are updating in chronological order
-      set updateState at the end of each char update to see it change per char
-    */
-
-    // on end of animation logic update char loader
-    if (currentChar !== newChar) {
-      setTimeout(this.updateState.bind(this), 2000);
-    }
+  arraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = arr1.length; i--;) if (arr1[i] !== arr2[i]) return false;
+    return true;
   }
 
-  updateState() {
-    this.props.fetchCurrentChars(this.props.charLoader);
+  animateChars() {
+    // if the current char !== to the char in the char loader
+    const currentChar = this.props.currentChars;
+    const currentCharUpdated = this.props.charLoader;
+
+    // if (this.props.charArr !== this.props.charLoader) {
+      console.log('beginning animation');
+      console.log('currentChar');
+      console.log(currentChar);
+      console.log('currentCharUpdated');
+      console.log(currentCharUpdated);
+      if (!this.arraysEqual(currentChar, currentCharUpdated)) {
+        console.log('end animation');
+        const that = this;
+        setTimeout(() => { that.updateState(currentCharUpdated); }, 1000);
+        // console.log('current char updated');
+      }
+    // }
+  }
+
+  updateState(charArr) {
+    // console.log('update char');
+    // console.log(this.props.charLoader);
+    this.props.fetchCurrentChars(charArr);
   }
 
   render() {
     // create newchar which is hidden above current char with 0 opacity
-    const currentChar = this.props.charArr[this.props.number];
+    const currentChar = this.props.chars;
+    // console.log('currentChar');
+    // console.log(currentChar);
     return (
-      <span key={this.props.number} className={this.setClass().join(' ')}>
+      <span className={this.setClass().join(' ')}>
         { currentChar }
       </span>
     );
@@ -58,7 +78,8 @@ class HeroChar extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	charLoader: state.charLoader
+	charLoader: state.charLoader,
+  currentChars: state.currentChars
 });
 
 export default connect(mapStateToProps, { fetchCurrentChars })(HeroChar);

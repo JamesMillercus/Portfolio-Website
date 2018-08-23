@@ -61,15 +61,12 @@ class HeroText extends Component {
   // update the hero text based on what has been scrolled over
   heroText() {
     const heroCharsArr = [];
-    const currentChars = this.props.currentChars;
-
     // push all content into the items array
     for (let x = 0; x < this.props.currentChars.length; x++) {
-      const currentChar = this.props.currentChars[x];
-      heroCharsArr.push(<HeroChar number={x} key={x} charArr={currentChars} char={currentChar} />);
+      heroCharsArr.push(this.props.currentChars[x]);
     }
-    // return this.updateChar(activeHeroText, selectedItem).charLoader;
-    return heroCharsArr;
+    // do animation of HeroChars within that component
+    return <HeroChar chars={heroCharsArr} />;
   }
 
   render() {
