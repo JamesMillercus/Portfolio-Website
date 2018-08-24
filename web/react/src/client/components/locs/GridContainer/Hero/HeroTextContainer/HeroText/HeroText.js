@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import heroTextConfig from './assets/config/heroTextConfig.js';
 import { fetchCharLoader } from './../../../../../../actions';
-import HeroChars from './HeroChars/HeroChars';
+import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
 
 class HeroText extends Component {
@@ -52,7 +52,7 @@ class HeroText extends Component {
       heroCharsArr.push(this.props.currentChars[x]);
     }
     // do animation of HeroChars within that component
-    return <HeroChars chars={heroCharsArr} />;
+    return <HeroTextChars chars={heroCharsArr} />;
   }
 
   // h1 with css style based on the selected item and icon

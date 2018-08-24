@@ -1,0 +1,16 @@
+$speed: 200ms;
+
+.animateOldCharsOut, .animateNewCharsIn {
+  -webkit-transition: opacity $speed;
+  -moz-transition: opacity $speed;
+  -o-transition: opacity $speed;
+  transition: opacity $speed;
+}
+
+.animateOldCharsOut {
+  opacity:0;
+}
+
+.animateNewCharsIn {
+  opacity:1;
+}

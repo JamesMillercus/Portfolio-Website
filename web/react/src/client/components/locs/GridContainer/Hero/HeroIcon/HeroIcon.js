@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import {
 	fetchActiveHeroIcon,
+	fetchScrolledHeroIcon,
 	fetchDeviceType,
 	fetchHeroTextAnimation
 } from './../../../../../actions';
@@ -16,6 +17,8 @@ class HeroIcon extends Component {
 		this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
 		if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
 		else this.props.fetchHeroTextAnimation(true);
+
+		this.activeHero(this.props.scrolledHeroIcon);
 	}
 
 	setClass() {
@@ -24,8 +27,18 @@ class HeroIcon extends Component {
 		return iconClasses.join(' ');
 	}
 
-	activateHero(className) {
-		if (this.props.deviceType === 'laptop') this.props.fetchActiveHeroIcon(className);
+	activeHero(className) {
+		const that = this;
+		if (this.props.deviceType === 'laptop') {
+			if (className !== 'none') this.props.fetchActiveHeroIcon(className);
+			else {
+				setTimeout(() => {
+					if (this.props.scrolledHeroIcon === 'none') {
+						that.props.fetchActiveHeroIcon(className);
+					}
+				}, 2000);
+			}
+		}
 	}
 
 	checkTarget() {
@@ -36,8 +49,8 @@ class HeroIcon extends Component {
 	render() {
 		const href = this.props.href;
 		const rel = 'noreferrer noopener';
-		const ovr = this.activateHero.bind(this, this.props.className);
-		const out = this.activateHero.bind(this, 'none');
+		const ovr = this.props.fetchScrolledHeroIcon.bind(this, this.props.className);
+		const out = this.props.fetchScrolledHeroIcon.bind(this, 'none');
 		const css = this.setClass();
 		const target = this.checkTarget();
 		return (
@@ -49,6 +62,7 @@ class HeroIcon extends Component {
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
+	scrolledHeroIcon: state.scrolledHeroIcon,
 	deviceType: state.deviceType,
 	scrolledItem: state.scrolledItem
 });
@@ -56,6 +70,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
 	fetchActiveHeroIcon,
+	fetchScrolledHeroIcon,
 	fetchDeviceType,
 	fetchHeroTextAnimation
 })(HeroIcon);

@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import heroFooterConfig from './assets/config/heroFooterConfig.js';
+import HeroSubChars from './../HeroSubChars/HeroSubChars';
+import { fetchCurrentFooterChars } from './../../../../../../actions';
 import './assets/scss';
 
-const HeroFooter = ({ activeHero, scrolledItem, deviceType, allowedAnimation }) => {
-  const setClass = (heroTextClass) => {
-		const iconClasses = [heroTextClass];
-		if (scrolledItem === 4 && deviceType === 'laptop') {
-			iconClasses.push('reveal');
-		}
-		return iconClasses.join(' ');
-	};
+class HeroFooter extends Component {
 
-  const heroFooter = (activeHeroText, selectedItem) => {
+  heroFooter(activeHeroText, selectedItem) {
     if (selectedItem === 4) {
-      if (allowedAnimation) return updateHero(activeHeroText, selectedItem);
-      return updateHero('none', null);
+      if (this.props.heroTextAnimation) return this.updateHero(activeHeroText, selectedItem);
+      return this.updateHero('none', null);
     }
-    return updateHero(activeHeroText, selectedItem);
-	};
+    return this.updateHero(activeHeroText, selectedItem);
+	}
 
-  const updateHero = (activeHeroText, selectedItem) => {
+  updateHero(activeHeroText, selectedItem) {
     let returntext;
     Reflect.ownKeys(heroFooterConfig).forEach(key => {
       if (selectedItem === 4 || selectedItem === null) {
@@ -30,10 +26,29 @@ const HeroFooter = ({ activeHero, scrolledItem, deviceType, allowedAnimation }) 
         returntext = heroFooterConfig[key];
       }
     });
+
     return returntext;
-  };
+  }
 
-	return <p className={setClass('heroFooterText')}> {heroFooter(activeHero, scrolledItem)} </p>;
-};
+  render() {
+    return (
+      <HeroSubChars
+        charLoader={this.heroFooter(this.props.activeHeroIcon, this.props.scrolledItem)}
+        scrolledItem={this.props.scrolledItem}
+        currentChars={this.props.currentFooterChars}
+        fetchCurrentChars={this.props.fetchCurrentFooterChars}
+        heroTextStyle={'heroFooterText'}
+      />
+    );
+  }
+}
 
-export default HeroFooter;
+// map the state of data called from fetchUsers to users[state.users]
+const mapStateToProps = (state) => ({
+	activeHeroIcon: state.activeHeroIcon,
+	scrolledItem: state.scrolledItem,
+	heroTextAnimation: state.heroTextAnimation,
+  currentFooterChars: state.currentFooterChars
+});
+
+export default connect(mapStateToProps, { fetchCurrentFooterChars })(HeroFooter);

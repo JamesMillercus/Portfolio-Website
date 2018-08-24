@@ -57,10 +57,22 @@ export const fetchClickedItems = (item) => async (dispatch) => {
 export const FETCH_ACTIVE_HERO_ICON = 'fetch_active_hero_icon';
 // action creator
 export const fetchActiveHeroIcon = (activeHeroIcon) => async (dispatch) => {
-	const res = activeHeroIcon;
+	const res = activeHeroIcon || 'none';
 
 	dispatch({
 		type: FETCH_ACTIVE_HERO_ICON,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_SCROLLED_HERO_ICON = 'fetch_scrolled_hero_icon';
+// action creator
+export const fetchScrolledHeroIcon = (scrolledHeroIcon) => async (dispatch) => {
+	const res = scrolledHeroIcon;
+
+	dispatch({
+		type: FETCH_SCROLLED_HERO_ICON,
 		payload: res
 	});
 };
@@ -125,6 +137,32 @@ export const fetchCurrentChars = (charArr) => async (dispatch) => {
 
 	dispatch({
 		type: FETCH_CURRENT_CHARS,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_CURRENT_HEADER_CHARS = 'fetch_current_header_chars';
+
+// action creator
+export const fetchCurrentHeaderChars = (charArr) => async (dispatch) => {
+	const res = charArr || '';
+
+	dispatch({
+		type: FETCH_CURRENT_HEADER_CHARS,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_CURRENT_FOOTER_CHARS = 'fetch_current_footer_chars';
+
+// action creator
+export const fetchCurrentFooterChars = (charArr) => async (dispatch) => {
+	const res = charArr || '';
+
+	dispatch({
+		type: FETCH_CURRENT_FOOTER_CHARS,
 		payload: res
 	});
 };
