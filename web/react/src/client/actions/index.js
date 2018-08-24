@@ -117,11 +117,9 @@ export const fetchCharLoader = (charArr) => async (dispatch) => {
 // stored data of clicked items
 export const FETCH_CURRENT_CHARS = 'fetch_current_chars';
 
-let storedArr;
 // action creator
 export const fetchCurrentChars = (charArr) => async (dispatch) => {
-	storedArr = charArr;
-	const res = storedArr;
+	const res = charArr;
 	// console.log('res');
 	// console.log(res);
 

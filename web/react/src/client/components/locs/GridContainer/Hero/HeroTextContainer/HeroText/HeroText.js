@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import heroTextConfig from './assets/config/heroTextConfig.js';
 import { fetchCharLoader } from './../../../../../../actions';
-import HeroChar from './HeroChar/HeroChar';
+import HeroChars from './HeroChars/HeroChars';
 import './assets/scss';
 
 class HeroText extends Component {
@@ -18,25 +18,11 @@ class HeroText extends Component {
       // if scrolled over 4, or the page has just loaded
       if (selectedItem === 4 || selectedItem === null) {
         // if the scrolled over icon (or none for logo) === key
-        if (activeHeroText === key) {
-          returnedCharArr = heroTextConfig[key];
-        }
+        if (activeHeroText === key) returnedCharArr = heroTextConfig[key];
         // else if scrolled over an item
-      } else if (`item${selectedItem}` === key) {
-        returnedCharArr = heroTextConfig[key];
-      }
+      } else if (`item${selectedItem}` === key) returnedCharArr = heroTextConfig[key];
     });
     return returnedCharArr;
-  }
-
-  setHeroStyle(selectedIcon, selectedItem) {
-    if (selectedItem === null) return 'heroLogo';
-    if (selectedIcon === 'none' && selectedItem === 4) return 'heroLogo';
-    if (this.props.heroTextAnimation || selectedItem !== 4) {
-      if (selectedIcon === 'topLeftIcon') return 'heroEmailText';
-      return 'heroIconText';
-    }
-    return 'heroLogo';
   }
 
   prepCharLoader(activeHeroText, selectedItem) {
@@ -66,18 +52,12 @@ class HeroText extends Component {
       heroCharsArr.push(this.props.currentChars[x]);
     }
     // do animation of HeroChars within that component
-    return <HeroChar chars={heroCharsArr} />;
+    return <HeroChars chars={heroCharsArr} />;
   }
 
+  // h1 with css style based on the selected item and icon
   render() {
-    return (
-      // h1 with css style based on the selected item and icon
-      <h1 className={this.setHeroStyle(this.props.activeHeroIcon, this.props.scrolledItem)}>
-        { // display hero text based on selected item and icon
-          this.heroText()
-        }
-      </h1>
-    );
+    return <h1> { this.heroText() } </h1>;
   }
 }
 

@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrentChars } from './../../../../../../../actions';
 
-class HeroChar extends Component {
+class HeroChars extends Component {
 
   /* to do
-    1. pass style from heroText into heroChar (make sure the styles of the text do not change on state change)
-    2. rename heroChar to heroChars
-    3. create a function that adds an animate out animation class
-    4. create a function that reads ths opacity of the animated element
-    5. when the animated element is at 0, animate in the new chars and update the state
+    1. create css animation for opacity
+    2. create a function that reads ths opacity of the animated element
+    3. when the animated element is at 0, animate in the new chars and update the state
   */
   componentDidUpdate() {
     // setTimeout(() => this.animateChars(), 2000);
@@ -26,8 +24,19 @@ class HeroChar extends Component {
 
   // check the character for a space
   setClass() {
+    if (!this.arraysEqual(this.props.currentChars, this.props.charLoader)) {
+      console.log('ANIMATION REQUIRED!');
+      // add animation class here (reduce opacity to 0)
+    } else {
+      console.log('ANIMATION UPDATE REQUIRED!');
+      // add animation class to bring opacity to 1
+    }
     const heroCharClass = ['herotext start'];
-    if (this.props.char === ' ') heroCharClass.push('space');
+    if (this.props.chars.length <= 2) heroCharClass.push('heroLogo');
+    else if (this.props.chars.length > 2 && this.props.chars.length <= 15) {
+      if (this.props.char === ' ') heroCharClass.push('space');
+      heroCharClass.push('heroIconText');
+    } else if (this.props.chars.length > 15) heroCharClass.push('heroEmailText');
     return heroCharClass;
 	}
 
@@ -43,15 +52,17 @@ class HeroChar extends Component {
     const currentCharUpdated = this.props.charLoader;
 
     // if (this.props.charArr !== this.props.charLoader) {
-      console.log('beginning animation');
-      console.log('currentChar');
-      console.log(currentChar);
-      console.log('currentCharUpdated');
-      console.log(currentCharUpdated);
+      // console.log('beginning animation');
+      // console.log('currentChar');
+      // console.log(currentChar);
+      // console.log('currentCharUpdated');
+      // console.log(currentCharUpdated);
       if (!this.arraysEqual(currentChar, currentCharUpdated)) {
         console.log('end animation');
         const that = this;
-        setTimeout(() => { that.updateState(currentCharUpdated); }, 1000);
+        setTimeout(() => {
+          that.updateState(currentCharUpdated);
+        }, 1000);
         // console.log('current char updated');
       }
     // }
@@ -82,4 +93,4 @@ const mapStateToProps = (state) => ({
   currentChars: state.currentChars
 });
 
-export default connect(mapStateToProps, { fetchCurrentChars })(HeroChar);
+export default connect(mapStateToProps, { fetchCurrentChars })(HeroChars);
