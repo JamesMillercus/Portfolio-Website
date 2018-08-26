@@ -15,6 +15,7 @@ class HeroIcon extends Component {
 	componentDidUpdate() {
 		const elem = this.refs.icon;
 		this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
+		
 		if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
 		else this.props.fetchHeroTextAnimation(true);
 
@@ -28,21 +29,24 @@ class HeroIcon extends Component {
 	}
 
 	activeHero(className) {
+		let timer;
 		const that = this;
 		if (this.props.deviceType === 'laptop') {
-			if (className !== 'none') this.props.fetchActiveHeroIcon(className);
-			else {
-				setTimeout(() => {
+			if (className !== 'none') {
+				clearTimeout(timer);
+				this.props.fetchActiveHeroIcon(className);
+			}	else {
+				timer = setTimeout(() => {
 					if (this.props.scrolledHeroIcon === 'none') {
 						that.props.fetchActiveHeroIcon(className);
 					}
-				}, 2000);
+				}, 150);
 			}
 		}
 	}
 
 	checkTarget() {
-		if (this.props.className === 'topLeftIcon') return '_self';
+		if (this.props.className === 'centerLeftIcon') return '_self';
 		return '_blank';
 	}
 

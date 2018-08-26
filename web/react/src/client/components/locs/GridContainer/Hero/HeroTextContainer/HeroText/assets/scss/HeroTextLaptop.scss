@@ -1,9 +1,14 @@
+$herospeed: 200ms;
+
 .grid-container-laptop .item4 .heroTextContainer h1 {
+	-webkit-transition: all $herospeed;
+	-moz-transition: all $herospeed;
+	-o-transition: all $herospeed;
+	transition: all $herospeed;
 	/* height: 100%; */
 	grid-area: hero;
 	// font-family: Source Sans Pro,sans-serif;
-	font-family: 'Baloo Bhaina', cursive;
-	color: #7c7c7c;
+	font-family: Baloo Bhaina,cursive;
 	font-size: 45px;
 	letter-spacing: -12.2px;
 	text-align: center;
@@ -11,33 +16,59 @@
 	z-index: 1;
 	line-height: 0;
 	font-weight: 100;
-	width: 100%;
-	top: -8%;
-	-webkit-text-stroke-width: 1px;
+	width: 80px;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	margin-top: 0;
+	background-color: #7c7c7c;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.designIcon {
+	background-color: #008f9c;
+	background-image: url(/assets/images/design.png);
+	background-size: 65%;
+	-webkit-box-shadow: inset -4px -4px 0 #000;
+	-moz-box-shadow: inset -4px -4px 0 #000;
+	box-shadow: inset -4px -4px 0 #000;
+	margin-top: 2px;
+	background-repeat: no-repeat;
+	background-position: 50%;
 }
 
 .grid-container-laptop .item4 .heroTextContainer span.heroLogo {
-	font-size: 60px;
-  letter-spacing: -17px;
-  line-height: 0.3;
+	font-size: 55px;
+  letter-spacing: -15px;
+  line-height: 1.6;
   -webkit-text-stroke-width: 0;
-	font-weight: normal;
-	margin-left:-4%;
+  font-weight: 400;
+  margin-left: -12%;
+	color: #fff;
+	-webkit-transition: all $herospeed;
+	-moz-transition: all $herospeed;
+	-o-transition: all $herospeed;
+	transition: all $herospeed;
 }
 
-.grid-container-laptop .item4 .heroTextContainer span.heroLogo:first-child {
-  font-size: 62px;
+.grid-container-laptop .item4 .heroTextContainer h1:hover {
+	background-color: #008f9c;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.nonLogo {
+	background-color:white;
+	border-radius: 50%;
+	// -webkit-transition: all $herospeed;
+	// -moz-transition: all $herospeed;
+	// -o-transition: all $herospeed;
+	// transition: all $herospeed;
+	// border-radius:0;
 }
 
 .grid-container-laptop .item4 .heroTextContainer span.heroIconText {
 	font-size: 40px;
-	letter-spacing: 0px;
-	line-height: .5;
-}
-
-.grid-container-laptop .item4 .heroTextContainer span.heroEmailText {
-	font-size: 30px;
-	letter-spacing: -2px;
-	line-height: .5;
-	-webkit-text-stroke-width: 0px;
+	letter-spacing: 0;
+	width: 100%;
+	position: absolute;
+	top: 52%;
 }

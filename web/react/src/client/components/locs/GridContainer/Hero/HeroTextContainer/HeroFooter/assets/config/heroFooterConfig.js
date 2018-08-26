@@ -1,9 +1,8 @@
 export default {
-	none: 'to bring tech ideas to life',
-	topLeftIcon: 'to brief me on your ideas',
-	topCenterIcon: 'softwares Sketch and Framer',
-	topRightIcon: 'tools such as the Raspberry Pi',
-	bottomLeftIcon: 'AR, VR, Blockchain or web app',
-	bottomCenterIcon: 'together to make amazing stuff',
-	bottomRightIcon: 'updates for technology ideas'
+	none: 'i bring ideas to life using design, code & hardware',
+	leftIcon: 'AR, VR, Blockchain or web app',
+	centerLeftIcon: 'say hi@jamesmiller.design and tell me about your ideas',
+	centerRightIcon: 'launch the idea as an AR, VR, Blockchain or web app',
+	rightIcon: 'updates for technology ideas',
+	designIcon: 'prototype the idea as a product or digital experience'
 };

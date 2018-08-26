@@ -12,7 +12,7 @@ class Hero extends Component {
 	}
 
 	revealHeroIcons() {
-		if (this.props.scrolledItem === 4) return true;
+		if (this.props.navBarRevealed === true) return true;
 		return false;
 	}
 
@@ -20,7 +20,7 @@ class Hero extends Component {
 		const icons = [];
 		const reveal = this.revealHeroIcons();
 		// push all content into the items array
-		for (let x = 0; x < 6; x++) {
+		for (let x = 0; x < heroConfig.length; x++) {
 			const css = heroConfig[x].className;
 			const href = heroConfig[x].href;
 			icons.push(<HeroIcon className={css} href={href} revealIcons={reveal} key={x} />);
@@ -43,7 +43,8 @@ class Hero extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	scrolledItem: state.scrolledItem
+	scrolledItem: state.scrolledItem,
+	navBarRevealed: state.navBarRevealed
 });
 
 

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import heroTextConfig from './assets/config/heroTextConfig.js';
-import { fetchCharLoader } from './../../../../../../actions';
+import { fetchCharLoader, fetchNavBarRevealed } from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
+
+/*
+  1. update icon images
+  2. update colours of scrolled texts
+  3. make with of sub text 50%
+  4. make hero logo animate bigger when hovered hover
+*/
 
 class HeroText extends Component {
 
@@ -11,14 +18,27 @@ class HeroText extends Component {
     this.prepCharLoader(this.props.activeHeroIcon, this.props.scrolledItem);
   }
 
+  setClass() {
+    // style of text based on content
+    const heroCharClass = [];
+    if (this.props.navBarRevealed) heroCharClass.push('designIcon');
+    else if (this.props.scrolledItem !== 4 && this.props.scrolledItem !== null) {
+      heroCharClass.push('nonLogo');
+    }
+    return heroCharClass;
+	}
+
   getChar(activeHeroText, selectedItem) {
     // loop through each key within heroTextConfig
     let returnedCharArr;
     Reflect.ownKeys(heroTextConfig).forEach(key => {
       // if scrolled over 4, or the page has just loaded
+      // if (selectedItem === 4 || selectedItem === null) {
       if (selectedItem === 4 || selectedItem === null) {
         // if the scrolled over icon (or none for logo) === key
         if (activeHeroText === key) returnedCharArr = heroTextConfig[key];
+        else if (this.props.navBarRevealed) returnedCharArr = [''];
+        else returnedCharArr = heroTextConfig.none;
         // else if scrolled over an item
       } else if (`item${selectedItem}` === key) returnedCharArr = heroTextConfig[key];
     });
@@ -57,7 +77,9 @@ class HeroText extends Component {
 
   // h1 with css style based on the selected item and icon
   render() {
-    return <h1> { this.heroText() } </h1>;
+    const click = this.props.fetchNavBarRevealed.bind(this, !this.props.navBarRevealed);
+
+    return <h1 onClick={click} className={this.setClass().join(' ')}> { this.heroText() } </h1>;
   }
 }
 
@@ -67,7 +89,8 @@ const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
 	deviceType: state.deviceType,
 	heroTextAnimation: state.heroTextAnimation,
-	currentChars: state.currentChars
+	currentChars: state.currentChars,
+  navBarRevealed: state.navBarRevealed
 });
 
-export default connect(mapStateToProps, { fetchCharLoader })(HeroText);
+export default connect(mapStateToProps, { fetchCharLoader, fetchNavBarRevealed })(HeroText);

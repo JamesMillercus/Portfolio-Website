@@ -14,6 +14,7 @@ class HeroSubChars extends Component {
     const scrolledItem = this.props.scrolledItem;
     const deviceType = this.props.deviceType;
 		const iconClasses = [heroTextClass];
+    if (this.props.navBarRevealed) iconClasses.push('designSubText');
 		if (scrolledItem === 4 && deviceType === 'laptop') iconClasses.push('reveal');
     // animation state
     if (currentChars !== charLoader) iconClasses.push('animateOldSubCharsOut');
@@ -25,7 +26,7 @@ class HeroSubChars extends Component {
     const currentCharUpdated = this.props.charLoader;
     // const opacityValue = window.getComputedStyle(this.refs.animate).getPropertyValue('opacity');
     const that = this;
-    setTimeout(() => { that.updateState(currentCharUpdated); }, 400);
+    setTimeout(() => { that.updateState(currentCharUpdated); }, 100);
   }
 
   updateState(charArr) {
@@ -43,7 +44,8 @@ class HeroSubChars extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	deviceType: state.deviceType
+	deviceType: state.deviceType,
+  navBarRevealed: state.navBarRevealed
 });
 
 export default connect(mapStateToProps, null)(HeroSubChars);

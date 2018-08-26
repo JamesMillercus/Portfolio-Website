@@ -11,7 +11,7 @@ import heroTextAnimationReducer from './heroTextAnimationReducer';
 import backgroundPosReducer from './backgroundPosReducer';
 import charLoaderReducer from './charLoaderReducer';
 import currentCharsReducer from './currentCharsReducer';
-import currentHeaderCharsReducer from './currentHeaderCharsReducer';
+import navBarRevealedReducer from './navBarRevealedReducer';
 import currentFooterCharsReducer from './currentFooterCharsReducer';
 // combine all existing reducers
 export default combineReducers({
@@ -26,6 +26,6 @@ export default combineReducers({
 	backgroundPos: backgroundPosReducer,
 	charLoader: charLoaderReducer,
 	currentChars: currentCharsReducer,
-	currentHeaderChars: currentHeaderCharsReducer,
+	navBarRevealed: navBarRevealedReducer,
 	currentFooterChars: currentFooterCharsReducer
 });

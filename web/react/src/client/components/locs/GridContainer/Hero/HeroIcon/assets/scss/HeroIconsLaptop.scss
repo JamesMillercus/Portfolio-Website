@@ -1,8 +1,8 @@
 /* adjustable variables for icon hiding*/
-$iconHideTopVertical: 50%;
+$iconHideTopVertical: 10%;
 $iconHideBottomVertical: -50%;
-$iconHideRightHorizontal: -35%;
-$iconHideLeftHorizontal: 35%;
+$iconHideRightHorizontal: -18%;
+$iconHideLeftHorizontal: 18%;
 
 .grid-container-laptop .item4 {
     grid-area: middlecenter;
@@ -12,51 +12,33 @@ $iconHideLeftHorizontal: 35%;
     color: #7c7c7c !important;
 }
 /* set topleft icon pos & src */
-.grid-container-laptop .item4 .topLeftIcon {
-    grid-area: topLeftIcon;
+.grid-container-laptop .item4 .centerLeftIcon {
+    grid-area: centerLeftIcon;
     background-image: url(/assets/images/topLeftIcon.jpg);
     top: $iconHideTopVertical;
     left:$iconHideLeftHorizontal;
 }
 
-/* set topcenter icon pos & src */
-.grid-container-laptop .item4 .topCenterIcon {
-    grid-area: topCenterIcon;
-    background-image: url(/assets/images/topCenterIcon.jpg);
-    top: $iconHideTopVertical;
-}
+// /* set topcenter icon pos & src */
+// .grid-container-laptop .item4 .centerLeftIcon {
+//     grid-area: centerLeftIcon;
+//     background-image: url(/assets/images/topCenterIcon.jpg);
+//     top: $iconHideTopVertical;
+// }
 
-/* set topright icon pos & src */
-.grid-container-laptop .item4 .topRightIcon {
-    grid-area: topRightIcon;
-    background-image: url(/assets/images/topRightIcon.jpg);
-    top: $iconHideTopVertical;
-    left: $iconHideRightHorizontal;
-}
+// /* set topright icon pos & src */
+// .grid-container-laptop .item4 .centerRightIcon {
+//     grid-area: centerRightIcon;
+//     background-image: url(/assets/images/topRightIcon.jpg);
+//     top: $iconHideTopVertical;
+// }
 
 
 /* set bottomleft icon pos & src */
-.grid-container-laptop .item4 .bottomLeftIcon {
-    grid-area: bottomLeftIcon;
+.grid-container-laptop .item4 .centerRightIcon {
+    grid-area: centerRightIcon;
     background-image: url(/assets/images/bottomLeftIcon.jpg);
-    left: $iconHideLeftHorizontal;
-    top: $iconHideBottomVertical;
-}
-
-
-/* set bottomcenter icon pos & src */
-.grid-container-laptop .item4 .bottomCenterIcon {
-    grid-area: bottomCenterIcon;
-    background-image: url(/assets/images/bottomCenterIcon.jpg);
-    top: $iconHideBottomVertical;
-}
-
-
-/* set bottomright icon pos & src */
-.grid-container-laptop .item4 .bottomRightIcon {
-    grid-area: bottomRightIcon;
-    background-image: url(/assets/images/bottomRightIcon.jpg);
-    top: $iconHideBottomVertical;
+    top: $iconHideTopVertical;
     left: $iconHideRightHorizontal;
 }
 
@@ -68,18 +50,20 @@ $iconHideLeftHorizontal: 35%;
   opacity: 0;
   cursor: none;
   height: 30px;
-  width: 50%;
+  width: 30px;
   position: relative;
   margin:auto;
+  z-index: -1;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.grid-container-laptop  .active {
+.grid-container-laptop .icon.active {
     /*display:inline-block;*/
     cursor:pointer;
+    z-index: 1;
 }
 
 /* set all unlocked icons hover styling */
-.grid-container-laptop .item4 .active:hover {
+.grid-container-laptop .item4 .icon.active:hover {
 	background-position: 50% 100%;
 	opacity: 1 !important;
 }

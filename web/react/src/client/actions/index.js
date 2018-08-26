@@ -142,14 +142,14 @@ export const fetchCurrentChars = (charArr) => async (dispatch) => {
 };
 
 // stored data of clicked items
-export const FETCH_CURRENT_HEADER_CHARS = 'fetch_current_header_chars';
+export const FETCH_NAV_BAR_REVEALED = 'fetch_nav_bar_revealed';
 
 // action creator
-export const fetchCurrentHeaderChars = (charArr) => async (dispatch) => {
-	const res = charArr || '';
+export const fetchNavBarRevealed = (revealed) => async (dispatch) => {
+	const res = revealed || false;
 
 	dispatch({
-		type: FETCH_CURRENT_HEADER_CHARS,
+		type: FETCH_NAV_BAR_REVEALED,
 		payload: res
 	});
 };

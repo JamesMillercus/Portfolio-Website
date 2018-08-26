@@ -9,13 +9,15 @@ import './assets/scss';
 import {
 	fetchScrolledItem,
 	fetchActiveItem,
-	fetchClickedItems
+	fetchClickedItems,
+	fetchNavBarRevealed
 } from './../../../../actions';
 
 class ItemContainer extends Component {
 
 	scrolledItem(item) {
 		this.props.fetchScrolledItem(item);
+		this.props.fetchNavBarRevealed(false);
 	}
 
 	clickedItem(item) {
@@ -53,5 +55,5 @@ const mapStateToProps = (state) => ({
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchNavBarRevealed }
 )(ItemContainer);

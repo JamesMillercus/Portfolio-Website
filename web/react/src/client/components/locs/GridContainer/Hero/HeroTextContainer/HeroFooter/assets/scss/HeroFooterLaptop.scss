@@ -1,3 +1,12 @@
+$herofooterspeed: 200ms;
+
+.grid-container-laptop .item4 .heroFooterText {
+  -webkit-transition: opacity $herofooterspeed, color $herofooterspeed;
+  -moz-transition: opacity $herofooterspeed, color $herofooterspeed;
+  -o-transition: opacity $herofooterspeed, color $herofooterspeed;
+  transition: opacity $herofooterspeed, color $herofooterspeed;
+}
+
 .grid-container-laptop .item4 .heroFooterText {
 	// height: 100%;
   width: 100%;
@@ -6,5 +15,9 @@
 	grid-area: heroBottomText;
 	position: absolute;
 	margin: 0px 0px 17% 0px;
-	bottom:0;
+	top:0;
+}
+
+.grid-container-laptop .item4 h1:hover ~ .heroFooterText {
+    color: #008f9c;
 }

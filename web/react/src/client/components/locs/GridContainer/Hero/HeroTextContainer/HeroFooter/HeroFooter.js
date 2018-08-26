@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import heroFooterConfig from './assets/config/heroFooterConfig.js';
-import HeroSubChars from './../HeroSubChars/HeroSubChars';
+import HeroSubChars from './HeroSubChars/HeroSubChars';
 import { fetchCurrentFooterChars } from './../../../../../../actions';
 import './assets/scss';
 
@@ -20,7 +20,9 @@ class HeroFooter extends Component {
     Reflect.ownKeys(heroFooterConfig).forEach(key => {
       if (selectedItem === 4 || selectedItem === null) {
         if (activeHeroText === key) {
-          returntext = heroFooterConfig[key];
+          if (activeHeroText === 'none' && this.props.navBarRevealed) {
+            returntext = heroFooterConfig.designIcon;
+          } else returntext = heroFooterConfig[key];
         }
       } else if (`item${selectedItem}` === key) {
         returntext = heroFooterConfig[key];
@@ -48,7 +50,8 @@ const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
 	scrolledItem: state.scrolledItem,
 	heroTextAnimation: state.heroTextAnimation,
-  currentFooterChars: state.currentFooterChars
+  currentFooterChars: state.currentFooterChars,
+  navBarRevealed: state.navBarRevealed
 });
 
 export default connect(mapStateToProps, { fetchCurrentFooterChars })(HeroFooter);

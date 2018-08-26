@@ -63,14 +63,13 @@ body {
 /* set middle center grid rules */
 .grid-container-laptop .middlecenter {
   display: grid;
-  grid-template-rows: 21.67% 15% 26.67% 15% 21.67%;
-  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 33.33% 33.33% 10% 23.33%;
+  grid-template-columns: 17.5% 17.5% 30% 17.5% 17.5%;
   grid-template-areas:
-  'topLeftIcon topCenterIcon topRightIcon'
-  'heroTopText heroTopText heroTopText'
-  'hero hero hero'
-  'heroBottomText heroBottomText heroBottomText'
-  'bottomLeftIcon bottomCenterIcon bottomRightIcon';
+  'empty empty empty empty empty'
+  'leftIcon centerLeftIcon hero centerRightIcon rightIcon'
+  'heroTopText heroTopText heroTopText heroTopText heroTopText'
+  'heroBottomText heroBottomText heroBottomText heroBottomText heroBottomText';
   position:relative;
 }
 /* set middle right grid rules */
