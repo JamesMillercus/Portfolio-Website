@@ -18,17 +18,13 @@ class HeroFooter extends Component {
   updateHero(activeHeroText, selectedItem) {
     let returntext;
     Reflect.ownKeys(heroFooterConfig).forEach(key => {
-      if (selectedItem === 4 || selectedItem === null) {
-        if (activeHeroText === key) {
-          if (activeHeroText === 'none' && this.props.navBarRevealed) {
-            returntext = heroFooterConfig.designIcon;
-          } else returntext = heroFooterConfig[key];
-        }
-      } else if (`item${selectedItem}` === key) {
-        returntext = heroFooterConfig[key];
+      if (selectedItem === 4) {
+        if (activeHeroText === key) returntext = heroFooterConfig[key];
+        if (activeHeroText === 'none') returntext = heroFooterConfig.centerIcon;
+      } else if (selectedItem !== 4 || selectedItem === null) {
+        returntext = heroFooterConfig.none;
       }
     });
-
     return returntext;
   }
 
@@ -40,6 +36,7 @@ class HeroFooter extends Component {
         currentChars={this.props.currentFooterChars}
         fetchCurrentChars={this.props.fetchCurrentFooterChars}
         heroTextStyle={'heroFooterText'}
+        activeHeroIcon={this.props.activeHeroIcon}
       />
     );
   }
@@ -50,8 +47,7 @@ const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
 	scrolledItem: state.scrolledItem,
 	heroTextAnimation: state.heroTextAnimation,
-  currentFooterChars: state.currentFooterChars,
-  navBarRevealed: state.navBarRevealed
+  currentFooterChars: state.currentFooterChars
 });
 
 export default connect(mapStateToProps, { fetchCurrentFooterChars })(HeroFooter);

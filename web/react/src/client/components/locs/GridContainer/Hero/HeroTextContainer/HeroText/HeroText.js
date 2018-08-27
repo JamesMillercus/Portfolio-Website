@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import heroTextConfig from './assets/config/heroTextConfig.js';
-import { fetchCharLoader, fetchNavBarRevealed } from './../../../../../../actions';
+import { fetchCharLoader } from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
-
-/*
-  1. update icon images
-  2. update colours of scrolled texts
-  3. make with of sub text 50%
-  4. make hero logo animate bigger when hovered hover
-*/
 
 class HeroText extends Component {
 
@@ -21,10 +14,7 @@ class HeroText extends Component {
   setClass() {
     // style of text based on content
     const heroCharClass = [];
-    if (this.props.navBarRevealed) heroCharClass.push('designIcon');
-    else if (this.props.scrolledItem !== 4 && this.props.scrolledItem !== null) {
-      heroCharClass.push('nonLogo');
-    }
+    if (this.props.scrolledItem === 4) heroCharClass.push('centerIcon');
     return heroCharClass;
 	}
 
@@ -37,8 +27,6 @@ class HeroText extends Component {
       if (selectedItem === 4 || selectedItem === null) {
         // if the scrolled over icon (or none for logo) === key
         if (activeHeroText === key) returnedCharArr = heroTextConfig[key];
-        else if (this.props.navBarRevealed) returnedCharArr = [''];
-        else returnedCharArr = heroTextConfig.none;
         // else if scrolled over an item
       } else if (`item${selectedItem}` === key) returnedCharArr = heroTextConfig[key];
     });
@@ -77,9 +65,7 @@ class HeroText extends Component {
 
   // h1 with css style based on the selected item and icon
   render() {
-    const click = this.props.fetchNavBarRevealed.bind(this, !this.props.navBarRevealed);
-
-    return <h1 onClick={click} className={this.setClass().join(' ')}> { this.heroText() } </h1>;
+    return <h1 className={this.setClass().join(' ')}> { this.heroText() } </h1>;
   }
 }
 
@@ -89,8 +75,7 @@ const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
 	deviceType: state.deviceType,
 	heroTextAnimation: state.heroTextAnimation,
-	currentChars: state.currentChars,
-  navBarRevealed: state.navBarRevealed
+	currentChars: state.currentChars
 });
 
-export default connect(mapStateToProps, { fetchCharLoader, fetchNavBarRevealed })(HeroText);
+export default connect(mapStateToProps, { fetchCharLoader })(HeroText);

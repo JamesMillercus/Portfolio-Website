@@ -1,8 +1,8 @@
 /* adjustable variables for icon hiding*/
-$iconHideTopVertical: 10%;
+$iconHideTopVertical: 0px;
 $iconHideBottomVertical: -50%;
-$iconHideRightHorizontal: -18%;
-$iconHideLeftHorizontal: 18%;
+$iconHideRightHorizontal: -23%;
+$iconHideLeftHorizontal: 23%;
 
 .grid-container-laptop .item4 {
     grid-area: middlecenter;
@@ -12,9 +12,11 @@ $iconHideLeftHorizontal: 18%;
     color: #7c7c7c !important;
 }
 /* set topleft icon pos & src */
-.grid-container-laptop .item4 .centerLeftIcon {
+.grid-container-laptop .item4 a.centerLeftIcon {
     grid-area: centerLeftIcon;
-    background-image: url(/assets/images/topLeftIcon.jpg);
+    background-image: url(/assets/images/mailIcon.png);
+    background-size: 90%;
+    background-position-y: -10%;
     top: $iconHideTopVertical;
     left:$iconHideLeftHorizontal;
 }
@@ -35,35 +37,50 @@ $iconHideLeftHorizontal: 18%;
 
 
 /* set bottomleft icon pos & src */
-.grid-container-laptop .item4 .centerRightIcon {
+.grid-container-laptop .item4 a.centerRightIcon {
     grid-area: centerRightIcon;
-    background-image: url(/assets/images/bottomLeftIcon.jpg);
+    background-image: url(/assets/images/techIcon.png);
     top: $iconHideTopVertical;
     left: $iconHideRightHorizontal;
 }
+.grid-container-laptop .item4 a.centerRightIcon:hover{
+  background-color: #e4bc02;
+}
+.grid-container-laptop .item4 a.centerLeftIcon:hover{
+  background-color: #1d9c00;
+  background-size: auto 150%;
+}
+
 
 /* set icon dimensions & settings */
-.grid-container-laptop .icon {
-  background-size: auto 200%;
-  background-position: 50% 0;
+.grid-container-laptop a.icon {
+  background-size: auto 150%;
+  background-position: 50% -25%;
   background-repeat: no-repeat;
   opacity: 0;
   cursor: none;
   height: 30px;
   width: 30px;
   position: relative;
-  margin:auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
   z-index: -1;
+  border-radius: 50%;
+	background-color: white;
 }
 /* if icon has been unlocked, allow it to be pointed at */
-.grid-container-laptop .icon.active {
+.grid-container-laptop a.icon.active {
     /*display:inline-block;*/
     cursor:pointer;
     z-index: 1;
 }
 
 /* set all unlocked icons hover styling */
-.grid-container-laptop .item4 .icon.active:hover {
-	background-position: 50% 100%;
+.grid-container-laptop .item4 a.icon.active:hover {
+	background-position: 50% 125%;
 	opacity: 1 !important;
+  height: 50px;
+  width: 50px;
+  margin-top: -15%;
 }

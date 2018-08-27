@@ -12,7 +12,7 @@ class Hero extends Component {
 	}
 
 	revealHeroIcons() {
-		if (this.props.navBarRevealed === true) return true;
+		if (this.props.scrolledItem === 4) return true;
 		return false;
 	}
 
@@ -43,8 +43,7 @@ class Hero extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	scrolledItem: state.scrolledItem,
-	navBarRevealed: state.navBarRevealed
+	scrolledItem: state.scrolledItem
 });
 
 

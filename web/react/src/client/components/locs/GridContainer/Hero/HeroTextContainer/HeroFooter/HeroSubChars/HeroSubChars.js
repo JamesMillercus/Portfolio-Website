@@ -13,9 +13,13 @@ class HeroSubChars extends Component {
     const charLoader = this.props.charLoader;
     const scrolledItem = this.props.scrolledItem;
     const deviceType = this.props.deviceType;
+    const activeHeroText = this.props.activeHeroIcon;
 		const iconClasses = [heroTextClass];
-    if (this.props.navBarRevealed) iconClasses.push('designSubText');
-		if (scrolledItem === 4 && deviceType === 'laptop') iconClasses.push('reveal');
+		if (deviceType === 'laptop') iconClasses.push('reveal');
+    if (scrolledItem === 4) {
+      if (activeHeroText === 'none') iconClasses.push('centerIcon');
+      else iconClasses.push(activeHeroText);
+    } else iconClasses.push('none');
     // animation state
     if (currentChars !== charLoader) iconClasses.push('animateOldSubCharsOut');
     else iconClasses.push('animateNewSubCharsIn');
@@ -34,6 +38,8 @@ class HeroSubChars extends Component {
   }
 
   render() {
+    // console.log('this.props.currentChars');
+    // console.log(this.props.currentChars);
     return (
       <p className={this.setClass(this.props.heroTextStyle)}>
         {this.props.currentChars}
@@ -44,8 +50,7 @@ class HeroSubChars extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	deviceType: state.deviceType,
-  navBarRevealed: state.navBarRevealed
+	deviceType: state.deviceType
 });
 
 export default connect(mapStateToProps, null)(HeroSubChars);

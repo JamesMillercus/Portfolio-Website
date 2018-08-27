@@ -7,10 +7,10 @@ $iconLargeHorizontalSpace: 50%;
 $animationSpeed: 500ms;
 
 .grid-container-laptop .item4 .icon {
-  -webkit-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
-  -moz-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
-  -o-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
-  transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease;
+  -webkit-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease, background-color $animationSpeed, width $animationSpeed, height $animationSpeed, margin-top $animationSpeed;
+  -moz-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease, background-color $animationSpeed, width $animationSpeed, height $animationSpeed, margin-top $animationSpeed;
+  -o-transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease, background-color $animationSpeed, width $animationSpeed, height $animationSpeed, margin-top $animationSpeed;
+  transition: opacity $animationSpeed, top $animationSpeed ease, left $animationSpeed ease, background-color $animationSpeed, width $animationSpeed, height $animationSpeed, margin-top $animationSpeed;
 }
 
 .grid-container-laptop .item4 .icon.active {
