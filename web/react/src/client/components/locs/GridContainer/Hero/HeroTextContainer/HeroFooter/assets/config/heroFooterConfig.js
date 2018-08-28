@@ -6,5 +6,3 @@ export default {
 	centerRightIcon: 'launch ideas as AR, VR, desktop, mobile or web apps',
 	rightIcon: 'updates for technology ideas'
 };
-
-// i bring ideas to life using design, code & hardware

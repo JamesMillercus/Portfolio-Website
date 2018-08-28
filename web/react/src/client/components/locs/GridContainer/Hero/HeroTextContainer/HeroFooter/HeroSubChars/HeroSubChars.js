@@ -4,6 +4,10 @@ import './assets/scss';
 
 class HeroSubChars extends Component {
 
+  componentDidMount() {
+    if (this.props.currentChars !== this.props.charLoader) this.animateChars();
+  }
+
   componentDidUpdate() {
     if (this.props.currentChars !== this.props.charLoader) this.animateChars();
   }

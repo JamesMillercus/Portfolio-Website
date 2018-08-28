@@ -1,3 +1,5 @@
+/*eslint max-len: ["error", { "code": 200 }]*/
+
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
@@ -15,16 +17,16 @@ class HeroIcon extends Component {
 	componentDidUpdate() {
 		const elem = this.refs.icon;
 		this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
-		
-		if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
-		else this.props.fetchHeroTextAnimation(true);
-
-		this.activeHero(this.props.scrolledHeroIcon);
+		if (!this.props.siteAnimating) {
+			if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
+			else this.props.fetchHeroTextAnimation(true);
+			this.activeHero(this.props.scrolledHeroIcon);
+		}
 	}
 
 	setClass() {
 		const iconClasses = [`${this.props.className}`, 'icon'];
-		if (this.props.revealIcons) iconClasses.push('active');
+		if (this.props.revealIcons && !this.props.siteAnimating) iconClasses.push('active');
 		return iconClasses.join(' ');
 	}
 
@@ -68,7 +70,8 @@ const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
 	scrolledHeroIcon: state.scrolledHeroIcon,
 	deviceType: state.deviceType,
-	scrolledItem: state.scrolledItem
+	scrolledItem: state.scrolledItem,
+	siteAnimating: state.siteAnimating
 });
 
 

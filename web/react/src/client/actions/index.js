@@ -132,8 +132,6 @@ export const FETCH_CURRENT_CHARS = 'fetch_current_chars';
 // action creator
 export const fetchCurrentChars = (charArr) => async (dispatch) => {
 	const res = charArr;
-	// console.log('res');
-	// console.log(res);
 
 	dispatch({
 		type: FETCH_CURRENT_CHARS,
@@ -142,14 +140,14 @@ export const fetchCurrentChars = (charArr) => async (dispatch) => {
 };
 
 // stored data of clicked items
-export const FETCH_NAV_BAR_REVEALED = 'fetch_nav_bar_revealed';
+export const FETCH_SITE_ANIMATING = 'fetch_site_animating';
 
 // action creator
-export const fetchNavBarRevealed = (revealed) => async (dispatch) => {
-	const res = revealed || false;
+export const fetchSiteAnimating = (animating) => async (dispatch) => {
+	const res = animating;
 
 	dispatch({
-		type: FETCH_NAV_BAR_REVEALED,
+		type: FETCH_SITE_ANIMATING,
 		payload: res
 	});
 };

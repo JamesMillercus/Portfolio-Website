@@ -8,11 +8,11 @@ import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 class Hero extends Component {
 
 	scrolledItem(item) {
-		this.props.fetchScrolledItem(item);
+		if (!this.props.siteAnimating) this.props.fetchScrolledItem(item);
 	}
 
 	revealHeroIcons() {
-		if (this.props.scrolledItem === 4) return true;
+		if (this.props.scrolledItem === 4 && !this.props.siteAnimating) return true;
 		return false;
 	}
 

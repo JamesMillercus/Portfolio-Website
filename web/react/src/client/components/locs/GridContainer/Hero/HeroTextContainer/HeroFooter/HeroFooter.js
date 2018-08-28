@@ -8,11 +8,13 @@ import './assets/scss';
 class HeroFooter extends Component {
 
   heroFooter(activeHeroText, selectedItem) {
-    if (selectedItem === 4) {
-      if (this.props.heroTextAnimation) return this.updateHero(activeHeroText, selectedItem);
-      return this.updateHero('none', null);
+    if (!this.props.siteAnimating) {
+      if (selectedItem === 4) {
+        if (this.props.heroTextAnimation) return this.updateHero(activeHeroText, selectedItem);
+        return this.updateHero('none', null);
+      }
+      return this.updateHero(activeHeroText, selectedItem);
     }
-    return this.updateHero(activeHeroText, selectedItem);
 	}
 
   updateHero(activeHeroText, selectedItem) {
@@ -21,9 +23,7 @@ class HeroFooter extends Component {
       if (selectedItem === 4) {
         if (activeHeroText === key) returntext = heroFooterConfig[key];
         if (activeHeroText === 'none') returntext = heroFooterConfig.centerIcon;
-      } else if (selectedItem !== 4 || selectedItem === null) {
-        returntext = heroFooterConfig.none;
-      }
+      } else returntext = heroFooterConfig.none;
     });
     return returntext;
   }
@@ -47,7 +47,8 @@ const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
 	scrolledItem: state.scrolledItem,
 	heroTextAnimation: state.heroTextAnimation,
-  currentFooterChars: state.currentFooterChars
+  currentFooterChars: state.currentFooterChars,
+  siteAnimating: state.siteAnimating
 });
 
 export default connect(mapStateToProps, { fetchCurrentFooterChars })(HeroFooter);

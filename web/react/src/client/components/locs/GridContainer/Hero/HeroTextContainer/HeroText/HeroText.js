@@ -5,30 +5,36 @@ import { fetchCharLoader } from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
 
+/*
+  ANIMATE WEBSITE
+    1. on site start set spare reducer to siteAnimating true DONE
+    2. if laptop, put all items in center of screen with 0 opaicty
+    3. Animate all items to their original positions, set hasSiteStartupAnimated to false
+    4. Only allow scrolledItem + activeHeroIcon to update if siteAnimating is false
+*/
+
 class HeroText extends Component {
 
   componentDidUpdate() {
-    this.prepCharLoader(this.props.activeHeroIcon, this.props.scrolledItem);
+      this.prepCharLoader(this.props.activeHeroIcon, this.props.scrolledItem);
   }
 
   setClass() {
     // style of text based on content
     const heroCharClass = [];
-    if (this.props.scrolledItem === 4) heroCharClass.push('centerIcon');
-    return heroCharClass;
+    if (this.props.scrolledItem === 4 && !this.props.siteAnimating) {
+      heroCharClass.push('centerIcon');
+    }
+    return heroCharClass.join(' ');
 	}
 
   getChar(activeHeroText, selectedItem) {
     // loop through each key within heroTextConfig
     let returnedCharArr;
     Reflect.ownKeys(heroTextConfig).forEach(key => {
-      // if scrolled over 4, or the page has just loaded
-      // if (selectedItem === 4 || selectedItem === null) {
-      if (selectedItem === 4 || selectedItem === null) {
-        // if the scrolled over icon (or none for logo) === key
-        if (activeHeroText === key) returnedCharArr = heroTextConfig[key];
-        // else if scrolled over an item
-      } else if (`item${selectedItem}` === key) returnedCharArr = heroTextConfig[key];
+      if (selectedItem === 4 && !this.props.siteAnimating) {
+        returnedCharArr = heroTextConfig.centerIcon;
+      } else returnedCharArr = heroTextConfig.none;
     });
     return returnedCharArr;
   }
@@ -65,7 +71,7 @@ class HeroText extends Component {
 
   // h1 with css style based on the selected item and icon
   render() {
-    return <h1 className={this.setClass().join(' ')}> { this.heroText() } </h1>;
+    return <h1 className={this.setClass()}> { this.heroText() } </h1>;
   }
 }
 
@@ -75,7 +81,8 @@ const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
 	deviceType: state.deviceType,
 	heroTextAnimation: state.heroTextAnimation,
-	currentChars: state.currentChars
+	currentChars: state.currentChars,
+  siteAnimating: state.siteAnimating
 });
 
 export default connect(mapStateToProps, { fetchCharLoader })(HeroText);
