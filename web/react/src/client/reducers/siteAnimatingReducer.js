@@ -1,7 +1,7 @@
 // import fetch users action
 import { FETCH_SITE_ANIMATING } from '../actions';
 
-export default function (state = true, action) {
+export default function (state = 'notAnimated', action) {
 	// if actions.type
 	switch (action.type) {
 		//if actions.type is FETCH_USERS

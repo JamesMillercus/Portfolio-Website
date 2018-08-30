@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchScrolledItem, fetchDeviceType, fetchBackgroundPos } from './../../../actions';
+import {
+  fetchScrolledItem,
+  fetchDeviceType,
+  fetchBackgroundPos,
+  fetchSiteAnimating
+} from './../../../actions';
 import ItemContainer from './ItemContainer/ItemContainer';
 import Hero from './Hero/Hero';
 import Video from './Video/Video';
@@ -12,6 +17,17 @@ class GridContainer extends Component {
     super();
     this.x = 0;
     this.y = 0;
+  }
+
+  componentWillMount() {
+    if (this.props.deviceType === 'laptop') {
+      const that = this;
+      // console.log('start animating');
+      setTimeout(() => {
+        // console.log('start animating');
+        that.props.fetchSiteAnimating('startAnimating');
+      }, 500);
+    } else this.props.fetchSiteAnimating('finishedAnimating');
   }
 
   onMouseMove(e) {
@@ -72,12 +88,14 @@ function mapStateToProps(state) {
   return {
     scrolledItem: state.scrolledItem,
     deviceType: state.deviceType,
-    backgroundPos: state.backgroundPos
+    backgroundPos: state.backgroundPos,
+    siteAnimating: state.siteAnimating
   };
 }
 
 export default connect(mapStateToProps, {
   fetchScrolledItem,
   fetchDeviceType,
-  fetchBackgroundPos
+  fetchBackgroundPos,
+  fetchSiteAnimating
 })(GridContainer);

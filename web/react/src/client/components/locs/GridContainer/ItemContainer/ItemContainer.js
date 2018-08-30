@@ -17,12 +17,12 @@ class ItemContainer extends Component {
 	setClass(number, position) {
     // style of text based on content
     const itemClass = [`item${number} item ${position}`];
-
-		if (this.props.siteAnimating) {
-			console.log('hide item elements here');
+		if (this.checkAnimationState()) {
+			// console.log('hide item elements here');
+			itemClass.push('itemHide');
 			// add css to hide elements in center in ItemContainerLaptopAnimation.scss
 		} else {
-			console.log('reveal item elements here');
+			// console.log('reveal item elements here');
 			// remove css elements
 		}
 
@@ -30,13 +30,21 @@ class ItemContainer extends Component {
 	}
 
 	scrolledItem(item) {
-		if (!this.props.siteAnimating) this.props.fetchScrolledItem(item);
+		if (!this.checkAnimationState()) this.props.fetchScrolledItem(item);
+	}
+
+	checkAnimationState() {
+		// console.log('siteAnimating');
+		// console.log(this.props.siteAnimating);
+		if (this.props.siteAnimating === 'notAnimated') return true;
+		else if (this.props.siteAnimating === 'startAnimating') return false;
+    return false;
 	}
 
 	clickedItem(item) {
 		this.props.fetchActiveItem(item);
 		const itemAlreadyClicked = this.props.clickedItems.includes(item);
-		if (!itemAlreadyClicked && !this.props.siteAnimating) this.props.fetchClickedItems(item);
+		if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(item);
 	}
 
 	scrolledCheck(number, scrolledItem) {
