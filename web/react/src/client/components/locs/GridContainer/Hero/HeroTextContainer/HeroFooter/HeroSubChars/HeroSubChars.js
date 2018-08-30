@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchScrolledItem } from './../../../../../../../actions';
 import './assets/scss';
 
 class HeroSubChars extends Component {
@@ -41,11 +42,15 @@ class HeroSubChars extends Component {
     this.props.fetchCurrentChars(charArr);
   }
 
+  scrolledItem() {
+    this.props.fetchScrolledItem(4);
+  }
+
   render() {
-    // console.log('this.props.currentChars');
-    // console.log(this.props.currentChars);
+    const ovr = () => this.scrolledItem();
+
     return (
-      <p className={this.setClass(this.props.heroTextStyle)}>
+      <p onMouseOver={ovr} className={this.setClass(this.props.heroTextStyle)}>
         {this.props.currentChars}
       </p>
     );
@@ -57,4 +62,4 @@ const mapStateToProps = (state) => ({
 	deviceType: state.deviceType
 });
 
-export default connect(mapStateToProps, null)(HeroSubChars);
+export default connect(mapStateToProps, { fetchScrolledItem })(HeroSubChars);

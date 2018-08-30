@@ -8,7 +8,7 @@ import './assets/scss';
 class HeroFooter extends Component {
 
   heroFooter(activeHeroText, selectedItem) {
-    if (!this.props.siteAnimating) {
+    if (this.props.siteAnimating === 'finishedAnimating') {
       if (selectedItem === 4) {
         if (this.props.heroTextAnimation) return this.updateHero(activeHeroText, selectedItem);
         return this.updateHero('none', null);

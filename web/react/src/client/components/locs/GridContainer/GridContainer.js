@@ -22,10 +22,9 @@ class GridContainer extends Component {
   componentWillMount() {
     if (this.props.deviceType === 'laptop') {
       const that = this;
-      // console.log('start animating');
       setTimeout(() => {
-        // console.log('start animating');
         that.props.fetchSiteAnimating('startAnimating');
+        setTimeout(() => that.props.fetchSiteAnimating('finishedAnimating'), 1000);
       }, 500);
     } else this.props.fetchSiteAnimating('finishedAnimating');
   }

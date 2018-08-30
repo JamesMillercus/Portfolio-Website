@@ -1,13 +1,4 @@
 
-$itemAnimationSpeed: 1000ms;
-
-.grid-container-laptop .item .img {
-  -webkit-transition: top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
-  -moz-transition: top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
-  -o-transition: top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
-  transition: top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
-}
-
 .grid-container-laptop .item0.itemHide .img {
   left: 137%;
   top: 94%;

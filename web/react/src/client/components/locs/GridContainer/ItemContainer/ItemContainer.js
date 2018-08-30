@@ -17,7 +17,7 @@ class ItemContainer extends Component {
 	setClass(number, position) {
     // style of text based on content
     const itemClass = [`item${number} item ${position}`];
-		if (this.checkAnimationState()) {
+		if (this.props.siteAnimating === 'notAnimated') {
 			// console.log('hide item elements here');
 			itemClass.push('itemHide');
 			// add css to hide elements in center in ItemContainerLaptopAnimation.scss
@@ -34,11 +34,8 @@ class ItemContainer extends Component {
 	}
 
 	checkAnimationState() {
-		// console.log('siteAnimating');
-		// console.log(this.props.siteAnimating);
-		if (this.props.siteAnimating === 'notAnimated') return true;
-		else if (this.props.siteAnimating === 'startAnimating') return false;
-    return false;
+		if (this.props.siteAnimating !== 'finishedAnimating') return true;
+		return false;
 	}
 
 	clickedItem(item) {

@@ -8,11 +8,13 @@ import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 class Hero extends Component {
 
 	scrolledItem(item) {
-		if (!this.props.siteAnimating) this.props.fetchScrolledItem(item);
+		this.props.fetchScrolledItem(item);
 	}
 
 	revealHeroIcons() {
-		if (this.props.scrolledItem === 4 && !this.props.siteAnimating) return true;
+		const siteAnimating = this.props.siteAnimating;
+		const scrolledItem = this.props.scrolledItem;
+		if (scrolledItem === 4 && siteAnimating === 'finishedAnimating') return true;
 		return false;
 	}
 
@@ -43,7 +45,8 @@ class Hero extends Component {
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
-	scrolledItem: state.scrolledItem
+	scrolledItem: state.scrolledItem,
+	siteAnimating: state.siteAnimating
 });
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCurrentChars } from './../../../../../../../actions';
+import { fetchCurrentChars, fetchScrolledItem } from './../../../../../../../actions';
 import './assets/scss';
 
 class HeroTextChars extends Component {
@@ -51,11 +51,16 @@ class HeroTextChars extends Component {
     this.props.fetchCurrentChars(charArr);
   }
 
+  scrolledItem() {
+    this.props.fetchScrolledItem(4);
+  }
+
   render() {
     // create newchar which is hidden above current char with 0 opacity
     const currentChar = this.props.chars;
+    const ovr = () => this.scrolledItem();
     return (
-      <span ref={'animate'} className={this.setClass().join(' ')}>
+      <span ref={'animate'} className={this.setClass().join(' ')} onMouseOver={ovr}>
         { currentChar }
       </span>
     );
@@ -69,5 +74,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  fetchCurrentChars
+  fetchCurrentChars,
+  fetchScrolledItem
 })(HeroTextChars);

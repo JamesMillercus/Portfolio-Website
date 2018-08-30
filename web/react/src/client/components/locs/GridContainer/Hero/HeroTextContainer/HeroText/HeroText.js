@@ -7,10 +7,7 @@ import './assets/scss';
 
 /*
   ANIMATE WEBSITE
-    1. if laptop on site start set spare reducer to siteAnimating true DONE
-    2. put all items in center of screen with 0 opaicty DONE
-    3. Animate all items to their original positions, set hasSiteStartupAnimated to false !!FIX BUGS ON THIS!!
-    4. Only allow scrolledItem + activeHeroIcon to update if siteAnimating is false
+    1. animate logo first, then the rest of the items
 */
 
 class HeroText extends Component {
@@ -34,34 +31,18 @@ class HeroText extends Component {
   getChar(activeHeroText, selectedItem) {
     // loop through each key within heroTextConfig
     let returnedCharArr;
-    Reflect.ownKeys(heroTextConfig).forEach(key => {
-      if (this.checkAnimationState()) returnedCharArr = heroTextConfig.none;
-      else if (!this.checkAnimationState()) {
-        if (selectedItem === 4) {
-          console.log('centerIcon');
-          returnedCharArr = heroTextConfig.centerIcon;
-        } else if (selectedItem === null) {
-          console.log('logo');
-          console.log(heroTextConfig[key]);
-          returnedCharArr = heroTextConfig[key];
-        } else returnedCharArr = heroTextConfig.none;
-      }
-    });
-    return returnedCharArr;
-  }
-
-  displayLogo(selectedItem) {
-    if (this.checkAnimationState() && selectedItem === null) return true;
-    else if (selectedItem !== 4 && !this.checkAnimationState()) {
-      if (selectedItem !== null) return true;
+    if (this.props.siteAnimating !== 'finishedAnimating') returnedCharArr = heroTextConfig.none;
+    else if (this.props.siteAnimating === 'finishedAnimating') {
+      if (selectedItem === 4) {
+        returnedCharArr = heroTextConfig.centerIcon;
+      } else returnedCharArr = heroTextConfig.none;
     }
-
-    return false;
+    return returnedCharArr;
   }
 
   checkAnimationState() {
     const siteAnimating = this.props.siteAnimating;
-    if (siteAnimating === 'startAnimating' || siteAnimating === 'notAnimated') return true;
+    if (siteAnimating !== 'finishedAnimating') return true;
     return false;
   }
 
@@ -69,9 +50,7 @@ class HeroText extends Component {
     // if hero area is scrolled over
     if (selectedItem === 4) {
       // if icon animation is allowed return the updated herotext
-      if (this.props.heroTextAnimation) this.updateCharLoader(activeHeroText, selectedItem);
-      // else return the hero logo
-      else this.updateCharLoader('none', null);
+      this.updateCharLoader(activeHeroText, selectedItem);
       // else update hero text based on scrolled item
     } else this.updateCharLoader(activeHeroText, selectedItem);
   }

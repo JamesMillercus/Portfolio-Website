@@ -1,10 +1,11 @@
 $animationSpeed: 500ms;
+$itemAnimationSpeed: 1000ms;
 /*** set grid container animation ***/
 .grid-container-laptop .item .img{
-	-webkit-transition: margin $animationSpeed, height $animationSpeed;
-	-moz-transition: margin $animationSpeed, height $animationSpeed;
-	-o-transition: margin $animationSpeed, height $animationSpeed;
-	transition: margin $animationSpeed, height $animationSpeed;
+	-webkit-transition: margin $animationSpeed, height $animationSpeed, top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
+	-moz-transition: margin $animationSpeed, height $animationSpeed, top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
+	-o-transition: margin $animationSpeed, height $animationSpeed, top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
+	transition: margin $animationSpeed, height $animationSpeed, top $itemAnimationSpeed, bottom $itemAnimationSpeed, left $itemAnimationSpeed, right $itemAnimationSpeed, opacity $itemAnimationSpeed;
 }
 
 /* set each item img's dimensions & img settings */
