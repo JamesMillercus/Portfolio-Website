@@ -1,10 +1,10 @@
 $herospeed: 200ms;
 
 .grid-container-laptop .item4 .heroTextContainer h1 {
-	-webkit-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed;
-	-moz-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed;
-	-o-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed;
-	transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed;
+	-webkit-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	-moz-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	-o-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
 	/* height: 100%; */
 	grid-area: hero;
 	// font-family: Source Sans Pro,sans-serif;
@@ -23,6 +23,7 @@ $herospeed: 200ms;
 	border-radius: 50%;
 	background-color: #7c7c7c;
 	margin-top: 7%;
+	opacity: 1;
 }
 
 .grid-container-laptop .item4 .heroTextContainer h1.centerIcon {
@@ -57,6 +58,10 @@ $herospeed: 200ms;
 
 .grid-container-laptop .item4 .heroTextContainer h1.centerIcon:hover {
 	background-color: #008f9c;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.hideLogo {
+	opacity:0;
 }
 
 // .grid-container-laptop .item4 .heroTextContainer h1.nonLogo {

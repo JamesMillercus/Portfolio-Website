@@ -20,13 +20,23 @@ class GridContainer extends Component {
   }
 
   componentWillMount() {
+    const that = this;
+    if (this.props.deviceType !== 'laptop') this.props.fetchSiteAnimating('finishedAnimating');
+    else if (this.props.siteAnimating === 'notAnimated') {
+      setTimeout(() => { that.props.fetchSiteAnimating('logoAnimating'); }, 500);
+    }
+  }
+
+  componentDidUpdate() {
     if (this.props.deviceType === 'laptop') {
       const that = this;
-      setTimeout(() => {
-        that.props.fetchSiteAnimating('startAnimating');
+      if (this.props.siteAnimating === 'logoAnimating') {
+        setTimeout(() => that.props.fetchSiteAnimating('logoFinishedAnimating'), 200);
+      } else if (this.props.siteAnimating === 'logoFinishedAnimating') {
+        setTimeout(() => that.props.fetchSiteAnimating('startAnimating'), 100);
         setTimeout(() => that.props.fetchSiteAnimating('finishedAnimating'), 1000);
-      }, 500);
-    } else this.props.fetchSiteAnimating('finishedAnimating');
+      }
+    }
   }
 
   onMouseMove(e) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import heroTextConfig from './assets/config/heroTextConfig.js';
-import { fetchCharLoader } from './../../../../../../actions';
+import { fetchCharLoader, fetchSiteAnimating } from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
 
@@ -20,11 +20,12 @@ class HeroText extends Component {
     const selectedItem = this.props.scrolledItem;
     // style of text based on content
     const heroCharClass = [];
-    if (!this.checkAnimationState()) {
-      if (selectedItem === 4 && selectedItem !== null) {
-        heroCharClass.push('centerIcon');
-      }
+    if (this.props.siteAnimating === 'notAnimated') {
+      heroCharClass.push('hideLogo');
+    } else if (this.props.siteAnimating === 'finishedAnimating') {
+      if (selectedItem === 4 && selectedItem !== null) heroCharClass.push('centerIcon');
     }
+
     return heroCharClass.join(' ');
 	}
 
@@ -90,4 +91,4 @@ const mapStateToProps = (state) => ({
   siteAnimating: state.siteAnimating
 });
 
-export default connect(mapStateToProps, { fetchCharLoader })(HeroText);
+export default connect(mapStateToProps, { fetchCharLoader, fetchSiteAnimating })(HeroText);

@@ -17,15 +17,7 @@ class ItemContainer extends Component {
 	setClass(number, position) {
     // style of text based on content
     const itemClass = [`item${number} item ${position}`];
-		if (this.props.siteAnimating === 'notAnimated') {
-			// console.log('hide item elements here');
-			itemClass.push('itemHide');
-			// add css to hide elements in center in ItemContainerLaptopAnimation.scss
-		} else {
-			// console.log('reveal item elements here');
-			// remove css elements
-		}
-
+		if (this.checkAnimationState()) itemClass.push('itemHide');
     return itemClass.join(' ');
 	}
 
@@ -34,7 +26,8 @@ class ItemContainer extends Component {
 	}
 
 	checkAnimationState() {
-		if (this.props.siteAnimating !== 'finishedAnimating') return true;
+		if (this.props.siteAnimating !== 'finishedAnimating' && this.props.siteAnimating !== 'startAnimating') return true;
+		else if (this.props.siteAnimating === 'startAnimating') return false;
 		return false;
 	}
 
