@@ -4,7 +4,8 @@ import YoutubePlayer from 'react-youtube-player';
 import { connect } from 'react-redux';
 import { fetchActiveItem } from './../../../../actions';
 import videoConfig from './assets/config/videoConfig';
-import './assets/scss/Video.scss';
+import './assets/scss';
+import './assets/images';
 
 class Video extends Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ class Video extends Component {
 	}
 
 	getDeviceType() {
-		if (this.props.deviceType === 'laptop') return 'playing';
+		// if (this.props.deviceType === 'laptop') return 'playing';
 		return 'paused';
 	}
 

@@ -5,11 +5,6 @@ import { fetchCharLoader, fetchSiteAnimating } from './../../../../../../actions
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
 
-/*
-  ANIMATE WEBSITE
-    1. animate logo first, then the rest of the items
-*/
-
 class HeroText extends Component {
 
   componentDidUpdate() {

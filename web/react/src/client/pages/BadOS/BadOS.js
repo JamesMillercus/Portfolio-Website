@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import Error from './../../components/locs/Error/Error';
 
 class BadOS extends Component {
 
   render() {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
-    return (
-    <div className="class">
-        <h3> Bad OS lolol </h3>
-    </div>
-    );
+    const htext = "This device can't display this website";
+    const ptext = 'Please visit this website on a different device.';
+    
+    return <Error header={htext} paragraph={ptext} />;
   }
 }
 
