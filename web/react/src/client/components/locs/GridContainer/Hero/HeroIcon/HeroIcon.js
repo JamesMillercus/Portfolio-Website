@@ -53,16 +53,19 @@ class HeroIcon extends Component {
 		return '_blank';
 	}
 
-	scrolledItem(className) {
-		this.props.fetchScrolledItem(4);
-		this.props.fetchScrolledHeroIcon(className);
+	scrolledItem(scrolledItem, className) {
+		const deviceType = this.props.deviceType;
+		if (deviceType === 'laptop') {
+			if (scrolledItem !== null) this.props.fetchScrolledItem(scrolledItem);
+			this.props.fetchScrolledHeroIcon(className);
+		}
 	}
 
 	render() {
 		const href = this.props.href;
 		const rel = 'noreferrer noopener';
-		const ovr = () => this.scrolledItem(this.props.className);
-		const out = this.props.fetchScrolledHeroIcon.bind(this, 'none');
+		const ovr = () => this.scrolledItem(4, this.props.className);
+		const out = () => this.scrolledItem(null, 'none');
 		const css = this.setClass();
 		const target = this.checkTarget();
 		return (

@@ -8,7 +8,10 @@ import './assets/scss';
 class HeroText extends Component {
 
   componentDidUpdate() {
-      this.prepCharLoader(this.props.activeHeroIcon, this.props.scrolledItem);
+    const deviceType = this.props.deviceType;
+      if (deviceType === 'laptop') {
+        this.prepCharLoader(this.props.activeHeroIcon, this.props.scrolledItem);
+      }
   }
 
   setClass() {

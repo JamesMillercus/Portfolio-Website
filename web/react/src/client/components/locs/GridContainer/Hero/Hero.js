@@ -8,7 +8,8 @@ import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 class Hero extends Component {
 
 	scrolledItem(item) {
-		this.props.fetchScrolledItem(item);
+		const deviceType = this.props.deviceType;
+		if (deviceType === 'laptop') this.props.fetchScrolledItem(item);
 	}
 
 	revealHeroIcons() {
@@ -46,7 +47,8 @@ class Hero extends Component {
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
-	siteAnimating: state.siteAnimating
+	siteAnimating: state.siteAnimating,
+	deviceType: state.deviceType
 });
 
 

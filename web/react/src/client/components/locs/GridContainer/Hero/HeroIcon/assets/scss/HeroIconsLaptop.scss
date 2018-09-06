@@ -21,21 +21,6 @@ $iconHideLeftHorizontal: 23%;
     left:$iconHideLeftHorizontal;
 }
 
-// /* set topcenter icon pos & src */
-// .grid-container-laptop .item4 .centerLeftIcon {
-//     grid-area: centerLeftIcon;
-//     background-image: url(/assets/images/topCenterIcon.jpg);
-//     top: $iconHideTopVertical;
-// }
-
-// /* set topright icon pos & src */
-// .grid-container-laptop .item4 .centerRightIcon {
-//     grid-area: centerRightIcon;
-//     background-image: url(/assets/images/topRightIcon.jpg);
-//     top: $iconHideTopVertical;
-// }
-
-
 /* set bottomleft icon pos & src */
 .grid-container-laptop .item4 a.centerRightIcon {
     grid-area: centerRightIcon;
@@ -84,3 +69,17 @@ $iconHideLeftHorizontal: 23%;
   width: 50px;
   margin-top: -15%;
 }
+
+// /* set topcenter icon pos & src */
+// .grid-container-laptop .item4 .centerLeftIcon {
+//     grid-area: centerLeftIcon;
+//     background-image: url(/assets/images/topCenterIcon.jpg);
+//     top: $iconHideTopVertical;
+// }
+
+// /* set topright icon pos & src */
+// .grid-container-laptop .item4 .centerRightIcon {
+//     grid-area: centerRightIcon;
+//     background-image: url(/assets/images/topRightIcon.jpg);
+//     top: $iconHideTopVertical;
+// }

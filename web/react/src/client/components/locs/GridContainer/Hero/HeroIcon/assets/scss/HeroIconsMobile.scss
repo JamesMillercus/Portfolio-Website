@@ -1,3 +1,4 @@
+
 .grid-container-mobile .item4 {
     grid-area: middlecenter;
 }
@@ -6,65 +7,32 @@
     color: #7c7c7c !important;
 }
 /* set topleft icon pos & src */
-.grid-container-mobile .item4 .topleft {
-    grid-area: topleft;
-    background-image: url(/assets/images/topleft.jpg);
+.grid-container-mobile .item4 a.centerLeftIcon {
+    grid-area: centerLeftIcon;
+    background-image: url(/assets/images/mailIcon.png);
+    background-position: 100% -45%;
 }
-
-/* set topcenter icon pos & src */
-.grid-container-mobile .item4 .topcenter {
-    grid-area: topcenter;
-    background-image: url(/assets/images/topcenter.jpg);
-}
-
-/* set topright icon pos & src */
-.grid-container-mobile .item4 .topright {
-    grid-area: topright;
-    background-image: url(/assets/images/topright.jpg);
-    display:none;
-}
-
 
 /* set bottomleft icon pos & src */
-.grid-container-mobile .item4 .bottomleft {
-    grid-area: bottomleft;
-    background-image: url(/assets/images/bottomleft.jpg);
-}
-
-
-/* set bottomcenter icon pos & src */
-.grid-container-mobile .item4 .bottomcenter {
-    grid-area: bottomcenter;
-    background-image: url(/assets/images/bottomcenter.jpg);
-    display:none;
-}
-
-
-/* set bottomright icon pos & src */
-.grid-container-mobile .item4 .bottomright {
-    grid-area: bottomright;
-    background-image: url(/assets/images/bottomright.jpg);
-    display:none;
+.grid-container-mobile .item4 a.centerRightIcon {
+    grid-area: centerRightIcon;
+    background-image: url(/assets/images/techIcon.png);
+    background-position: 0% -45%;
 }
 
 /* set icon dimensions & settings */
-.grid-container-mobile .icon {
-  background-size: auto 200%;
-  background-position: 50% 0;
+.grid-container-mobile a.icon {
+  background-size: auto 150%;
+  background-position: 50% -25%;
   background-repeat: no-repeat;
+  opacity: 1;
   cursor: none;
-  height: 100px;
-  width: 100px;
-  margin:auto;
-}
-/* if icon has been unlocked, allow it to be pointed at */
-.grid-container-mobile .active {
-    /*display:inline-block;*/
-    cursor:pointer;
-}
-
-/* set all unlocked icons hover styling */
-.grid-container-mobile .item4 .active:hover {
-	background-position: 50% 100%;
-	opacity: 1 !important;
+  background-size: 50%;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
+  z-index: -1;
 }
