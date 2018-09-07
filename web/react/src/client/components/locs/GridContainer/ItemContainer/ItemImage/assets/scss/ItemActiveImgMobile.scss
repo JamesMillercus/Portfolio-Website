@@ -32,12 +32,6 @@
   background-image: url(/assets/images/bottomright.gif);
 }
 /* set each item img's dimensions & img settings */
-.grid-container-mobile .activeImg {
-  height: 400px;
-  /*max-width: 220px;*/
-  width:auto;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  background-position: 50% 0;
-  margin: auto;
+.grid-container-mobile .item .activeImg {
+  background-size: contain;
 }

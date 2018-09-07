@@ -22,7 +22,8 @@ class ItemContainer extends Component {
 	}
 
 	scrolledItem(item) {
-		if (!this.checkAnimationState()) this.props.fetchScrolledItem(item);
+		const deviceType = this.props.deviceType;
+		if (!this.checkAnimationState() && deviceType === 'laptop') this.props.fetchScrolledItem(item);
 	}
 
 	checkAnimationState() {
@@ -63,7 +64,8 @@ const mapStateToProps = (state) => ({
 		scrolledItem: state.scrolledItem,
 		activeItem: state.activeItem,
 		clickedItems: state.clickedItems,
-		siteAnimating: state.siteAnimating
+		siteAnimating: state.siteAnimating,
+		deviceType: state.deviceType
 	});
 
 export default connect(

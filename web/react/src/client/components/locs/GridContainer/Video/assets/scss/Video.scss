@@ -10,6 +10,11 @@
 	background-color: black;
 }
 
+.videoPlayer iframe embed {
+	width:100%;
+	height:100%;
+}
+
 .exitBtn {
 	position: fixed;
 	top: 0;
@@ -29,4 +34,11 @@
 
 .exitBtn:hover {
 	background-color: #a40a0a;
+}
+
+.grid-container-mobile .exitBtn {
+	width: 20%;
+  height: 12%;
+	max-width:300px;
+	max-height:300px;
 }

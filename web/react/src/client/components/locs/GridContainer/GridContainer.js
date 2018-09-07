@@ -49,19 +49,19 @@ class GridContainer extends Component {
     this.calcBackgroundMovement(mouse);
   }
 
-  calcBackgroundMovement(mousePos) {
-    const speed = 0.1;
-    const x = mousePos.x * speed;
-    const y = mousePos.y * speed;
-    const background = { x, y };
-    this.props.fetchBackgroundPos(background);
-  }
-
   setClass() {
     const deviceType = this.props.deviceType;
     const gridContainerClasses = [`grid-container-${deviceType}`];
     if (deviceType === 'laptop') gridContainerClasses.push(`item${this.props.scrolledItem}scroll`);
     return gridContainerClasses;
+  }
+
+  calcBackgroundMovement(mousePos) {
+    const speed = 0.1;
+    const x = mousePos.x * speed;
+    const y = mousePos.y * speed;
+    const background = { x, y };
+    if (this.props.deviceType === 'laptop') this.props.fetchBackgroundPos(background);
   }
 
   renderItems() {
