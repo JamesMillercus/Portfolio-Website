@@ -62,12 +62,11 @@
 /* set middle center grid rules */
 .grid-container-tablet .middlecenter {
   display: grid;
-  grid-template-rows: 33.3% 33.3% 33.3%;
+  grid-template-rows: 60% 40%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-areas:
-  'topLeftIcon topCenterIcon topRightIcon'
   'hero hero hero'
-  'bottomLeftIcon bottomCenterIcon bottomRightIcon';
+  'centerLeftIcon bottomCenterIcon centerRightIcon';
   position: relative;
 }
 /* set middle right grid rules */

@@ -52,7 +52,8 @@ class HeroTextChars extends Component {
   }
 
   scrolledItem() {
-    this.props.fetchScrolledItem(4);
+    const deviceType = this.props.deviceType;
+    if (deviceType === 'laptop') this.props.fetchScrolledItem(4);
   }
 
   render() {
@@ -70,7 +71,8 @@ class HeroTextChars extends Component {
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
 	charLoader: state.charLoader,
-  currentChars: state.currentChars
+  currentChars: state.currentChars,
+  deviceType: state.deviceType
 });
 
 export default connect(mapStateToProps, {
