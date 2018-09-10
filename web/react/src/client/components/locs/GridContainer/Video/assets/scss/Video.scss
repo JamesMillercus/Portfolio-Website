@@ -36,9 +36,17 @@
 	background-color: #a40a0a;
 }
 
+
 .grid-container-mobile .exitBtn {
-	width: 20%;
-  height: 12%;
+	height: 20%;
+	width: 10%;
 	max-width:300px;
 	max-height:300px;
+}
+
+@media only screen and (orientation: portrait) {
+	.grid-container-mobile .exitBtn {
+		width: 18%;
+		height: 10%;
+	}
 }

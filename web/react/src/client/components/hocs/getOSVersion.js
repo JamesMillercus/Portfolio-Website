@@ -9,11 +9,15 @@ export default (ChildComponent) => {
 	class GetOSVersion extends Component {
 
     osIsCompatible(os) {
-      const osString = String(os).substring(0, 5);
+			console.log(os);
+			const osVersion = os.version;
+      const osString = String(osVersion).substring(0, 5);
       const osFloat = parseFloat(osString.replace('.', ''));
       const compatible = 103;
 
+
       if (osFloat >= compatible) return true;
+			else if (os.name === 'Android' && osVersion <= 4) return true; 
       return false;
     }
 
@@ -33,7 +37,7 @@ export default (ChildComponent) => {
 				<UserAgent returnfullParser>
 					{parser => (
 						<div>
-							{this.renderDevice(parser.getOS().version)}
+							{this.renderDevice(parser.getOS())}
 						</div>
 					)}
 				</UserAgent>
