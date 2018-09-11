@@ -9,15 +9,23 @@ export default (ChildComponent) => {
 	class GetOSVersion extends Component {
 
     osIsCompatible(os) {
-			console.log(os);
 			const osVersion = os.version;
-      const osString = String(osVersion).substring(0, 5);
-      const osFloat = parseFloat(osString.replace('.', ''));
-      const compatible = 103;
+			const osName = os.name;
+			let osString;
+			let osFloat;
+			let compatible;
 
+			if (osName === 'Android') {
+				osString = String(osVersion);
+				osFloat = parseFloat(osString.replace('.', ''));
+				compatible = 40; //.4
+			} else {
+				osString = String(osVersion).substring(0, 5);
+				osFloat = parseFloat(osString.replace('.', ''));
+				compatible = 103; // 10.3
+			}
 
       if (osFloat >= compatible) return true;
-			else if (os.name === 'Android' && osVersion <= 4) return true; 
       return false;
     }
 

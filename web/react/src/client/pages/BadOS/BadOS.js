@@ -5,9 +5,9 @@ class BadOS extends Component {
 
   render() {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
-    const htext = "This device can't display this website";
-    const ptext = 'Please visit this website on a different device.';
-    
+    const htext = "This website can't be displayed on old devices";
+    const ptext = 'Please update your device so it is running either iOS version 10.3 or Android version 4 (or higher). Alternatively please view this site on a newer device.';
+
     return <Error header={htext} paragraph={ptext} />;
   }
 }
