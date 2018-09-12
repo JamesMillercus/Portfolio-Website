@@ -1,7 +1,8 @@
+import { connect } from 'react-redux';
 import { UserAgent } from '@quentin-sommer/react-useragent';
 import React, { Component } from 'react';
 import BadBrowser from './../../pages/BadBrowser/BadBrowserPage';
-
+import { fetchBrowser } from './../../actions';
 
 export default (ChildComponent) => {
 	class GetBrowser extends Component {
@@ -17,6 +18,7 @@ export default (ChildComponent) => {
 		}
 
 		content(browserName) {
+			this.props.fetchBrowser(browserName);
 			switch (this.allowedBrowser(browserName)) {
 				// browser not authorised
 				case false:
@@ -28,7 +30,10 @@ export default (ChildComponent) => {
 		}
 
 		allowedBrowser(browserName) {
-			const allowedBrowsers = ['Chrome', 'Safari', 'Mobile Safari', 'Firefox', 'Edge', 'Chromium', 'Android Browser'];
+			const allowedBrowsers = [
+				'Chrome', 'Safari', 'Mobile Safari', 'Firefox', 'Edge', 'Chromium', 'Android Browser'
+			];
+
 			for (let x = 0; x < allowedBrowsers.length; x++) {
 				if (browserName === allowedBrowsers[x]) return true;
 				else if (browserName !== allowedBrowsers[x] && x === allowedBrowsers.length - 1) {
@@ -41,5 +46,12 @@ export default (ChildComponent) => {
 			return this.browserComponent();
 		}
 	}
-	return GetBrowser;
+	return connect(mapStateToProps, { fetchBrowser })(GetBrowser);
 };
+
+// map the state of data called from fetchUsers to users[state.users]
+function mapStateToProps(state) {
+  return {
+    browser: state.browser
+  };
+}

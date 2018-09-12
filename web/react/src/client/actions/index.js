@@ -164,3 +164,16 @@ export const fetchCurrentFooterChars = (charArr) => async (dispatch) => {
 		payload: res
 	});
 };
+
+// stored data of clicked items
+export const FETCH_BROWSER = 'fetch_browser';
+
+// action creator
+export const fetchBrowser = (browser) => async (dispatch) => {
+	const res = browser;
+
+	dispatch({
+		type: FETCH_BROWSER,
+		payload: res
+	});
+};

@@ -45,8 +45,7 @@ class GridContainer extends Component {
     const lMouseX = (window.innerWidth * xMouseAlign) - e.screenX;
     const lMouseY = (window.innerHeight * yMouseAlign) - e.screenY;
     const mouse = { x: lMouseX, y: lMouseY };
-
-    this.calcBackgroundMovement(mouse);
+    if (this.props.browser === 'Chrome') this.calcBackgroundMovement(mouse);
   }
 
   setClass() {
@@ -98,7 +97,8 @@ function mapStateToProps(state) {
     scrolledItem: state.scrolledItem,
     deviceType: state.deviceType,
     backgroundPos: state.backgroundPos,
-    siteAnimating: state.siteAnimating
+    siteAnimating: state.siteAnimating,
+    browser: state.browser
   };
 }
 
