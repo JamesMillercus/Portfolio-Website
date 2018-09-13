@@ -62,9 +62,10 @@
 /* set middle center grid rules */
 .grid-container-tablet .middlecenter {
   display: grid;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 30% 30% 40%;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-areas:
+  'spacer spacer spacer'
   'hero hero hero'
   'centerLeftIcon bottomCenterIcon centerRightIcon';
   position: relative;

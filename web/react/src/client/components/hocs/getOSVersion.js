@@ -14,8 +14,7 @@ export default (ChildComponent) => {
 			let osString;
 			let osFloat;
 			let compatible;
-			console.log(osName);
-			console.log(os.version);
+			
 			if (osName === 'Android') {
 				osString = String(osVersion);
 				osFloat = parseFloat(osString.replace('.', ''));
@@ -23,6 +22,9 @@ export default (ChildComponent) => {
 			} else if (osName === 'Windows') {
 				osFloat = String(osVersion);
 				compatible = 10; // windows 10
+			} else if (osName === 'Ubuntu') {
+				osFloat = 1;
+				compatible = 0;
 			} else {
 				osString = String(osVersion).substring(0, 5);
 				osFloat = parseFloat(osString.replace('.', ''));

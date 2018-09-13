@@ -1,10 +1,10 @@
 .grid-container-tablet .item4 .heroTextContainer h1 {
     color: #7c7c7c;
-    font-size: 90px;
-    letter-spacing: -26px;
+    font-size: 65px;
+    letter-spacing: -19px;
     -webkit-text-stroke-width: 0;
     font-weight: 400;
-    margin-top: 45px;
+    line-height: 0;
     text-align: center;
     margin-left: -4%;
     width: 100%;
@@ -13,7 +13,7 @@
 }
 
 .grid-container-tablet .item4 .heroTextContainer h1::first-letter {
-    font-size: 95px;
+    font-size: 70px;
 }
 
 .grid-container-tablet .item4 .heroTextContainer h1 .heroLogo {

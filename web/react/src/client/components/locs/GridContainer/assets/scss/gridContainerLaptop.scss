@@ -67,9 +67,9 @@ body {
   grid-template-columns: 17.5% 17.5% 30% 17.5% 17.5%;
   grid-template-areas:
   'empty empty empty empty empty'
-  'leftIcon empty4 hero empty3 rightIcon'
+  'leftIcon emptyFour hero emptyThree rightIcon'
   'leftIcon centerLeftIcon hero centerRightIcon rightIcon'
-  'leftIcon empty5 hero empty2 rightIcon'
+  'leftIcon emptyFive hero emptyTwo rightIcon'
   'heroTopText heroTopText heroTopText heroTopText heroTopText'
   'heroBottomText heroBottomText heroBottomText heroBottomText heroBottomText';
   position:relative;
