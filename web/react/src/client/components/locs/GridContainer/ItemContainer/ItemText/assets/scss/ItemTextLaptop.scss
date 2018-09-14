@@ -56,9 +56,29 @@
   bottom:0;
 }
 
+// edge browser support
+@supports (-ms-ime-align:auto) {
+  .grid-container-laptop .item0 .text .textContainer {
+    margin: 10vh 0 0 10vw;
+  }
 
+	.grid-container-laptop .item2 .text .textContainer {
+		margin: 10vh 0 0 -5vw;
+	}
 
+  .grid-container-laptop .item3 .text .textContainer {
+    margin: 9vh 0 0 10vw;
+  }
 
-/*.item3 h1, .item5 h1, .item6 h1, .item8 h1 {
-  margin-top:20px;
-}*/
+  .grid-container-laptop .item5 .text .textContainer {
+		margin: 9vh 0 0 -10vw;
+	}
+
+	.grid-container-laptop .item6 .text .textContainer {
+		margin: 0 0 10vh 10vw;
+	}
+
+	.grid-container-laptop .item8 .text .textContainer {
+		margin: 0 0 10vh -5vw;
+	}
+}
