@@ -13,6 +13,13 @@ services:
     build: ./web/nginx
     ports:
       - "80:80"
+  # letsencrypt:
+  #   build: certonly
+  #   volumes:
+  #     - "/root/letsencrypt/log:/var/log/letsencrypt"
+  #     - "/var/www/html/shared:/var/www/"
+  #     - "/etc/letsencrypt:/etc/letsencrypt"
+  #     - "/root/letsencrypt/lib:/var/lib/letsencrypt"
   # jenkins:
   #   build: ./ops/jenkins
   #   container_name: jenkins
