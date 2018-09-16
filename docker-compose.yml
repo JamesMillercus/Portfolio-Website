@@ -13,18 +13,6 @@ services:
     build: ./web/nginx
     ports:
       - "80:80"
-  letsencrypt:
-    build:
-      context: .
-    image: andyneff/letsencrypt:latest
-    volumes:
-      - type: bind
-        source: /etc/letsencrypt
-        target: /etc/letsencrypt
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
   # jenkins:
   #   build: ./ops/jenkins
   #   container_name: jenkins
