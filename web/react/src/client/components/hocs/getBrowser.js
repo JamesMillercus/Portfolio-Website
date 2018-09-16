@@ -31,7 +31,7 @@ export default (ChildComponent) => {
 
 		allowedBrowser(browserName) {
 			const allowedBrowsers = [
-				'Chrome', 'Safari', 'Mobile Safari', 'Firefox', 'Edge', 'Chromium', 'Android Browser'
+				'Chrome', 'Safari', 'Mobile Safari', 'Firefox', 'Edge', 'Chromium', 'Android Browser', 'IE'
 			];
 
 			for (let x = 0; x < allowedBrowsers.length; x++) {

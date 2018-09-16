@@ -13,6 +13,9 @@ app.use(expressStaticGzip('./build/client', {
 	indexFromEmptyFile: false,
 	enableBrotli: true
 }));
+
+app.use('/favicon.ico', express.static(`${__dirname}/assets/images/`));
+
 //** SET HOME ROUTE **//
 require('./routes/routes')(app);
 //** Initialise express app on port 3000 **//

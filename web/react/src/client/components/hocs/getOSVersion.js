@@ -14,14 +14,14 @@ export default (ChildComponent) => {
 			let osString;
 			let osFloat;
 			let compatible;
-			
+
 			if (osName === 'Android') {
 				osString = String(osVersion);
 				osFloat = parseFloat(osString.replace('.', ''));
 				compatible = 40; //.4
 			} else if (osName === 'Windows') {
 				osFloat = String(osVersion);
-				compatible = 10; // windows 10
+				compatible = 7; // windows 7
 			} else if (osName === 'Ubuntu') {
 				osFloat = 1;
 				compatible = 0;

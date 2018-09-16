@@ -30,7 +30,7 @@ const config = {
 			},
 			{
 				// target images
-				test: /\.(jpg|gif|png)$/,
+				test: /\.(jpg|gif|png|ico)$/,
 				use: [
 					{
 						//
@@ -84,9 +84,12 @@ const config = {
 			__isBrowser__: 'true'
 		}),
 		new CompressionPlugin({
-			algorithm: 'gzip'
+			algorithm: 'gzip',
+			exclude: /\.(jpg|gif|png|ico)$/
 		}),
-		new BrotliPlugin()
+		new BrotliPlugin({
+			test: /\.(js|css)$/,
+		})
 	]
 };
 

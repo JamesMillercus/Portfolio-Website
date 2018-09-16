@@ -3,7 +3,8 @@ import { renderRoutes } from 'react-router-config';
 import { connect } from 'react-redux';
 import { UserAgentProvider } from '@quentin-sommer/react-useragent';
 import { fetchUserAgent } from './../actions';
-import './App.scss';
+import './assets/scss';
+import './assets/images';
 
 class App extends Component {
 	componentDidMount() {
