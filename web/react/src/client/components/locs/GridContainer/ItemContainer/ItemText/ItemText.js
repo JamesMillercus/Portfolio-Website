@@ -1,10 +1,9 @@
 import React from 'react';
-import itemTextConfig from './assets/config/itemTextConfig';
 import './assets/scss';
 
-const ItemText = ({ itemNumber, scrolledItem }) => {
-const header = itemTextConfig[itemNumber].header;
-const paragraph = itemTextConfig[itemNumber].paragraph;
+const ItemText = ({ itemNumber, scrolledItem, content }) => {
+const header = content[itemNumber].header;
+const paragraph = content[itemNumber].paragraph;
 
 const setClass = () => {
 	const itemTextClass = ['text'];

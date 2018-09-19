@@ -177,3 +177,16 @@ export const fetchBrowser = (browser) => async (dispatch) => {
 		payload: res
 	});
 };
+
+// stored data of clicked items
+export const FETCH_CONTENT = 'fetch_content';
+
+// action creator
+export const fetchContent = (content) => async (dispatch) => {
+	const res = content;
+	
+	dispatch({
+		type: FETCH_CONTENT,
+		payload: res
+	});
+};

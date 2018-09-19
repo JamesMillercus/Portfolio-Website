@@ -1,13 +1,14 @@
 version: "2"
 services:
   react:
-    build: ./web/react
-    ports:
-      - "3000:3000"
-      - "4000:4000"
-    volumes:
-      - "./web/react:/usr/src/app"
-    command: npm run dev
+    image: simuha999/portfolio
+    # build: ./web/react
+    # ports:
+    #   - "3000:3000"
+    #   - "4000:4000"
+    # volumes:
+    #   - "./web/react:/usr/src/app"
+    # command: npm run start
     # command: npm install --save-dev eslint-config-rallycoding
   nginx:
     build: ./web/nginx

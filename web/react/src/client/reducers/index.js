@@ -14,6 +14,7 @@ import currentCharsReducer from './currentCharsReducer';
 import siteAnimatingReducer from './siteAnimatingReducer';
 import currentFooterCharsReducer from './currentFooterCharsReducer';
 import browserReducer from './browserReducer';
+import contentReducer from './contentReducer';
 // combine all existing reducers
 export default combineReducers({
 	userAgent: userAgentReducer,
@@ -29,5 +30,6 @@ export default combineReducers({
 	currentChars: currentCharsReducer,
 	siteAnimating: siteAnimatingReducer,
 	currentFooterChars: currentFooterCharsReducer,
-	browser: browserReducer
+	browser: browserReducer,
+	content: contentReducer
 });

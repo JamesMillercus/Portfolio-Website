@@ -10,7 +10,6 @@ $itemAnimationSpeed: 1000ms;
 
 /* set each item img's dimensions & img settings */
 .grid-container-laptop .item .img {
-  // margin: auto;
   height: 35%;
   width: 200px;
   background-repeat: no-repeat;
@@ -23,8 +22,6 @@ $itemAnimationSpeed: 1000ms;
 /* set top left corner img pos & src */
 .grid-container-laptop .item0 .img {
   grid-area: rightimg;
-  background-image: url(/assets/images/topleft.png);
-  // right: 0;
   left: 0;
   top: 0;
   bottom: 0;
@@ -35,7 +32,6 @@ $itemAnimationSpeed: 1000ms;
 /* set top middle img pos & src */
 .grid-container-laptop .item1.item .img {
   grid-area: centerimg;
-  background-image: url(/assets/images/topcenter.png);
   right: 0;
   left: 0;
   bottom: 0;
@@ -46,7 +42,6 @@ $itemAnimationSpeed: 1000ms;
 /* set top right corner img pos & src */
 .grid-container-laptop .item2 .img {
   grid-area: leftimg;
-  background-image: url(/assets/images/topright.png);
   right: 0;
   top: 0;
   bottom: 0;
@@ -55,7 +50,6 @@ $itemAnimationSpeed: 1000ms;
 /* set left middle img pos & src */
 .grid-container-laptop .item3 .img {
   grid-area: img;
-  background-image: url(/assets/images/middleleft.png);
   right: 0;
   top: 0;
   height: 40%;
@@ -65,7 +59,6 @@ $itemAnimationSpeed: 1000ms;
 /* set right middle img pos & src */
 .grid-container-laptop .item5 .img {
   grid-area: img;
-  background-image: url(/assets/images/middleright.png);
   left: 0;
   top: 0;
   height:40%;
@@ -73,18 +66,14 @@ $itemAnimationSpeed: 1000ms;
 }
 /* set bottom left corner img pos & src */
 .grid-container-laptop .item6 .img {
-  /*background-color: pink;*/
   grid-area: rightimg;
-  background-image: url(/assets/images/bottomleft.png);
   left: 0;
   bottom: 0;
   margin: 0 0 14vh 0;
 }
 /* set bottom middle img pos & src */
 .grid-container-laptop .item7.item .img {
-
   grid-area: centerimg;
-  background-image: url(/assets/images/bottomcenter.png);
   right: 0;
   left: 0;
   top: 0;
@@ -94,9 +83,7 @@ $itemAnimationSpeed: 1000ms;
 }
 /* set bottom right corner img pos & src */
 .grid-container-laptop .item8 .img {
-  /*background-color: pink;*/
   grid-area: leftimg;
-  background-image: url(/assets/images/bottomright.png);
   right: 0;
   bottom: 0;
   margin: 0 0 14vh 0;

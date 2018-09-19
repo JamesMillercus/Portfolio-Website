@@ -1,0 +1,19 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: jamesmiller-design
+  namespace: default
+spec:
+  secretName: jamesmiller-design-tls
+  issuerRef:
+    name: letsencrypt
+  commonName: www.jamesmiller.design
+  dnsNames:
+  - jamesmiller.design
+  acme:
+    config:
+    - dns01:
+        provider: cf-dns
+      domains:
+      - www.jamesmiller.design
+      - jamesmiller.design

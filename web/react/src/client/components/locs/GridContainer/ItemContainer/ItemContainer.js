@@ -49,11 +49,14 @@ class ItemContainer extends Component {
 		const scrollCheck = () => this.scrolledCheck(this.props.number, this.props.scrolledItem);
 		const number = this.props.number;
 		const position = itemContainerConfig[number].position;
+		const itemImage = this.props.content.itemImage;
+		const itemText = this.props.content.itemText;
+		const clickedItems = this.props.clickedItems;
 
 		return (
 			<div className={this.setClass(number, position)} onMouseOver={scroll} onClick={click}>
-				<ItemImage itemNumber={number} clickedItems={this.props.clickedItems} scrolledItem={scrollCheck()} />
-				<ItemText itemNumber={number} scrolledItem={scrollCheck()} />
+				<ItemImage itemNumber={number} clickedItems={clickedItems} scrolledItem={scrollCheck()} content={itemImage} />
+				<ItemText itemNumber={number} scrolledItem={scrollCheck()} content={itemText} />
 			</div>
 		);
 	}
@@ -65,7 +68,8 @@ const mapStateToProps = (state) => ({
 		activeItem: state.activeItem,
 		clickedItems: state.clickedItems,
 		siteAnimating: state.siteAnimating,
-		deviceType: state.deviceType
+		deviceType: state.deviceType,
+		content: state.content
 	});
 
 export default connect(
