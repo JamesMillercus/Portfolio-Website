@@ -24,7 +24,6 @@ const ItemImage = ({ itemNumber, clickedItems, scrolledItem, content }) => {
 		return itemImageClass;
 	};
 
-	// return <div className={setClass().join(' ')} />;
 	return <div className={setClass().join(' ')} style={divStyle} />;
 };
 

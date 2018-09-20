@@ -48,9 +48,11 @@ class HeroSubChars extends Component {
 
   render() {
     const ovr = () => this.scrolledItem();
+    const heroTextStyle = this.props.heroTextStyle;
+    const heroTextColor = this.props.style;
 
     return (
-      <p onMouseOver={ovr} className={this.setClass(this.props.heroTextStyle)}>
+      <p onMouseOver={ovr} className={this.setClass(heroTextStyle)} style={heroTextColor}>
         {this.props.currentChars}
       </p>
     );

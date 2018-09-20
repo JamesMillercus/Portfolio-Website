@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import heroFooterConfig from './assets/config/heroFooterConfig.js';
 import HeroSubChars from './HeroSubChars/HeroSubChars';
 import { fetchCurrentFooterChars } from './../../../../../../actions';
 import './assets/scss';
@@ -18,15 +17,30 @@ class HeroFooter extends Component {
 	}
 
   updateHero(activeHeroText, selectedItem) {
+    const footerContent = this.props.content.heroFooterText;
     let returntext;
-    Reflect.ownKeys(heroFooterConfig).forEach(key => {
+    Reflect.ownKeys(footerContent).forEach(key => {
       if (selectedItem === 4) {
-        if (activeHeroText === key) returntext = heroFooterConfig[key];
-        if (activeHeroText === 'none') returntext = heroFooterConfig.centerIcon;
-      } else returntext = heroFooterConfig.none;
+        if (activeHeroText === key) returntext = footerContent[key].text;
+        if (activeHeroText === 'none') returntext = footerContent.centerIcon.text;
+      } else returntext = footerContent.none.text;
     });
     return returntext;
   }
+
+  divStyle(activeHeroText, selectedItem) {
+    const footerContent = this.props.content.heroFooterText;
+    let selectedcolor;
+    Reflect.ownKeys(footerContent).forEach(key => {
+      if (selectedItem === 4) {
+        if (activeHeroText === key) selectedcolor = footerContent[key].color;
+        if (activeHeroText === 'none') selectedcolor = footerContent.centerIcon.color;
+      } else selectedcolor = footerContent.none.color;
+    });
+
+		const returncolor = { color: selectedcolor };
+    return returncolor;
+	}
 
   render() {
     return (
@@ -37,8 +51,10 @@ class HeroFooter extends Component {
         fetchCurrentChars={this.props.fetchCurrentFooterChars}
         heroTextStyle={'heroFooterText'}
         activeHeroIcon={this.props.activeHeroIcon}
+        style={this.divStyle(this.props.activeHeroIcon, this.props.scrolledItem)}
       />
     );
+    // return <div className={setClass().join(' ')} style={divStyle} />;
   }
 }
 
@@ -48,7 +64,8 @@ const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
 	heroTextAnimation: state.heroTextAnimation,
   currentFooterChars: state.currentFooterChars,
-  siteAnimating: state.siteAnimating
+  siteAnimating: state.siteAnimating,
+  content: state.content
 });
 
 export default connect(mapStateToProps, { fetchCurrentFooterChars })(HeroFooter);

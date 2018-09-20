@@ -49,14 +49,14 @@ class ItemContainer extends Component {
 		const scrollCheck = () => this.scrolledCheck(this.props.number, this.props.scrolledItem);
 		const number = this.props.number;
 		const position = itemContainerConfig[number].position;
-		const itemImage = this.props.content.itemImage;
-		const itemText = this.props.content.itemText;
+		const imageContent = this.props.content.itemImage;
+		const textContent = this.props.content.itemText;
 		const clickedItems = this.props.clickedItems;
 
 		return (
 			<div className={this.setClass(number, position)} onMouseOver={scroll} onClick={click}>
-				<ItemImage itemNumber={number} clickedItems={clickedItems} scrolledItem={scrollCheck()} content={itemImage} />
-				<ItemText itemNumber={number} scrolledItem={scrollCheck()} content={itemText} />
+				<ItemImage itemNumber={number} clickedItems={clickedItems} scrolledItem={scrollCheck()} content={imageContent} />
+				<ItemText itemNumber={number} scrolledItem={scrollCheck()} content={textContent} />
 			</div>
 		);
 	}

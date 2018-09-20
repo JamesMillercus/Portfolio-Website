@@ -8,9 +8,7 @@ $herofooterspeed: 200ms;
 }
 
 .grid-container-laptop .item4 .heroFooterText {
-	// height: 100%;
   width: 100%;
-  // margin-bottom: 8%;
   text-align: center;
 	grid-area: heroBottomText;
 	margin: 0px 0px 17% 0px;
@@ -18,7 +16,6 @@ $herofooterspeed: 200ms;
 }
 
 .grid-container-laptop .item4 .heroFooterText.none {
-  color: #7c7c7c;
   font-size: 12px;
   font-weight: 900;
   margin-top: -5%!important;
@@ -26,17 +23,3 @@ $herofooterspeed: 200ms;
   margin-left: auto !important;
   margin-right: auto !important;
 }
-.grid-container-laptop .item4 .heroFooterText.centerRightIcon {
-  color: #e4bc02;
-}
-
-.grid-container-laptop .item4 .heroFooterText.centerLeftIcon {
-  color: #1d9c00;;
-}
-
-.grid-container-laptop .item4 .heroFooterText.centerIcon {
-  color: #008f9c;
-}
-// .grid-container-laptop .item4 h1:hover ~ .heroFooterText {
-//     color: #008f9c;
-// }

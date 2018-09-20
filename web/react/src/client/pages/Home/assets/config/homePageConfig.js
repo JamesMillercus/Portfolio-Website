@@ -41,6 +41,52 @@ export default {
     { png: 'epic.png', gif: 'epic.gif' },
     { png: 'maker.png', gif: 'maker.gif' },
     { png: 'adt.png', gif: 'adt.gif' }
-  ]
-
+  ],
+  itemVideo: [
+    {
+      videoID: 'yVKqqdlHPLI' // moodtree
+    }, {
+      videoID: '8ycTf2TDH_I' // pay@pump
+    }, {
+      videoID: 'AlvdRkRewvA' // hole in the wall
+    }, {
+      videoID: 'T19vR9AxUug' // caddy clubhouse
+    }, {
+      // hero text: video not applicable
+    }, {
+      videoID: 'FPOmiqU4bIs' // merck next gen vr
+    }, {
+      videoID: 'K3N18cqnzHg' // epic mind drive
+    }, {
+      videoID: '5hHonl2hmiU' // what it means to be a maker
+    }, {
+      videoID: '36XGBIJLyN4' // MAIA
+    }
+  ],
+  heroFooterText: {
+    none: {
+      text: 'i bring ideas to life with design, code & hardware',
+      color: '#7c7c7c'
+    },
+    centerIcon: {
+      text: 'prototype ideas as products or digital experiences',
+      color: '#008f9c'
+    },
+    leftIcon: {
+      text: 'AR, VR, Blockchain or web app',
+      color: '#1d9c00'
+    },
+    centerLeftIcon: {
+      text: 'tell me about your ideas on: hi@jamesmiller.design',
+      color: '#1d9c00'
+    },
+    centerRightIcon: {
+      text: 'launch ideas as AR, VR, desktop, mobile or web apps',
+      color: '#e4bc02'
+    },
+    rightIcon: {
+      text: 'updates for technology ideas',
+      color: '#008f9c'
+    }
+  }
 };

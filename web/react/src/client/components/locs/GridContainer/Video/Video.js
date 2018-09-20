@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import YoutubePlayer from 'react-youtube-player';
 import { connect } from 'react-redux';
 import { fetchActiveItem } from './../../../../actions';
-import videoConfig from './assets/config/videoConfig';
 import './assets/scss';
 import './assets/images';
 
@@ -33,12 +32,13 @@ class Video extends Component {
 	}
 
 	videoContent(selectedVideo, playerState) {
+		const videoContent = this.props.content.itemVideo;
 		if (selectedVideo === 'hidden') return null;
 		return (
 			<div className={`videoPlayer video${selectedVideo}`}>
 				<div className="exitBtn" onClick={this.exitVideo} />
 				<YoutubePlayer
-					videoId={videoConfig[selectedVideo].videoID}
+					videoId={videoContent[selectedVideo].videoID}
 					// MAKE THIS DEPENDENT ON DEVICE TYPE
 					// IF LAPTOP START PLAYING ELSE PAUSED
 					playbackState={playerState}
@@ -76,7 +76,8 @@ class Video extends Component {
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
 		activeItem: state.activeItem,
-		deviceType: state.deviceType
+		deviceType: state.deviceType,
+		content: state.content
 	});
 
 export default connect(mapStateToProps, { fetchActiveItem })(Video);

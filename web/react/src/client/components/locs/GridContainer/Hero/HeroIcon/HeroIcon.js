@@ -61,6 +61,16 @@ class HeroIcon extends Component {
 		}
 	}
 
+	/* update css for icons
+		1. if fetchActiveHeroIcon === this.props.content.heroIcon
+		2. update backgroundImage && background color of div
+	*/
+
+	// const divStyle = {
+
+	// 	backgroundImage: `url(/assets/images/${backgroundImage()})`,
+	// };
+
 	render() {
 		const href = this.props.href;
 		const rel = 'noreferrer noopener';
@@ -71,6 +81,8 @@ class HeroIcon extends Component {
 		return (
 			<a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} />
 		);
+
+		// return <div className={setClass().join(' ')} style={divStyle} />;
 	}
 }
 
@@ -79,7 +91,8 @@ const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
 	scrolledHeroIcon: state.scrolledHeroIcon,
 	deviceType: state.deviceType,
-	scrolledItem: state.scrolledItem
+	scrolledItem: state.scrolledItem,
+	content: state.content
 });
 
 
