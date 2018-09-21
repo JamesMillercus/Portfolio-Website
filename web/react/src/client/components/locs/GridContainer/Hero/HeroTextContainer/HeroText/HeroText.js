@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import heroTextConfig from './assets/config/heroTextConfig.js';
 import { fetchCharLoader, fetchSiteAnimating } from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
@@ -29,15 +28,29 @@ class HeroText extends Component {
 
   getChar(activeHeroText, selectedItem) {
     // loop through each key within heroTextConfig
+    const heroTextContent = this.props.content.heroText;
+    const siteAnimating = this.props.siteAnimating;
     let returnedCharArr;
-    if (this.props.siteAnimating !== 'finishedAnimating') returnedCharArr = heroTextConfig.none;
-    else if (this.props.siteAnimating === 'finishedAnimating') {
+    if (siteAnimating !== 'finishedAnimating') returnedCharArr = heroTextContent.none.text;
+    else if (siteAnimating === 'finishedAnimating') {
       if (selectedItem === 4) {
-        returnedCharArr = heroTextConfig.centerIcon;
-      } else returnedCharArr = heroTextConfig.none;
+        returnedCharArr = heroTextContent.centerIcon.text;
+      } else returnedCharArr = heroTextContent.none.text;
     }
     return returnedCharArr;
   }
+
+  getStyle() {
+    const heroTextStyle = this.props.content.heroText;
+    const selectedItem = this.props.scrolledItem;
+    const deviceType = this.props.deviceType;
+    const style = {};
+    if (selectedItem === 4 && !this.checkAnimationState()) {
+      style.backgroundColor = heroTextStyle.centerIcon.backgroundColor;
+      style.backgroundImage = `url(/assets/images/${heroTextStyle.centerIcon.backgroundImage})`;
+    } else if (deviceType === 'laptop') style.backgroundColor = heroTextStyle.none.backgroundColor;
+    return style;
+	}
 
   checkAnimationState() {
     const siteAnimating = this.props.siteAnimating;
@@ -75,7 +88,7 @@ class HeroText extends Component {
 
   // h1 with css style based on the selected item and icon
   render() {
-    return <h1 className={this.setClass()}> { this.heroText() } </h1>;
+    return <h1 className={this.setClass()} style={this.getStyle()}> { this.heroText() } </h1>;
   }
 }
 
@@ -86,7 +99,8 @@ const mapStateToProps = (state) => ({
 	deviceType: state.deviceType,
 	heroTextAnimation: state.heroTextAnimation,
 	currentChars: state.currentChars,
-  siteAnimating: state.siteAnimating
+  siteAnimating: state.siteAnimating,
+  content: state.content
 });
 
 export default connect(mapStateToProps, { fetchCharLoader, fetchSiteAnimating })(HeroText);

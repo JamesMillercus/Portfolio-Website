@@ -1,4 +1,6 @@
 /*eslint max-len: ["error", { "code": 200 }]*/
+/*eslint-env browser*/
+/*eslint no-script-url: "error"*/
 
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
@@ -8,7 +10,9 @@ import {
 	fetchScrolledHeroIcon,
 	fetchDeviceType,
 	fetchHeroTextAnimation,
-	fetchScrolledItem
+	fetchScrolledItem,
+	fetchSiteAnimating,
+	fetchUpdateUrl
 } from './../../../../../actions';
 import './assets/scss';
 import './assets/images';
@@ -26,9 +30,22 @@ class HeroIcon extends Component {
 	setClass() {
 		const revealIcons = this.props.revealIcons;
 		const iconClasses = [`${this.props.className}`, 'icon'];
-
 		if (revealIcons) iconClasses.push('active');
 		return iconClasses.join(' ');
+	}
+
+	getStyle() {
+		const heroIconContent = this.props.content.heroIcon;
+		const activeHeroIcon = this.props.activeHeroIcon;
+		const siteAnimating = this.props.siteAnimating;
+		const returnstyles = {};
+		Reflect.ownKeys(heroIconContent).forEach(key => {
+			if (this.props.className === key) {
+				returnstyles.backgroundImage = `url(/assets/images/${heroIconContent[key].image})`;
+				if (activeHeroIcon === key) returnstyles.backgroundColor = heroIconContent[key].backgroundColor;
+			}
+		});
+		return returnstyles;
 	}
 
 	activeHero(className) {
@@ -49,27 +66,29 @@ class HeroIcon extends Component {
 	}
 
 	checkTarget() {
-		if (this.props.className === 'centerLeftIcon') return '_self';
-		return '_blank';
+		const heroIconContent = this.props.content.heroIcon;
+		const activeHeroIcon = this.props.activeHeroIcon;
+		let returnstyles;
+		Reflect.ownKeys(heroIconContent).forEach(key => {
+			if (activeHeroIcon === key) returnstyles = heroIconContent[key].target;
+		});
+		return returnstyles;
 	}
 
 	scrolledItem(scrolledItem, className) {
-		const deviceType = this.props.deviceType;
-		if (deviceType === 'laptop') {
-			if (scrolledItem !== null) this.props.fetchScrolledItem(scrolledItem);
-			this.props.fetchScrolledHeroIcon(className);
+		if (this.props.siteAnimating === 'finishedAnimating') {
+			const deviceType = this.props.deviceType;
+			if (deviceType === 'laptop') {
+				if (scrolledItem !== null) this.props.fetchScrolledItem(scrolledItem);
+				this.props.fetchScrolledHeroIcon(className);
+			}
 		}
 	}
 
-	/* update css for icons
-		1. if fetchActiveHeroIcon === this.props.content.heroIcon
-		2. update backgroundImage && background color of div
-	*/
-
-	// const divStyle = {
-
-	// 	backgroundImage: `url(/assets/images/${backgroundImage()})`,
-	// };
+	updateHREF(href) {
+		this.props.fetchSiteAnimating('changingPage');
+		setTimeout(() => this.props.fetchUpdateUrl(href), 1000);
+	}
 
 	render() {
 		const href = this.props.href;
@@ -78,11 +97,12 @@ class HeroIcon extends Component {
 		const out = () => this.scrolledItem(null, 'none');
 		const css = this.setClass();
 		const target = this.checkTarget();
-		return (
-			<a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} />
-		);
+		const style = this.getStyle();
+		const voidHREF = 'javascript:void(0);';
+		const updateHREF = () => this.updateHREF(href);
 
-		// return <div className={setClass().join(' ')} style={divStyle} />;
+		if (target === '_self') return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
+		return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
 	}
 }
 
@@ -92,7 +112,9 @@ const mapStateToProps = (state) => ({
 	scrolledHeroIcon: state.scrolledHeroIcon,
 	deviceType: state.deviceType,
 	scrolledItem: state.scrolledItem,
-	content: state.content
+	content: state.content,
+	siteAnimating: state.siteAnimating,
+	updateUrl: state.updateUrl
 });
 
 
@@ -101,5 +123,7 @@ export default connect(mapStateToProps, {
 	fetchScrolledHeroIcon,
 	fetchDeviceType,
 	fetchHeroTextAnimation,
-	fetchScrolledItem
+	fetchScrolledItem,
+	fetchSiteAnimating,
+	fetchUpdateUrl
 })(HeroIcon);

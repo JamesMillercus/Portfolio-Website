@@ -2,40 +2,7 @@
 .grid-container-mobile .item:hover > .img {
   background-position: 50% 100%;
 }
-/* set top left corner img pos & src */
-.grid-container-mobile .item0 .img {
-  background-image: url(/assets/images/topleft.png);
-}
-/* set top middle img pos & src */
-.grid-container-mobile .item1.item .img {
-  background-image: url(/assets/images/topcenter.png);
-}
-/* set top right corner img pos & src */
-.grid-container-mobile .item2 .img {
-  background-image: url(/assets/images/topright.png);
-}
-/* set left middle img pos & src */
-.grid-container-mobile .item3 .img {
-  background-image: url(/assets/images/middleleft.png);
-}
 
-/* set right middle img pos & src */
-.grid-container-mobile .item5 .img {
-  background-image: url(/assets/images/middleright.png);
-}
-/* set bottom left corner img pos & src */
-.grid-container-mobile .item6 .img {
-  background-image: url(/assets/images/bottomleft.png);
-}
-/* set bottom middle img pos & src */
-.grid-container-mobile .item7.item .img {
-  background-image: url(/assets/images/bottomcenter.png);
-}
-/* set bottom right corner img pos & src */
-.grid-container-mobile .item8 .img {
-  /*background-color: pink;*/
-  background-image: url(/assets/images/bottomright.png);
-}
 /* set each item img's dimensions & img settings */
 .grid-container-mobile .item .img {
   height: 400px;

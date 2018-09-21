@@ -83,9 +83,9 @@ export default {
   },
   heroIcon: {
     centerRightIcon: {
-      backgroundColor: '#e4bc02',
-      image: 'techIcon.png',
-      href: '/tech',
+      backgroundColor: '#008f9c',
+      image: 'designIcon.png',
+      href: '/',
       target: '_self'
     },
     centerLeftIcon: {
@@ -108,8 +108,8 @@ export default {
     },
     centerIcon: {
       text: [''],
-      backgroundColor: '#008f9c',
-      backgroundImage: 'designIcon.png'
+      backgroundColor: '#e4bc02',
+      backgroundImage: 'techIcon.png'
     }
   }
 };

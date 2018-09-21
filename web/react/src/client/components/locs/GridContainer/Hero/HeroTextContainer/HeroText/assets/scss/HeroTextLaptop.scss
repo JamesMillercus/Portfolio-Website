@@ -21,7 +21,6 @@ $herospeed: 200ms;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 50%;
-	background-color: #7c7c7c;
 	margin-top: 7%;
 	opacity: 1;
 }
@@ -30,8 +29,6 @@ $herospeed: 200ms;
 	-webkit-box-shadow: inset -4px -4px 0 #000;
 	-moz-box-shadow: inset -4px -4px 0 #000;
 	box-shadow: inset -4px -4px 0 #000;
-	background-color: #008f9c;
-	background-image: url(/assets/images/designIcon.png);
 	background-size: 65%;
 	width: 80px;
 	height: 80px;
@@ -56,9 +53,9 @@ $herospeed: 200ms;
 	transition: all $herospeed;
 }
 
-.grid-container-laptop .item4 .heroTextContainer h1.centerIcon:hover {
-	background-color: #008f9c;
-}
+// .grid-container-laptop .item4 .heroTextContainer h1.centerIcon:hover {
+// 	background-color: #008f9c;
+// }
 
 .grid-container-laptop .item4 .heroTextContainer h1.hideLogo {
 	opacity:0;

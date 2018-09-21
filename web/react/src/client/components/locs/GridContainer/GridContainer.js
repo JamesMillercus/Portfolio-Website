@@ -4,7 +4,8 @@ import {
   fetchScrolledItem,
   fetchDeviceType,
   fetchBackgroundPos,
-  fetchSiteAnimating
+  fetchSiteAnimating,
+  fetchUpdateUrl
 } from './../../../actions';
 import ItemContainer from './ItemContainer/ItemContainer';
 import Hero from './Hero/Hero';
@@ -35,6 +36,11 @@ class GridContainer extends Component {
       } else if (this.props.siteAnimating === 'logoFinishedAnimating') {
         setTimeout(() => that.props.fetchSiteAnimating('startAnimating'), 100);
         setTimeout(() => that.props.fetchSiteAnimating('finishedAnimating'), 1000);
+      } else if (this.props.siteAnimating === 'changingPage') {
+        // animation back to logo
+        setTimeout(() => {
+          setTimeout(() => that.props.fetchSiteAnimating('logoAnimating'), 400);
+        }, 500);
       }
     }
   }
@@ -60,7 +66,9 @@ class GridContainer extends Component {
     const x = mousePos.x * speed;
     const y = mousePos.y * speed;
     const background = { x, y };
-    if (this.props.deviceType === 'laptop') this.props.fetchBackgroundPos(background);
+    if (this.props.deviceType === 'laptop' && this.props.siteAnimating === 'finishedAnimating') {
+      this.props.fetchBackgroundPos(background);
+    }
   }
 
   renderItems() {
@@ -98,7 +106,9 @@ function mapStateToProps(state) {
     deviceType: state.deviceType,
     backgroundPos: state.backgroundPos,
     siteAnimating: state.siteAnimating,
-    browser: state.browser
+    browser: state.browser,
+    updateUrl: state.updateUrl,
+    urlRequest: state.urlRequest
   };
 }
 
@@ -106,5 +116,6 @@ export default connect(mapStateToProps, {
   fetchScrolledItem,
   fetchDeviceType,
   fetchBackgroundPos,
-  fetchSiteAnimating
+  fetchSiteAnimating,
+  fetchUpdateUrl
 })(GridContainer);

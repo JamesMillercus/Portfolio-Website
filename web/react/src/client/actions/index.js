@@ -184,9 +184,35 @@ export const FETCH_CONTENT = 'fetch_content';
 // action creator
 export const fetchContent = (content) => async (dispatch) => {
 	const res = content;
-	
+
 	dispatch({
 		type: FETCH_CONTENT,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_URL_REQUEST = 'fetch_url_request';
+
+// action creator
+export const fetchUrlRequest = (href) => async (dispatch) => {
+	const res = href;
+
+	dispatch({
+		type: FETCH_URL_REQUEST,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_UPDATE_URL = 'fetch_update_url';
+
+// action creator
+export const fetchUpdateUrl = (href) => async (dispatch) => {
+	const res = href;
+
+	dispatch({
+		type: FETCH_UPDATE_URL,
 		payload: res
 	});
 };

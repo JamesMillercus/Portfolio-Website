@@ -14,7 +14,7 @@ const ItemImage = ({ itemNumber, clickedItems, scrolledItem, content }) => {
 	};
 
 	const divStyle = {
-		backgroundImage: `url(/assets/images/${backgroundImage()})`,
+		backgroundImage: `url(/assets/images/${backgroundImage()})`
 	};
 
 	const setClass = () => {

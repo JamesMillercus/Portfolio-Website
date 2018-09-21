@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchScrolledItem } from './../../../../actions';
-import heroConfig from './assets/config/heroConfig.js';
 import HeroIcon from './HeroIcon/HeroIcon';
 import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 
@@ -22,12 +21,15 @@ class Hero extends Component {
 	renderHeroIcons() {
 		const icons = [];
 		const reveal = this.revealHeroIcons();
+		const heroIconContent = this.props.content.heroIcon;
 		// push all content into the items array
-		for (let x = 0; x < heroConfig.length; x++) {
-			const css = heroConfig[x].className;
-			const href = heroConfig[x].href;
-			icons.push(<HeroIcon className={css} href={href} revealIcons={reveal} key={x} />);
-		}
+
+		Reflect.ownKeys(heroIconContent).forEach(key => {
+			const css = key;
+			const href = heroIconContent[key].href;
+			icons.push(<HeroIcon className={css} href={href} revealIcons={reveal} key={key} />);
+		});
+
 		return icons;
 	}
 
@@ -48,7 +50,8 @@ class Hero extends Component {
 const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
 	siteAnimating: state.siteAnimating,
-	deviceType: state.deviceType
+	deviceType: state.deviceType,
+	content: state.content
 });
 
 

@@ -1,36 +1,3 @@
-/* set top left corner img pos & src */
-.grid-container-mobile .item0 .activeImg {
-  background-image: url(/assets/images/topleft.gif);
-}
-/* set top middle img pos & src */
-.grid-container-mobile .item1.item .activeImg {
-  background-image: url(/assets/images/topcenter.gif);
-}
-/* set top right corner img pos & src */
-.grid-container-mobile .item2 .activeImg {
-  background-image: url(/assets/images/topright.gif);
-}
-/* set left middle img pos & src */
-.grid-container-mobile .item3 .activeImg {
-  background-image: url(/assets/images/middleleft.gif);
-}
-
-/* set right middle img pos & src */
-.grid-container-mobile .item5 .activeImg {
-  background-image: url(/assets/images/middleright.gif);
-}
-/* set bottom left corner img pos & src */
-.grid-container-mobile .item6 .activeImg {
-  background-image: url(/assets/images/bottomleft.gif);
-}
-/* set bottom middle img pos & src */
-.grid-container-mobile .item7.item .activeImg {
-  background-image: url(/assets/images/bottomcenter.gif);
-}
-/* set bottom right corner img pos & src */
-.grid-container-mobile .item8 .activeImg {
-  background-image: url(/assets/images/bottomright.gif);
-}
 /* set each item img's dimensions & img settings */
 .grid-container-mobile .item .activeImg {
   background-size: contain;

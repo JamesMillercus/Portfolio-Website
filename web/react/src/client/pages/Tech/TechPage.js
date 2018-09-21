@@ -9,19 +9,19 @@ import GridContainer from './../../components/locs/GridContainer/GridContainer';
 import {
   fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
 } from './../../actions';
-import homePageConfig from './assets/config/homePageConfig';
+import techPageConfig from './assets/config/techPageConfig';
 
-class Home extends Component {
+class Tech extends Component {
 
   componentDidMount() {
-    this.props.fetchUpdateUrl('/');
+    this.props.fetchUpdateUrl('/tech');
     this.props.fetchScrolledItem(null);
     this.props.fetchScrolledHeroIcon('none');
   }
 
   render() {
-    if (this.props.updateUrl !== '/') return <Redirect to={this.props.updateUrl} />;
-    this.props.fetchContent(homePageConfig);
+    if (this.props.updateUrl !== '/tech') return <Redirect to={this.props.updateUrl} />;
+    this.props.fetchContent(techPageConfig);
     return <GridContainer />;
   }
 }
@@ -38,5 +38,5 @@ export default {
     connect(mapStateToProps, {
       fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
     })
-  )(Home)
+  )(Tech)
 };

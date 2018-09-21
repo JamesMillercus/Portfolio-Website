@@ -9,14 +9,12 @@
 /* set topleft icon pos & src */
 .grid-container-mobile .item4 a.centerLeftIcon {
     grid-area: centerLeftIcon;
-    background-image: url(/assets/images/mailIcon.png);
     background-position: 100% -45%;
 }
 
 /* set bottomleft icon pos & src */
 .grid-container-mobile .item4 a.centerRightIcon {
     grid-area: centerRightIcon;
-    background-image: url(/assets/images/techIcon.png);
     background-position: 0% -45%;
 }
 

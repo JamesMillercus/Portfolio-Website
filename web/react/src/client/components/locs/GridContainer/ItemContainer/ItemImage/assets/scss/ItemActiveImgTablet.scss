@@ -1,7 +1,6 @@
 /* set top left corner img pos & src */
 .grid-container-tablet .item0 .activeImg {
   grid-area: rightimg;
-  background-image: url(/assets/images/topleft.gif);
   /*right: 0;*/
   left: 0;
   top: 0;
@@ -10,7 +9,6 @@
 /* set top middle img pos & src */
 .grid-container-tablet .item1.item .activeImg {
   grid-area: centerimg;
-  background-image: url(/assets/images/topcenter.gif);
   right: 0;
   left: 0;
   bottom: 0;
@@ -19,7 +17,6 @@
 /* set top right corner img pos & src */
 .grid-container-tablet .item2 .activeImg {
   grid-area: leftimg;
-  background-image: url(/assets/images/topright.gif);
   right: 0;
   left: 50%;
   top: 0;
@@ -29,7 +26,6 @@
 .grid-container-tablet .item3 .activeImg {
   grid-area: img;
   height:45%;
-  background-image: url(/assets/images/middleleft.gif);
   right: 0;
   /*left: 0;*/
   top: 0;
@@ -41,7 +37,6 @@
   /*background-color: pink;*/
   grid-area: img;
   height:45%;
-  background-image: url(/assets/images/middleright.gif);
   /*right: 0;*/
   left: 0;
   top: 0;
@@ -51,7 +46,6 @@
 .grid-container-tablet .item6 .activeImg {
   /*background-color: pink;*/
   grid-area: rightimg;
-  background-image: url(/assets/images/bottomleft.gif);
   /*right: 0;*/
   left: 0;
   top: 0;
@@ -61,7 +55,6 @@
 .grid-container-tablet .item7.item .activeImg {
   /*background-color: pink;*/
   grid-area: centerimg;
-  background-image: url(/assets/images/bottomcenter.gif);
   right: 0;
   left: 0;
   top: 0;
@@ -72,14 +65,13 @@
 .grid-container-tablet .item8 .activeImg {
   /*background-color: pink;*/
   grid-area: leftimg;
-  background-image: url(/assets/images/bottomright.gif);
   right: 0;
   left: 50%;
   top: 0;
   bottom: 0;
 }
 /* set each item img's dimensions & img settings */
-.grid-container-tablet .activeImg {
+.grid-container-tablet .item .activeImg {
   height: 45%;
   /*max-width: 220px;*/
   width:162px;

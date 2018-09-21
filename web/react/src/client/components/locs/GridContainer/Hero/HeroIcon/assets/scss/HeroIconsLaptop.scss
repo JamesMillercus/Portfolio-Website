@@ -14,7 +14,6 @@ $iconHideLeftHorizontal: 23%;
 /* set topleft icon pos & src */
 .grid-container-laptop .item4 a.centerLeftIcon {
     grid-area: centerLeftIcon;
-    background-image: url(/assets/images/mailIcon.png);
     background-size: 90%;
     background-position-y: -10%;
     top: $iconHideTopVertical;
@@ -24,15 +23,11 @@ $iconHideLeftHorizontal: 23%;
 /* set bottomleft icon pos & src */
 .grid-container-laptop .item4 a.centerRightIcon {
     grid-area: centerRightIcon;
-    background-image: url(/assets/images/techIcon.png);
     top: $iconHideTopVertical;
     left: $iconHideRightHorizontal;
 }
-.grid-container-laptop .item4 a.centerRightIcon:hover{
-  background-color: #e4bc02;
-}
+
 .grid-container-laptop .item4 a.centerLeftIcon:hover{
-  background-color: #1d9c00;
   background-size: auto 150%;
 }
 
