@@ -14,7 +14,9 @@ const config = {
 	//  Tell webpack where to put the output file that is generated
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, './../build/client/js')
+		chunkFilename: '[name].js',
+		path: path.resolve(__dirname, './../build/client/js'),
+		publicPath: '/js/'
 	},
 	module: {
 		rules: [

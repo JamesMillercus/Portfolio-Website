@@ -14,8 +14,7 @@ export default [
 			},
 			{
 				...TechPage,
-				path: '/tech',
-				exact: true
+				path: '/tech'
 			},
 			{
 				...NotFoundPage

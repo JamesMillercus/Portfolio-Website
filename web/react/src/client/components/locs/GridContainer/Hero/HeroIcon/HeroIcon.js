@@ -4,6 +4,7 @@
 
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 import {
 	fetchActiveHeroIcon,
@@ -20,10 +21,10 @@ import './assets/images';
 class HeroIcon extends Component {
 
 	componentDidUpdate() {
-		const elem = this.refs.icon;
-		this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
-		if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
-		else this.props.fetchHeroTextAnimation(true);
+		// const elem = this.refs.icon;
+		// this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
+		// if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
+		// else this.props.fetchHeroTextAnimation(true);
 		this.activeHero(this.props.scrolledHeroIcon);
 	}
 
@@ -87,7 +88,7 @@ class HeroIcon extends Component {
 
 	updateHREF(href) {
 		this.props.fetchSiteAnimating('changingPage');
-		setTimeout(() => this.props.fetchUpdateUrl(href), 1000);
+		setTimeout(() => { this.props.fetchUpdateUrl(href); }, 1000);
 	}
 
 	render() {
@@ -100,8 +101,9 @@ class HeroIcon extends Component {
 		const style = this.getStyle();
 		const voidHREF = 'javascript:void(0);';
 		const updateHREF = () => this.updateHREF(href);
-
-		if (target === '_self') return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
+		
+		if (this.props.updateUrl === href) return <Redirect push to={href} />;
+		else if (target === '_self') return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
 		return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
 	}
 }

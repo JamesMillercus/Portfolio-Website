@@ -1,7 +1,8 @@
 // import fetch users action
 import { FETCH_UPDATE_URL } from '../actions';
 
-export default function (state = '/', action) {
+export default function (state = null, action) {
+	// console.log(action.payload);
 	// if actions.type
 	switch (action.type) {
 		//if actions.type is FETCH_USERS

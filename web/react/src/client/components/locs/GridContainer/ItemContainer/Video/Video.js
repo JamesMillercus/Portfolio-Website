@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import YoutubePlayer from 'react-youtube-player';
 import { connect } from 'react-redux';
-import { fetchActiveItem } from './../../../../actions';
+import { fetchActiveItem } from './../../../../../actions';
 import './assets/scss';
 import './assets/images';
 

@@ -192,19 +192,6 @@ export const fetchContent = (content) => async (dispatch) => {
 };
 
 // stored data of clicked items
-export const FETCH_URL_REQUEST = 'fetch_url_request';
-
-// action creator
-export const fetchUrlRequest = (href) => async (dispatch) => {
-	const res = href;
-
-	dispatch({
-		type: FETCH_URL_REQUEST,
-		payload: res
-	});
-};
-
-// stored data of clicked items
 export const FETCH_UPDATE_URL = 'fetch_update_url';
 
 // action creator
@@ -213,6 +200,19 @@ export const fetchUpdateUrl = (href) => async (dispatch) => {
 
 	dispatch({
 		type: FETCH_UPDATE_URL,
+		payload: res
+	});
+};
+
+// stored data of clicked items
+export const FETCH_ASYNC_VIDEO_COMPONENT = 'fetch_async_video_component';
+
+// action creator
+export const fetchAsyncVideoComponent = (component) => async (dispatch) => {
+	const res = component;
+
+	dispatch({
+		type: FETCH_ASYNC_VIDEO_COMPONENT,
 		payload: res
 	});
 };

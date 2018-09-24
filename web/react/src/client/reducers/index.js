@@ -16,7 +16,7 @@ import currentFooterCharsReducer from './currentFooterCharsReducer';
 import browserReducer from './browserReducer';
 import contentReducer from './contentReducer';
 import updateUrlReducer from './updateUrlReducer';
-import urlRequestReducer from './urlRequestReducer';
+import asyncVideoComponentReducer from './asyncVideoComponentReducer';
 // combine all existing reducers
 export default combineReducers({
 	userAgent: userAgentReducer,
@@ -35,5 +35,5 @@ export default combineReducers({
 	browser: browserReducer,
 	content: contentReducer,
 	updateUrl: updateUrlReducer,
-	urlRequest: urlRequestReducer
+	asyncVideoComponent: asyncVideoComponentReducer
 });

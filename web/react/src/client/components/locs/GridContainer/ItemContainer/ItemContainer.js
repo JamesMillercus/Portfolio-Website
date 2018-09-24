@@ -1,5 +1,4 @@
 /*eslint max-len: ["error", { "code": 200 }]*/
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemImage from './ItemImage/ItemImage';
@@ -9,7 +8,8 @@ import './assets/scss';
 import {
 	fetchScrolledItem,
 	fetchActiveItem,
-	fetchClickedItems
+	fetchClickedItems,
+	fetchAsyncVideoComponent
 } from './../../../../actions';
 
 class ItemContainer extends Component {
@@ -36,7 +36,13 @@ class ItemContainer extends Component {
 		this.props.fetchActiveItem(item);
 		const itemAlreadyClicked = this.props.clickedItems.includes(item);
 		if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(item);
+
+		import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
+      this.props.fetchAsyncVideoComponent(VideoComponent.default);
+    });
 	}
+
+
 
 	scrolledCheck(number, scrolledItem) {
 		if (scrolledItem === number) return true;
@@ -73,5 +79,5 @@ const mapStateToProps = (state) => ({
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent }
 )(ItemContainer);

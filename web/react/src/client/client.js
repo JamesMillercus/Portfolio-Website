@@ -11,6 +11,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 // React's render router functon
 import { renderRoutes } from 'react-router-config';
+// import { ReactRouterGlobalHistory } from 'react-router-global-history';
 // handle asynchronous acion creators
 import thunk from 'redux-thunk';
 // Ties store to react components
@@ -27,6 +28,7 @@ const thunkExtraArg = thunk.withExtraArgument(userAgent);
 const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunkExtraArg));
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
+// <ReactRouterGlobalHistory />
 ReactDOM.hydrate(
 	<Provider store={store}>
 		<BrowserRouter>

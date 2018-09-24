@@ -26,6 +26,7 @@ module.exports = (app, req, res) => {
 	Promise.all(promises).then(() => {
 		const context = {};
 		const content = renderer(req, store, context);
+		// context.url = req.path;
 		// if a url is loaded into the context then redirect to the url in the context
 		if (context.url) return res.redirect(301, context.url);
 		// if context has not found stored then respond with 404 error

@@ -9,7 +9,6 @@ import {
 } from './../../../actions';
 import ItemContainer from './ItemContainer/ItemContainer';
 import Hero from './Hero/Hero';
-import Video from './Video/Video';
 import './assets/scss';
 
 class GridContainer extends Component {
@@ -78,7 +77,11 @@ class GridContainer extends Component {
       if (x === 4) items.push(<Hero number={x} key={x} />);
       else items.push(<ItemContainer number={x} key={x} />);
     }
-    items.push(<Video key={9} />);
+
+    if (this.props.asyncVideoComponent !== null) {
+      const Video = this.props.asyncVideoComponent;
+      items.push(<Video key={9} />);
+    }
     return items;
   }
 
@@ -108,7 +111,8 @@ function mapStateToProps(state) {
     siteAnimating: state.siteAnimating,
     browser: state.browser,
     updateUrl: state.updateUrl,
-    urlRequest: state.urlRequest
+    urlRequest: state.urlRequest,
+    asyncVideoComponent: state.asyncVideoComponent
   };
 }
 
