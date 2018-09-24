@@ -69,16 +69,16 @@ export default {
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: 'prototype ideas as products or digital experiences',
-      color: '#008f9c'
+      text: 'launch ideas as AR, VR, desktop, mobile or web apps',
+      color: '#e4bc02'
     },
     centerLeftIcon: {
       text: 'tell me about your ideas on: hi@jamesmiller.design',
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: 'launch ideas as AR, VR, desktop, mobile or web apps',
-      color: '#e4bc02'
+      text: 'prototype ideas as products or digital experiences',
+      color: '#008f9c'
     }
   },
   heroIcon: {

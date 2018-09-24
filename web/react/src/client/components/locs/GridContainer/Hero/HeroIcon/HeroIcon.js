@@ -101,7 +101,7 @@ class HeroIcon extends Component {
 		const style = this.getStyle();
 		const voidHREF = 'javascript:void(0);';
 		const updateHREF = () => this.updateHREF(href);
-		
+
 		if (this.props.updateUrl === href) return <Redirect push to={href} />;
 		else if (target === '_self') return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
 		return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;

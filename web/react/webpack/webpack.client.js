@@ -7,6 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
 	// Tell webpack the root file of our server application
@@ -17,6 +18,18 @@ const config = {
 		chunkFilename: '[name].js',
 		path: path.resolve(__dirname, './../build/client/js'),
 		publicPath: '/js/'
+	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+			cacheGroups: {
+				vendor: {
+					name: 'vendor',
+					chunks: 'initial',
+					minChunks: 2
+				}
+			}
+		}
 	},
 	module: {
 		rules: [
@@ -91,6 +104,9 @@ const config = {
 		}),
 		new BrotliPlugin({
 			test: /\.(js|css)$/,
+		}),
+		new BundleAnalyzerPlugin({
+			generateStatsFile: true
 		})
 	]
 };
