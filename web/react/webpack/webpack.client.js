@@ -106,7 +106,7 @@ const config = {
 			test: /\.(js|css)$/,
 		}),
 		new BundleAnalyzerPlugin({
-			generateStatsFile: true
+			generateStatsFile: false
 		})
 	]
 };

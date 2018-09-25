@@ -1,6 +1,7 @@
 /*eslint max-len: ["error", { "code": 500 }]*/
 
 export default {
+  page: 'tech',
   itemText: [
     {
       header: 'Mood Tree',

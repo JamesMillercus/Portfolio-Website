@@ -33,9 +33,23 @@ class ItemContainer extends Component {
 	}
 
 	clickedItem(item) {
+		const page = this.props.content.page;
 		this.props.fetchActiveItem(item);
-		const itemAlreadyClicked = this.props.clickedItems.includes(item);
-		if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(item);
+		// console.log(this.props.clickedItems);
+		// console.log(this.props.content.page);
+		// const currentPage = this.props.content.page;
+
+		/*
+			1. if page has not been clicked yet, then send both page and item
+			2. if page has been clicked, send both page and item
+		*/
+
+		if(Object.getOwnPropertyNames(this.props.clickedItems).length === 0 || this.props.clickedItems[page] === undefined) {
+			this.props.fetchClickedItems(page, item);
+		} else {
+			const itemAlreadyClicked = this.props.clickedItems[page].includes(item);
+			if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(page, item);
+		}
 
 		import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
       this.props.fetchAsyncVideoComponent(VideoComponent.default);
@@ -57,7 +71,8 @@ class ItemContainer extends Component {
 		const position = itemContainerConfig[number].position;
 		const imageContent = this.props.content.itemImage;
 		const textContent = this.props.content.itemText;
-		const clickedItems = this.props.clickedItems;
+		const page = this.props.content.page;
+		const clickedItems = this.props.clickedItems[page];
 
 		return (
 			<div className={this.setClass(number, position)} onMouseOver={scroll} onClick={click}>

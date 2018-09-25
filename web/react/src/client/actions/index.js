@@ -38,12 +38,13 @@ export const fetchActiveItem = (item) => async (dispatch) => {
 
 // stored data of clicked items
 export const FETCH_CLICKED_ITEMS = 'fetch_clicked_items';
-const clickedItems = [];
+const clickedItems = {};
 // action creator
-export const fetchClickedItems = (item) => async (dispatch) => {
+export const fetchClickedItems = (page, item) => async (dispatch) => {
 	// once response is received from http req
-	clickedItems.push(item);
-	// console.log(clickedItems);
+	if (!clickedItems[page]) clickedItems[page] = [];
+	clickedItems[page].push(item);
+
 	const res = clickedItems;
 
 	dispatch({
