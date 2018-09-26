@@ -1,6 +1,7 @@
 /*eslint max-len: ["error", { "code": 200 }]*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import ItemImage from './ItemImage/ItemImage';
 import ItemText from './ItemText/ItemText';
 import itemContainerConfig from './assets/config/itemContainerConfig';
@@ -35,14 +36,6 @@ class ItemContainer extends Component {
 	clickedItem(item) {
 		const page = this.props.content.page;
 		this.props.fetchActiveItem(item);
-		// console.log(this.props.clickedItems);
-		// console.log(this.props.content.page);
-		// const currentPage = this.props.content.page;
-
-		/*
-			1. if page has not been clicked yet, then send both page and item
-			2. if page has been clicked, send both page and item
-		*/
 
 		if(Object.getOwnPropertyNames(this.props.clickedItems).length === 0 || this.props.clickedItems[page] === undefined) {
 			this.props.fetchClickedItems(page, item);
@@ -50,13 +43,15 @@ class ItemContainer extends Component {
 			const itemAlreadyClicked = this.props.clickedItems[page].includes(item);
 			if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(page, item);
 		}
-
-		import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
-      this.props.fetchAsyncVideoComponent(VideoComponent.default);
-    });
+		if(this.props.content.itemVideo){
+			import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
+				this.props.fetchAsyncVideoComponent(VideoComponent.default);
+			});
+		} else if(this.props.content.itemLink) {
+			if(item !== 0) window.open(this.props.content.itemLink[item].href, '_blank');
+			else window.open(this.props.content.itemLink[item].href, '_self');
+		}
 	}
-
-
 
 	scrolledCheck(number, scrolledItem) {
 		if (scrolledItem === number) return true;

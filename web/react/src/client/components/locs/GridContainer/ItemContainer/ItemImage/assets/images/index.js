@@ -6,6 +6,9 @@ export { default as makerpng } from './maker.png';
 export { default as merckpng } from './merck.png';
 export { default as moodtreepng } from './moodtree.png';
 export { default as sappng } from './sap.png';
+export { default as consultpng } from './consult.png';
+export { default as visualisepng } from './visualise.png';
+export { default as prototypepng } from './prototype.png';
 
 export { default as ADTgif } from './adt.gif';
 export { default as beergif } from './beer.gif';
@@ -15,3 +18,6 @@ export { default as makergif } from './maker.gif';
 export { default as merckgif } from './merck.gif';
 export { default as moodtreegif } from './moodtree.gif';
 export { default as sapgif } from './sap.gif';
+export { default as consultgif } from './consult.gif';
+export { default as visualisegif } from './visualise.gif';
+export { default as prototypegif } from './prototype.gif';

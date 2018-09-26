@@ -4,13 +4,13 @@ export default {
   page: 'tech',
   itemText: [
     {
-      header: 'Mood Tree',
+      header: 'Consult',
       paragraph: 'D&AD wanted to promote social activity during their design festival. I created the electronics for an installation that utilised Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.',
     }, {
-      header: 'Pay @ Pump',
+      header: 'Visualise',
       paragraph: 'Barclaycard wanted to explore how their contactless technology could help reduce queues at bars on nights out. Using their contactless card payment system, I worked as part of the team that designed a prototype beer pump, that was automated to accurately pour a pint of beer once a successful payment had been received.',
     }, {
-      header: 'Hole In The Wall',
+      header: 'Prototype',
       paragraph: 'Krispy Kreme wanted to create a spectacle to celebrate the release of their new Nutty Chocolatta doughnut. I helped bring interactivity to the window display that allowed customers to use their contactless bank cards to pay for the product, bringing the window display to life and ultimately receiving their doughnut through a hole in the wall.',
     }, {
       header: 'Caddy Clubhouse',
@@ -33,9 +33,9 @@ export default {
     }
   ],
   itemImage: [
-    { png: 'moodtree.png', gif: 'moodtree.gif' },
-    { png: 'beer.png', gif: 'beer.gif' },
-    { png: 'krispy.png', gif: 'krispy.gif' },
+    { png: 'consult.png', gif: 'consult.gif' },
+    { png: 'visualise.png', gif: 'visualise.gif' },
+    { png: 'prototype.png', gif: 'prototype.gif' },
     { png: 'sap.png', gif: 'sap.gif' },
     { png: null, gif: null },
     { png: 'merck.png', gif: 'merck.gif' },
@@ -43,26 +43,16 @@ export default {
     { png: 'maker.png', gif: 'maker.gif' },
     { png: 'adt.png', gif: 'adt.gif' }
   ],
-  itemVideo: [
-    {
-      videoID: 'yVKqqdlHPLI' // moodtree
-    }, {
-      videoID: '8ycTf2TDH_I' // pay@pump
-    }, {
-      videoID: 'AlvdRkRewvA' // hole in the wall
-    }, {
-      videoID: 'T19vR9AxUug' // caddy clubhouse
-    }, {
-      // hero text: video not applicable
-    }, {
-      videoID: 'FPOmiqU4bIs' // merck next gen vr
-    }, {
-      videoID: 'K3N18cqnzHg' // epic mind drive
-    }, {
-      videoID: '5hHonl2hmiU' // what it means to be a maker
-    }, {
-      videoID: '36XGBIJLyN4' // MAIA
-    }
+  itemLink: [
+    { href: 'mailto:hi@jamesmiller.design' },
+    { href: 'https://github.com/JamesMillercus/' },
+    { href: 'https://github.com/JamesMillercus/' },
+    { href: 'https://github.com/JamesMillercus/' },
+    { href: null },
+    { href: 'https://github.com/JamesMillercus/' },
+    { href: 'https://github.com/JamesMillercus/' },
+    { href: 'https://github.com/JamesMillercus/' },
+    { href: 'https://github.com/JamesMillercus/' }
   ],
   heroFooterText: {
     none: {
