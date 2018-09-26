@@ -43,7 +43,13 @@ class HeroIcon extends Component {
 		Reflect.ownKeys(heroIconContent).forEach(key => {
 			if (this.props.className === key) {
 				returnstyles.backgroundImage = `url(/assets/images/${heroIconContent[key].image})`;
-				if (activeHeroIcon === key) returnstyles.backgroundColor = heroIconContent[key].backgroundColor;
+				returnstyles.backgroundSize = heroIconContent[key].backgroundSize;
+				returnstyles.backgroundPosition = heroIconContent[key].backgroundPosition;
+				if (activeHeroIcon === key) {
+					returnstyles.backgroundColor = heroIconContent[key].backgroundColor;
+					returnstyles.backgroundPosition = heroIconContent[key].scrolledBackgroundPosition;
+					returnstyles.backgroundSize = heroIconContent[key].scrolledBackgroundSize;
+				}
 			}
 		});
 		return returnstyles;

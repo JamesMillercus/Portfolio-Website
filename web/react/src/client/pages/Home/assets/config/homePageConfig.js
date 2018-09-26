@@ -85,6 +85,7 @@ export default {
   heroIcon: {
     centerRightIcon: {
       backgroundColor: '#e4bc02',
+      scrolledBackgroundPosition: '51.5% 125%',
       image: 'techIcon.png',
       href: '/tech',
       target: '_self'

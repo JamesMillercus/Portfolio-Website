@@ -85,6 +85,10 @@ export default {
   heroIcon: {
     centerRightIcon: {
       backgroundColor: '#008f9c',
+      backgroundSize: '100%',
+      backgroundPosition: '50% 0',
+      scrolledBackgroundPosition: '50% 107%',
+      scrolledBackgroundSize: '90%',
       image: 'designIcon.png',
       href: '/',
       target: '_self'
