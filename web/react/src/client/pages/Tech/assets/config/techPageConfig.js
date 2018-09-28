@@ -13,22 +13,22 @@ export default {
       header: 'Prototype',
       paragraph: 'Krispy Kreme wanted to create a spectacle to celebrate the release of their new Nutty Chocolatta doughnut. I helped bring interactivity to the window display that allowed customers to use their contactless bank cards to pay for the product, bringing the window display to life and ultimately receiving their doughnut through a hole in the wall.',
     }, {
-      header: 'Caddy Clubhouse',
+      header: 'Technical Architecture',
       paragraph: 'SAP wanted to use data to help golf enthusiasts improve their game during the BMW International Golf Open. I worked as part of a team of developers and designers to create an experience that analysed a users golfing performance in preparation for a session with a professional coach, who used this projection mapped data to mentor players.',
     }, {
       // header: "Welcome to my portfolio",
       // footer: "Made from React & Redux"
     }, {
-      header: 'Next Gen VR',
+      header: 'Web and Native Apps',
       paragraph: 'Merck created a new drug to help MS patients manage their symptoms and wanted to show how it was changing lives. To help users empathise living with the symptoms, the HTC Vive was used with custom made hardware - to create an immersive VR experience that put users inside the life of suffers.'
     }, {
-      header: 'Epic Mind Drive',
+      header: 'Content Managed Systems',
       paragraph: 'MoneySupermarket.com wanted to celebrate the release of telematics boxes for insurees car’s, by rewarding smarter drivers with more than just cheaper car insurance. I worked as part of the team that delivered an experience, allowing users to drive a car using their mind.',
     }, {
-      header: 'What It Means To Be A Maker',
+      header: 'Internet Of Things',
       paragraph: 'This research was focussed on understanding the mental and physical processes that lie at the heart of making. Through the use of various tools, 2 wooden records were created that represented the different aspects of what it means to make.',
     }, {
-      header: 'MAIA',
+      header: 'Blockchain',
       paragraph: 'ADT wanted to show their brand in a more playful context, by catching ‘petty pilferers’. I developed the electronics and program for a series IOT devices, that took photos of the ‘petty pilferers’ using a camera and sent the images via a 4g connection to the users mobile device.',
     }
   ],
@@ -36,12 +36,12 @@ export default {
     { png: 'consult.png', gif: 'consult.gif' },
     { png: 'visualise.png', gif: 'visualise.gif' },
     { png: 'prototype.png', gif: 'prototype.gif' },
-    { png: 'sap.png', gif: 'sap.gif' },
+    { png: 'architecture.png', gif: 'architecture.gif' },
     { png: null, gif: null },
-    { png: 'merck.png', gif: 'merck.gif' },
-    { png: 'epic.png', gif: 'epic.gif' },
-    { png: 'maker.png', gif: 'maker.gif' },
-    { png: 'adt.png', gif: 'adt.gif' }
+    { png: 'apps.png', gif: 'apps.gif' },
+    { png: 'cms.png', gif: 'cms.gif' },
+    { png: 'iot.png', gif: 'iot.gif' },
+    { png: 'blockchain.png', gif: 'blockchain.gif' }
   ],
   itemLink: [
     { href: 'mailto:hi@jamesmiller.design' },

@@ -19,7 +19,6 @@ import './assets/scss';
 import './assets/images';
 
 class HeroIcon extends Component {
-
 	componentDidUpdate() {
 		// const elem = this.refs.icon;
 		// this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
@@ -43,8 +42,10 @@ class HeroIcon extends Component {
 		Reflect.ownKeys(heroIconContent).forEach(key => {
 			if (this.props.className === key) {
 				returnstyles.backgroundImage = `url(/assets/images/${heroIconContent[key].image})`;
-				returnstyles.backgroundSize = heroIconContent[key].backgroundSize;
-				returnstyles.backgroundPosition = heroIconContent[key].backgroundPosition;
+				if (this.props.deviceType === 'laptop') {
+					returnstyles.backgroundSize = heroIconContent[key].backgroundSize;
+					returnstyles.backgroundPosition = heroIconContent[key].backgroundPosition;
+				}
 				if (activeHeroIcon === key) {
 					returnstyles.backgroundColor = heroIconContent[key].backgroundColor;
 					returnstyles.backgroundPosition = heroIconContent[key].scrolledBackgroundPosition;
