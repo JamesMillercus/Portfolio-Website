@@ -78,7 +78,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: 'different ways I can help launch your ideas',
+      text: 'different ways I can help launch your technology ideas',
       color: '#e4bc02'
     }
   },
