@@ -1,6 +1,6 @@
 import App from './../containers/App';
 import HomePage from './../pages/Home/HomePage';
-import TechPage from './../pages/Tech/TechPage';
+import ServicesPage from './../pages/Services/ServicesPage';
 import NotFoundPage from './../pages/NotFound/NotFoundPage';
 
 export default [
@@ -13,8 +13,8 @@ export default [
 				exact: true
 			},
 			{
-				...TechPage,
-				path: '/tech'
+				...ServicesPage,
+				path: '/services'
 			},
 			{
 				...NotFoundPage

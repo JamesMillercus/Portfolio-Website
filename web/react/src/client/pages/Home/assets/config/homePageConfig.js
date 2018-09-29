@@ -70,7 +70,7 @@ export default {
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: 'prototype ideas as products or digital experiences',
+      text: "ideas I've helped create on behalf of businesses",
       color: '#008f9c'
     },
     centerLeftIcon: {
@@ -78,7 +78,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: 'launch ideas as AR, VR, desktop, mobile or web apps',
+      text: 'different ways I can help launch your ideas',
       color: '#e4bc02'
     }
   },
@@ -87,7 +87,7 @@ export default {
       backgroundColor: '#e4bc02',
       scrolledBackgroundPosition: '51.5% 125%',
       image: 'techIcon.png',
-      href: '/tech',
+      href: '/services',
       target: '_self'
     },
     centerLeftIcon: {

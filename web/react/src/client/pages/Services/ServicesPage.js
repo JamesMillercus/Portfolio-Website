@@ -5,16 +5,16 @@ import getDevice from './../../components/hocs/getDevice';
 import getBrowser from './../../components/hocs/getBrowser';
 import getOSVersion from './../../components/hocs/getOSVersion';
 import GridContainer from './../../components/locs/GridContainer/GridContainer';
-import techPageConfig from './assets/config/techPageConfig';
+import servicesPageConfig from './assets/config/servicesPageConfig';
 import {
   fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
 } from './../../actions';
 
-class Tech extends Component {
+class Services extends Component {
   componentWillMount() {
     this.props.fetchScrolledItem(null);
     this.props.fetchScrolledHeroIcon('none');
-    this.props.fetchContent(techPageConfig);
+    this.props.fetchContent(servicesPageConfig);
     this.props.fetchUpdateUrl(null);
   }
 
@@ -30,5 +30,5 @@ export default {
     connect(null, {
       fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
     })
-  )(Tech)
+  )(Services)
 };
