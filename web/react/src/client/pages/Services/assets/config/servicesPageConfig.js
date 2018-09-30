@@ -8,13 +8,13 @@ export default {
       paragraph: 'Have a technology idea that needs costing up / feasibility checking, or want to figure out what ideas are realistic within your budget? Get in touch and I can assist to achieve your business objectives, within budget and timelines.',
     }, {
       header: 'Visualise',
-      paragraph: 'When you have a concept that needs visualising, I can create clean and professional designs for you. I do this using tools from the Adobe Creative Suite such as Photoshop, InDesign, Illustrator, Premiere Pro and After Effects.',
+      paragraph: 'When you have a concept that needs visualising, I can create clean and professional designs for you. I do this using tools from the Adobe Creative Suite such as Photoshop, InDesign, Illustrator and Premiere Pro.',
     }, {
       header: 'Prototype',
-      paragraph: 'If you have a visual design which you would like to test prior to investment, I can prototype these quickly for you. I do this using Interactive Design tools such as Sketch and Framer, which auto generates code that can be used to build your final product.',
+      paragraph: 'If you have a visual design which you would like to test prior to investment, I can prototype these quickly for you. I do this using Interactive Design tools such as Sketch and Framer, which auto generates code that can be used in production.',
     }, {
       header: 'Web and Native Apps',
-      paragraph: "Once you have a design that you would like to be produced, I can realise your innovative ideas as a website, desktop app, mobile app, virtual reality or augmented reality experience. I do this using a series of 'React' based frameworks such as React: JS, Native, 360 and Viro."
+      paragraph: "Once you have a design that you would like to be produced, I can realise your innovative ideas as a website, desktop app, mobile app, virtual reality or augmented reality experience. I do this using a series of 'React' based frameworks: JS, Native, 360 and Viro."
     }, {
       // header: "Welcome to my portfolio",
       // footer: "Made from React & Redux"
@@ -45,14 +45,14 @@ export default {
   ],
   itemLink: [
     { href: 'mailto:hi@jamesmiller.design' },
-    { href: 'https://github.com/JamesMillercus/' },
-    { href: 'https://github.com/JamesMillercus/' },
-    { href: 'https://github.com/JamesMillercus/serverside-react-boilerplate' },
+    { href: 'https://www.behance.net/gallery/70821297/Momo-Models' },
+    { href: 'https://www.behance.net/gallery/70821953/Caddy-Clubhouse-Interactive-Putting-Experience' },
+    { href: 'https://github.com/JamesMillerBlog/serverside-react-boilerplate' },
     { href: null },
-    { href: 'https://github.com/JamesMillercus/Keystone' },
-    { href: 'https://github.com/JamesMillercus/Micro-services' },
-    { href: 'https://github.com/JamesMillercus/' },
-    { href: 'https://github.com/JamesMillercus/blockchain' }
+    { href: 'https://github.com/JamesMillerBlog/Keystone' },
+    { href: 'https://github.com/JamesMillerBlog/Micro-services' },
+    { href: 'https://github.com/JamesMillerBlog/beerpump' },
+    { href: 'https://github.com/JamesMillerBlog/blockchain' }
   ],
   heroFooterText: {
     none: {
@@ -60,7 +60,7 @@ export default {
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: 'different ways I can help launch your technology ideas',
+      text: 'how I can help launch your ideas with technology',
       color: '#e4bc02'
     },
     centerLeftIcon: {
@@ -68,7 +68,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: "ideas I've helped create on behalf of businesses",
+      text: "creative technology I've helped businesses produce",
       color: '#008f9c'
     }
   },

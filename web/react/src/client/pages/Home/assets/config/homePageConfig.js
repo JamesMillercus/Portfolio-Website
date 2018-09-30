@@ -70,7 +70,7 @@ export default {
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: "ideas I've helped create on behalf of businesses",
+      text: "creative technology I've helped businesses produce",
       color: '#008f9c'
     },
     centerLeftIcon: {
@@ -78,7 +78,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: 'different ways I can help launch your technology ideas',
+      text: 'how I can help launch your ideas with technology',
       color: '#e4bc02'
     }
   },
