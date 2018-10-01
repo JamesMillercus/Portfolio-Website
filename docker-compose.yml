@@ -1,7 +1,7 @@
 version: "2"
 services:
   react:
-    image: simuha999/portfolio:beta-v7
+    image: simuha999/portfolio:beta-v9
     # build: ./web/react
     # ports:
     #   - "3000:3000"
