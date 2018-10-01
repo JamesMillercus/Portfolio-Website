@@ -25,6 +25,15 @@ export default (req, store, context) => {
 	return `
 		<html>
 			<head>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+				<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126813701-1"></script>
+				<script>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+
+					gtag('config', 'UA-126813701-1');
+				</script>
 				${helmet.title.toString()}
 				${helmet.meta.toString()}
 				<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Baloo+Bhaina" rel="stylesheet">
