@@ -1,0 +1,32 @@
+/* on item hover, reveal colour img */
+.grid-container-laptop .item .scrolledImg {
+  background-position: 50% 100%;
+}
+.grid-container-laptop .item0 .scrolledImg, .grid-container-laptop .item2 .scrolledImg {
+  margin: 10vh 0 0 0;
+  height: 45%;
+}
+
+.grid-container-laptop .item3 .scrolledImg, .grid-container-laptop .item5 .scrolledImg {
+  margin: 8vh 0 0 0;
+  height:51%;
+}
+
+.grid-container-laptop .item1.item .scrolledImg {
+  margin-bottom:0;
+  height: 90%;
+}
+
+.grid-container-laptop .item6 .scrolledImg{
+  margin: 0 0 8vh 0;
+  height: 45%;
+}
+
+.grid-container-laptop .item7.item .scrolledImg {
+  height: 100%;
+}
+
+.grid-container-laptop .item8 .scrolledImg{
+  margin: 0 0 8vh 0;
+  height: 45%;
+}

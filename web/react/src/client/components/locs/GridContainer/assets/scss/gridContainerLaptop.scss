@@ -1,0 +1,110 @@
+/* set body styling */
+body {
+  margin:0;
+  padding:0;
+}
+
+.mouseMovementContainer {
+  width:100%;
+  height:100%;
+}
+
+/* setting up css gird into 3x3 @ 1.5x viewport */
+.grid-container-laptop {
+  grid-template-areas:
+  'topleft topcenter topright'
+  'middleleft middlecenter middleright'
+  'bottomleft bottomcenter bottomright';
+  position: fixed;
+  grid-template-rows: 33.3% 33.3% 33.3%;
+  grid-template-columns: 40% 20% 40%;
+  display: grid;
+  padding: 0;
+  margin: -5vh 0 0 -25vw;
+  min-height: 650px;
+  min-width: 1900px;
+  width: 150vw;
+  height: 110vh;
+}
+/* set top left corner grid rules */
+.grid-container-laptop .topleftcorner {
+  grid-template-rows: 100%;
+  grid-template-columns: 10% 40% 10% 40%;
+  display: grid;
+  grid-template-areas:
+  'notext text noimg rightimg';
+}
+/* set top middle grid rules */
+.grid-container-laptop .topmiddle {
+  grid-template-rows: 45% 10% 45%;
+  grid-template-columns: 100%;
+  display: grid;
+  grid-template-areas:
+  'text'
+  'noimg'
+  'centerimg';
+}
+/* set top right corner grid rules */
+.grid-container-laptop .toprightcorner {
+  grid-template-rows: 100%;
+  grid-template-columns: 42.5% 10% 42.5% 5%;
+  display: grid;
+  grid-template-areas:
+  'leftimg noimg text notext';
+}
+/* set middle left grid rules */
+.grid-container-laptop .middleleft {
+  grid-template-rows: 100%;
+  grid-template-columns: 25% 45% 5% 25%;
+  display: grid;
+  grid-template-areas:
+  'notext text noimg img';
+}
+/* set middle center grid rules */
+.grid-container-laptop .middlecenter {
+  display: grid;
+  grid-template-rows: 33.33% 11.11% 11.11% 11.11% 10% 23.33%;
+  grid-template-columns: 17.5% 17.5% 30% 17.5% 17.5%;
+  grid-template-areas:
+  'empty empty empty empty empty'
+  'leftIcon emptyFour hero emptyThree rightIcon'
+  'leftIcon centerLeftIcon hero centerRightIcon rightIcon'
+  'leftIcon emptyFive hero emptyTwo rightIcon'
+  'heroTopText heroTopText heroTopText heroTopText heroTopText'
+  'heroBottomText heroBottomText heroBottomText heroBottomText heroBottomText';
+  position:relative;
+}
+/* set middle right grid rules */
+.grid-container-laptop .middleright {
+  grid-template-rows: 100%;
+  grid-template-columns: 25% 5% 45% 25%;  display: grid;
+  grid-template-areas:
+  'img noimg text notext';
+}
+/* set bottom left corner grid rules */
+.grid-container-laptop .bottomleftcorner {
+  grid-template-rows: 100%;
+  grid-template-columns: 10% 40% 10% 40%;
+  display: grid;
+  grid-template-areas:
+  'notext text noimg rightimg';
+}
+/* set bottom right corner grid rules */
+.grid-container-laptop .bottomrightcorner {
+  grid-template-rows: 100%;
+  grid-template-columns: 42.5% 10% 42.5% 5%;
+  display: grid;
+  grid-template-areas:
+  'leftimg noimg text notext';
+}
+/* set bottom middle grid rules */
+.grid-container-laptop .bottommiddle {
+  grid-template-rows: 40% 10% 40% 10%;;
+  grid-template-columns: 100%;
+  display: grid;
+  grid-template-areas:
+  'centerimg'
+  'noimg'
+  'text'
+  'notext';
+}

@@ -1,0 +1,15 @@
+/* on item hover, reveal colour img */
+.grid-container-mobile .item:hover > .img {
+  background-position: 50% 100%;
+}
+
+/* set each item img's dimensions & img settings */
+.grid-container-mobile .item .img {
+  height: 400px;
+  /*max-width: 220px;*/
+  width:auto;
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+  background-position: 50% 0;
+  margin: auto;
+}

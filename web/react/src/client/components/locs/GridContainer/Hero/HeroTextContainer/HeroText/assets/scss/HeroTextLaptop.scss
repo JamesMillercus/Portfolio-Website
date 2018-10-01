@@ -1,0 +1,84 @@
+$herospeed: 200ms;
+
+.grid-container-laptop .item4 .heroTextContainer h1 {
+	-webkit-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	-moz-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	-o-transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	transition: background-color $herospeed, color $herospeed, width $herospeed, height $herospeed, margin $herospeed, opacity $herospeed;
+	/* height: 100%; */
+	grid-area: hero;
+	// font-family: Source Sans Pro,sans-serif;
+	font-family: Baloo Bhaina,cursive;
+	font-size: 45px;
+	letter-spacing: -12.2px;
+	text-align: center;
+	cursor: pointer;
+	z-index: 1;
+	line-height: 0;
+	font-weight: 100;
+	width: 70px;
+	height: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	margin-top: 7%;
+	opacity: 1;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1::first-letter {
+    font-size: 50px;
+}
+
+.grid-container-laptop .item4 .heroTextContainer h1.centerIcon {
+	-webkit-box-shadow: inset -4px -4px 0 #000;
+	-moz-box-shadow: inset -4px -4px 0 #000;
+	box-shadow: inset -4px -4px 0 #000;
+	background-size: 65%;
+	width: 80px;
+	height: 80px;
+	background-repeat: no-repeat;
+	background-position-x: 46%;
+	margin-top: 0;
+	background-position-y: 140%;
+	background-size: 70%;
+}
+
+.grid-container-laptop .item4 .heroTextContainer span.heroLogo {
+	font-size: 47px;
+  letter-spacing: -13.5px;
+  line-height: 1.56;
+  -webkit-text-stroke-width: 0;
+  font-weight: 400;
+  margin-left: -13%;
+  color: #fff;
+	-webkit-transition: all $herospeed;
+	-moz-transition: all $herospeed;
+	-o-transition: all $herospeed;
+	transition: all $herospeed;
+}
+
+// .grid-container-laptop .item4 .heroTextContainer h1.centerIcon:hover {
+// 	background-color: #008f9c;
+// }
+
+.grid-container-laptop .item4 .heroTextContainer h1.hideLogo {
+	opacity:0;
+}
+
+// .grid-container-laptop .item4 .heroTextContainer h1.nonLogo {
+// 	background-color:white;
+// 	border-radius: 50%;
+// 	// -webkit-transition: all $herospeed;
+// 	// -moz-transition: all $herospeed;
+// 	// -o-transition: all $herospeed;
+// 	// transition: all $herospeed;
+// 	// border-radius:0;
+// }
+
+.grid-container-laptop .item4 .heroTextContainer span.heroIconText {
+	font-size: 40px;
+	letter-spacing: 0;
+	width: 100%;
+	position: absolute;
+	top: 52%;
+}

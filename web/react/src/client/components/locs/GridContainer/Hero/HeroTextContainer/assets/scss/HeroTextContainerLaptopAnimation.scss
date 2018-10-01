@@ -1,0 +1,436 @@
+$animationSpeed: 500ms;
+$fasterSpeed: 250ms;
+
+.grid-container-laptop .heroTextContainer p.reveal {
+  opacity: 1!important;
+}
+
+.grid-container-laptop .heroTextContainer p {
+  -webkit-transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+  -moz-transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+  -o-transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+  transition: margin-top $animationSpeed, margin-bottom $animationSpeed, opacity $fasterSpeed;
+}
+
+.grid-container-laptop .item4 .heroHeaderText.reveal {
+  margin: 0;
+}
+
+.grid-container-laptop .item4 .heroFooterText.reveal {
+  margin: 0;
+}
+
+.grid-container-laptop .heroTextContainer p span {
+  display: inline-block;
+  min-width: 10px;
+  -webkit-transition: all $animationSpeed;
+  -moz-transition: all $animationSpeed;
+  -o-transition: all $animationSpeed;
+  transition: all $animationSpeed;
+}
+
+// .item4 p span.animatemail {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: startjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #0099d2;
+// }
+//
+// @keyframes startjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(0px, -5px) rotate(10deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(0px, 5px) rotate(-10deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #0099d2;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// .item4 p span.animatelinkedin {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: linkedinjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #007bb6;
+// }
+//
+// @keyframes linkedinjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(5px, -10px) rotate(50deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(-5px, 10px) rotate(-50deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #007bb6;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// .item4 p span.animategithub {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: githubjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #742e86;
+// }
+//
+// @keyframes githubjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(20px, -20px) rotate(80deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(-20px, 20px) rotate(-80deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #742e86;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// .item4 p span.animatetwitter {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: twitterjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #07bd18;
+// }
+//
+// @keyframes twitterjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(-30px, -30px) rotate(-180deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(30px, 30px) rotate(180deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #07bd18;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// .item4 p span.animateinstagram {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: instagramjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #f9be02;
+// }
+//
+// @keyframes instagramjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(0px, -40px) rotate(1deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(0px, 40px) rotate(1deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #f9be02;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// .item4 p span.animatepinterest {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: pinterestjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #bd071d;
+// }
+//
+// @keyframes pinterestjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(50px, -50px) rotate(108deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(-50px, 50px) rotate(252deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #bd071d;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(360deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// .item4 p span.animatereset {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: resetjump 500ms;
+//     /*color: #7c7c7c;*/
+//     color: #7c7c7c;
+// }
+//
+// @keyframes resetjump {
+//     0% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     30% {
+//     	transform: translate(0px, -30px) rotate(-108deg);
+//     	-webkit-filter: hue-rotate(300deg);
+//     }
+//
+//     70% {
+//     	transform: translate(0px, 30px) rotate(-252deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     	color: #7c7c7c;
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(-360deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+// }
+//
+// @keyframes shake {
+//     0% {
+//     	transform: translate(1px, 1px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     }
+//     10% { transform: translate(-1px, -2px) rotate(-1deg); }
+//     20% { transform: translate(-3px, 0px) rotate(1deg); }
+//     30% { transform: translate(3px, 2px) rotate(0deg); }
+//     40% { transform: translate(1px, -1px) rotate(1deg); }
+//     50% { transform: translate(-1px, 2px) rotate(-1deg); }
+//     60% { transform: translate(-3px, 1px) rotate(0deg); }
+//     70% { transform: translate(3px, 1px) rotate(-1deg); }
+//     80% {
+//     	transform: translate(0px, -35px) rotate(1deg);
+//     	-webkit-filter: hue-rotate(360deg);
+//     }
+//     100% {
+//     	transform: translate(0px, 0px) rotate(0deg);
+//     	-webkit-filter: hue-rotate(0deg);
+//     	color: #7c7c7c;
+//     }
+// }
+//
+// .item4 p span.animateboomarang0 {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: boomarang0 1s;
+//     /*color: #7c7c7c;*/
+//     color: #0099d2;
+// }
+//
+// @keyframes boomarang0 {
+//   10% {
+//     z-index: 1;
+//     transform:rotate(-20deg);
+//   }
+//   35% {
+//     z-index: 1;
+//     transform: translate(900%, -305px) scale(0.5) rotate(-200deg);
+//   }
+//   74% {
+//     z-index: -1;
+//   }
+//   75% {
+//     transform: translate(-900%, 305px) scale(0.9) rotate(-860deg);
+//   }
+//   80% {
+//      z-index: 1;
+//   }
+//    90% {
+//     z-index: 1;
+//     transform: translate(0%, 0%) rotate(10deg);
+//   }
+// }
+//
+// .item4 p span.animateboomarang1 {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: boomarang1 1s;
+//     /*color: #7c7c7c;*/
+//     color: #007bb6;
+// }
+//
+// @keyframes boomarang1 {
+//   10% {
+//     z-index: 1;
+//     transform:rotate(-20deg);
+//   }
+//   35% {
+//     z-index: 1;
+//     transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+//   }
+//   74% {
+//     z-index: -1;
+//   }
+//   75% {
+//     transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+//   }
+//   80% {
+//      z-index: 1;
+//   }
+//    90% {
+//     z-index: 1;
+//     transform: translate(0%, 0%) rotate(10deg);
+//   }
+// }
+//
+// .item4 p span.animateboomarang2 {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: boomarang2 1s;
+//     /*color: #7c7c7c;*/
+//     color: #742e86;
+// }
+//
+// @keyframes boomarang1 {
+//   10% {
+//     z-index: 1;
+//     transform:rotate(-20deg);
+//   }
+//   35% {
+//     z-index: 1;
+//     transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+//   }
+//   74% {
+//     z-index: -1;
+//   }
+//   75% {
+//     transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+//   }
+//   80% {
+//      z-index: 1;
+//   }
+//    90% {
+//     z-index: 1;
+//     transform: translate(0%, 0%) rotate(10deg);
+//   }
+// }
+//
+// .item4 p span.animateboomarang3 {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: boomarang3 1s;
+//     /*color: #7c7c7c;*/
+//     color: #07bd18;
+// }
+//
+// @keyframes boomarang3 {
+//   10% {
+//     z-index: 1;
+//     transform:rotate(-20deg);
+//   }
+//   35% {
+//     z-index: 1;
+//     transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+//   }
+//   74% {
+//     z-index: -1;
+//   }
+//   75% {
+//     transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+//   }
+//   80% {
+//      z-index: 1;
+//   }
+//    90% {
+//     z-index: 1;
+//     transform: translate(0%, 0%) rotate(10deg);
+//   }
+// }
+//
+//
+// .item4 p span.animateboomarang4 {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: boomarang4 1s;
+//     /*color: #7c7c7c;*/
+//     color: #f9be02;
+// }
+//
+// @keyframes boomarang4 {
+//   10% {
+//     z-index: 1;
+//     transform:rotate(-20deg);
+//   }
+//   35% {
+//     z-index: 1;
+//     transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+//   }
+//   74% {
+//     z-index: -1;
+//   }
+//   75% {
+//     transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+//   }
+//   80% {
+//      z-index: 1;
+//   }
+//    90% {
+//     z-index: 1;
+//     transform: translate(0%, 0%) rotate(10deg);
+//   }
+// }
+//
+// .item4 p span.animateboomarang5 {
+// 	/* Start the shake animation and make the animation last for 0.5 seconds */
+//     animation: boomarang5 1s;
+//     /*color: #7c7c7c;*/
+//     color: #bd071d;
+// }
+//
+// @keyframes boomarang5 {
+//   10% {
+//     z-index: 1;
+//     transform:rotate(-20deg);
+//   }
+//   35% {
+//     z-index: 1;
+//     transform: translate(-900%, 305px) scale(0.5) rotate(200deg);
+//   }
+//   74% {
+//     z-index: -1;
+//   }
+//   75% {
+//     transform: translate(900%, -305px) scale(0.9) rotate(860deg);
+//   }
+//   80% {
+//      z-index: 1;
+//   }
+//    90% {
+//     z-index: 1;
+//     transform: translate(0%, 0%) rotate(10deg);
+//   }
+// }

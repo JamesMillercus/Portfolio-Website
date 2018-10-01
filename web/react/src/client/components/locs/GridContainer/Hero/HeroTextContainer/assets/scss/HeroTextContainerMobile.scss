@@ -1,0 +1,40 @@
+/* set center text pos & src */
+.grid-container-mobile .item4 .heroTextContainer {
+	grid-area: hero;
+    position: relative;
+}
+
+.grid-container-mobile .heroTextContainer p {
+	margin: 0;
+	opacity: 0;
+	z-index:-1;
+}
+
+.grid-container-mobile .heroTextContainer {
+	font-family: Source Sans Pro,sans-serif;
+    color: #7c7c7c;
+}
+
+// .mailrevealed {
+// 	color: #0099d2;
+// }
+//
+// .linkedinrevealed {
+// 	color: #007bb6;
+// }
+//
+// .githubrevealed {
+// 	color: #742e86;
+// }
+//
+// .twitterrevealed {
+// 	color: #07bd18;
+// }
+//
+// .instagramrevealed {
+// 	color: #f9be02;
+// }
+//
+// .pinterestrevealed {
+// 	color: #bd071d;
+// }

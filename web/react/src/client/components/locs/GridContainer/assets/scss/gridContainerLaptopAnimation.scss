@@ -1,0 +1,84 @@
+$animationSpeed: 500ms;
+/*** set grid container animation ***/
+.grid-container-laptop {
+	-webkit-transition: all $animationSpeed;
+	-moz-transition: all $animationSpeed;
+	-o-transition: all $animationSpeed;
+	transition: all $animationSpeed cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* animate grid to item0 hovered state */
+.grid-container-laptop.item0scroll {
+	margin-top:-2vh;
+	margin-left:-3vw;
+}
+
+/* animate grid to item1 hovered state */
+.grid-container-laptop.item1scroll {
+	margin-top:1%;
+}
+
+/* animate grid to item2 hovered state */
+.grid-container-laptop.item2scroll {
+	margin-top:-2vh;
+	margin-left:-50vw;
+}
+/* animate grid to item3 hovered state */
+.grid-container-laptop.item3scroll {
+	margin-left:-12vw;
+}
+/* animate grid to item5 hovered state */
+.grid-container-laptop.item5scroll {
+	margin-left:-38vw;
+}
+/* animate grid to item6 hovered state */
+.grid-container-laptop.item6scroll {
+	margin-left:-3vw;
+	margin-top: -9vh;
+}
+/* animate grid to item7 hovered state */
+.grid-container-laptop.item7scroll {
+	margin-top: -11vh;
+}
+/* animate grid to item8 hovered state */
+.grid-container-laptop.item8scroll {
+	margin-left:-51vw;
+	margin-top: -9vh;
+}
+
+/* animate grid to item0 active state */
+.grid-container-laptop.item0active {
+	margin-top:0;
+	margin-left:0;
+}
+/* animate grid to item1 active state */
+.grid-container-laptop.item1active {
+	margin-top:0;
+}
+/* animate grid to item2 active state */
+.grid-container-laptop.item2active {
+	margin-top:0;
+	margin-left:-50vw;
+}
+/* animate grid to item3 active state */
+.grid-container-laptop.item3active {
+	margin-left:0;
+}
+/* animate grid to item5 active state */
+.grid-container-laptop.item5active {
+	margin-left:-50vw;
+}
+/* animate grid to item6 active state */
+.grid-container-laptop.item6active {
+	margin-top:-50vh;
+	margin-left:0;
+}
+/* animate grid to item7 active state */
+.grid-container-laptop.item7active {
+	margin-top:-50vh;
+}
+/* animate grid to item8 active state */
+.grid-container-laptop.item8active {
+	margin-top:-50vh;
+	margin-left:-50vw;
+}

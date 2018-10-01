@@ -1,0 +1,45 @@
+/* adjustable variables for icon hiding*/
+$iconVerticalSpace: 28%;
+$iconBottomVerticalSpace: 28%;
+$iconSmallHorizontalSpace: 20%;
+$iconLargeHorizontalSpace: 50%;
+
+.grid-container-tablet .item4 {
+    grid-area: middlecenter;
+}
+
+.grid-container-tablet .grey {
+    color: #7c7c7c !important;
+}
+/* set topleft icon pos & src */
+.grid-container-tablet .item4 a.centerLeftIcon {
+    grid-area: centerLeftIcon;
+    margin-left: auto;
+}
+
+/* set bottomleft icon pos & src */
+.grid-container-tablet .item4 a.centerRightIcon {
+    grid-area: centerRightIcon;
+    margin-right: auto;
+}
+
+/* set icon dimensions & settings */
+.grid-container-tablet .icon {
+    background-size: auto 201%;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    opacity: 1!important;
+    height: 50%;
+    width: 60%;
+}
+/* if icon has been unlocked, allow it to be pointed at */
+.grid-container-tablet .active {
+    /*display:inline-block;*/
+    cursor:pointer;
+}
+
+/* set all unlocked icons hover styling */
+.grid-container-tablet .item4 .active:hover {
+	background-position: 50% 100%;
+	opacity: 1 !important;
+}

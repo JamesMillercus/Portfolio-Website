@@ -1,0 +1,80 @@
+/* adjustable variables for icon hiding*/
+$iconHideTopVertical: 0px;
+$iconHideBottomVertical: -50%;
+$iconHideRightHorizontal: -23%;
+$iconHideLeftHorizontal: 23%;
+
+.grid-container-laptop .item4 {
+    grid-area: middlecenter;
+}
+
+.grid-container-laptop .grey {
+    color: #7c7c7c !important;
+}
+/* set topleft icon pos & src */
+.grid-container-laptop .item4 a.centerLeftIcon {
+    grid-area: centerLeftIcon;
+    background-size: 90%;
+    background-position-y: -10%;
+    top: $iconHideTopVertical;
+    left:$iconHideLeftHorizontal;
+}
+
+/* set bottomleft icon pos & src */
+.grid-container-laptop .item4 a.centerRightIcon {
+    grid-area: centerRightIcon;
+    top: $iconHideTopVertical;
+    left: $iconHideRightHorizontal;
+}
+
+.grid-container-laptop .item4 a.centerLeftIcon:hover{
+  background-size: auto 150%;
+}
+
+
+/* set icon dimensions & settings */
+.grid-container-laptop a.icon {
+  background-size: auto 150%;
+  background-position: 50% -25%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  cursor: none;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
+  z-index: -1;
+  border-radius: 50%;
+	background-color: white;
+}
+/* if icon has been unlocked, allow it to be pointed at */
+.grid-container-laptop a.icon.active {
+    /*display:inline-block;*/
+    cursor:pointer;
+    z-index: 1;
+}
+
+/* set all unlocked icons hover styling */
+.grid-container-laptop .item4 a.icon.active:hover {
+	background-position: 50% 125%;
+	opacity: 1 !important;
+  height: 50px;
+  width: 50px;
+  margin-top: -15%;
+}
+
+// /* set topcenter icon pos & src */
+// .grid-container-laptop .item4 .centerLeftIcon {
+//     grid-area: centerLeftIcon;
+//     background-image: url(/assets/images/topCenterIcon.jpg);
+//     top: $iconHideTopVertical;
+// }
+
+// /* set topright icon pos & src */
+// .grid-container-laptop .item4 .centerRightIcon {
+//     grid-area: centerRightIcon;
+//     background-image: url(/assets/images/topRightIcon.jpg);
+//     top: $iconHideTopVertical;
+// }

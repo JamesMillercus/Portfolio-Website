@@ -1,0 +1,75 @@
+/* set each item img's dimensions & img settings */
+.grid-container-laptop .item .activeImg {
+  position: absolute;
+  height: 35%;
+  width: 200px;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 35% 0 0 0;
+}
+
+/* set top left corner img pos & src */
+.grid-container-laptop .item0 .activeImg {
+  grid-area: rightimg;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+/* set top middle img pos & src */
+.grid-container-laptop .item1.item .activeImg {
+  grid-area: centerimg;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height:80%;
+}
+/* set top right corner img pos & src */
+.grid-container-laptop .item2 .activeImg {
+  grid-area: leftimg;
+  right: 0;
+  // left: 50%;
+  top: 0;
+  bottom: 0;
+}
+/* set left middle img pos & src */
+.grid-container-laptop .item3 .activeImg {
+  grid-area: img;
+  height:40%;
+  right: 0;
+  top: 0;
+  margin: 10vh 0 0 0;
+}
+
+/* set right middle img pos & src */
+.grid-container-laptop .item5 .activeImg {
+  grid-area: img;
+  left: 0;
+  top: 0;
+  height:40%;
+  margin: 10vh 0 0 0;
+}
+/* set bottom left corner img pos & src */
+.grid-container-laptop .item6 .activeImg {
+  grid-area: rightimg;
+  left: 0;
+  bottom: 0;
+  margin: 0 0 14vh 0;
+}
+/* set bottom middle img pos & src */
+.grid-container-laptop .item7.item .activeImg {
+  grid-area: centerimg;
+  right: 0;
+  left: 0;
+  top: 0;
+  height:90%;
+  width: 100%;
+  margin: 0;
+}
+/* set bottom right corner img pos & src */
+.grid-container-laptop .item8 .activeImg {
+  grid-area: leftimg;
+  right: 0;
+  bottom: 0;
+  margin: 0 0 14vh 0;
+}
