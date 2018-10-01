@@ -68,7 +68,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: "creative technology projects I've worked on for businesses",
+      text: "creative technology projects I've worked on",
       color: '#008f9c'
     }
   },

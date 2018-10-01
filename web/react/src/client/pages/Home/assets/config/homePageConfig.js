@@ -70,7 +70,7 @@ export default {
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: "creative technology projects I've worked on for businesses",
+      text: "creative technology projects I've worked on",
       color: '#008f9c'
     },
     centerLeftIcon: {
