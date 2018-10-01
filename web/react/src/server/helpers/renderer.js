@@ -6,7 +6,7 @@ import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 import Routes from './../../client/routes/Routes';
-
+// 
 export default (req, store, context) => {
 	// load react components
 	const content = renderToString(
