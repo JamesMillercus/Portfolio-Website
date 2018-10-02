@@ -7,14 +7,14 @@ export default (ChildComponent) => {
 // export default connect(mapStateToProps, { fetchDeviceType })(ChildComponent) => {
 
 	class GetOSVersion extends Component {
-
     osIsCompatible(os) {
 			const osVersion = os.version;
 			const osName = os.name;
 			let osString;
 			let osFloat;
 			let compatible;
-
+			// console.log(osName);
+			// console.log(osVersion);
 			if (osName === 'Android') {
 				osString = String(osVersion);
 				osFloat = parseFloat(osString.replace('.', ''));
@@ -31,8 +31,8 @@ export default (ChildComponent) => {
 				compatible = 103; // 10.3
 			}
 
-      if (osFloat >= compatible) return true;
-      return false;
+      if (osFloat <= compatible) return false;
+      return true;
     }
 
 		renderDevice(deviceVersion) {
