@@ -31,7 +31,7 @@ export default (ChildComponent) => {
 				compatible = 103; // 10.3
 			}
 
-      if (osFloat <= compatible) return false;
+      // if (osFloat <= compatible) return false;
       return true;
     }
 
