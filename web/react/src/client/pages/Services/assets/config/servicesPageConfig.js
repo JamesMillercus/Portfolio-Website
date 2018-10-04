@@ -1,5 +1,5 @@
 /*eslint max-len: ["error", { "code": 500 }]*/
-// 
+//
 export default {
   page: 'services',
   itemText: [
@@ -44,7 +44,7 @@ export default {
     { png: 'blockchain.png', gif: 'blockchain.gif' }
   ],
   itemLink: [
-    { href: 'mailto:hi@jamesmiller.design' },
+    { href: 'https://www.linkedin.com/in/james-miller-b0bb4478/' },
     { href: 'https://www.behance.net/gallery/70821297/Momo-Models' },
     { href: 'https://www.behance.net/gallery/70821953/Caddy-Clubhouse-Interactive-Putting-Experience' },
     { href: 'https://github.com/JamesMillerBlog/serverside-react-boilerplate' },
