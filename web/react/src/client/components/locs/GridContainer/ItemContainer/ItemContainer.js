@@ -47,10 +47,7 @@ class ItemContainer extends Component {
 			import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
 				this.props.fetchAsyncVideoComponent(VideoComponent.default);
 			});
-		} else if(this.props.content.itemLink) {
-			if(item !== 0) window.open(this.props.content.itemLink[item].href, '_blank');
-			else window.open(this.props.content.itemLink[item].href, '_self');
-		}
+		} else if(this.props.content.itemLink) window.open(this.props.content.itemLink[item].href, '_blank');
 	}
 
 	scrolledCheck(number, scrolledItem) {
