@@ -14,5 +14,4 @@ stages:
 timeout: 30
 branch:
   include:
-  - pushed
-  - launch
+  - active
