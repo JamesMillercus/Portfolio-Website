@@ -12,6 +12,4 @@ stages:
   - applyYamlConfig:
       path: ./ops/rancher/design.yaml
 timeout: 30
-branch:
-  include:
-  - active
+branch: {}
