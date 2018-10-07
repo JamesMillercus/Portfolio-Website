@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: design-app-deployment
+  name: ar-app-deployment
 spec:
   replicas: 1 # We want two pods for this deployment
   template:
     metadata:
       labels:
-        app: design-app
+        app: ar-app
     spec:
       containers:
-      - name: design-app
-        image: simuha999/portfolio:version-${CICD_EXECUTION_SEQUENCE}
+      - name: ar-app
+        image: simuha999/ar
         ports:
         - containerPort: 3000
       restartPolicy: Always
@@ -19,9 +19,9 @@ spec:
   apiVersion: v1
   kind: Service
   metadata:
-    name: design-app
+    name: ar-app
     labels:
-      run: design-app
+      run: ar-app
   spec:
     type: NodePort
     ports:
@@ -29,4 +29,4 @@ spec:
       protocol: TCP
       name: http
     selector:
-      app: design-app
+      app: ar-app

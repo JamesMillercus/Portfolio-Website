@@ -4,12 +4,12 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./web/react/Dockerfile
       buildContext: ./web/react
-      tag: simuha999/portfolio
+      tag: simuha999/portfolio:version-${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
 - name: Deploy YAML
   steps:
   - applyYamlConfig:
       path: ./ops/rancher/design.yaml
-timeout: 60
+timeout: 30
 branch: {}
