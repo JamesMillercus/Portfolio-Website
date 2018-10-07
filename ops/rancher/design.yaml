@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: design-app
-        image: simuha999/portfolio
+        image: simuha999/portfolio:latest
         ports:
         - containerPort: 3000
       restartPolicy: Always
