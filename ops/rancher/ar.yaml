@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ar-app-deployment
+spec:
+  replicas: 1 # We want two pods for this deployment
+  template:
+    metadata:
+      labels:
+        app: ar-app
+    spec:
+      containers:
+      - name: ar-app
+        image: simuha999/ar
+        ports:
+        - containerPort: 3000
+      restartPolicy: Always
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: ar-app
+    labels:
+      run: ar-app
+  spec:
+    type: NodePort
+    ports:
+    - port: 3000
+      protocol: TCP
+      name: http
+    selector:
+      app: ar-app
