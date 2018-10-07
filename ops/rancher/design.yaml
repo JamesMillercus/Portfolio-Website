@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: design-app
-        image: simuha999/portfolio:latest
+        image: simuha999/portfolio:version-${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 3000
       restartPolicy: Always
