@@ -11,7 +11,6 @@ import {
 } from './../../actions';
 
 class Home extends Component {
-
   componentWillMount() {
     this.props.fetchScrolledItem(null);
     this.props.fetchScrolledHeroIcon('none');

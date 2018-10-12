@@ -4,7 +4,7 @@
 // Start up point for client side application
 import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 // create redux store for state, hook up middleware inside of application
 import { createStore, applyMiddleware } from 'redux';
 // React's DOM router
@@ -22,17 +22,16 @@ import reducers from './reducers';
 import Routes from './routes/Routes';
 
 const userAgent = window.navigator.userAgent;
-
 const thunkExtraArg = thunk.withExtraArgument(userAgent);
 // set up the redux store on the client side, with the state that has been sent from the server
 const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunkExtraArg));
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
-ReactDOM.hydrate(
-	<Provider store={store}>
-		<BrowserRouter>
-			<div>{renderRoutes(Routes)}</div>
-		</BrowserRouter>
-	</Provider>,
-	document.querySelector('#root')
+render(
+  <Provider store={store} >
+    <BrowserRouter>
+      <div>{renderRoutes(Routes)}</div>
+    </BrowserRouter>
+  </Provider>,
+  document.querySelector('#root')
 );
