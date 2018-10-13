@@ -12,7 +12,6 @@ import Hero from './Hero/Hero';
 import './assets/scss';
 
 class GridContainer extends Component {
-
   constructor() {
     super();
     this.x = 0;

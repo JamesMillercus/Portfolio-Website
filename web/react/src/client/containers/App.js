@@ -7,26 +7,18 @@ import './assets/scss';
 import './assets/images';
 
 class App extends Component {
-	componentDidMount() {
-		// once component loads, call the fetchUserAgent action creator
-		// this.props.fetchUserAgent();
-	}
-
-	routerRenderer() {
-		const route = this.props.route;
-		const userAgent = this.props.userAgent;
-		if (userAgent) {
-			return (
-				<UserAgentProvider ua={userAgent}>
-					<div>{renderRoutes(route.routes)}</div>
-				</UserAgentProvider>
-			);
-		}
-		return <div>{renderRoutes(route.routes)}</div>;
+	componentWillMount() {
+		if (!this.props.userAgent) this.userAgent = navigator.userAgent;
+		else this.userAgent = this.props.userAgent;
 	}
 
 	render() {
-		return <div>{ this.routerRenderer() }</div>;
+		const route = this.props.route;
+		return (
+			<UserAgentProvider ua={this.userAgent}>
+				<div>{renderRoutes(route.routes)}</div>
+			</UserAgentProvider>
+		);
 	}
 }
 
