@@ -1,13 +1,17 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import {ReactInstance} from 'react-360-web';
-import {Location} from 'react-360-web';
+import {ReactInstance, Location, Surface} from 'react-360-web';
+import SimpleRaycaster from "simple-raycaster";
+
+
+const heroSurface = new Surface(600, /* width */ 300, /* height */ Surface.SurfaceShape.Cylinder /* shape */ );
 
 function init(bundle, parent, options = {}) {
   const r360 = new ReactInstance(bundle, parent, {
     // Add custom options here
     fullScreen: true,
+    cursorVisibility: "visible",
     ...options,
   });
 
@@ -16,18 +20,15 @@ function init(bundle, parent, options = {}) {
 
   // Render your app content to the default cylinder surface
   r360.renderToSurface(
-    r360.createRoot('TestView', { /* initial props */ }),
-    r360.getDefaultSurface()
-  );
-
-  r360.renderToLocation(
-    r360.createRoot('JmModel'),
-    // r360.getDefaultLocation()
-    location
+    r360.createRoot('Hero', { /* initial props */ }),
+    heroSurface
   );
 
   // Load the initial environment
-  r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  // r360.compositor.setBackground('#fff');
+  // r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  r360.controls.clearRaycasters();
+  r360.controls.addRaycaster(SimpleRaycaster);
 }
 
 window.React360 = {init};

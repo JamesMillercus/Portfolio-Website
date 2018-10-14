@@ -1,6 +1,6 @@
 import {AppRegistry} from 'react-360';
 import JmModel from './components/locs/JmModel';
-import TestView from './components/locs/TestView';
+import Hero from './components/locs/Hero';
 
 // AppRegistry.registerComponent('JmModel', () => JmModel);
-AppRegistry.registerComponent('TestView', () => TestView);
+AppRegistry.registerComponent('Hero', () => Hero);
