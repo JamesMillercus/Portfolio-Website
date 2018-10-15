@@ -6,7 +6,8 @@ import {
   Image,
   asset,
   VrButton,
-  Environment
+  Environment,
+  NativeModules
 } from 'react-360';
 import { Dimensions, ImageBackground } from "react-native";
 
@@ -18,32 +19,73 @@ export default class Hero extends React.Component {
   }
 
   state = {
-    leftIconHover: false,
-    rightIconHover: false
+    hover: '',
+    heroText: ''
   };
+
+  renderText(){
+    if(this.state.heroText === 'scrolled') {
+      if(this.state.hover === 'left') return 'Tell me about your ideas on: hi@jamesmiller.design';
+      else if(this.state.hover === 'right') return 'How I can help launch your ideas with technology';
+      return 'Creative Technology projects I have worked on';
+    } else {
+      return 'DESIGN AND TECHNOLOGY TECHNOLOGY CONSULTANCY';
+    }
+  }
+
+  textStyle(){
+    if(this.state.heroText === 'scrolled') {
+      if(this.state.hover === 'left') return styles.leftHeroText;
+      else if(this.state.hover === 'right') return styles.rightHeroText;
+      return styles.heroText;
+    } else {
+      return styles.unscrolledHeroText;
+    }
+  }
+
+  heroIconShadowStyle(){
+    if(this.state.heroText === 'scrolled') return styles.heroIconShadow;
+  }
+
+  heroIconStyle() {
+    if(this.state.heroText === 'scrolled') return styles.heroIcon;
+    else return styles.unscrolledHeroIcon;
+  }
+
+  heroImage(){
+    if(this.state.heroText === 'scrolled') return asset('design.png');
+    return asset('heroLogo.png');
+  }
+
+  heroImageStyle(){
+    if(this.state.heroText === 'scrolled') return styles.heroImage;
+    else return styles.unscrolledHeroImage;
+  }
 
   render() {
     return (
-          <View style={styles.heroContainer}>
-            <View style ={[styles.leftIcon, this.state.leftIconHover ? styles.leftIconHover : null]}>
-              <ImageBackground source={asset('mail-scrolled.png')} style={styles.leftIconImage} />
+          <View style={styles.heroContainer} onEnter={() => this.setState({heroText: 'scrolled'})} onExit={ () => this.setState({heroText: ''})}>
+            <View style ={[styles.leftIcon, this.state.hover === 'left' ? styles.leftIconHover : null]}>
+              <ImageBackground source={asset('mail.png')} style={styles.leftIconImage} />
             </View>
             <VrButton
-              onEnter={() => this.setState({leftIconHover: true})} onExit={ () => this.setState({leftIconHover: false})}
+              onEnter={() => this.setState({hover: 'left'})} onExit={ () => this.setState({hover: ''})}
+              onClick={() => NativeModules.LinkingManager.openURL('mailto:hi@jamesmiller.design')}
               style={styles.leftIconHitBox}
             />
-            <View style ={[styles.rightIcon, this.state.rightIconHover ? styles.rightIconHover : null]}>
-              <ImageBackground source={asset('tech-scrolled.png')} style={styles.rightIconImage} />
+            <View style ={[styles.rightIcon, this.state.hover === 'right' ? styles.rightIconHover : null]}>
+              <ImageBackground source={asset('tech.png')} style={styles.rightIconImage} />
             </View>
             <VrButton
-              onEnter={() => this.setState({rightIconHover: true})} onExit={ () => this.setState({rightIconHover: false})}
-              style ={styles.rightIconHitBox}
+              onEnter={() => this.setState({hover: 'right'})} onExit={ () => this.setState({hover: ''})}
+              onClick={() => NativeModules.LinkingManager.openURL('/webvr/services')}
+              style={styles.rightIconHitBox}
             />
-            <View style={styles.heroIconShadow} />
-            <View style={styles.heroIcon} />
-            <Image source={asset('design.png')} style={styles.heroImage} />
-            <Text style={styles.heroText}>
-              Creative Technology projects I have worked on
+            <View style={this.heroIconShadowStyle()} />
+            <View style={this.heroIconStyle()} />
+            <Image source={this.heroImage()} style={this.heroImageStyle()} />
+            <Text style ={this.textStyle()} >
+              {this.renderText()}
             </Text>
           </View>
     );
@@ -52,21 +94,31 @@ export default class Hero extends React.Component {
 
 const styles = StyleSheet.create({
   heroContainer: {
-    width: '100%',
-    height: '100%',
-    // backgroundColor: '#639dda',
+    width: 600,
+    height: 300,
+    // backgroundColor: '#639dda'
   },
   heroIcon: {
     marginTop: 20,
-    marginLeft: '36%',
+    marginLeft: 215,
     borderRadius: 200/2,
     width:160,
     height:160,
-    backgroundColor: '#008f9c'
+    backgroundColor: '#008f9c',
+    position: 'absolute'
+  },
+  unscrolledHeroIcon:{
+    marginTop: 35,
+    marginLeft: 230,
+    borderRadius: 200/2,
+    width:140,
+    height:140,
+    backgroundColor: '#7d7d7d',
+    position: 'absolute'
   },
   heroIconShadow: {
     marginTop: 22,
-    marginLeft: 217,
+    marginLeft: 227,
     borderRadius: 200/2,
     width:160,
     height:160,
@@ -77,14 +129,51 @@ const styles = StyleSheet.create({
     width:100,
     height:100,
     marginTop: 50,
-    marginLeft: 240,
+    marginLeft: 245,
+    position:'absolute'
+  },
+  unscrolledHeroImage: {
+    width:80,
+    height:80,
+    marginTop: 65,
+    marginLeft: 262,
     position:'absolute'
   },
   heroText: {
-    marginTop: 20,
-    fontSize: 30,
+    marginTop: 220,
+    fontSize: 25,
     color: '#008f9c',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center',
+    position: 'absolute',
+    width: 600
+  },
+  unscrolledHeroText: {
+    marginTop: 220,
+    fontSize: 20,
+    color: '#7d7d7d',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    position: 'absolute',
+    width: 600
+  },
+  leftHeroText: {
+    marginTop: 220,
+    fontSize: 25,
+    color: '#1d9c00',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    position: 'absolute',
+    width: 600
+  },
+  rightHeroText: {
+    marginTop: 220,
+    fontSize: 25,
+    color: '#e4bc02',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    position: 'absolute',
+    width: 600
   },
   leftIcon: {
     width: 100,
@@ -123,7 +212,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7d7d7d',
     position: 'absolute',
     marginTop: 60,
-    marginLeft: 455,
+    marginLeft: 475,
     borderRadius: 100/2,
   },
   rightIconHover: {
@@ -132,7 +221,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e3bb2a',
     position: 'absolute',
     marginTop: 60,
-    marginLeft: 455,
+    marginLeft: 475,
     borderRadius: 100/2
   },
   rightIconImage:{
@@ -148,6 +237,6 @@ const styles = StyleSheet.create({
     marginTop: '5.8%',
     position:'absolute',
     borderRadius: 150/2,
-    marginLeft: 429
+    marginLeft: 450
   },
 });
