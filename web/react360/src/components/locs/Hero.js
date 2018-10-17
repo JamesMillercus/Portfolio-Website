@@ -3,16 +3,21 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   asset,
-  VrButton,
-  Environment,
-  NativeModules,
-  AppRegistry
+  Environment
 } from 'react-360';
-import { ImageBackground } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchR360, fetchHero } from './../../actions';
 
-export default class Hero extends React.Component {
+import HeroIcon from './HeroIcon';
+import HeroLogo from './HeroLogo';
+
+// UPDATE ALL COMPONENTS
+// implement redux state update for hover and heroText (separate them if necessary)
+// either render 360 pano and add locations in react component, or store r360 (from client.js) in redux to use in this component
+// - consider the use of "Environment.{xyz}"?
+
+class Hero extends React.Component {
   state = {
     hover: '',
     heroText: ''
@@ -55,34 +60,51 @@ export default class Hero extends React.Component {
   renderText() {
     if (this.state.heroText === 'scrolled') {
       if (this.state.hover === 'left') return 'Tell me about your ideas on: hi@jamesmiller.design';
-      else if (this.state.hover === 'right') return 'How I can help launch your ideas with technology';
+      else if (this.state.hover === 'right') {
+        return 'How I can help launch your ideas with technology';
+      }
       return 'Creative Technology projects I have worked on';
     }
-      return 'DESIGN AND TECHNOLOGY TECHNOLOGY CONSULTANCY';
+      return 'INTERACTIVE EXPERIENCE & PRODUCT DESIGN SERVICES';
   }
 
   render() {
+    const { render, hero } = this.props;
+    console.log('this.props.test');
+    console.log(render);
+    this.props.fetchHero({ hover: 'lol', heroText: 'rofl' });
+    console.log(this.props.hero);
     return (
-          <View style={styles.heroContainer} onEnter={() => this.setState({ heroText: 'scrolled' })} onExit={() => this.setState({ heroText: '' })}>
-            <View style={[styles.leftIcon, this.state.hover === 'left' ? styles.leftIconHover : null]}>
-              <ImageBackground source={asset('mail.png')} style={styles.leftIconImage} />
-            </View>
-            <VrButton
-              onEnter={() => this.setState({ hover: 'left' })} onExit={() => this.setState({ hover: '' })}
-              onClick={() => NativeModules.LinkingManager.openURL('mailto:hi@jamesmiller.design')}
-              style={styles.leftIconHitBox}
-            />
-            <View style={[styles.rightIcon, this.state.hover === 'right' ? styles.rightIconHover : null]}>
-              <ImageBackground source={asset('tech.png')} style={styles.rightIconImage} />
-            </View>
-            <VrButton
-              onEnter={() => this.setState({ hover: 'right' })} onExit={() => this.setState({ hover: '' })}
-              onClick={() => NativeModules.LinkingManager.openURL('/webvr/services')}
-              style={styles.rightIconHitBox}
-            />
-            <View style={this.heroIconShadowStyle()} />
-            <View style={this.heroIconStyle()} />
-            <Image source={this.heroImage()} style={this.heroImageStyle()} />
+          <View
+            style={styles.heroContainer}
+            onEnter={() => this.setState({ heroText: 'scrolled' })}
+            onExit={() => this.setState({ heroText: '' })}
+          >
+              <HeroIcon
+                iconStyle={styles.leftIcon}
+                iconHoverStyle={styles.leftIconHover}
+                iconName={'leftIcon'}
+                iconImg={'mail.png'}
+                iconImgStyle={styles.leftIconImage}
+                iconHitBoxStyle={styles.leftIconHitBox}
+                iconUrl={'mailto:hi@jamesmiller.design'}
+              />
+              <HeroIcon
+                iconStyle={styles.rightIcon}
+                iconHoverStyle={styles.rightIconHover}
+                iconName={'rightIcon'}
+                iconImg={'tech.png'}
+                iconImgStyle={styles.rightIconImage}
+                iconHitBoxStyle={styles.rightIconHitBox}
+                iconUrl={'/webvr'}
+              />
+              <HeroLogo
+                heroImage={this.heroImage()}
+                heroImageStyle={this.heroImageStyle()}
+                heroLogoStyle={this.heroIconStyle()}
+                heroLogoShadowStyle={this.heroIconShadowStyle()}
+              />
+
             <Text style={this.textStyle()} >
               {this.renderText()}
             </Text>
@@ -90,6 +112,15 @@ export default class Hero extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ r360, hero }) => {
+  const { render } = r360;
+  const { hover, heroText } = hero;
+  return { render, hover, heroText };
+};
+//
+export default connect(mapStateToProps, { fetchR360, fetchHero })(Hero);
+// export default Hero;
 
 const styles = StyleSheet.create({
   heroContainer: {
@@ -241,7 +272,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderRadius: 150 / 2,
     marginLeft: 450
-  },
+  }
 });
-
-AppRegistry.registerComponent('Hero', () => Hero);

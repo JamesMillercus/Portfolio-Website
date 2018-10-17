@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { AppRegistry } from 'react-360';
 import ReduxThunk from 'redux-thunk';
 import reducers from './../reducers';
 import Router from './../routes/Routes';
@@ -18,3 +19,5 @@ class App extends Component {
 }
 
 export default App;
+
+AppRegistry.registerComponent('App', () => App);

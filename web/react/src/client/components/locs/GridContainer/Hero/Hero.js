@@ -5,7 +5,6 @@ import HeroIcon from './HeroIcon/HeroIcon';
 import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 
 class Hero extends Component {
-
 	scrolledItem(item) {
 		const deviceType = this.props.deviceType;
 		if (deviceType === 'laptop') this.props.fetchScrolledItem(item);

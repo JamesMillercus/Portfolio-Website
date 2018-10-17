@@ -1,12 +1,13 @@
-import {
-  TEST_FETCH
-} from './../actions/types';
+import { FETCH_HERO } from './../actions';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  hover: '',
+  heroText: ''
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case TEST_FETCH:
+    case FETCH_HERO:
       return action.payload;
     default:
       return state;

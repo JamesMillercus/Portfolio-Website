@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import TestReducer from './TestReducer';
+import R360Reducer from './R360Reducer';
+import HeroReducer from './HeroReducer';
 
 export default combineReducers({
-  test: TestReducer
+  r360: R360Reducer,
+  hero: HeroReducer
 });

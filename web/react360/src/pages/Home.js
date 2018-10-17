@@ -1,10 +1,10 @@
 import React from 'react';
-import Hero from './../components/locs/Hero';
+import HeroContainer from './../components/locs/HeroContainer';
 
 export default class Home extends React.Component {
   render() {
     return (
-      <Hero />
+      <HeroContainer />
     );
   }
 }
