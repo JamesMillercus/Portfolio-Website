@@ -1,10 +1,6 @@
 import { FETCH_R360 } from './../actions';
 
-const INITIAL_STATE = {
-  render: null
-};
-
-export default (state = INITIAL_STATE, action) => {
+export default (state = null, action) => {
   switch (action.type) {
     case FETCH_R360:
       return action.payload;

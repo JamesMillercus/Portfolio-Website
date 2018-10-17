@@ -84,12 +84,14 @@ export default {
   },
   heroIcon: {
     centerRightIcon: {
+      name: 'centerRightIcon',
       backgroundColor: '#e4bc02',
       image: 'tech.png',
       href: '/services',
       target: '_self'
     },
     centerLeftIcon: {
+      name: 'centerLeftIcon',
       backgroundColor: '#1d9c00',
       image: 'mail.png',
       href: 'mailto:hi@jamesmiller.design',

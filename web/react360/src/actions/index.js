@@ -1,2 +1,3 @@
 export * from './R360Action';
-export * from './HeroActions';
+export * from './HeroTextAction';
+export * from './HeroHoverAction';
