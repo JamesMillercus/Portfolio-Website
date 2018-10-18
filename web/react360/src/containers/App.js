@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { StyleSheet, AppRegistry } from 'react-360';
 import { createStore, applyMiddleware } from 'redux';
-import { AppRegistry } from 'react-360';
 import ReduxThunk from 'redux-thunk';
 import reducers from './../reducers';
 import Router from './../routes/Routes';
-// import react360 from './../client';
 
-class App extends Component {
+export default class App extends Component {
 
   render() {
-    // console.log(R360);
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
-      <Provider store={store}>
+      <Provider store={store} style={styles.heroContainer}>
         <Router />
       </Provider>
     );
   }
 }
 
-export default App;
+const styles = StyleSheet.create({
+  heroContainer: {
+    width: 4700,
+    height: 1000,
+    // backgroundColor: '#000'
+  }
+});
+
 AppRegistry.registerComponent('App', () => App);

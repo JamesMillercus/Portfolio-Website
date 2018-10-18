@@ -1,7 +1,7 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import { ReactInstance, Location, Surface } from 'react-360-web';
+import { ReactInstance, Surface } from 'react-360-web';
 import SimpleRaycaster from 'simple-raycaster';
 
 function init(bundle, parent, options = {}) {
@@ -10,9 +10,6 @@ function init(bundle, parent, options = {}) {
     fullScreen: true,
     ...options,
   });
-
-  // Create a location two meters in front of the user, and one meter down
-  const location = new Location([0, -0.5, -2]);
 
   r360.renderToSurface(
     r360.createRoot('App', { /* initial props */ }),
@@ -33,5 +30,3 @@ React360.init(
     assetRoot: './src/static_assets/',
   }
 );
-
-// export default react360;

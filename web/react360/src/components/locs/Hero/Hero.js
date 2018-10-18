@@ -1,26 +1,19 @@
 /*eslint max-len: ["error", { "code": 5000 }]*/
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  asset,
-  Environment,
-} from 'react-360';
+import { StyleSheet, View, asset, Environment } from 'react-360';
 import { connect } from 'react-redux';
-import { fetchR360, fetchHeroText } from './../../../actions';
+import { fetchHeroText } from './../../../actions';
 
 import HeroIcon from './HeroIcon';
 import HeroLogo from './HeroLogo';
 import HeroText from './HeroText';
 
 class Hero extends React.Component {
-
   componentDidMount() {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
       format: '2D',
     });
   }
-
 
   render() {
     const mouseOver = () => this.props.fetchHeroText('scrolled');
@@ -46,7 +39,7 @@ class Hero extends React.Component {
 
 const mapStateToProps = ({ r360, heroText, heroHover }) => ({ r360, heroHover, heroText });
 
-export default connect(mapStateToProps, { fetchR360, fetchHeroText })(Hero);
+export default connect(mapStateToProps, { fetchHeroText })(Hero);
 
 const styles = StyleSheet.create({
   hero: {
