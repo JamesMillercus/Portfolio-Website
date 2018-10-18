@@ -4,7 +4,7 @@ import {
   StyleSheet,
   View,
   asset,
-  Environment
+  Environment,
 } from 'react-360';
 import { connect } from 'react-redux';
 import { fetchR360, fetchHeroText } from './../../../actions';
@@ -12,11 +12,6 @@ import { fetchR360, fetchHeroText } from './../../../actions';
 import HeroIcon from './HeroIcon';
 import HeroLogo from './HeroLogo';
 import HeroText from './HeroText';
-
-// UPDATE ALL COMPONENTS
-// try using renderToLocation
-// in component create 360 sphere that will be rendered
-// render components around the sphere where relevent 
 
 class Hero extends React.Component {
 
@@ -26,11 +21,12 @@ class Hero extends React.Component {
     });
   }
 
+
   render() {
     const mouseOver = () => this.props.fetchHeroText('scrolled');
     const mouseOut = () => this.props.fetchHeroText('');
     return (
-      <View style={styles.heroContainer} onEnter={() => mouseOver()} onExit={() => mouseOut()} >
+      <View style={styles.hero} onEnter={() => mouseOver()} onExit={() => mouseOut()} >
         <HeroIcon
           iconName={this.props.centerLeftIconName}
           iconImg={this.props.centerLeftIconImage}
@@ -53,9 +49,11 @@ const mapStateToProps = ({ r360, heroText, heroHover }) => ({ r360, heroHover, h
 export default connect(mapStateToProps, { fetchR360, fetchHeroText })(Hero);
 
 const styles = StyleSheet.create({
-  heroContainer: {
+  hero: {
     width: 600,
     height: 300,
-    backgroundColor: '#639dda'
+    marginLeft: 2050,
+    marginTop: 300,
+    // backgroundColor: '#639dda'
   }
 });
