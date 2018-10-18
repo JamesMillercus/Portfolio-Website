@@ -5,7 +5,14 @@ import Hero from './Hero';
 export default class HeroContainer extends React.Component {
   render() {
     return (
-      <Hero />
+      <Hero
+        centerLeftIconName={this.props.centerLeftIconName}
+        centerLeftIconImage={this.props.centerLeftIconImage}
+        centerLeftIconHref={this.props.centerLeftIconHref}
+        centerRightIconName={this.props.centerRightIconName}
+        centerRightIconImage={this.props.centerRightIconImage}
+        centerRightIconHref={this.props.centerRightIconHref}
+      />
     );
   }
 }
@@ -16,5 +23,7 @@ export default class HeroContainer extends React.Component {
 //   r360.createRoot('HeroContainer', { /* initial props */ }),
 //   heroSurface
 // );
+
+// console.log(window.React360);
 
 AppRegistry.registerComponent('HeroContainer', () => HeroContainer);

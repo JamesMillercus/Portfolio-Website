@@ -7,16 +7,16 @@ import {
   Environment
 } from 'react-360';
 import { connect } from 'react-redux';
-import { fetchR360, fetchHeroText } from './../../actions';
+import { fetchR360, fetchHeroText } from './../../../actions';
 
 import HeroIcon from './HeroIcon';
 import HeroLogo from './HeroLogo';
 import HeroText from './HeroText';
 
 // UPDATE ALL COMPONENTS
-// either render 360 pano and add locations in react component, or store r360 (from client.js) in redux to use in this component
-// - consider the use of "Environment.{xyz}"?
-// implement assets from config file via the home page
+// try using renderToLocation
+// in component create 360 sphere that will be rendered
+// render components around the sphere where relevent 
 
 class Hero extends React.Component {
 
@@ -31,8 +31,16 @@ class Hero extends React.Component {
     const mouseOut = () => this.props.fetchHeroText('');
     return (
       <View style={styles.heroContainer} onEnter={() => mouseOver()} onExit={() => mouseOut()} >
-        <HeroIcon iconName={'centerLeftIcon'} iconImg={'mail.png'} iconUrl={'mailto:hi@jamesmiller.design'} />
-        <HeroIcon iconName={'centerRightIcon'} iconImg={'tech.png'} iconUrl={'/webvr'} />
+        <HeroIcon
+          iconName={this.props.centerLeftIconName}
+          iconImg={this.props.centerLeftIconImage}
+          iconUrl={this.props.centerLeftIconHref}
+        />
+        <HeroIcon
+          iconName={this.props.centerRightIconName}
+          iconImg={this.props.centerRightIconImage}
+          iconUrl={this.props.centerRightIconHref}
+        />
         <HeroLogo />
         <HeroText />
       </View>
@@ -48,6 +56,6 @@ const styles = StyleSheet.create({
   heroContainer: {
     width: 600,
     height: 300,
-    // backgroundColor: '#639dda'
+    backgroundColor: '#639dda'
   }
 });

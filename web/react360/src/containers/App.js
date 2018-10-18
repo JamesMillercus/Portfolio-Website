@@ -5,10 +5,12 @@ import { AppRegistry } from 'react-360';
 import ReduxThunk from 'redux-thunk';
 import reducers from './../reducers';
 import Router from './../routes/Routes';
+// import react360 from './../client';
 
 class App extends Component {
 
   render() {
+    // console.log(R360);
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={store}>
@@ -19,5 +21,4 @@ class App extends Component {
 }
 
 export default App;
-
 AppRegistry.registerComponent('App', () => App);

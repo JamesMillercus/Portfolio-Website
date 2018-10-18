@@ -11,7 +11,7 @@ import {
 import { ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 
-import { fetchHeroHover } from './../../actions';
+import { fetchHeroHover } from './../../../actions';
 
 class HeroIcon extends React.Component {
 
