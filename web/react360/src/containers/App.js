@@ -11,7 +11,7 @@ export default class App extends Component {
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
-      <Provider store={store} style={styles.heroContainer}>
+      <Provider store={store} style={styles.appContainer}>
         <Router />
       </Provider>
     );
@@ -19,7 +19,7 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  heroContainer: {
+  appContainer: {
     width: 4700,
     height: 1000,
     // backgroundColor: '#000'
