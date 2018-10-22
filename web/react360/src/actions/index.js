@@ -1,3 +1,4 @@
-export * from './R360Action';
+export * from './ItemScrolledAction';
+export * from './ItemClickedAction';
 export * from './HeroTextAction';
 export * from './HeroHoverAction';

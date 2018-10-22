@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import R360Reducer from './R360Reducer';
+import ItemScrolledReducer from './ItemScrolledReducer';
 import HeroTextReducer from './HeroTextReducer';
 import HeroHoverReducer from './HeroHoverReducer';
+import ItemClickedReducer from './ItemClickedReducer';
 
 export default combineReducers({
-  r360: R360Reducer,
+  itemScrolled: ItemScrolledReducer,
   heroText: HeroTextReducer,
-  heroHover: HeroHoverReducer
+  heroHover: HeroHoverReducer,
+  itemClicked: ItemClickedReducer
 });

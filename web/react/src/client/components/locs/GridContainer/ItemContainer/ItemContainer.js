@@ -37,9 +37,11 @@ class ItemContainer extends Component {
 		const page = this.props.content.page;
 		this.props.fetchActiveItem(item);
 
+		// page has not been clicked yet
 		if(Object.getOwnPropertyNames(this.props.clickedItems).length === 0 || this.props.clickedItems[page] === undefined) {
 			this.props.fetchClickedItems(page, item);
 		} else {
+			// page has been clicked, item hasn't
 			const itemAlreadyClicked = this.props.clickedItems[page].includes(item);
 			if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(page, item);
 		}
