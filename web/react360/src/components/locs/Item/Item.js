@@ -2,41 +2,38 @@
 import React from 'react';
 import { StyleSheet, Text, VrButton } from 'react-360';
 import { connect } from 'react-redux';
-import { fetchItemScrolled, fetchItemClicked } from './../../../actions';
+import { fetchItemScrolled, fetchItemClicked, fetchActiveItem } from './../../../actions';
 import ItemImage from './ItemImage';
 
 class Item extends React.Component {
 
-  // clickedItem(item) {
-	// 	const page = this.props.content.page;
-	// 	this.props.fetchActiveItem(item);
-  //
-	// 	if(Object.getOwnPropertyNames(this.props.clickedItems).length === 0 || this.props.clickedItems[page] === undefined) {
-	// 		this.props.fetchClickedItems(page, item);
-	// 	} else {
-	// 		const itemAlreadyClicked = this.props.clickedItems[page].includes(item);
-	// 		if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(page, item);
-	// 	}
-	// 	if(this.props.content.itemVideo){
-	// 		import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
-	// 			this.props.fetchAsyncVideoComponent(VideoComponent.default);
-	// 		});
-	// 	} else if(this.props.content.itemLink) window.open(this.props.content.itemLink[item].href, '_blank');
-	// }
 
-  clicked() {
+// create ItemText Component
+// pass in component props from config file into ItemText & ItemImage
+// create video component with "head locked movement" functionality
+// ensure component is fully dynamic
+// create other 7 Item Components
+
+  clicked(page, item) {
     // NativeModules.LinkingManager.openURL(this.props.iconUrl)
     // this.props.fetchItemClicked(0);
-    // const page = 'home';
-    // this.props.fetchActiveItem(videoThatNeedsToBeActive)
-
-    //
+    const { itemClicked } = this.props;
+    this.props.fetchActiveItem(item);
+    if (Object.getOwnPropertyNames(itemClicked).length === 0 || itemClicked[page] === undefined) {
+      // console.log('page has not been clicked');
+			this.props.fetchItemClicked(page, item);
+		} else {
+      // console.log("page has been clicked, item hasn't");
+			const itemAlreadyClicked = itemClicked[page].includes(item);
+      // if item hasn't already been clicked
+			if (!itemAlreadyClicked) this.props.fetchItemClicked(page, item);
+		}
   }
 
   render() {
     const mouseOver = () => this.props.fetchItemScrolled(0);
     const mouseOut = () => this.props.fetchItemScrolled(null);
-    const mouseClick = () => this.clicked(0);
+    const mouseClick = () => this.clicked('home', 0);
 
     return (
       <VrButton style={styles.item} onEnter={() => mouseOver()} onExit={() => mouseOut()} onClick={() => mouseClick()} >
@@ -55,7 +52,7 @@ class Item extends React.Component {
 
 const mapStateToProps = ({ itemScrolled, itemClicked }) => ({ itemScrolled, itemClicked });
 
-export default connect(mapStateToProps, { fetchItemScrolled, fetchItemClicked })(Item);
+export default connect(mapStateToProps, { fetchItemScrolled, fetchItemClicked, fetchActiveItem })(Item);
 
 const styles = StyleSheet.create({
   textHeader: {
@@ -68,10 +65,13 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   item: {
-    width: 750,
-    height: 200,
+    width: 900,
+    height: 400,
     marginLeft: 800,
-    marginTop: 300,
+    marginTop: 230,
+    paddingTop: 80,
+    paddingLeft: 70,
     position: 'absolute',
+    // backgroundColor: 'red',
   }
 });
