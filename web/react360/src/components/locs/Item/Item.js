@@ -1,17 +1,15 @@
-/*eslint max-len: ["error", { "code": 5000 }]*/
+
 import React from 'react';
-import { StyleSheet, Text, VrButton } from 'react-360';
+import { StyleSheet, VrButton } from 'react-360';
 import { connect } from 'react-redux';
 import { fetchItemScrolled, fetchItemClicked, fetchActiveItem } from './../../../actions';
 import ItemImage from './ItemImage';
+import ItemText from './ItemText';
 
 class Item extends React.Component {
 
 
-// create ItemText Component
-// pass in component props from config file into ItemText & ItemImage
 // create video component with "head locked movement" functionality
-// ensure component is fully dynamic
 // create other 7 Item Components
 
   clicked(page, item) {
@@ -30,20 +28,61 @@ class Item extends React.Component {
 		}
   }
 
+
   render() {
-    const mouseOver = () => this.props.fetchItemScrolled(0);
+    const mouseOver = () => this.props.fetchItemScrolled(this.props.itemNumber);
     const mouseOut = () => this.props.fetchItemScrolled(null);
-    const mouseClick = () => this.clicked('home', 0);
+    const mouseClick = () => this.clicked(this.props.page, this.props.itemNumber);
+
+    const style = () => {
+      const { itemScrolled, itemNumber } = this.props;
+      if (itemScrolled === itemNumber) return styles.scrolledItem;
+      return styles.item;
+    };
+
+    const styles = StyleSheet.create({
+      item: {
+        width: 900,
+        height: 400,
+        marginLeft: this.props.marginLeft,
+        marginTop: this.props.marginTop,
+        paddingTop: 80,
+        paddingLeft: 70,
+        position: 'absolute',
+        backgroundColor: '#fff',
+      },
+      scrolledItem: {
+        width: 900,
+        height: 400,
+        backgroundColor: '#fff',
+        position: 'absolute',
+        marginLeft: this.props.marginLeft,
+        marginTop: this.props.marginTop,
+        paddingTop: 80,
+        paddingLeft: 70,
+        borderWidth: 1,
+        borderColor: '#008f9c'
+      },
+    });
 
     return (
-      <VrButton style={styles.item} onEnter={() => mouseOver()} onExit={() => mouseOut()} onClick={() => mouseClick()} >
-        <ItemImage />
-        <Text style={styles.textHeader}>
-          Mood Tree
-        </Text>
-        <Text style={styles.textBody}>
-          D&AD wanted to promote social activity during their design festival. I created the electronics for an installation that utilised Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.
-        </Text>
+      <VrButton
+        style={style()}
+        onEnter={() => mouseOver()}
+        onExit={() => mouseOut()}
+        onClick={() => mouseClick()}
+      >
+        <ItemImage
+          unscrolledImage={this.props.unscrolledImage}
+          scrolledImage={this.props.scrolledImage}
+          clickedImage={this.props.clickedImage}
+          itemNumber={this.props.itemNumber}
+          page={this.props.page}
+        />
+        <ItemText
+          textHeader={this.props.textHeader}
+          textBody={this.props.textBody}
+        />
       </VrButton>
     );
   }
@@ -52,26 +91,6 @@ class Item extends React.Component {
 
 const mapStateToProps = ({ itemScrolled, itemClicked }) => ({ itemScrolled, itemClicked });
 
-export default connect(mapStateToProps, { fetchItemScrolled, fetchItemClicked, fetchActiveItem })(Item);
-
-const styles = StyleSheet.create({
-  textHeader: {
-    fontSize: 40,
-    color: '#7d7d7d',
-  },
-  textBody: {
-    width: 500,
-    color: '#7d7d7d',
-    marginTop: 20
-  },
-  item: {
-    width: 900,
-    height: 400,
-    marginLeft: 800,
-    marginTop: 230,
-    paddingTop: 80,
-    paddingLeft: 70,
-    position: 'absolute',
-    // backgroundColor: 'red',
-  }
-});
+export default connect(mapStateToProps, {
+  fetchItemScrolled, fetchItemClicked, fetchActiveItem
+})(Item);

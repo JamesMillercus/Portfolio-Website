@@ -33,15 +33,15 @@ export default {
     }
   ],
   itemImage: [
-    { png: 'moodtree.png', gif: 'moodtree.gif' },
-    { png: 'beer.png', gif: 'beer.gif' },
-    { png: 'krispy.png', gif: 'krispy.gif' },
-    { png: 'sap.png', gif: 'sap.gif' },
-    { png: null, gif: null },
-    { png: 'merck.png', gif: 'merck.gif' },
-    { png: 'epic.png', gif: 'epic.gif' },
-    { png: 'maker.png', gif: 'maker.gif' },
-    { png: 'adt.png', gif: 'adt.gif' }
+    { unscrolled: 'moodtree.png', scrolled: 'moodtree-scrolled.png', clicked: 'moodtreegif.mp4' },
+    { unscrolled: 'beer.png', scrolled: 'beer-scrolled.png', clicked: 'beer.gif' },
+    { unscrolled: 'krispy.png', scrolled: 'krispy-scrolled.png', clicked: 'krispy.gif' },
+    { unscrolled: 'sap.png', scrolled: 'sap-scrolled.png', clicked: 'sap.gif' },
+    { unscrolled: null, scrolled: null, clicked: null },
+    { unscrolled: 'merck.png', scrolled: 'merck-scrolled.png', clicked: 'merck.gif' },
+    { unscrolled: 'epic.png', scrolled: 'epic-scrolled.png', clicked: 'epic.gif' },
+    { unscrolled: 'maker.png', scrolled: 'maker-scrolled.png', clicked: 'maker.gif' },
+    { unscrolled: 'adt.png', scrolled: 'adt-scrolled.png', clicked: 'adt.gif' }
   ],
   itemVideo: [
     {
@@ -63,6 +63,17 @@ export default {
     }, {
       videoID: '36XGBIJLyN4' // MAIA
     }
+  ],
+  itemPosition: [
+    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 800, marginTop: 230 },
+    { null: null },
+    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 800, marginTop: 230 },
   ],
   heroFooterText: {
     none: {

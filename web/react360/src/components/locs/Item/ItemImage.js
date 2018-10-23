@@ -5,33 +5,35 @@ import {
   View,
   asset,
   VrButton,
-  NativeModules,
   StyleSheet,
-  Image
+  Image,
+  Video
 } from 'react-360';
-import { ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 
 class ItemImage extends React.Component {
 
   itemImage() {
-    const { itemScrolled } = this.props;
-    if (itemScrolled === 0) return asset('moodtree-scrolled.png');
-    return asset('moodtree.png');
-  }
-
-  itemImageStyle() {
-    const { itemScrolled } = this.props;
-    console.log(itemScrolled);
-    if (itemScrolled === 0) return styles.scrolledImage;
-    return styles.image;
+    const { itemScrolled, itemClicked, itemNumber, page } = this.props;
+    // if itemClicked reducer isn't empty
+    if (Object.getOwnPropertyNames(itemClicked).length !== 0 && itemClicked[page] !== undefined) {
+      // return gif if the current item is clicked
+      const itemIsClicked = itemClicked[page].includes(itemNumber);
+      if (itemIsClicked) {
+        return <Video source={asset(this.props.clickedImage)} style={styles.clickedImage} loop />;
+      }
+      // else if the current item is scrolled, return the scrolled png
+    } else if (itemScrolled === itemNumber) {
+      return <Image source={asset(this.props.scrolledImage)} style={styles.image} />;
+    }
+    return <Image source={asset(this.props.unscrolledImage)} style={styles.image} />;
   }
 
   render() {
     return (
       <View>
         <VrButton>
-          <Image source={this.itemImage()} style={this.itemImageStyle()} />
+          {this.itemImage()}
         </VrButton>
       </View>
     );
@@ -44,23 +46,16 @@ const styles = StyleSheet.create({
     height: 200,
     backgroundColor: '#fff',
     position: 'absolute',
-    marginLeft: 550,
-    borderRadius: 200 / 2,
-    borderWidth: 1,
-    borderColor: '#7d7d7d'
+    marginLeft: 550
   },
-  scrolledImage: {
+  clickedImage: {
     width: 200,
     height: 200,
-    backgroundColor: '#fff',
     position: 'absolute',
-    marginLeft: 550,
-    borderRadius: 200 / 2,
-    borderWidth: 1,
-    borderColor: '#008f9c'
+    marginLeft: 550
   }
 });
 
-const mapStateToProps = ({ itemScrolled }) => ({ itemScrolled });
+const mapStateToProps = ({ itemScrolled, itemClicked }) => ({ itemScrolled, itemClicked });
 
 export default connect(mapStateToProps, null)(ItemImage);
