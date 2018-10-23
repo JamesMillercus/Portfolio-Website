@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   hero: {
     width: 600,
     height: 300,
-    marginLeft: 2050,
+    marginLeft: 1700,
     marginTop: 300,
     // backgroundColor: '#639dda'
   }

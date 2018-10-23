@@ -20,9 +20,9 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   appContainer: {
-    width: 4700,
+    width: 4000,
     height: 1000,
-    // backgroundColor: '#000'
+    backgroundColor: 'red'
   }
 });
 

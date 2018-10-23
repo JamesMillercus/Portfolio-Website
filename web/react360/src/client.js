@@ -13,7 +13,7 @@ function init(bundle, parent, options = {}) {
 
   r360.renderToSurface(
     r360.createRoot('App', { /* initial props */ }),
-    new Surface(4700, 1000, Surface.SurfaceShape.Cylinder /* shape */)
+    new Surface(4000, 1000, Surface.SurfaceShape.Cylinder /* shape */)
   );
 
   r360.controls.clearRaycasters();
