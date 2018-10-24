@@ -65,7 +65,7 @@ export default {
     }
   ],
   itemPosition: [
-    { marginLeft: 400, marginTop: 230 },
+    { marginLeft: 400, marginTop: -370 },
     { marginLeft: 800, marginTop: 230 },
     { marginLeft: 800, marginTop: 230 },
     { marginLeft: 800, marginTop: 230 },

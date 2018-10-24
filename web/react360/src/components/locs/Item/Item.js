@@ -1,10 +1,12 @@
 
 import React from 'react';
-import { StyleSheet, VrButton } from 'react-360';
+import { StyleSheet, VrButton, NativeModules } from 'react-360';
 import { connect } from 'react-redux';
 import { fetchItemScrolled, fetchItemClicked, fetchActiveItem } from './../../../actions';
 import ItemImage from './ItemImage';
 import ItemText from './ItemText';
+
+const { VideoModule } = NativeModules;
 
 class Item extends React.Component {
 
@@ -26,6 +28,8 @@ class Item extends React.Component {
       // if item hasn't already been clicked
 			if (!itemAlreadyClicked) this.props.fetchItemClicked(page, item);
 		}
+      // // code to open video
+      VideoModule.resizeVideo(1590, 860);
   }
 
 

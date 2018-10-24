@@ -4,6 +4,7 @@ import HeroContainer from './../components/locs/Hero/HeroContainer';
 import ItemContainer from './../components/locs/Item/ItemContainer';
 import config from './../config/homeConfig';
 
+
 export default class Home extends React.Component {
 
   componentDidMount() {

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     width: 600,
     height: 300,
     marginLeft: 1700,
-    marginTop: 300,
+    marginTop: 300
     // backgroundColor: '#639dda'
   }
 });
