@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-360';
 import Item from './Item';
 import config from './../../../config/homeConfig';
-import Video from './../Video/Video';
 
 export default class ItemContainer extends React.Component {
   render() {
@@ -23,4 +22,3 @@ export default class ItemContainer extends React.Component {
     );
   }
 }
-// <Video />

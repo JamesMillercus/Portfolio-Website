@@ -1,26 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AppRegistry, View, Text, StyleSheet } from 'react-360';
+import { Text, StyleSheet, NativeModules, VrButton, Video } from 'react-360';
 import { fetchActiveItem } from './../../../actions';
 
-class Video extends React.Component {
+const { VideoModule } = NativeModules;
+
+/*
+  - refactor the following actions & reducers in r360 so they match normal react app:
+    2. ItemClicked
+    3. ItemScrolled
+  - refactor r360's homeConfig file to match normal react app
+  - integrate r360 app into csr app
+  - Ensure video is loading and displaying properly when item is clicked
+*/
+
+class VideoComponent extends React.Component {
+
+  componentDidUpdate() {
+    const { activeItem } = this.props;
+    if (activeItem !== 'hidden') VideoModule.resizeVideo(1590, 860);
+  }
+
+  click() {
+    console.log('LOL');
+  }
+
   render() {
+    const click = () => this.click();
+
     return (
-      <View style={styles.videoBackground}>
+      <VrButton onClick={click()} style={styles.videoBackground}>
         <Text> Test </Text>
-      </View>
+        <Video source={{ uri: 'https://youtu.be/-7AI_yvB4nc' }} />
+      </VrButton>
     );
   }
 }
-
-// const TopPosts = props => {
-//   if (!props.posts) {
-//     return (
-//       <View style={styles.wrapper}>
-//         <Text>Loading...</Text>
-//       </View>
-//     );
-//   }
 
 const styles = StyleSheet.create({
   videoBackground: {
@@ -34,6 +49,6 @@ const mapStateToProps = ({ activeItem }) => ({ activeItem });
 
 export default connect(mapStateToProps, {
   fetchActiveItem
-})(Video);
+})(VideoComponent);
 
-AppRegistry.registerComponent('Video', () => Video);
+// AppRegistry.registerComponent('Video', () => Video);

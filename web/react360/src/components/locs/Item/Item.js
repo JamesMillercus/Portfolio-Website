@@ -1,22 +1,14 @@
 
 import React from 'react';
-import { StyleSheet, VrButton, NativeModules } from 'react-360';
+import { StyleSheet, VrButton } from 'react-360';
 import { connect } from 'react-redux';
 import { fetchItemScrolled, fetchItemClicked, fetchActiveItem } from './../../../actions';
 import ItemImage from './ItemImage';
 import ItemText from './ItemText';
 
-const { VideoModule } = NativeModules;
-
 class Item extends React.Component {
 
-
-// create video component with "head locked movement" functionality
-// create other 7 Item Components
-
   clicked(page, item) {
-    // NativeModules.LinkingManager.openURL(this.props.iconUrl)
-    // this.props.fetchItemClicked(0);
     const { itemClicked } = this.props;
     this.props.fetchActiveItem(item);
     if (Object.getOwnPropertyNames(itemClicked).length === 0 || itemClicked[page] === undefined) {
@@ -28,8 +20,6 @@ class Item extends React.Component {
       // if item hasn't already been clicked
 			if (!itemAlreadyClicked) this.props.fetchItemClicked(page, item);
 		}
-      // // code to open video
-      VideoModule.resizeVideo(1590, 860);
   }
 
 
@@ -50,8 +40,8 @@ class Item extends React.Component {
         height: 400,
         marginLeft: this.props.marginLeft,
         marginTop: this.props.marginTop,
-        paddingTop: 80,
-        paddingLeft: 70,
+        paddingTop: 90,
+        paddingLeft: 100,
         position: 'absolute',
         backgroundColor: '#fff',
       },
@@ -62,8 +52,8 @@ class Item extends React.Component {
         position: 'absolute',
         marginLeft: this.props.marginLeft,
         marginTop: this.props.marginTop,
-        paddingTop: 80,
-        paddingLeft: 70,
+        paddingTop: 90,
+        paddingLeft: 100,
         borderWidth: 1,
         borderColor: '#008f9c'
       },

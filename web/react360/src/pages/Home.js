@@ -3,7 +3,7 @@ import { asset, Environment, View } from 'react-360';
 import HeroContainer from './../components/locs/Hero/HeroContainer';
 import ItemContainer from './../components/locs/Item/ItemContainer';
 import config from './../config/homeConfig';
-
+import VideoContainer from './../containers/VideoContainer';
 
 export default class Home extends React.Component {
 

@@ -4,11 +4,6 @@
 import { Math as VRMath, ReactInstance, Surface, Module } from 'react-360-web';
 import SimpleRaycaster from 'simple-raycaster';
 
-// create a call back function that loads Video dynamically
-// load that callback into a function in the class
-// use that function in the react side of the app
-
-// import Video from './components/locs/Video/Video';
 
 function init(bundle, parent, options = {}) {
   const Video = new Surface(0, 0, Surface.SurfaceShape.Flat);
@@ -56,7 +51,7 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('App', { /* initial props */ }),
     new Surface(4000, 1000, Surface.SurfaceShape.Cylinder /* shape */)
   );
-  r360.renderToSurface(r360.createRoot('Video'), Video);
+  r360.renderToSurface(r360.createRoot('VideoContainer'), Video);
 
   r360.controls.clearRaycasters();
   r360.controls.addRaycaster(SimpleRaycaster);
