@@ -19,7 +19,7 @@ module.exports = {
 							}
 						] //make code all work for all browsers last 2 versions
 					],
-					plugins: ['syntax-dynamic-import'],
+					plugins: ['syntax-dynamic-import', 'transform-class-properties'],
 					compact: false
 				}
 			}

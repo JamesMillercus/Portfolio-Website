@@ -24,8 +24,8 @@ export default (req, store, content) => {
       body {margin: 0;}
       div {cursor: none !important;}
      </style>`;
-    scripts = `<script src ="/js/vendors~bundle.js"></script>
-               <script src ="/js/vendors~csr_bundle.js"></script>
+    scripts = `<script src ="/js/vendors~csr_bundle.js"></script>
+               <script src ="/js/vendors~bundle.js"></script>
                <script src ="/js/csr_bundle.js"></script>`;
   }
   // returns an object that contains tags from loaded components
