@@ -1,9 +1,9 @@
-export const FETCH_ITEM_SCROLLED = 'fetch_item_scrolled';
+export const FETCH_SCROLLED_ITEM = 'fetch_scrolled_item';
 
-export const fetchItemScrolled = (data) => async(dispatch) => {
-    const res = data;
+export const fetchScrolledItem = (item) => async(dispatch) => {
+    const res = item;
     dispatch({
-      type: FETCH_ITEM_SCROLLED,
+      type: FETCH_SCROLLED_ITEM,
       payload: res
     });
 };

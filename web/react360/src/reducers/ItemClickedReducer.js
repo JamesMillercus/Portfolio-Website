@@ -1,9 +1,9 @@
-import { FETCH_ITEM_CLICKED } from './../actions';
+import { FETCH_CLICKED_ITEMS } from './../actions';
 
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case FETCH_ITEM_CLICKED:
+    case FETCH_CLICKED_ITEMS:
       return action.payload;
     default:
       return state;

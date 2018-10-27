@@ -4,7 +4,7 @@ const contentRes = require('./../helpers/contentRes');
 
 
 module.exports = (app) => {
-	app.get('/arbout', (req, res) => {
+	app.get('/webvr', (req, res) => {
 		// load content
 		const response = template(app, null, null);
 		res.send(response);

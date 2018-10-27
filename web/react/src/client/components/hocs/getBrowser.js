@@ -6,10 +6,9 @@ import { fetchBrowser } from './../../actions';
 
 export default (ChildComponent) => {
 	class GetBrowser extends Component {
-
 		browserComponent() {
 			return (
-				<UserAgent returnfullParser>
+				<UserAgent returnFullParser>
 					{parser => (
 						<div className="class"> {this.content(parser.getBrowser().name)} </div>
 					)}

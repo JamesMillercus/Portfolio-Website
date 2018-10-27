@@ -1,8 +1,8 @@
-import { FETCH_ITEM_SCROLLED } from './../actions';
+import { FETCH_SCROLLED_ITEM } from './../actions';
 
 export default (state = null, action) => {
   switch (action.type) {
-    case FETCH_ITEM_SCROLLED:
+    case FETCH_SCROLLED_ITEM:
       return action.payload;
     default:
       return state;

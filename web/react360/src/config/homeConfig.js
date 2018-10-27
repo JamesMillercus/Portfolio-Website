@@ -95,16 +95,16 @@ export default {
   },
   heroIcon: {
     centerRightIcon: {
-      name: 'centerRightIcon',
+      name360: 'centerRightIcon',
       backgroundColor: '#e4bc02',
-      image: 'tech.png',
+      image360: 'tech.png',
       href: '/services',
       target: '_self'
     },
     centerLeftIcon: {
-      name: 'centerLeftIcon',
+      name360: 'centerLeftIcon',
       backgroundColor: '#1d9c00',
-      image: 'mail.png',
+      image360: 'mail.png',
       href: 'mailto:hi@jamesmiller.design',
       target: '_blank'
     }
@@ -123,7 +123,7 @@ export default {
     centerIcon: {
       text: [''],
       backgroundColor: '#008f9c',
-      backgroundImage: 'design.png'
+      backgroundImage360: 'design.png'
     }
   }
 };

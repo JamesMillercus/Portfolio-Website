@@ -17,11 +17,20 @@ export default class Home extends React.Component {
     return (
       <View>
         <HeroContainer
-          centerLeftIconName={config.heroIcon.centerLeftIcon.name}
-          centerLeftIconImage={config.heroIcon.centerLeftIcon.image}
+          textNoScroll={config.heroFooterText.none.text}
+          textColorNoScroll={config.heroFooterText.none.color}
+          textScrollHero={config.heroFooterText.centerIcon.text}
+          textColorScrollHero={config.heroFooterText.centerIcon.color}
+          textScrollCenterLeftIcon={config.heroFooterText.centerLeftIcon.text}
+          textColorScrollCenterLeftIcon={config.heroFooterText.centerLeftIcon.color}
+          textScrollCenterRightIcon={config.heroFooterText.centerRightIcon.text}
+          textColorScrollCenterRightIcon={config.heroFooterText.centerRightIcon.color}
+          logoImage={config.heroText.centerIcon.backgroundImage360}
+          centerLeftIconName={config.heroIcon.centerLeftIcon.name360}
+          centerLeftIconImage={config.heroIcon.centerLeftIcon.image360}
           centerLeftIconHref={config.heroIcon.centerLeftIcon.href}
-          centerRightIconName={config.heroIcon.centerRightIcon.name}
-          centerRightIconImage={config.heroIcon.centerRightIcon.image}
+          centerRightIconName={config.heroIcon.centerRightIcon.name360}
+          centerRightIconImage={config.heroIcon.centerRightIcon.image360}
           centerRightIconHref={config.heroIcon.centerRightIcon.href}
         />
 

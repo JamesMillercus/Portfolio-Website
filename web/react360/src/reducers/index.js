@@ -6,9 +6,9 @@ import ItemClickedReducer from './ItemClickedReducer';
 import ActiveItemReducer from './ActiveItemReducer';
 
 export default combineReducers({
-  itemScrolled: ItemScrolledReducer,
+  scrolledItem: ItemScrolledReducer,
   heroText: HeroTextReducer,
   heroHover: HeroHoverReducer,
-  itemClicked: ItemClickedReducer,
+  clickedItems: ItemClickedReducer,
   activeItem: ActiveItemReducer
 });

@@ -62,5 +62,5 @@ window.React360 = { init };
 
 React360.init(
   './src/index.bundle?platform=vr&dev=true',
-  document.getElementById('container')
+  document.getElementById('root')
 );
