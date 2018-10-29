@@ -19,7 +19,7 @@ module.exports = {
 							}
 						] //make code all work for all browsers last 2 versions
 					],
-					plugins: ['syntax-dynamic-import', 'transform-class-properties'],
+					plugins: ['syntax-dynamic-import', 'transform-react-inline-elements', 'transform-class-properties', 'transform-decorators', 'transform-react-constant-elements'],
 					compact: false
 				}
 			}

@@ -1,31 +1,66 @@
 
 import React from 'react';
-import { StyleSheet, VrButton } from 'react-360';
+import { StyleSheet, VrButton, View } from 'react-360';
 import { connect } from 'react-redux';
-import { fetchScrolledItem, fetchItemClicked, fetchActiveItem } from './../../../actions';
+import { fetchScrolledItem, fetchClickedItems, fetchActiveItem } from './../../../actions';
 import ItemImage from './ItemImage';
 import ItemText from './ItemText';
+import ItemVideo from './ItemVideo';
 
 class Item extends React.Component {
 
   clicked(page, item) {
-    const { itemClicked } = this.props;
     this.props.fetchActiveItem(item);
-    if (Object.getOwnPropertyNames(itemClicked).length === 0 || itemClicked[page] === undefined) {
+
+    const { clickedItems } = this.props;
+    if (Object.getOwnPropertyNames(clickedItems).length === 0 || clickedItems[page] === undefined) {
       // console.log('page has not been clicked');
-			this.props.fetchItemClicked(page, item);
+			this.props.fetchClickedItems(page, item);
 		} else {
       // console.log("page has been clicked, item hasn't");
-			const itemAlreadyClicked = itemClicked[page].includes(item);
+			const itemAlreadyClicked = clickedItems[page].includes(item);
       // if item hasn't already been clicked
-			if (!itemAlreadyClicked) this.props.fetchItemClicked(page, item);
+			if (!itemAlreadyClicked) this.props.fetchClickedItems(page, item);
 		}
+  }
+
+  scrolledOut() {
+    this.props.fetchScrolledItem(null);
+    this.props.fetchActiveItem('hidden');
+  }
+
+  content() {
+    const { activeItem, itemNumber, videoID, videoLength } = this.props;
+    if (activeItem === itemNumber) {
+      return (
+        <ItemVideo
+          videoID={videoID}
+          videoLength={videoLength}
+        />
+      );
+    }
+
+    return (
+      <View>
+        <ItemImage
+          unscrolledImage={this.props.unscrolledImage}
+          scrolledImage={this.props.scrolledImage}
+          clickedImage={this.props.clickedImage}
+          itemNumber={this.props.itemNumber}
+          page={this.props.page}
+        />
+        <ItemText
+          textHeader={this.props.textHeader}
+          textBody={this.props.textBody}
+        />
+      </View>
+    );
   }
 
 
   render() {
     const mouseOver = () => this.props.fetchScrolledItem(this.props.itemNumber);
-    const mouseOut = () => this.props.fetchScrolledItem(null);
+    const mouseOut = () => this.scrolledOut();
     const mouseClick = () => this.clicked(this.props.page, this.props.itemNumber);
 
     const style = () => {
@@ -66,25 +101,17 @@ class Item extends React.Component {
         onExit={() => mouseOut()}
         onClick={() => mouseClick()}
       >
-        <ItemImage
-          unscrolledImage={this.props.unscrolledImage}
-          scrolledImage={this.props.scrolledImage}
-          clickedImage={this.props.clickedImage}
-          itemNumber={this.props.itemNumber}
-          page={this.props.page}
-        />
-        <ItemText
-          textHeader={this.props.textHeader}
-          textBody={this.props.textBody}
-        />
+        {this.content()}
       </VrButton>
     );
   }
 }
 
 
-const mapStateToProps = ({ scrolledItem, itemClicked }) => ({ scrolledItem, itemClicked });
+const mapStateToProps = ({
+  scrolledItem, clickedItems, activeItem
+}) => ({ scrolledItem, clickedItems, activeItem });
 
 export default connect(mapStateToProps, {
-  fetchScrolledItem, fetchItemClicked, fetchActiveItem
+  fetchScrolledItem, fetchClickedItems, fetchActiveItem
 })(Item);

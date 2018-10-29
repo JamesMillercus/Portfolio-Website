@@ -1,11 +1,13 @@
 import React from 'react';
 import { asset, Environment, View } from 'react-360';
+import { connect } from 'react-redux';
 import HeroContainer from './../components/locs/Hero/HeroContainer';
-import ItemContainer from './../components/locs/Item/ItemContainer';
+// import ItemContainer from './../components/locs/Item/ItemContainer';
 import config from './../config/homeConfig';
-import VideoContainer from './../containers/VideoContainer';
+import Item from './../components/locs/Item/Item';
+// import VideoContainer from './../containers/VideoContainer';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
 
   componentDidMount() {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
@@ -13,7 +15,39 @@ export default class Home extends React.Component {
     });
   }
 
-  render() {
+  componentDidUpdate() {
+    const { activeItem } = this.props;
+    if (activeItem === 'hidden') {
+      Environment.setBackgroundImage(asset('360_world.jpg'), {
+        format: '2D',
+      });
+    } else Environment.clearBackground();
+  }
+
+  items() {
+    const itemArr = [];
+    for (let x = 0; x < 3; x++) {
+        itemArr.push(
+          <Item
+            key={x}
+            itemNumber={x}
+            page={config.page}
+            unscrolledImage={config.itemImage[x].unscrolled}
+            scrolledImage={config.itemImage[x].scrolled}
+            clickedImage={config.itemImage[x].clicked}
+            textHeader={config.itemText[x].header}
+            textBody={config.itemText[x].paragraph}
+            marginLeft={config.itemPosition[x].marginLeft}
+            marginTop={config.itemPosition[x].marginTop}
+            videoID={config.itemVideo[x].videoID}
+            videoLength={config.itemVideo[x].videoLength}
+          />
+        );
+    }
+    return itemArr;
+  }
+
+  content() {
     return (
       <View>
         <HeroContainer
@@ -33,9 +67,21 @@ export default class Home extends React.Component {
           centerRightIconImage={config.heroIcon.centerRightIcon.image360}
           centerRightIconHref={config.heroIcon.centerRightIcon.href}
         />
+        {this.items()}
+      </View>
+    );
+  }
 
-        <ItemContainer />
+  render() {
+    return (
+      <View>
+        {this.content()}
       </View>
     );
   }
 }
+
+const mapStateToProps = ({ activeItem }) => ({ activeItem });
+
+export default connect(mapStateToProps, null)(Home);
+// export default Home;

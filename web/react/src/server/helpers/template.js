@@ -14,18 +14,14 @@ export default (req, store, content) => {
     scripts = `<script>
                   window.INITIAL_STATE = ${serialize(store.getState())}
                </script>
-               <script src ="/js/vendors~bundle.js"></script>
+               <script src ="/js/vendors.js"></script>
                <script src ="/js/bundle.js"></script>`;
   } else {
     // csr
     headerTags =
-    `<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-     <style>
-      body {margin: 0;}
-      div {cursor: none !important;}
-     </style>`;
-    scripts = `<script src ="/js/vendors~csr_bundle.js"></script>
-               <script src ="/js/vendors~bundle.js"></script>
+    '<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">';
+
+    scripts = `<script src ="/js/vendors.js"></script>
                <script src ="/js/csr_bundle.js"></script>`;
   }
   // returns an object that contains tags from loaded components

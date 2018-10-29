@@ -13,7 +13,7 @@ const config = {
 	// Tell webpack the root file of our server application
 	entry: {
 		bundle: './src/client/client.js',
-		csr_bundle: './src/client/client-webvr.js'
+		csr_bundle: './src/client/csr.js'
 	},
 	// entry: ['./src/client/client.js', './src/client/csr.js'],
 	//  Tell webpack where to put the output file that is generated

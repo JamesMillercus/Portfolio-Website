@@ -34,20 +34,22 @@ export default {
   ],
   itemImage: [
     { unscrolled: 'moodtree.png', scrolled: 'moodtree-scrolled.png', clicked: 'moodtreegif.mp4' },
-    { unscrolled: 'beer.png', scrolled: 'beer-scrolled.png', clicked: 'beer.gif' },
+    { unscrolled: 'beer.png', scrolled: 'beer-scrolled.png', clicked: 'beergif.mp4' },
+    { unscrolled: 'epic.png', scrolled: 'epic-scrolled.png', clicked: 'epicgif.mp4' },
     { unscrolled: 'krispy.png', scrolled: 'krispy-scrolled.png', clicked: 'krispy.gif' },
     { unscrolled: 'sap.png', scrolled: 'sap-scrolled.png', clicked: 'sap.gif' },
     { unscrolled: null, scrolled: null, clicked: null },
     { unscrolled: 'merck.png', scrolled: 'merck-scrolled.png', clicked: 'merck.gif' },
-    { unscrolled: 'epic.png', scrolled: 'epic-scrolled.png', clicked: 'epic.gif' },
     { unscrolled: 'maker.png', scrolled: 'maker-scrolled.png', clicked: 'maker.gif' },
     { unscrolled: 'adt.png', scrolled: 'adt-scrolled.png', clicked: 'adt.gif' }
   ],
   itemVideo: [
     {
-      videoID: 'yVKqqdlHPLI' // moodtree
+      videoID: 'moodtree.mp4', // moodtree
+      videoLength: 103000
     }, {
-      videoID: '8ycTf2TDH_I' // pay@pump
+      videoID: 'beerpump.mp4', // pay@pump
+      videoLength: 64000
     }, {
       videoID: 'AlvdRkRewvA' // hole in the wall
     }, {
@@ -64,10 +66,11 @@ export default {
       videoID: '36XGBIJLyN4' // MAIA
     }
   ],
+  // -370
   itemPosition: [
-    { marginLeft: 400, marginTop: -370 },
-    { marginLeft: 800, marginTop: 230 },
-    { marginLeft: 800, marginTop: 230 },
+    { marginLeft: 400, marginTop: 230 },
+    { marginLeft: 2800, marginTop: 230 },
+    { marginLeft: 3800, marginTop: 230 },
     { marginLeft: 800, marginTop: 230 },
     { null: null },
     { marginLeft: 800, marginTop: 230 },
