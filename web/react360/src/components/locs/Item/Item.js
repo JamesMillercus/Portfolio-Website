@@ -57,6 +57,11 @@ class Item extends React.Component {
     );
   }
 
+  display() {
+    const { activeItem, itemNumber } = this.props;
+    if (activeItem === itemNumber || activeItem === 'hidden') return 'flex';
+    return 'none';
+  }
 
   render() {
     const mouseOver = () => this.props.fetchScrolledItem(this.props.itemNumber);
@@ -71,7 +76,7 @@ class Item extends React.Component {
 
     const styles = StyleSheet.create({
       item: {
-        width: 900,
+        width: 800,
         height: 400,
         marginLeft: this.props.marginLeft,
         marginTop: this.props.marginTop,
@@ -79,9 +84,10 @@ class Item extends React.Component {
         paddingLeft: 100,
         position: 'absolute',
         backgroundColor: '#fff',
+        display: this.display()
       },
       scrolledItem: {
-        width: 900,
+        width: 800,
         height: 400,
         backgroundColor: '#fff',
         position: 'absolute',

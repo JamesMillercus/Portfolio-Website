@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { fetchActiveItem } from './../../../actions';
 
 /*
-  - refactor site to create Items & Hero from client.js, then create all 7 items
-  - webvr button on website
+  - open youtube url when click with mobile device / tablet
+    1. on mobile/tablet device click
+    2. trigger native module in clientjs
+    3. which opens an iframe outside of the threejs runtime and plays the youtube video
+  - add webvr button on website
   - implement noscript error
   - test on all devices
     - detect browser and if oculus browser, then redirect to /webvr
@@ -14,13 +17,13 @@ import { fetchActiveItem } from './../../../actions';
 
 class ItemVideo extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.timeout = null;
   }
 
   componentDidMount() {
-    const { fetchActiveItem, videoLength } = this.props;
+    const { fetchActiveItem, videoLength, deviceType } = this.props;
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);
@@ -43,16 +46,12 @@ class ItemVideo extends React.Component {
 
 const styles = StyleSheet.create({
   videoBackground: {
-    width: 900,
+    width: 800,
     height: 400,
     position: 'absolute',
   }
 });
 
-// export default ItemVideo;
+const mapStateToProps = ({ deviceType }) => ({ deviceType });
 
-// const mapStateToProps = ({
-//   scrolledItem, clickedItems, activeItem
-// }) => ({ scrolledItem, clickedItems, activeItem });
-
-export default connect(null, { fetchActiveItem })(ItemVideo);
+export default connect(mapStateToProps, { fetchActiveItem })(ItemVideo);

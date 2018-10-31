@@ -1,10 +1,13 @@
 import React from 'react';
 import { asset, Environment, View } from 'react-360';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import HeroContainer from './../components/locs/Hero/HeroContainer';
 // import ItemContainer from './../components/locs/Item/ItemContainer';
 import config from './../config/homeConfig';
 import Item from './../components/locs/Item/Item';
+import getDevice from './../components/hocs/getDevice';
+
 // import VideoContainer from './../containers/VideoContainer';
 
 class Home extends React.Component {
@@ -26,7 +29,7 @@ class Home extends React.Component {
 
   items() {
     const itemArr = [];
-    for (let x = 0; x < 3; x++) {
+    for (let x = 0; x < 4; x++) {
         itemArr.push(
           <Item
             key={x}
@@ -83,5 +86,7 @@ class Home extends React.Component {
 
 const mapStateToProps = ({ activeItem }) => ({ activeItem });
 
-export default connect(mapStateToProps, null)(Home);
+// export default connect(mapStateToProps, null)(Home);
+
+export default compose(getDevice, connect(mapStateToProps, null))(Home);
 // export default Home;

@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
   hero: {
     width: 600,
     height: 300,
-    marginLeft: 1700,
-    marginTop: 300
+    marginLeft: 1750,
+    marginTop: 200
     // backgroundColor: '#639dda'
   }
 });

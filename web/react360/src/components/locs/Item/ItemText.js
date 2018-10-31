@@ -23,10 +23,13 @@ const styles = StyleSheet.create({
   textHeader: {
     fontSize: 40,
     color: '#7d7d7d',
+    width: 300,
+    marginLeft: -10
   },
   textBody: {
-    width: 500,
+    width: 480,
     color: '#7d7d7d',
-    marginTop: 20
+    marginTop: 20,
+    marginLeft: -10
   }
 });

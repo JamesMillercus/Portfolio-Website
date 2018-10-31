@@ -42,17 +42,19 @@ class ItemImage extends React.Component {
 
 const styles = StyleSheet.create({
   image: {
-    width: 200,
-    height: 200,
+    width: 128,
+    height: 128,
     backgroundColor: '#fff',
     position: 'absolute',
-    marginLeft: 550
+    marginLeft: 500,
+    marginTop: 70
   },
   clickedImage: {
-    width: 200,
-    height: 200,
+    width: 128,
+    height: 128,
     position: 'absolute',
-    marginLeft: 550
+    marginLeft: 500,
+    marginTop: 70
   }
 });
 

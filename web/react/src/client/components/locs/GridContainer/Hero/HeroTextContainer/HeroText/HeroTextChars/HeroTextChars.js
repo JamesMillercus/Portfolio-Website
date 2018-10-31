@@ -4,7 +4,6 @@ import { fetchCurrentChars, fetchScrolledItem } from './../../../../../../../act
 import './assets/scss';
 
 class HeroTextChars extends Component {
-
   componentDidUpdate() {
     // setTimeout(() => this.animateChars(), 2000);
     if (!this.arraysEqual(this.props.currentChars, this.props.charLoader)) {

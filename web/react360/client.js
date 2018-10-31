@@ -4,7 +4,6 @@
 import { Math as VRMath, ReactInstance, Surface, Module } from 'react-360-web';
 import SimpleRaycaster from 'simple-raycaster';
 
-
 function init(bundle, parent, options = {}) {
   // const Video = new Surface(0, 0, Surface.SurfaceShape.Flat);
 
@@ -28,7 +27,7 @@ function init(bundle, parent, options = {}) {
     // nativeModules: [
     //   new VideoModule(),
     // ],
-    // frame: () => {
+    frame: () => {
     //   const cameraQuat = r360.getCameraQuaternion();
     //   cameraDirection[0] = 0;
     //   cameraDirection[1] = 0;
@@ -42,17 +41,27 @@ function init(bundle, parent, options = {}) {
     //   const horizAngle = Math.atan2(cx, -cz);
     //   const vertAngle = Math.asin(cy / Math.sqrt((cx * cx) + (cy * cy) + (cz * cz)));
     //   Video.setAngle(horizAngle, vertAngle);
-    // },
+    },
     ...options,
   }
 );
 
-
+  const appSurface = new Surface(4096, 720, Surface.SurfaceShape.Cylinder);
+  appSurface.setAngle(0, -0.6);
   r360.renderToSurface(
     r360.createRoot('App', { /* initial props */ }),
-    new Surface(4000, 1000, Surface.SurfaceShape.Cylinder /* shape */)
+    appSurface
   );
+
   // r360.renderToSurface(r360.createRoot('VideoContainer'), Video);
+
+  // const player = r360.compositor.createVideoPlayer('myplayer');
+
+  // player.setSource('./src/static_assets/moodtree.mp4', '2D');
+  // r360.compositor.setBackgroundVideo('myplayer');
+  // player.play();
+  // player.setMuted(false);
+
 
   r360.controls.clearRaycasters();
   r360.controls.addRaycaster(SimpleRaycaster);
