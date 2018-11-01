@@ -22,7 +22,7 @@ class VideoComponent extends React.Component {
 
   click() {
     const { activeItem } = this.props;
-    console.log('LOL');
+    // console.log('LOL');
     if (activeItem !== 'hidden') {
     }
   }
@@ -32,14 +32,15 @@ class VideoComponent extends React.Component {
     const click = () => this.click();
     if (activeItem === 'hidden') return <View />;
 
+    // <VrButton onClick={click()}>
+    // <Text style={styles.text}> Click/tap to close this video </Text>
+    // <Video
+    // source={asset('sap.mp4')}
+    // style={styles.videoBackground}
+    // />
+    // </VrButton>
     return (
-      <VrButton onClick={click()}>
-        <Text style={styles.text}> Click/tap to close this video </Text>
-        <Video
-          source={asset('sap.mp4')}
-          style={styles.videoBackground}
-        />
-      </VrButton>
+      <View />
     );
   }
 
@@ -70,5 +71,3 @@ const mapStateToProps = ({ activeItem }) => ({ activeItem });
 export default connect(mapStateToProps, {
   fetchActiveItem
 })(VideoComponent);
-
-// AppRegistry.registerComponent('Video', () => Video);

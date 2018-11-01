@@ -36,6 +36,7 @@ class Item extends React.Component {
         <ItemVideo
           videoID={videoID}
           videoLength={videoLength}
+          itemNumber={itemNumber}
         />
       );
     }

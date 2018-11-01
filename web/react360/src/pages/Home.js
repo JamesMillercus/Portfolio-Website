@@ -8,7 +8,7 @@ import config from './../config/homeConfig';
 import Item from './../components/locs/Item/Item';
 import getDevice from './../components/hocs/getDevice';
 
-// import VideoContainer from './../containers/VideoContainer';
+import VideoContainer from './../containers/MobileVideoContainer';
 
 class Home extends React.Component {
 

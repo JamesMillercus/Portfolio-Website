@@ -5,28 +5,39 @@ import { Math as VRMath, ReactInstance, Surface, Module } from 'react-360-web';
 import SimpleRaycaster from 'simple-raycaster';
 
 function init(bundle, parent, options = {}) {
-  // const Video = new Surface(0, 0, Surface.SurfaceShape.Flat);
+  const MobileVideo = new Surface(0, 0, Surface.SurfaceShape.Flat);
 
-  // const cameraDirection = [0, 0, -1];
-  //
-  // class VideoModule extends Module {
-  //   constructor() {
-  //     super('VideoModule'); // Makes this module available at NativeModules.MyModule
-  //   }
-  //   showVideo() {
-  //     Video.resize(1020, 560);
-  //     r360.controls.clearRaycasters();
-  //     r360.compositor.setBackground(null);
-  //   }
-  // }
+  const cameraDirection = [0, 0, -1];
+
+  class MobileVideoModule extends Module {
+    constructor() {
+      super('VideoModule'); // Makes this module available at NativeModules.MyModule
+      this.itemNumber = null;
+    }
+    showVideo(itemNumber) {
+      if (itemNumber) {
+        this.itemNumber = itemNumber;
+        console.log('itemNumber');
+        console.log(itemNumber);
+      } else {
+        console.log('itemNumber');
+        console.log(this.itemNumber);
+      }
+      // MobileVideo.resize(1020, 560);
+      // r360.controls.clearRaycasters();
+      // r360.compositor.setBackground(null);
+      // console.log('this.props.itemNumber');
+      // console.log(this.props.itemNumber);
+    }
+  }
 
   const r360 = new ReactInstance(bundle, parent, {
     // Add custom options here
     fullScreen: true,
     assetRoot: './src/static_assets/',
-    // nativeModules: [
-    //   new VideoModule(),
-    // ],
+    nativeModules: [
+      new MobileVideoModule(),
+    ],
     frame: () => {
     //   const cameraQuat = r360.getCameraQuaternion();
     //   cameraDirection[0] = 0;
@@ -53,7 +64,7 @@ function init(bundle, parent, options = {}) {
     appSurface
   );
 
-  // r360.renderToSurface(r360.createRoot('VideoContainer'), Video);
+  r360.renderToSurface(r360.createRoot('MobileVideoContainer'), MobileVideo);
 
   // const player = r360.compositor.createVideoPlayer('myplayer');
 

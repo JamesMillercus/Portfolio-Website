@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, Video, asset } from 'react-360';
+import { StyleSheet, Video, asset, NativeModules, } from 'react-360';
 import { connect } from 'react-redux';
 import { fetchActiveItem } from './../../../actions';
+
+const { VideoModule } = NativeModules;
+
 
 /*
   - open youtube url when click with mobile device / tablet
@@ -23,10 +26,11 @@ class ItemVideo extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchActiveItem, videoLength, deviceType } = this.props;
+    const { fetchActiveItem, videoLength, deviceType, itemNumber } = this.props;
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);
+    VideoModule.showVideo(itemNumber);
   }
 
   componentWillUnmount() {
