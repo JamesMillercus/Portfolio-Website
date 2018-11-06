@@ -80,6 +80,10 @@ export default {
     centerRightIcon: {
       text: 'How I can help launch your ideas with technology',
       color: '#e4bc02'
+    },
+    webvr: {
+      text: 'Experience this website in Web VR',
+      color: '#008f9c'
     }
   },
   heroIcon: {
@@ -111,7 +115,11 @@ export default {
     centerIcon: {
       text: [''],
       backgroundColor: '#008f9c',
-      backgroundImage: 'designIcon.png'
+      backgroundImage: 'designIcon.png',
+      scrollableHeroIcon: 'webvr',
+      scrolledBackgroundImage: 'webvrIcon.png',
+      href: '/webvr',
+      targer: '_self'
     }
   }
 };

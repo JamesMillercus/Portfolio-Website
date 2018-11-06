@@ -46,16 +46,20 @@ export default {
   itemVideo: [
     {
       videoID: 'moodtree.mp4', // moodtree
-      videoLength: 103000
+      videoLength: 103000,
+      youtube: 'yVKqqdlHPLI'
     }, {
       videoID: 'beerpump.mp4', // pay@pump
-      videoLength: 64000
+      videoLength: 64000,
+      youtube: '8ycTf2TDH_I'
     }, {
       videoID: 'epic.mp4', // epic mind drive
-      videoLength: 102000
+      videoLength: 102000,
+      youtube: 'K3N18cqnzHg'
     }, {
       videoID: 'merck.mp4', // merck next gen vr
-      videoLength: 114000
+      videoLength: 114000,
+      youtube: 'FPOmiqU4bIs'
     }, {
       // hero text: video not applicable
     }, {
@@ -87,6 +91,7 @@ export default {
     },
     centerIcon: {
       text: "Creative technology ideas I've helped bring to life",
+      logoTextScrolled: 'Visit this website without Web VR',
       color: '#008f9c'
     },
     centerLeftIcon: {
@@ -128,7 +133,10 @@ export default {
     centerIcon: {
       text: [''],
       backgroundColor: '#008f9c',
-      backgroundImage360: 'design.png'
+      backgroundImage360: 'design.png',
+      logoImageScrolled: 'webvr.png',
+      centerLogoIconName: 'webvr',
+      href: '/'
     }
   }
 };

@@ -22,13 +22,12 @@ class HeroText extends React.Component {
 
   renderText() {
     const {
-      heroText, heroHover, textNoScroll, textScrollHero, textScrollCenterLeftIcon, textScrollCenterRightIcon
+      heroText, heroHover, textNoScroll, textScrollHero, textScrollCenterLeftIcon, textScrollCenterRightIcon, logoTextScrolled
     } = this.props;
     if (heroText === 'scrolled') {
       if (heroHover === 'centerLeftIcon') return textScrollCenterLeftIcon;
-      else if (heroHover === 'centerRightIcon') {
-        return textScrollCenterRightIcon;
-      }
+      else if (heroHover === 'centerRightIcon') return textScrollCenterRightIcon;
+      else if (heroHover === 'webvr') return logoTextScrolled;
       return textScrollHero;
     }
     return textNoScroll;

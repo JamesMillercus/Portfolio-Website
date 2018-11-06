@@ -5,9 +5,12 @@ import {
   StyleSheet,
   View,
   Image,
-  asset
+  asset,
+  NativeModules,
+  VrButton
 } from 'react-360';
 import { connect } from 'react-redux';
+import { fetchHeroHover } from './../../../actions';
 
 class HeroLogo extends React.Component {
 
@@ -18,8 +21,11 @@ class HeroLogo extends React.Component {
   }
 
   heroImage() {
-    const { heroText, logoImage } = this.props;
-    if (heroText === 'scrolled') return asset(logoImage);
+    const { heroText, logoImage, heroHover, centerLogoIconName, logoImageScrolled } = this.props;
+    if (heroText === 'scrolled') {
+      if (heroHover === centerLogoIconName) return asset(logoImageScrolled);
+      return asset(logoImage);
+    }
     return asset('heroLogo.png');
   }
 
@@ -40,6 +46,11 @@ class HeroLogo extends React.Component {
           <View style={this.heroLogoShadowStyle()} />
           <View style={this.heroLogoStyle()} />
           <Image source={this.heroImage()} style={this.heroImageStyle()} />
+          <VrButton
+            onEnter={() => this.props.fetchHeroHover(this.props.centerLogoIconName)} onExit={() => this.props.fetchHeroHover('')}
+            onClick={() => NativeModules.LinkingManager.openURL(this.props.centerHref)}
+            style={styles.heroLogoHitBox}
+          />
         </View>
     );
   }
@@ -53,6 +64,14 @@ const styles = StyleSheet.create({
     width: 160,
     height: 160,
     backgroundColor: '#008f9c',
+    position: 'absolute'
+  },
+  heroLogoHitBox: {
+    marginTop: 20,
+    marginLeft: 215,
+    borderRadius: 200 / 2,
+    width: 160,
+    height: 160,
     position: 'absolute'
   },
   unscrolledHeroLogo: {
@@ -89,6 +108,6 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ heroText }) => ({ heroText });
+const mapStateToProps = ({ heroText, heroHover }) => ({ heroText, heroHover });
 
-export default connect(mapStateToProps, null)(HeroLogo);
+export default connect(mapStateToProps, { fetchHeroHover })(HeroLogo);

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCharLoader, fetchSiteAnimating } from './../../../../../../actions';
+import { Redirect } from 'react-router';
+import { fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl } from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
 
 class HeroText extends Component {
-
   componentDidUpdate() {
     const deviceType = this.props.deviceType;
       if (deviceType === 'laptop') {
@@ -41,13 +41,18 @@ class HeroText extends Component {
   }
 
   getStyle() {
-    const heroTextStyle = this.props.content.heroText;
-    const selectedItem = this.props.scrolledItem;
-    const deviceType = this.props.deviceType;
+    const { scrolledItem, deviceType, scrolledHeroIcon, content } = this.props;
+    const heroTextStyle = content.heroText;
+    const webvr = heroTextStyle.centerIcon.scrollableHeroIcon;
+    const webvrBackground = heroTextStyle.centerIcon.scrolledBackgroundImage;
     const style = {};
-    if (selectedItem === 4 && !this.checkAnimationState()) {
+
+    if (scrolledItem === 4 && !this.checkAnimationState()) {
       style.backgroundColor = heroTextStyle.centerIcon.backgroundColor;
       style.backgroundImage = `url(/assets/images/${heroTextStyle.centerIcon.backgroundImage})`;
+      if (scrolledHeroIcon === webvr) {
+        style.backgroundImage = `url(/assets/images/${webvrBackground})`;
+      }
     } else if (deviceType === 'laptop') style.backgroundColor = heroTextStyle.none.backgroundColor;
     return style;
 	}
@@ -86,21 +91,41 @@ class HeroText extends Component {
     return <HeroTextChars chars={heroCharsArr} />;
   }
 
+  updateHref(href) {
+    const { fetchSiteAnimating, fetchUpdateUrl } = this.props;
+    console.log(href);
+		fetchSiteAnimating('changingPage');
+		setTimeout(() => { fetchUpdateUrl(href); }, 1000);
+	}
+
+  scroll(icon) {
+    const { fetchScrolledHeroIcon } = this.props;
+    if (icon !== undefined) fetchScrolledHeroIcon(icon);
+  }
+
   // h1 with css style based on the selected item and icon
   render() {
-    return <h1 className={this.setClass()} style={this.getStyle()}> { this.heroText() } </h1>;
+    const { content, updateUrl } = this.props;
+    const href = content.heroText.centerIcon.href;
+    const scrollOver = () => this.scroll(content.heroText.centerIcon.scrollableHeroIcon);
+    const scrollOut = () => this.scroll('none');
+    const click = () => this.updateHref(href);
+    if (updateUrl === href) return <Redirect push to={href} />;
+    return <h1 className={this.setClass()} style={this.getStyle()} onMouseOver={scrollOver} onMouseOut={scrollOut} onClick={click}> { this.heroText() } </h1>;
   }
 }
 
 // map the state of data called from fetchUsers to users[state.users]
 const mapStateToProps = (state) => ({
 	activeHeroIcon: state.activeHeroIcon,
+  scrolledHeroIcon: state.scrolledHeroIcon,
 	scrolledItem: state.scrolledItem,
 	deviceType: state.deviceType,
 	heroTextAnimation: state.heroTextAnimation,
 	currentChars: state.currentChars,
   siteAnimating: state.siteAnimating,
-  content: state.content
+  content: state.content,
+  updateUrl: state.updateUrl
 });
 
-export default connect(mapStateToProps, { fetchCharLoader, fetchSiteAnimating })(HeroText);
+export default connect(mapStateToProps, { fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl })(HeroText);

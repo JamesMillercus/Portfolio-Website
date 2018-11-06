@@ -11,7 +11,7 @@ export default (ChildComponent) => {
 			this.parser = null;
 		}
 
-		componentDidUpdate() {
+		componentDidMount() {
 			this.props.fetchBrowser(this.parser);
 		}
 

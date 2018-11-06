@@ -27,6 +27,9 @@ class Hero extends React.Component {
         />
         <HeroLogo
           logoImage={this.props.logoImage}
+          logoImageScrolled={this.props.logoImageScrolled}
+          centerLogoIconName={this.props.centerLogoIconName}
+          centerHref={this.props.centerHref}
         />
         <HeroText
           textNoScroll={this.props.textNoScroll}
@@ -37,6 +40,7 @@ class Hero extends React.Component {
           textColorScrollCenterLeftIcon={this.props.textColorScrollCenterLeftIcon}
           textScrollCenterRightIcon={this.props.textScrollCenterRightIcon}
           textColorScrollCenterRightIcon={this.props.textColorScrollCenterRightIcon}
+          logoTextScrolled={this.props.logoTextScrolled}
         />
       </View>
     );
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
     width: 600,
     height: 300,
     marginLeft: 1750,
-    marginTop: 200
+    marginTop: 130
     // backgroundColor: '#639dda'
   }
 });

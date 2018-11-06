@@ -14,6 +14,10 @@ export default class HeroContainer extends React.Component {
         textScrollCenterRightIcon={this.props.textScrollCenterRightIcon}
         textColorScrollCenterRightIcon={this.props.textColorScrollCenterRightIcon}
         logoImage={this.props.logoImage}
+        logoImageScrolled={this.props.logoImageScrolled} //
+        logoTextScrolled={this.props.logoTextScrolled} //
+        centerLogoIconName={this.props.centerLogoIconName} //
+        centerHref={this.props.centerHref} //
         centerLeftIconName={this.props.centerLeftIconName}
         centerLeftIconImage={this.props.centerLeftIconImage}
         centerLeftIconHref={this.props.centerLeftIconHref}

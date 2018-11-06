@@ -30,13 +30,14 @@ class Item extends React.Component {
   }
 
   content() {
-    const { activeItem, itemNumber, videoID, videoLength } = this.props;
+    const { activeItem, itemNumber, videoID, videoLength, youtube } = this.props;
     if (activeItem === itemNumber) {
       return (
         <ItemVideo
           videoID={videoID}
           videoLength={videoLength}
           itemNumber={itemNumber}
+          youtube={youtube}
         />
       );
     }

@@ -7,10 +7,6 @@ const { VideoModule } = NativeModules;
 
 
 /*
-  - open youtube url when click with mobile device / tablet
-    1. on mobile/tablet device click
-    2. trigger native module in clientjs
-    3. which opens an iframe outside of the threejs runtime and plays the youtube video
   - add webvr button on website
   - implement noscript error
   - test on all devices
@@ -26,11 +22,12 @@ class ItemVideo extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchActiveItem, videoLength, deviceType, itemNumber } = this.props;
+    const { fetchActiveItem, videoLength, deviceType, itemNumber, youtube } = this.props;
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);
-    VideoModule.showVideo(itemNumber);
+
+    if (deviceType !== 'laptop') NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${youtube}`);
   }
 
   componentWillUnmount() {

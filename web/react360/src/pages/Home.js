@@ -8,7 +8,7 @@ import config from './../config/homeConfig';
 import Item from './../components/locs/Item/Item';
 import getDevice from './../components/hocs/getDevice';
 
-import VideoContainer from './../containers/MobileVideoContainer';
+// import VideoContainer from './../containers/MobileVideoContainer';
 
 class Home extends React.Component {
 
@@ -44,6 +44,7 @@ class Home extends React.Component {
             marginTop={config.itemPosition[x].marginTop}
             videoID={config.itemVideo[x].videoID}
             videoLength={config.itemVideo[x].videoLength}
+            youtube={config.itemVideo[x].youtube}
           />
         );
     }
@@ -63,6 +64,10 @@ class Home extends React.Component {
           textScrollCenterRightIcon={config.heroFooterText.centerRightIcon.text}
           textColorScrollCenterRightIcon={config.heroFooterText.centerRightIcon.color}
           logoImage={config.heroText.centerIcon.backgroundImage360}
+          logoImageScrolled={config.heroText.centerIcon.logoImageScrolled} //
+          logoTextScrolled={config.heroFooterText.centerIcon.logoTextScrolled} //
+          centerLogoIconName={config.heroText.centerIcon.centerLogoIconName} //
+          centerHref={config.heroText.centerIcon.href} //
           centerLeftIconName={config.heroIcon.centerLeftIcon.name360}
           centerLeftIconImage={config.heroIcon.centerLeftIcon.image360}
           centerLeftIconHref={config.heroIcon.centerLeftIcon.href}

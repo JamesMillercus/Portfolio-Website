@@ -28,7 +28,7 @@ const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunkE
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
 render(
-  <Provider store={store} >
+  <Provider store={store}>
     <BrowserRouter>
       <div>{renderRoutes(Routes)}</div>
     </BrowserRouter>
