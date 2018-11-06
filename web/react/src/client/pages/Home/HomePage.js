@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { Redirect } from 'react-router';
 import getDevice from './../../components/hocs/getDevice';
 import getBrowser from './../../components/hocs/getBrowser';
 import getOSVersion from './../../components/hocs/getOSVersion';
+import getNoScript from './../../components/hocs/getNoScript';
 import GridContainer from './../../components/locs/GridContainer/GridContainer';
 import homePageConfig from './assets/config/homePageConfig';
-import {
-  fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
-} from './../../actions';
+import { fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchContent } from './../../actions';
 
 class Home extends Component {
   componentWillMount() {
@@ -18,17 +18,39 @@ class Home extends Component {
     this.props.fetchUpdateUrl(null);
   }
 
-  render() {
+  componentDidUpdate() {
+    const motion = () => {
+      // alert(this.props.loadWebVr);
+      // if (this.props.loadWebVr === null) this.props.fetchLoadWebVr(true);
+    };
+
+    // if (window.DeviceOrientationEvent) window.addEventListener('deviceorientation', motion, true);
+    // if (window.DeviceMotionEvent) window.addEventListener('devicemotion', motion, true);
+  }
+
+  renderPage() {
+    // if (this.props.loadWebVr === true && this.props.deviceType !== 'laptop') return <Redirect push to={'/webvr'} />;
     return <GridContainer />;
   }
+
+  render() {
+    return this.renderPage();
+  }
+}
+
+// map the state of data called from fetchUsers to users[state.users]
+function mapStateToProps(state) {
+  return {
+    loadWebVr: state.loadWebVr
+  };
 }
 
 export default {
   // take props from admins and pass them into require Auth
   component: compose(
-    getDevice, getOSVersion, getBrowser,
-    connect(null, {
-      fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
+    getDevice, getOSVersion, getBrowser, getNoScript,
+    connect(mapStateToProps, {
+      fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchContent
     })
   )(Home)
 };

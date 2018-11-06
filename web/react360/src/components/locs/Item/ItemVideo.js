@@ -7,8 +7,7 @@ const { VideoModule } = NativeModules;
 
 
 /*
-  - add webvr button on website
-  - implement noscript error
+  - implement webvr button for mobile devices
   - test on all devices
     - detect browser and if oculus browser, then redirect to /webvr
     - stop device working on devices with no accellerometer

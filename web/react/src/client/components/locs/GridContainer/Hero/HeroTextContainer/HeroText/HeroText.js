@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl } from './../../../../../../actions';
+import {
+  fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl, fetchLoadWebVr
+} from './../../../../../../actions';
 import HeroTextChars from './HeroTextChars/HeroTextChars';
 import './assets/scss';
 
@@ -110,7 +112,10 @@ class HeroText extends Component {
     const scrollOver = () => this.scroll(content.heroText.centerIcon.scrollableHeroIcon);
     const scrollOut = () => this.scroll('none');
     const click = () => this.updateHref(href);
-    if (updateUrl === href) return <Redirect push to={href} />;
+    if (updateUrl === href) {
+      this.props.fetchLoadWebVr(true);
+      return <Redirect push to={href} />;
+    }
     return <h1 className={this.setClass()} style={this.getStyle()} onMouseOver={scrollOver} onMouseOut={scrollOut} onClick={click}> { this.heroText() } </h1>;
   }
 }
@@ -128,4 +133,4 @@ const mapStateToProps = (state) => ({
   updateUrl: state.updateUrl
 });
 
-export default connect(mapStateToProps, { fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl })(HeroText);
+export default connect(mapStateToProps, { fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl, fetchLoadWebVr })(HeroText);
