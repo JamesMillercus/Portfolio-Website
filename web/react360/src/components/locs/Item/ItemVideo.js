@@ -7,7 +7,6 @@ const { VideoModule } = NativeModules;
 
 
 /*
-  - implement webvr button for mobile devices
   - test on all devices
     - detect browser and if oculus browser, then redirect to /webvr
     - stop device working on devices with no accellerometer
@@ -21,7 +20,7 @@ class ItemVideo extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchActiveItem, videoLength, deviceType, itemNumber, youtube } = this.props;
+    const { videoLength, deviceType, youtube } = this.props;
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);

@@ -4,7 +4,6 @@ import HeroFooter from './HeroFooter/HeroFooter';
 import './assets/scss';
 
 class HeroTextContainer extends Component {
-
 	render() {
 		return (
 			<div className={'heroTextContainer'}>
