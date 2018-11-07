@@ -1,0 +1,24 @@
+.hero-header-tablet {
+  grid-area: webvr;
+  // background-color: #7c7c7c;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  // border-radius: 12px;
+}
+
+.hero-header-tablet .webvrText {
+  display: none;
+}
+
+.hero-header-tablet .webvrImg {
+  background-image: url(/assets/images/webvrIcon.png);
+  width: 50px;
+  height: 50px;
+  display: block;
+  // background-position: 50% 100%;
+  background-repeat: no-repeat;
+  margin: auto;
+  /* margin-top: 16px; */
+  background-size: 100%;
+}

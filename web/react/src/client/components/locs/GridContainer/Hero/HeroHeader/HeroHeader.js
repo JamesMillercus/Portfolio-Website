@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router';
-// import {
-//   fetchCharLoader, fetchSiteAnimating, fetchScrolledHeroIcon, fetchUpdateUrl
-// } from './../../../../../../actions';
+import { Link } from 'react-router-dom';
 import './assets/scss';
 import './assets/images';
 
@@ -18,10 +15,13 @@ class HeroHeader extends Component {
 
   // h1 with css style based on the selected item and icon
   render() {
+    const { content } = this.props;
+
     return (
-      <a href={this.props.content.heroText.centerIcon.href} className={this.setClass().join(' ')}>
-        <span className={'webvrText'}>View this website in Web VR </span> <span className={'webvrImg'} />
-      </a>
+      <Link to={content.heroText.centerIcon.href} className={this.setClass().join(' ')}>
+        <span className={'webvrText'}>View this website in Web VR </span>
+        <span className={'webvrImg'} />
+      </Link>
     );
   }
 }
