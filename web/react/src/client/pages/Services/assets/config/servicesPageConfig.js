@@ -56,20 +56,24 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'i bring ideas to life with design, code & hardware',
+      text: 'INTERACTIVE EXPERIENCE & PRODUCT DESIGN SERVICES',
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: 'how I can help launch your ideas with technology',
+      text: 'How I can help launch your ideas with technology',
       color: '#e4bc02'
     },
     centerLeftIcon: {
-      text: 'tell me about your ideas on: hi@jamesmiller.design',
+      text: 'Tell me about your ideas on: hi@jamesmiller.design',
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: "creative technology projects I've worked on",
+      text: "Creative technology projects I've worked on",
       color: '#008f9c'
+    },
+    webvr: {
+      text: 'Experience this website in Web VR',
+      color: '#e4bc02'
     }
   },
   heroIcon: {
@@ -104,7 +108,11 @@ export default {
     centerIcon: {
       text: [''],
       backgroundColor: '#e4bc02',
-      backgroundImage: 'techIcon.png'
+      backgroundImage: 'techIcon.png',
+      scrollableHeroIcon: 'webvr',
+      scrolledBackgroundImage: 'webvrIcon.png',
+      href: '/webvr',
+      targer: '_self'
     }
   }
 };

@@ -94,15 +94,16 @@ class HeroText extends Component {
   }
 
   updateHref(href) {
-    const { fetchSiteAnimating, fetchUpdateUrl } = this.props;
-    console.log(href);
-		fetchSiteAnimating('changingPage');
-		setTimeout(() => { fetchUpdateUrl(href); }, 1000);
+    const { fetchSiteAnimating, fetchUpdateUrl, deviceType } = this.props;
+    if (deviceType !== 'mobile') {
+      fetchSiteAnimating('changingPage');
+      setTimeout(() => { fetchUpdateUrl(href); }, 1000);
+    }
 	}
 
   scroll(icon) {
-    const { fetchScrolledHeroIcon } = this.props;
-    if (icon !== undefined) fetchScrolledHeroIcon(icon);
+    const { fetchScrolledHeroIcon, deviceType } = this.props;
+    if (icon !== undefined && deviceType !== 'mobile') fetchScrolledHeroIcon(icon);
   }
 
   // h1 with css style based on the selected item and icon

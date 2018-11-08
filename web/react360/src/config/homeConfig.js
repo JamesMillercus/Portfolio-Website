@@ -133,7 +133,7 @@ export default {
     centerIcon: {
       text: [''],
       backgroundColor: '#008f9c',
-      backgroundImage360: 'design.png',
+      backgroundImage: 'design.png',
       logoImageScrolled: 'webvr.png',
       centerLogoIconName: 'webvr',
       href: '/'
