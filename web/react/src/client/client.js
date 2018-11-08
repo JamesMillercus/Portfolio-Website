@@ -28,7 +28,6 @@ const thunkExtraArg = thunk.withExtraArgument(userAgent);
 const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunkExtraArg));
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
-// <ReactRouterGlobalHistory />
 ReactDOM.hydrate(
 	<Provider store={store}>
 		<BrowserRouter>

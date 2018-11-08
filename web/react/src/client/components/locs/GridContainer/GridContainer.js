@@ -12,7 +12,6 @@ import Hero from './Hero/Hero';
 import './assets/scss';
 
 class GridContainer extends Component {
-
   constructor() {
     super();
     this.x = 0;
@@ -45,8 +44,8 @@ class GridContainer extends Component {
   }
 
   onMouseMove(e) {
-    const yMouseAlign = 0.63;
-    const xMouseAlign = 0.695;
+    const yMouseAlign = 0.75;
+    const xMouseAlign = 0.5;
     const lMouseX = (window.innerWidth * xMouseAlign) - e.screenX;
     const lMouseY = (window.innerHeight * yMouseAlign) - e.screenY;
     const mouse = { x: lMouseX, y: lMouseY };

@@ -6,10 +6,18 @@ import { fetchBrowser } from './../../actions';
 
 export default (ChildComponent) => {
 	class GetBrowser extends Component {
+		constructor() {
+			super();
+			this.parser = null;
+		}
+
+		componentDidMount() {
+			this.props.fetchBrowser(this.parser);
+		}
 
 		browserComponent() {
 			return (
-				<UserAgent returnfullParser>
+				<UserAgent returnFullParser>
 					{parser => (
 						<div className="class"> {this.content(parser.getBrowser().name)} </div>
 					)}
@@ -18,15 +26,16 @@ export default (ChildComponent) => {
 		}
 
 		content(browserName) {
-			this.props.fetchBrowser(browserName);
-			switch (this.allowedBrowser(browserName)) {
-				// browser not authorised
-				case false:
-					return <BadBrowser />;
-				// if is authorised, then load child component and load props from render page into child
-				default:
-					return <ChildComponent {...this.props} />;
-			}
+			this.parser = browserName;
+			return <ChildComponent {...this.props} key={browserName} />;
+			// switch (this.allowedBrowser(browserName)) {
+			// 	// browser not authorised
+			// 	case false:
+			// 		return <BadBrowser key={browserName} />;
+			// 	// if is authorised, then load child component and load props from render page into child
+			// 	default:
+			// 		return <ChildComponent {...this.props} key={browserName} />;
+			// }
 		}
 
 		allowedBrowser(browserName) {

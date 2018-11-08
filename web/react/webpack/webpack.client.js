@@ -11,10 +11,14 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const config = {
 	// Tell webpack the root file of our server application
-	entry: ['./src/client/client.js'],
+	entry: {
+		bundle: './src/client/client.js',
+		csr_bundle: './src/client/csr.js'
+	},
+	// entry: ['./src/client/client.js', './src/client/csr.js'],
 	//  Tell webpack where to put the output file that is generated
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].js',
 		chunkFilename: '[name].js',
 		path: path.resolve(__dirname, './../build/client/js'),
 		publicPath: '/js/'
@@ -24,7 +28,7 @@ const config = {
 			chunks: 'all',
 			cacheGroups: {
 				vendor: {
-					name: 'vendor',
+					name: 'vendors',
 					chunks: 'initial',
 					minChunks: 2
 				}

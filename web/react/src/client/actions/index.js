@@ -217,3 +217,25 @@ export const fetchAsyncVideoComponent = (component) => async (dispatch) => {
 		payload: res
 	});
 };
+
+// REACT 360 ACTIONS
+export const FETCH_HERO_HOVER = 'fetch_hero_hover';
+
+export const fetchHeroHover = (data) => async (dispatch) => {
+    const res = data;
+
+    dispatch({
+      type: FETCH_HERO_HOVER,
+      payload: res
+    });
+};
+
+export const FETCH_HERO_TEXT = 'fetch_hero_text';
+
+export const fetchHeroText = (data) => async (dispatch) => {
+    const res = data;
+    dispatch({
+      type: FETCH_HERO_TEXT,
+      payload: res
+    });
+};

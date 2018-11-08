@@ -48,7 +48,7 @@ export default (ChildComponent) => {
 
 		render() {
 			return (
-				<UserAgent returnfullParser>
+				<UserAgent returnFullParser>
 					{parser => (
 						<div>
 							{this.renderDevice(parser.getOS())}

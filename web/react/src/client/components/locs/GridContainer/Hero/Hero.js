@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchScrolledItem } from './../../../../actions';
 import HeroIcon from './HeroIcon/HeroIcon';
+import HeroHeader from './HeroHeader/HeroHeader';
 import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 
 class Hero extends Component {
-
 	scrolledItem(item) {
 		const deviceType = this.props.deviceType;
 		if (deviceType === 'laptop') this.props.fetchScrolledItem(item);
@@ -39,6 +39,7 @@ class Hero extends Component {
 
 		return (
 			<div className="item4 middlecenter" onMouseOver={heroContainerMouseOver}>
+				<HeroHeader />
 				<HeroTextContainer />
 				{this.renderHeroIcons()}
 			</div>

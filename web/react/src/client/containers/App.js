@@ -7,22 +7,19 @@ import './assets/scss';
 import './assets/images';
 
 class App extends Component {
-	componentDidMount() {
-		// once component loads, call the fetchUserAgent action creator
-		this.props.fetchUserAgent();
+	componentWillMount() {
+		if (!this.props.userAgent) this.userAgent = navigator.userAgent;
+		else this.userAgent = this.props.userAgent;
 	}
 
 	render() {
 		const route = this.props.route;
-		const userAgent = this.props.userAgent;
-
 		return (
-			<UserAgentProvider ua={userAgent}>
+			<UserAgentProvider ua={this.userAgent}>
 				<div>{renderRoutes(route.routes)}</div>
 			</UserAgentProvider>
 		);
 	}
-
 }
 
 // map the data from the state of fetchUserAgent, to a prop called userAgent

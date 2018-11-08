@@ -15,7 +15,7 @@ class Services extends Component {
     this.props.fetchScrolledItem(null);
     this.props.fetchScrolledHeroIcon('none');
     this.props.fetchContent(servicesPageConfig);
-    this.props.fetchUpdateUrl(null);
+    this.props.fetchUpdateUrl('null');
   }
 
   render() {

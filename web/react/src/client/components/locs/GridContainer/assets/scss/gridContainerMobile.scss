@@ -2,7 +2,7 @@
 .grid-container-mobile {
   width: 100%;
   height:auto;
-  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-rows: 14.5% 12.25% 12.25% 12.25% 12.25% 12.25% 12.25% 12.25% 12.25%;
   grid-template-columns: 100%;
   display: grid;
   grid-template-areas:
@@ -15,7 +15,7 @@
     'bottomleft'
     'bottomcenter'
     'bottomright';
-  /*background-color: #2196F3;*/
+  // background-color: #2196F3;
   padding: 0;
   /*margin: 0vh 0 0 -50vw;*/
 }
@@ -23,12 +23,14 @@
 /* set middle center grid rules */
 .grid-container-mobile .middlecenter {
   display: grid;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 50% 20% 30%;
   grid-template-columns: 33.33% 33.33% 33.33%;
   grid-template-areas:
   'hero hero hero'
-  'centerLeftIcon bottomLeftIcon centerRightIcon';
+  'centerLeftIcon bottomLeftIcon centerRightIcon'
+  'webvr webvr webvr';
   position:relative;
   height:100%;
-  min-height:500px;
+  min-height:650px;
+  width: 100%;
 }

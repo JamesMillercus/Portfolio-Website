@@ -4,7 +4,6 @@ import { fetchCurrentChars, fetchScrolledItem } from './../../../../../../../act
 import './assets/scss';
 
 class HeroTextChars extends Component {
-
   componentDidUpdate() {
     // setTimeout(() => this.animateChars(), 2000);
     if (!this.arraysEqual(this.props.currentChars, this.props.charLoader)) {
@@ -51,17 +50,11 @@ class HeroTextChars extends Component {
     this.props.fetchCurrentChars(charArr);
   }
 
-  scrolledItem() {
-    const deviceType = this.props.deviceType;
-    if (deviceType === 'laptop') this.props.fetchScrolledItem(4);
-  }
-
   render() {
     // create newchar which is hidden above current char with 0 opacity
     const currentChar = this.props.chars;
-    const ovr = () => this.scrolledItem();
     return (
-      <span ref={'animate'} className={this.setClass().join(' ')} onMouseOver={ovr}>
+      <span ref={'animate'} className={this.setClass().join(' ')}>
         { currentChar }
       </span>
     );
