@@ -1,5 +1,5 @@
 /*eslint max-len: ["error", { "code": 500 }]*/
-
+// 
 export default {
   page: 'home',
   itemText: [
