@@ -5,13 +5,13 @@ export default {
   itemText: [
     {
       header: 'Mood Tree',
-      paragraph: 'D&AD wanted to promote social activity during their design festival. Working for Kerve Creative in Bath, I helped create the electronics for the installation that used Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.',
+      paragraph: 'D&AD wanted to promote social activity during their design festival. I worked for Kerve Creative in Bath, who created an installation that used Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.',
     }, {
       header: 'Pay @ Pump',
-      paragraph: 'Barclaycard wanted to explore how their contactless technology could help reduce queues at bars on nights out. Using their contactless card payment system, I worked for Kerve Creative in creating a prototype beer pump, that was automated to accurately pour a pint of beer once a successful payment had been received.',
+      paragraph: 'Barclaycard wanted to explore how their contactless technology could help reduce queues at bars on nights out. Using their contactless card payment system, I worked for Kerve Creative who created a prototype beer pump, that was automated to accurately pour a pint of beer once a successful payment had been received.',
     }, {
       header: 'Hole In The Wall',
-      paragraph: 'Krispy Kreme wanted to create a spectacle to celebrate the release of their new Nutty Chocolatta doughnut. I helped Kerve Creative bring interactivity to the window display that allowed customers to use their contactless bank cards to pay for the product, bringing the window display to life and ultimately receiving their doughnut through a hole in the wall.',
+      paragraph: 'Krispy Kreme wanted to create a spectacle to celebrate the release of their new Nutty Chocolatta doughnut. I worked for Kerve Creative, who created an interactive window display that allowed customers to use their contactless bank cards to pay for products.',
     }, {
       header: 'Caddy Clubhouse',
       paragraph: 'SAP wanted to use data to help golf enthusiasts improve their game during the BMW International Golf Open. I worked as part of a team at Momentum Worldwide, to create an experience that analysed a users golfing performance in preparation for a session with a professional coach, who used this projection mapped data to mentor players.',
@@ -29,7 +29,7 @@ export default {
       paragraph: 'This research was focussed on understanding the mental and physical processes that lie at the heart of making. Through the use of various tools, 2 wooden records were created that represented the different aspects of what it means to make.',
     }, {
       header: 'MAIA',
-      paragraph: 'ADT wanted to show their brand in a more playful context, by catching ‘petty pilferers’. I worked for Kerve Creative, who developed the electronics and program for a series IOT devices, that took photos of the ‘petty pilferers’ using a camera and sent the images via a 4g connection to the users mobile device.',
+      paragraph: 'ADT wanted to show their brand in a more playful context, by catching ‘petty pilferers’. I worked for Kerve Creative, who created a series IOT devices that took photos of the ‘petty pilferers’ using a camera and sent the images via a 4g connection to the users mobile device.',
     }
   ],
   itemImage: [
