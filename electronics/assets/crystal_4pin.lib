@@ -1,0 +1,23 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# Crystal_(4pin)
+#
+DEF Crystal_(4pin) Y 0 40 Y Y 1 F N
+F0 "Y" 0 -50 60 H V C CNN
+F1 "Crystal_(4pin)" 0 -50 60 H V C CNN
+F2 "" 0 -50 60 H I C CNN
+F3 "" 0 -50 60 H I C CNN
+DRAW
+S -250 -350 250 -350 0 1 0 N
+S -250 -250 -250 250 0 1 0 N
+S 150 -150 -150 150 0 1 0 N
+S 250 250 250 -250 0 1 0 N
+X 1 1 -350 0 98 R 50 50 1 1 I
+X 2 2 -100 -450 98 U 50 50 1 1 I
+X 3 3 350 0 98 L 50 50 1 1 I
+X 4 4 100 -450 98 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library
