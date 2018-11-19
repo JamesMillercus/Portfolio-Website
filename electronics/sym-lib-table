@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name invitation-rescue)(type Legacy)(uri ${KIPRJMOD}/invitation-rescue.lib)(options "")(descr ""))
+  (lib (name "crystal(4pin)")(type Legacy)(uri "${KIPRJMOD}/assets/crystal(4pin).lib")(options "")(descr ""))
+)
