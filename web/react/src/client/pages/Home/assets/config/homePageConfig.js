@@ -66,7 +66,7 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE EXPERIENCE & PRODUCT DESIGN SERVICES',
+      text: 'INTERACTIVE EXPERIENCE & DIGITAL PRODUCT SERVICES',
       color: '#7c7c7c'
     },
     centerIcon: {
