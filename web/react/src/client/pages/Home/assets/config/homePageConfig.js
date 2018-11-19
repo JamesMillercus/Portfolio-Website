@@ -29,7 +29,7 @@ export default {
       paragraph: 'This research was focussed on understanding the mental and physical processes that lie at the heart of making. Through the use of various tools, 2 wooden records were created that represented the different aspects of what it means to make.',
     }, {
       header: 'MAIA',
-      paragraph: 'ADT wanted to show their brand in a more playful context, by catching ‘petty pilferers’. I worked for Kerve Creative, who developed the electronics and program for a series IOT devices, that took photos of the ‘petty pilferers’ using a camera and sent the images via a 4g connection to the users mobile device.',
+      paragraph: 'ADT wanted to show their brand in a more playful context, by catching ‘petty pilferers’. I worked for Kerve Creative, who created a series IOT devices that took photos of the ‘petty pilferers’ using a camera and sent the images via a 4g connection to the users mobile device.',
     }
   ],
   itemImage: [
