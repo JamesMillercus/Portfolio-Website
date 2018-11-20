@@ -1,4 +1,4 @@
-(module downArrowSS (layer F.Cu) (tedit 5BF3B461)
+(module downArrowSS (layer F.Mask) (tedit 5BF3B461)
   (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
     (effects (font (size 1.524 1.524) (thickness 0.3)))
   )
@@ -35,6 +35,6 @@
     (xy -2.466816 -2.028368) (xy -2.743965 -1.978094) (xy -2.893167 -1.891878) (xy -3.018361 -1.666349)
     (xy -3.048 -1.401511) (xy -5.055042 -1.401511) (xy -4.94074 -1.821975) (xy -4.556516 -2.640988)
     (xy -4.039449 -3.379583) (xy -3.400304 -4.023432) (xy -2.649847 -4.558209) (xy -1.798845 -4.969588)
-    (xy -1.439334 -5.094322) (xy -0.779454 -5.239158) (xy -0.04776 -5.29888) (xy 0.69501 -5.274184)) (layer F.Cu) (width 0.01))
-  (pad 1 smd circle (at 0 -2.54) (size 1 1) (layers F.Cu F.Paste F.Mask))
+    (xy -1.439334 -5.094322) (xy -0.779454 -5.239158) (xy -0.04776 -5.29888) (xy 0.69501 -5.274184)) (layer F.Mask) (width 0.01))
+  (pad 1 smd circle (at 0 -2.54) (size 1 1) (layers F.Mask))
 )

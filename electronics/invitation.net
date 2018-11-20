@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/james.miller/Desktop/CreativeTechnology/Personal/portfolio/electronics/invitation.sch)
-    (date "Monday, 19 November 2018 at 13:55:20")
+    (date "Tuesday, 20 November 2018 at 07:17:58")
     (tool "Eeschema (5.0.1-3-g963ef8bb5)")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -131,7 +131,7 @@
       (tstamp 5842C91C))
     (comp (ref P2)
       (value "Home btn")
-      (footprint newAssets:JMLogoFinal)
+      (footprint newAssets:JMLogoFinalSS)
       (libsource (lib invitation-rescue) (part CONN_01X01) (description ""))
       (sheetpath (names /) (tstamps /))
       (tstamp 587168CE))

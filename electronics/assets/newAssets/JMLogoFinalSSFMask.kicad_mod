@@ -1,4 +1,4 @@
-(module JMLogoFinalSS (layer F.Cu) (tedit 5BF3B477)
+(module JMLogoFinalSS (layer F.Mask) (tedit 5BF3B477)
   (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
     (effects (font (size 1.524 1.524) (thickness 0.3)))
   )
@@ -52,6 +52,6 @@
     (xy -3.014263 -3.641666) (xy -3.048 -3.386667) (xy -5.659676 -3.386667) (xy -5.51409 -3.642702)
     (xy -4.854484 -4.472731) (xy -4.080752 -5.183159) (xy -3.203372 -5.765239) (xy -2.232825 -6.210225)
     (xy -1.608667 -6.408166) (xy -1.24407 -6.476837) (xy -0.770605 -6.524827) (xy -0.235773 -6.551545)
-    (xy 0.312925 -6.5564) (xy 0.827989 -6.538799)) (layer F.Cu) (width 0.01))
-  (pad 1 smd circle (at 1.27 -3.81) (size 1 1) (layers F.Cu F.Paste F.Mask))
+    (xy 0.312925 -6.5564) (xy 0.827989 -6.538799)) (layer F.Mask) (width 0.01))
+  (pad 1 smd circle (at 1.27 -3.81) (size 1 1) (layers F.Mask))
 )
