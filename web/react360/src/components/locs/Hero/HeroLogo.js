@@ -1,6 +1,7 @@
 /*eslint max-len: ["error", { "code": 800 }]*/
 
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -9,7 +10,6 @@ import {
   NativeModules,
   VrButton
 } from 'react-360';
-import { connect } from 'react-redux';
 import { fetchHeroHover } from './../../../actions';
 
 class HeroLogo extends React.Component {
@@ -41,20 +41,25 @@ class HeroLogo extends React.Component {
   }
 
   render() {
+    const { fetchHeroHover, centerLogoIconName, centerHref } = this.props;
     return (
         <View>
           <View style={this.heroLogoShadowStyle()} />
           <View style={this.heroLogoStyle()} />
           <Image source={this.heroImage()} style={this.heroImageStyle()} />
           <VrButton
-            onEnter={() => this.props.fetchHeroHover(this.props.centerLogoIconName)} onExit={() => this.props.fetchHeroHover('')}
-            onClick={() => NativeModules.LinkingManager.openURL(this.props.centerHref)}
+            onEnter={() => fetchHeroHover(centerLogoIconName)} onExit={() => fetchHeroHover('')}
+            onClick={() => NativeModules.LinkingManager.openURL(centerHref)}
             style={styles.heroLogoHitBox}
           />
         </View>
     );
   }
 }
+
+const mapStateToProps = ({ heroText, heroHover }) => ({ heroText, heroHover });
+
+export default connect(mapStateToProps, { fetchHeroHover })(HeroLogo);
 
 const styles = StyleSheet.create({
   heroLogo: {
@@ -107,7 +112,3 @@ const styles = StyleSheet.create({
     position: 'absolute'
   }
 });
-
-const mapStateToProps = ({ heroText, heroHover }) => ({ heroText, heroHover });
-
-export default connect(mapStateToProps, { fetchHeroHover })(HeroLogo);

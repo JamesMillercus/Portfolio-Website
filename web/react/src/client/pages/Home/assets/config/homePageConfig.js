@@ -19,8 +19,8 @@ export default {
       // header: "Welcome to my portfolio",
       // footer: "Made from React & Redux"
     }, {
-      header: 'Next Gen VR',
-      paragraph: 'Merck created a new drug to help MS patients manage their symptoms and wanted to show how it was changing lives. To help people empathise living with the symptoms, Momentum Worldwide created an immersive VR experience with the HTC Vive and custom made hardware - to put users inside the life of suffers.'
+      header: 'My Other Life',
+      paragraph: 'Merck Serono created a new drug to help MS patients manage their symptoms and wanted to show how it was changing lives. To help people empathise living with the symptoms, Momentum Worldwide created an immersive VR experience with the HTC Vive and custom made hardware - to put users inside the life of suffers.'
     }, {
       header: 'Epic Mind Drive',
       paragraph: 'MoneySupermarket.com wanted to celebrate the release of telematics boxes for insurees car’s, by rewarding smarter drivers with more than just cheaper car insurance. I worked for Kerve Creative, who delivered an experience that allowed users to drive a car using their mind.',
@@ -66,7 +66,7 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE EXPERIENCE & DIGITAL PRODUCT SERVICES',
+      text: 'INTERACTIVE EXPERIENCE & DIGITAL PRODUCT DESIGN',
       color: '#7c7c7c'
     },
     centerIcon: {

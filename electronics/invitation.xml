@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/Users/james.miller/Desktop/CreativeTechnology/Personal/portfolio/electronics/invitation.sch</source>
+    <date>Wednesday, 21 November 2018 at 18:20:40</date>
+    <tool>Eeschema (5.0.1-3-g963ef8bb5)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Portfolio Business Card</title>
+        <company>James Miller</company>
+        <rev>1</rev>
+        <date>January 2017</date>
+        <source>invitation.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="R8">
+      <value>22</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840D084</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>10K</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840D0C2</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840D0E2</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>22</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840D177</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840D1AA</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>0.1uF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840D405</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>USB Micro B</value>
+      <footprint>Connect:USB_Micro-B</footprint>
+      <libsource lib="invitation-rescue" part="USB_OTG" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840E12E</tstamp>
+    </comp>
+    <comp ref="D5">
+      <value>Phone LED (green)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58410BA4</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>Email LED (green)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58410C3E</tstamp>
+    </comp>
+    <comp ref="F1">
+      <value>PPTC Fuse 500mA</value>
+      <footprint>Fuse_Holders_and_Fuses:Fuse_SMD1206_Reflow</footprint>
+      <libsource lib="invitation-rescue" part="F_Small" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5841273C</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>1uF</value>
+      <footprint>Capacitors_Tantalum_SMD:CP_Tantalum_Case-R_EIA-2012-12_Reflow</footprint>
+      <libsource lib="Device" part="CP1" description="Polarized capacitor, US symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58412C59</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>0.1uF</value>
+      <footprint>Capacitors_Tantalum_SMD:CP_Tantalum_Case-R_EIA-2012-12_Reflow</footprint>
+      <libsource lib="Device" part="CP1" description="Polarized capacitor, US symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5841B18D</tstamp>
+    </comp>
+    <comp ref="C0">
+      <value>1uF</value>
+      <footprint>Capacitors_Tantalum_SMD:CP_Tantalum_Case-R_EIA-2012-12_Reflow</footprint>
+      <libsource lib="Device" part="CP1" description="Polarized capacitor, US symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58421054</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>Power LED (green)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5842A0BA</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5842A439</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>Interaction LED (green)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5842B7C6</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5842B7D2</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>Website CTA (green)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5842C910</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5842C91C</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>Home btn</value>
+      <footprint>newAssets:JMLogoFinalSS</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>587168CE</tstamp>
+    </comp>
+    <comp ref="P4">
+      <value>Left Arrow</value>
+      <footprint>newAssets:leftArrowSS</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5871732E</tstamp>
+    </comp>
+    <comp ref="P5">
+      <value>Right Arrow</value>
+      <footprint>newAssets:rightArrowSS</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58717389</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>22pF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5872F853</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>22pF</value>
+      <footprint>Capacitors_SMD:C_0805</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5872F8DC</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>ATMEGA32U4-A</value>
+      <footprint>Housings_QFP:TQFP-44_10x10mm_Pitch0.8mm</footprint>
+      <libsource lib="invitation-rescue" part="ATMEGA32U4-A" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5840CFD0</tstamp>
+    </comp>
+    <comp ref="Y1">
+      <value>16 FA-238 Mhz</value>
+      <footprint>assets:crystal_FA238-TSX3225</footprint>
+      <libsource lib="Device" part="Crystal_Small" description="Two pin crystal, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58744F16</tstamp>
+    </comp>
+    <comp ref="D6">
+      <value>RX LED (orange)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D902BC</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D902C2</tstamp>
+    </comp>
+    <comp ref="D7">
+      <value>TX LED (orange)</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="invitation-rescue" part="LED" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D904CD</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D904D3</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>Bottom Connections 1</value>
+      <footprint>newAssets:SL-103-X-XX_1x03</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X03" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59DC0DA2</tstamp>
+    </comp>
+    <comp ref="P8">
+      <value>CONN_01X01</value>
+      <footprint>newAssets:SL-101-X-XX_1x01</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59EDF747</tstamp>
+    </comp>
+    <comp ref="P9">
+      <value>CONN_01X02</value>
+      <footprint>newAssets:SL-102-X-XX_1x02</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X02" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59EDF7E4</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>200k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BEC74C9</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>200k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BEF6099</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>200k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BEF6277</tstamp>
+    </comp>
+    <comp ref="P10">
+      <value>Up Arrow</value>
+      <footprint>newAssets:upArrowSS</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BF7CD22</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>200k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BF7CD29</tstamp>
+    </comp>
+    <comp ref="P11">
+      <value>Down Arrow</value>
+      <footprint>newAssets:downArrowSS</footprint>
+      <libsource lib="invitation-rescue" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BF85C27</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>200k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BF85C2E</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="CP1">
+      <description>Polarized capacitor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP1</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal_Small">
+      <description>Two pin crystal, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="ATMEGA32U4-A">
+      <footprints>
+        <fp>TQFP44</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATMEGA32U4-A</field>
+        <field name="Footprint">TQFP44</field>
+      </fields>
+      <pins>
+        <pin num="1" name="(INT6/AIN0)PE6" type="BiDi"/>
+        <pin num="2" name="UVCC" type="power_in"/>
+        <pin num="3" name="D-" type="BiDi"/>
+        <pin num="4" name="D+" type="BiDi"/>
+        <pin num="5" name="UGND" type="passive"/>
+        <pin num="6" name="UCAP" type="passive"/>
+        <pin num="7" name="VBUS" type="passive"/>
+        <pin num="8" name="(SS/PCINT0)PB0" type="BiDi"/>
+        <pin num="9" name="(SCLK/PCINT1)PB1" type="BiDi"/>
+        <pin num="10" name="(PDI/MOSI/PCINT2)PB2" type="BiDi"/>
+        <pin num="11" name="(PDO/MISO/PCINT3)PB3" type="BiDi"/>
+        <pin num="12" name="(OC0A/OC1C/~RTS~/PCINT7)PB7" type="BiDi"/>
+        <pin num="13" name="~RESET~" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+        <pin num="15" name="GND" type="power_in"/>
+        <pin num="16" name="XTAL2" type="output"/>
+        <pin num="17" name="XTAL1" type="input"/>
+        <pin num="18" name="(OC0B/SCL/INT0)PD0" type="BiDi"/>
+        <pin num="19" name="(SDA/INT1)PD1" type="BiDi"/>
+        <pin num="20" name="(RXD/INT2)PD2" type="BiDi"/>
+        <pin num="21" name="(TXD/INT3)PD3" type="BiDi"/>
+        <pin num="22" name="(XCK1/~CTS~)PD5" type="BiDi"/>
+        <pin num="23" name="GND" type="power_in"/>
+        <pin num="24" name="AVCC" type="power_in"/>
+        <pin num="25" name="(ICP2/ADC8)PD4" type="BiDi"/>
+        <pin num="26" name="(T1/~OC4D~/ADC9)PD6" type="BiDi"/>
+        <pin num="27" name="(T0/OC4D/ADC10)PD7" type="BiDi"/>
+        <pin num="28" name="(ADC11/PCINT4)PB4" type="BiDi"/>
+        <pin num="29" name="(ADC12/OC1A/~OC4B~/PCINT12)PB5" type="BiDi"/>
+        <pin num="30" name="(ADC13/OC1B/OC4B/PCINT13)PB6" type="BiDi"/>
+        <pin num="31" name="(OC3A/~OC4A~)PC6" type="BiDi"/>
+        <pin num="32" name="(ICP3/CLK0/OC4A)PC7" type="BiDi"/>
+        <pin num="33" name="(~HWB~)PE2" type="power_in"/>
+        <pin num="34" name="VCC" type="power_in"/>
+        <pin num="35" name="GND" type="power_in"/>
+        <pin num="36" name="(ADC7/TDI)PF7" type="BiDi"/>
+        <pin num="37" name="(ADC6/TDO)PF6" type="BiDi"/>
+        <pin num="38" name="(ADC5/TMS)PF5" type="BiDi"/>
+        <pin num="39" name="(ADC4/TCK)PF4" type="BiDi"/>
+        <pin num="40" name="(ADC1)PF1" type="BiDi"/>
+        <pin num="41" name="(ADC0)PF0" type="BiDi"/>
+        <pin num="42" name="AREF" type="passive"/>
+        <pin num="43" name="GND" type="power_in"/>
+        <pin num="44" name="AVCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="CONN_01X01">
+      <footprints>
+        <fp>Pin_Header_Straight_1X01</fp>
+        <fp>Pin_Header_Angled_1X01</fp>
+        <fp>Socket_Strip_Straight_1X01</fp>
+        <fp>Socket_Strip_Angled_1X01</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="CONN_01X02">
+      <footprints>
+        <fp>Pin_Header_Straight_1X02</fp>
+        <fp>Pin_Header_Angled_1X02</fp>
+        <fp>Socket_Strip_Straight_1X02</fp>
+        <fp>Socket_Strip_Angled_1X02</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="CONN_01X03">
+      <footprints>
+        <fp>Pin_Header_Straight_1X03</fp>
+        <fp>Pin_Header_Angled_1X03</fp>
+        <fp>Socket_Strip_Straight_1X03</fp>
+        <fp>Socket_Strip_Angled_1X03</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="F_Small">
+      <footprints>
+        <fp>CP*</fp>
+        <fp>SM*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">F_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="LED">
+      <footprints>
+        <fp>LED-*</fp>
+        <fp>LED_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="invitation-rescue" part="USB_OTG">
+      <footprints>
+        <fp>USB*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">USB_OTG</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="power_out"/>
+        <pin num="2" name="D-" type="passive"/>
+        <pin num="3" name="D+" type="passive"/>
+        <pin num="4" name="ID" type="power_in"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="shield" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>/Library/Application Support/kicad/library/Device.lib</uri>
+    </library>
+    <library logical="invitation-rescue">
+      <uri>/Users/james.miller/Desktop/CreativeTechnology/Personal/portfolio/electronics/invitation-rescue.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="USBVCC">
+      <node ref="U1" pin="7"/>
+      <node ref="U1" pin="2"/>
+      <node ref="F1" pin="1"/>
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="2" name="Net-(P1-Pad4)">
+      <node ref="P1" pin="4"/>
+    </net>
+    <net code="3" name="Net-(P1-Pad6)">
+      <node ref="P1" pin="6"/>
+    </net>
+    <net code="4" name="D+">
+      <node ref="R8" pin="1"/>
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="5" name="D-">
+      <node ref="R9" pin="1"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="6" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="7" name="Net-(C0-Pad1)">
+      <node ref="U1" pin="6"/>
+      <node ref="C0" pin="1"/>
+    </net>
+    <net code="8" name="Net-(D1-Pad1)">
+      <node ref="D1" pin="1"/>
+      <node ref="R1" pin="1"/>
+    </net>
+    <net code="9" name="Net-(D2-Pad1)">
+      <node ref="R2" pin="1"/>
+      <node ref="D2" pin="1"/>
+    </net>
+    <net code="10" name="Net-(D3-Pad1)">
+      <node ref="D3" pin="1"/>
+      <node ref="R3" pin="1"/>
+    </net>
+    <net code="11" name="MOSI">
+      <node ref="P9" pin="1"/>
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="12" name="MISO">
+      <node ref="U1" pin="11"/>
+      <node ref="P9" pin="2"/>
+    </net>
+    <net code="13" name="SCLK">
+      <node ref="P3" pin="3"/>
+      <node ref="U1" pin="9"/>
+    </net>
+    <net code="14" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad18)">
+      <node ref="U1" pin="18"/>
+    </net>
+    <net code="16" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="17" name="Net-(U1-Pad20)">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="18" name="Net-(U1-Pad21)">
+      <node ref="U1" pin="21"/>
+    </net>
+    <net code="19" name="Net-(U1-Pad25)">
+      <node ref="U1" pin="25"/>
+    </net>
+    <net code="20" name="nodeLED">
+      <node ref="U1" pin="29"/>
+      <node ref="D2" pin="2"/>
+    </net>
+    <net code="21" name="interactLED">
+      <node ref="D3" pin="2"/>
+      <node ref="U1" pin="30"/>
+    </net>
+    <net code="22" name="Net-(U1-Pad36)">
+      <node ref="U1" pin="36"/>
+    </net>
+    <net code="23" name="Net-(U1-Pad37)">
+      <node ref="U1" pin="37"/>
+    </net>
+    <net code="24" name="Net-(U1-Pad38)">
+      <node ref="U1" pin="38"/>
+    </net>
+    <net code="25" name="rightArrSens">
+      <node ref="P5" pin="1"/>
+      <node ref="U1" pin="39"/>
+      <node ref="R13" pin="1"/>
+    </net>
+    <net code="26" name="leftArrSens">
+      <node ref="R12" pin="1"/>
+      <node ref="P4" pin="1"/>
+      <node ref="U1" pin="40"/>
+    </net>
+    <net code="27" name="homeSens">
+      <node ref="R11" pin="1"/>
+      <node ref="P2" pin="1"/>
+      <node ref="U1" pin="41"/>
+    </net>
+    <net code="28" name="Net-(C3-Pad1)">
+      <node ref="C3" pin="1"/>
+      <node ref="U1" pin="42"/>
+    </net>
+    <net code="29" name="/Data+">
+      <node ref="R8" pin="2"/>
+      <node ref="P1" pin="3"/>
+    </net>
+    <net code="30" name="/Data-">
+      <node ref="P1" pin="2"/>
+      <node ref="R9" pin="2"/>
+    </net>
+    <net code="31" name="Net-(D6-Pad1)">
+      <node ref="R6" pin="2"/>
+      <node ref="D6" pin="1"/>
+    </net>
+    <net code="32" name="Net-(D4-Pad1)">
+      <node ref="R4" pin="1"/>
+      <node ref="D4" pin="1"/>
+    </net>
+    <net code="33" name="emailLED">
+      <node ref="U1" pin="32"/>
+      <node ref="D4" pin="2"/>
+    </net>
+    <net code="34" name="Net-(D7-Pad1)">
+      <node ref="R7" pin="2"/>
+      <node ref="D7" pin="1"/>
+    </net>
+    <net code="35" name="Net-(D5-Pad1)">
+      <node ref="R5" pin="1"/>
+      <node ref="D5" pin="1"/>
+    </net>
+    <net code="36" name="phoneLED">
+      <node ref="U1" pin="31"/>
+      <node ref="D5" pin="2"/>
+    </net>
+    <net code="37" name="RXLED">
+      <node ref="U1" pin="8"/>
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="38" name="TXLED">
+      <node ref="R6" pin="1"/>
+      <node ref="U1" pin="22"/>
+    </net>
+    <net code="39" name="XTal1">
+      <node ref="C2" pin="1"/>
+      <node ref="U1" pin="17"/>
+      <node ref="Y1" pin="1"/>
+    </net>
+    <net code="40" name="XTal2">
+      <node ref="C1" pin="1"/>
+      <node ref="U1" pin="16"/>
+      <node ref="Y1" pin="2"/>
+    </net>
+    <net code="41" name="GND">
+      <node ref="R5" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="U1" pin="43"/>
+      <node ref="R4" pin="2"/>
+      <node ref="U1" pin="15"/>
+      <node ref="C2" pin="2"/>
+      <node ref="U1" pin="33"/>
+      <node ref="U1" pin="23"/>
+      <node ref="C3" pin="2"/>
+      <node ref="C4" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="R2" pin="2"/>
+      <node ref="R1" pin="2"/>
+      <node ref="P3" pin="1"/>
+      <node ref="C0" pin="2"/>
+      <node ref="P1" pin="5"/>
+      <node ref="U1" pin="35"/>
+      <node ref="U1" pin="5"/>
+      <node ref="C5" pin="2"/>
+    </net>
+    <net code="42" name="RESET">
+      <node ref="P8" pin="1"/>
+      <node ref="R10" pin="1"/>
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="43" name="VCC">
+      <node ref="R10" pin="2"/>
+      <node ref="C5" pin="1"/>
+      <node ref="U1" pin="44"/>
+      <node ref="D1" pin="2"/>
+      <node ref="U1" pin="34"/>
+      <node ref="D6" pin="2"/>
+      <node ref="D7" pin="2"/>
+      <node ref="P3" pin="2"/>
+      <node ref="C4" pin="1"/>
+      <node ref="U1" pin="24"/>
+      <node ref="U1" pin="14"/>
+      <node ref="F1" pin="2"/>
+    </net>
+    <net code="44" name="upArrSens">
+      <node ref="R14" pin="1"/>
+      <node ref="U1" pin="26"/>
+      <node ref="P10" pin="1"/>
+    </net>
+    <net code="45" name="downArrBtn">
+      <node ref="R11" pin="2"/>
+      <node ref="R14" pin="2"/>
+      <node ref="R15" pin="2"/>
+      <node ref="R12" pin="2"/>
+      <node ref="R13" pin="2"/>
+      <node ref="U1" pin="28"/>
+    </net>
+    <net code="46" name="downArrSens">
+      <node ref="R15" pin="1"/>
+      <node ref="U1" pin="27"/>
+      <node ref="P11" pin="1"/>
+    </net>
+  </nets>
+</export>
