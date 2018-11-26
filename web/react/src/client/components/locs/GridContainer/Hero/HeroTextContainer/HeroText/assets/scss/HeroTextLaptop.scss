@@ -43,6 +43,13 @@ $herospeed: 200ms;
 	background-size: 70%;
 }
 
+.grid-container-laptop .item4 .heroTextcontainer h1.centerIconAnimation {
+	-webkit-transition: background-image $herospeed;
+	-moz-transition: background-image $herospeed;
+	-o-transition: background-image $herospeed;
+	transition: background-image $herospeed;
+}
+
 .grid-container-laptop .item4 .heroTextContainer span.heroLogo {
 	font-size: 47px;
   letter-spacing: -13.5px;

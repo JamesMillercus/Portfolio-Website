@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   fetchScrolledItem,
+  fetchScrolledHeroIcon,
   fetchDeviceType,
   fetchBackgroundPos,
   fetchSiteAnimating,
@@ -24,6 +25,10 @@ class GridContainer extends Component {
     else if (this.props.siteAnimating === 'notAnimated') {
       setTimeout(() => { that.props.fetchSiteAnimating('logoAnimating'); }, 500);
     }
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.keyPress.bind(this));
   }
 
   componentDidUpdate() {
@@ -53,9 +58,9 @@ class GridContainer extends Component {
   }
 
   setClass() {
-    const deviceType = this.props.deviceType;
+    const { scrolledItem, deviceType } = this.props;
     const gridContainerClasses = [`grid-container-${deviceType}`];
-    if (deviceType === 'laptop') gridContainerClasses.push(`item${this.props.scrolledItem}scroll`);
+    if (deviceType === 'laptop') gridContainerClasses.push(`item${scrolledItem}scroll`);
     return gridContainerClasses;
   }
 
@@ -67,6 +72,56 @@ class GridContainer extends Component {
     if (this.props.deviceType === 'laptop' && this.props.siteAnimating === 'finishedAnimating') {
       this.props.fetchBackgroundPos(background);
     }
+  }
+
+  keyPress(event) {
+    //  [0,1,2] if press down on 0, scrolledItem = 0 + 3 || if press left on 0, scrolledItem = 0 + 2
+    //  [3,4,5]
+    //  [6,7,8]
+    const { scrolledItem, scrolledHeroIcon, fetchScrolledItem, fetchScrolledHeroIcon } = this.props;
+    const menuScroll = [[1, 's'], [3, 'd'], [5, 'a'], [7, 'w'], [4, 'a'], [4, 'd']];
+    let scrollNumber;
+    if (scrolledItem === null) scrollNumber = 4; // if scrolled item is in center or hasn't begun
+    else scrollNumber = scrolledItem;
+
+    for (let x = 0; x < menuScroll.length; x++) {
+      if (scrolledItem === menuScroll[x][0] && event.key === menuScroll[x][1]) {
+        fetchScrolledHeroIcon(this.scrollCalc(scrollNumber + 20, event.key, scrolledHeroIcon)); // menu item scroll
+      } else if (event.key === 'a') fetchScrolledItem(this.scrollCalc(scrollNumber - 1, event.key, scrolledHeroIcon));
+      else if (event.key === 'd') fetchScrolledItem(this.scrollCalc(scrollNumber + 1, event.key, scrolledHeroIcon));
+      else if (event.key === 'w') fetchScrolledItem(this.scrollCalc(scrollNumber - 3, event.key, scrolledHeroIcon));
+      else if (event.key === 's') fetchScrolledItem(this.scrollCalc(scrollNumber + 3, event.key, scrolledHeroIcon));
+    }
+  }
+
+  scrollCalc(scrolled, key, heroIcon) {
+    console.log(heroIcon);
+    let returnedScroll;
+    // edge item scroll
+    if (heroIcon === 'none') {
+      if (scrolled === -1 && key === 'w') returnedScroll = 8; // on 2 and scroll up
+      else if (scrolled === 3 && key === 'd') returnedScroll = 0; // on 2 and scroll right
+      else if (scrolled === -2 && key === 'w') returnedScroll = 7; // on 1 and scroll up
+      else if (scrolled === -3 && key === 'w') returnedScroll = 6; // on 0 and scroll up
+      else if (scrolled === -1 && key === 'a') returnedScroll = 2; // on 0 and scroll left
+      else if (scrolled === 6 && key === 'd') returnedScroll = 3; // on 5 and scroll right
+      else if (scrolled === 2 && key === 'a') returnedScroll = 5; // on 3 and scroll left
+      else if (scrolled === 5 && key === 'a') returnedScroll = 8; // on 6 and scroll left
+      else if (scrolled === 9 && key === 's') returnedScroll = 0; // on 6 and scroll down
+      else if (scrolled === 10 && key === 's') returnedScroll = 1; // on 7 and scroll down
+      else if (scrolled === 11 && key === 's') returnedScroll = 2; // on 8 and scroll down
+      else if (scrolled === 9 && key === 'd') returnedScroll = 6; // on 8 and scroll right
+      // normal item scroll
+      else returnedScroll = scrolled;
+    } else {
+      //menu item scroll
+      if (scrolled === 21 && key === 's') returnedScroll = 'webvr';
+      else if (scrolled === 23 && key === 'd') returnedScroll = 'centerLeftIcon';
+      else if (scrolled === 24 && key === 'a') returnedScroll = 'centerLeftIcon';
+      else if (scrolled === 24 && key === 'd') returnedScroll = 'centerRightIcon';
+    }
+
+    return returnedScroll;
   }
 
   renderItems() {
@@ -105,6 +160,7 @@ class GridContainer extends Component {
 function mapStateToProps(state) {
   return {
     scrolledItem: state.scrolledItem,
+    scrolledHeroIcon: state.scrolledHeroIcon,
     deviceType: state.deviceType,
     backgroundPos: state.backgroundPos,
     siteAnimating: state.siteAnimating,
@@ -117,6 +173,7 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   fetchScrolledItem,
+  fetchScrolledHeroIcon,
   fetchDeviceType,
   fetchBackgroundPos,
   fetchSiteAnimating,

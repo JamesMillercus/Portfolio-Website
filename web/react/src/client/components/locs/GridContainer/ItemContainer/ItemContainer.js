@@ -10,7 +10,8 @@ import {
 	fetchScrolledItem,
 	fetchActiveItem,
 	fetchClickedItems,
-	fetchAsyncVideoComponent
+	fetchAsyncVideoComponent,
+	fetchScrolledHeroIcon
 } from './../../../../actions';
 
 class ItemContainer extends Component {
@@ -23,8 +24,11 @@ class ItemContainer extends Component {
 	}
 
 	scrolledItem(item) {
-		const deviceType = this.props.deviceType;
-		if (!this.checkAnimationState() && deviceType === 'laptop') this.props.fetchScrolledItem(item);
+		const { deviceType, fetchScrolledHeroIcon } = this.props;
+		if (!this.checkAnimationState() && deviceType === 'laptop') {
+			this.props.fetchScrolledItem(item);
+			this.props.fetchScrolledHeroIcon(null);
+		}
 	}
 
 	checkAnimationState() {
@@ -88,5 +92,5 @@ const mapStateToProps = (state) => ({
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent, fetchScrolledHeroIcon }
 )(ItemContainer);
