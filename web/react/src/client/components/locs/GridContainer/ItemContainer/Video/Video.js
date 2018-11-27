@@ -10,28 +10,34 @@ class Video extends Component {
 	constructor(props) {
 		super(props);
 		this.escFunction = this.escFunction.bind(this);
+		this.stateChecker = null;
 	}
 	componentDidMount() {
 		document.addEventListener('keydown', this.escFunction, false);
 	}
 	componentWillUnmount() {
 		document.removeEventListener('keydown', this.escFunction, false);
+		clearInterval(this.stateChecker);
 	}
 
 	getDeviceType() {
-		// if (this.props.deviceType === 'laptop') return 'playing';
+		if (this.props.deviceType === 'laptop') return 'playing';
 		return 'paused';
 	}
 
 	escFunction(event) {
-		if (event.keyCode === 27 && this.props.activeItem !== 'hidden') this.exitVideo();
+		// if (event.key === 'f') {
+		// 	if (this.playerState === 'paused') this.playerState = 'playing';
+		// 	else this.playerState = 'paused';
+		// }
+		if (event.key !== 'f' && this.props.activeItem !== 'hidden') this.exitVideo();
 	}
 
 	playing() {
 		// test
 	}
 
-	videoContent(selectedVideo, playerState) {
+	videoContent(selectedVideo) {
 		const videoContent = this.props.content.itemVideo;
 		if (selectedVideo === 'hidden') return null;
 		return (
@@ -41,7 +47,7 @@ class Video extends Component {
 					videoId={videoContent[selectedVideo].videoID}
 					// MAKE THIS DEPENDENT ON DEVICE TYPE
 					// IF LAPTOP START PLAYING ELSE PAUSED
-					playbackState={playerState}
+					playbackState={this.getDeviceType()}
 					onPlay={this.playing}
 					onEnd={this.exitVideo}
 					configuration={{
@@ -65,10 +71,9 @@ class Video extends Component {
 		};
 
 		return (
-			this.videoContent(item, this.getDeviceType())
+			this.videoContent(item)
 		);
 	}
-
 }
 
 // player.getPlayerState():Number

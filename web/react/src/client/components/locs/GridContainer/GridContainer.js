@@ -78,27 +78,44 @@ class GridContainer extends Component {
     //  [0,1,2] if press down on 0, scrolledItem = 0 + 3 || if press left on 0, scrolledItem = 0 + 2
     //  [3,4,5]
     //  [6,7,8]
-    const { scrolledItem, scrolledHeroIcon, fetchScrolledItem, fetchScrolledHeroIcon } = this.props;
-    const menuScroll = [[1, 's'], [3, 'd'], [5, 'a'], [7, 'w'], [4, 'a'], [4, 'd']];
+    const { scrolledItem, scrolledHeroIcon, activeItem, fetchScrolledItem, fetchScrolledHeroIcon } = this.props;
+    // const menuScroll = [[1, 's'], [3, 'd'], [5, 'a'], [7, 'w'], [4, 'a'], [4, 'd']];
     let scrollNumber;
+    const scrollToItem = (scrollToNumber) => fetchScrolledItem(this.scrollCalc(scrollToNumber, event.key, scrolledHeroIcon));
+    // const scrollToHeroIcon = (scrollToIcon) => fetchScrolledHeroIcon(this.scrollCalc(scrollToIcon, event.key, scrolledHeroIcon)); // menu item scroll
     if (scrolledItem === null) scrollNumber = 4; // if scrolled item is in center or hasn't begun
     else scrollNumber = scrolledItem;
+    // console.log(scrollNumber);
+    // for (let x = 0; x < menuScroll.length; x++) {
+    //   if (scrolledItem === menuScroll[x][0] && event.key === menuScroll[x][1]) {
+    //     if (scrolledItem === menuScroll[0][0] && event.key === menuScroll[0][1]) scrollToItem(scrollNumber + 3);
+    //     else if (scrolledItem === menuScroll[1][0] && event.key === menuScroll[1][1]) scrollToItem(scrollNumber + 1);
+    //     else if (scrolledItem === menuScroll[2][0] && event.key === menuScroll[2][1]) scrollToItem(scrollNumber - 1);
+    //     else if (scrolledItem === menuScroll[3][0] && event.key === menuScroll[3][1]) scrollToItem(scrollNumber - 3);
+    //     else if (scrolledItem === menuScroll[3][0] && event.key === menuScroll[3][1]) scrollToItem(scrollNumber - 3);
+    //     else if (scrolledItem === menuScroll[4][0] && event.key === menuScroll[4][1]) scrollToItem(scrollNumber - 1);
+    //     else if (scrolledItem === menuScroll[5][0] && event.key === menuScroll[5][1]) scrollToItem(scrollNumber + 1);
+    //     scrollToHeroIcon(scrollNumber + 20); // menu item scroll
+    //     heroScroll = true;
+    //     // if on zone 3 and click right
+    //   }
+    // }
 
-    for (let x = 0; x < menuScroll.length; x++) {
-      if (scrolledItem === menuScroll[x][0] && event.key === menuScroll[x][1]) {
-        fetchScrolledHeroIcon(this.scrollCalc(scrollNumber + 20, event.key, scrolledHeroIcon)); // menu item scroll
-      } else if (event.key === 'a') fetchScrolledItem(this.scrollCalc(scrollNumber - 1, event.key, scrolledHeroIcon));
-      else if (event.key === 'd') fetchScrolledItem(this.scrollCalc(scrollNumber + 1, event.key, scrolledHeroIcon));
-      else if (event.key === 'w') fetchScrolledItem(this.scrollCalc(scrollNumber - 3, event.key, scrolledHeroIcon));
-      else if (event.key === 's') fetchScrolledItem(this.scrollCalc(scrollNumber + 3, event.key, scrolledHeroIcon));
-    }
+    // if click on item, open link
+    // if click on hero, open hero menu
+      // scroll left or right to open icons
+    if (event.key === 'a') scrollToItem(scrollNumber - 1);
+    else if (event.key === 'd') scrollToItem(scrollNumber + 1);
+    else if (event.key === 'w') scrollToItem(scrollNumber - 3);
+    else if (event.key === 's') scrollToItem(scrollNumber + 3);
   }
 
   scrollCalc(scrolled, key, heroIcon) {
-    console.log(heroIcon);
+    // console.log(heroIcon);
     let returnedScroll;
+    // console.log(scrolled);
     // edge item scroll
-    if (heroIcon === 'none') {
+    // if (heroIcon === 'none') {
       if (scrolled === -1 && key === 'w') returnedScroll = 8; // on 2 and scroll up
       else if (scrolled === 3 && key === 'd') returnedScroll = 0; // on 2 and scroll right
       else if (scrolled === -2 && key === 'w') returnedScroll = 7; // on 1 and scroll up
@@ -113,13 +130,16 @@ class GridContainer extends Component {
       else if (scrolled === 9 && key === 'd') returnedScroll = 6; // on 8 and scroll right
       // normal item scroll
       else returnedScroll = scrolled;
-    } else {
-      //menu item scroll
-      if (scrolled === 21 && key === 's') returnedScroll = 'webvr';
-      else if (scrolled === 23 && key === 'd') returnedScroll = 'centerLeftIcon';
-      else if (scrolled === 24 && key === 'a') returnedScroll = 'centerLeftIcon';
-      else if (scrolled === 24 && key === 'd') returnedScroll = 'centerRightIcon';
-    }
+    // }
+     // else {
+    //   //menu item scroll
+    //   if (scrolled === 21 && key === 's') returnedScroll = 'webvr';
+    //   else if (scrolled === 23 && key === 'd') returnedScroll = 'centerLeftIcon';
+    //   else if (scrolled === 24 && key === 'a') returnedScroll = 'centerLeftIcon';
+    //   else if (scrolled === 24 && key === 'd') returnedScroll = 'centerRightIcon';
+    //   else if (scrolled === 25 && key === 'a') returnedScroll = 'centerRightIcon';
+    //   else if (scrolled === 27 && key === 'w') returnedScroll = 'webvr';
+    // }
 
     return returnedScroll;
   }
@@ -161,6 +181,7 @@ function mapStateToProps(state) {
   return {
     scrolledItem: state.scrolledItem,
     scrolledHeroIcon: state.scrolledHeroIcon,
+    activeItem: state.activeItem,
     deviceType: state.deviceType,
     backgroundPos: state.backgroundPos,
     siteAnimating: state.siteAnimating,

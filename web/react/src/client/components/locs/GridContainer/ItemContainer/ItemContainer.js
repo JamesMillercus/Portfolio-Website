@@ -16,6 +16,14 @@ import {
 
 class ItemContainer extends Component {
 
+	componentDidMount() {
+		document.addEventListener('keypress', this.keyPress.bind(this));
+	}
+
+	keyPress(event) {
+		if (event.key === 'f' && this.props.activeItem === 'hidden') this.clickedItem(this.props.scrolledItem);
+	}
+
 	setClass(number, position) {
     // style of text based on content
     const itemClass = [`item${number} item ${position}`];
