@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "Portfolio Business Card"
 Date "November 2018"
-Rev "1"
+Rev "8"
 Comp "James Miller"
 Comment1 ""
 Comment2 ""
@@ -511,17 +511,6 @@ F 3 "" H 7650 5050 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L invitation-rescue:ATMEGA32U4-A U1
-U 1 1 5840CFD0
-P 3350 2950
-F 0 "U1" H 2400 4650 50  0000 C CNN
-F 1 "ATMEGA32U4-A" H 4050 1450 50  0000 C CNN
-F 2 "Housings_QFP:TQFP-44_10x10mm_Pitch0.8mm" H 3350 2950 50  0000 C CIN
-F 3 "" H 4450 4050 50  0000 C CNN
-	1    3350 2950
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:Crystal_Small Y1
 U 1 1 58744F16
 P 8000 4850
@@ -536,7 +525,6 @@ Text Label 1450 6400 0    20   ~ 0
 Data+
 Text Label 1450 6500 0    20   ~ 0
 Data-
-NoConn ~ 4450 3600
 $Comp
 L invitation-rescue:LED D6
 U 1 1 59D902BC
@@ -1071,11 +1059,11 @@ Text GLabel 5500 1650 2    60   Input ~ 0
 homeBtn
 Text GLabel 5500 1800 2    60   Input ~ 0
 leftArrBtn
-Text GLabel 5500 1950 2    60   Input ~ 0
+Text GLabel 4900 3500 2    60   Input ~ 0
 rightArrBtn
-Text GLabel 5500 2100 2    60   Input ~ 0
+Text GLabel 5450 3600 2    60   Input ~ 0
 upArrBtn
-Text GLabel 5500 2250 2    60   Input ~ 0
+Text GLabel 4900 3000 2    60   Input ~ 0
 downArrBtn
 Wire Wire Line
 	4450 1800 5350 1800
@@ -1086,20 +1074,6 @@ Wire Wire Line
 Wire Wire Line
 	5350 1800 5500 1800
 Connection ~ 5350 1800
-Wire Wire Line
-	5350 1950 5500 1950
-Wire Wire Line
-	5350 2100 5500 2100
-Wire Wire Line
-	5350 1800 5350 1950
-Connection ~ 5350 1950
-Wire Wire Line
-	5350 1950 5350 2100
-Wire Wire Line
-	5500 2250 5350 2250
-Wire Wire Line
-	5350 2250 5350 2100
-Connection ~ 5350 2100
 Wire Wire Line
 	9700 1850 9900 1850
 Connection ~ 9700 1850
@@ -1146,7 +1120,6 @@ Wire Wire Line
 NoConn ~ 4450 4300
 NoConn ~ 4450 4200
 NoConn ~ 4450 4100
-NoConn ~ 4450 3000
 NoConn ~ 4450 2900
 NoConn ~ 4450 2800
 NoConn ~ 4450 2700
@@ -1175,4 +1148,26 @@ Wire Wire Line
 	4450 2400 4450 2500
 Wire Wire Line
 	4450 2500 4550 2500
+$Comp
+L invitation-rescue:ATMEGA32U4-A U1
+U 1 1 5840CFD0
+P 3350 2950
+F 0 "U1" H 2400 4650 50  0000 C CNN
+F 1 "ATMEGA32U4-A" H 4050 1450 50  0000 C CNN
+F 2 "Housings_QFP:TQFP-44_10x10mm_Pitch0.8mm" H 3350 2950 50  0000 C CIN
+F 3 "" H 4450 4050 50  0000 C CNN
+	1    3350 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 3600 4800 3600
+Wire Wire Line
+	4800 3600 4800 3500
+Wire Wire Line
+	4800 3500 4900 3500
+Wire Wire Line
+	4800 3600 5450 3600
+Connection ~ 4800 3600
+Wire Wire Line
+	4900 3000 4450 3000
 $EndSCHEMATC
