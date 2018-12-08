@@ -24,6 +24,8 @@ class HeroIcon extends Component {
 		// this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
 		// if (this.icon > 0 && this.icon < 0.5) this.props.fetchHeroTextAnimation(false);
 		// else this.props.fetchHeroTextAnimation(true);
+		// console.log('this.props.scrolledHeroIcon');
+		// console.log(this.props.scrolledHeroIcon);
 		this.activeHero(this.props.scrolledHeroIcon);
 	}
 

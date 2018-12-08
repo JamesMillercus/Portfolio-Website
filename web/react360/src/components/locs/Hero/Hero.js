@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-360';
 import { connect } from 'react-redux';
-import { fetchHeroText } from './../../../actions';
+import { fetchHeroText, fetchHeroHover } from './../../../actions';
 
 import HeroIcon from './HeroIcon';
 import HeroLogo from './HeroLogo';
@@ -30,6 +30,9 @@ class Hero extends React.Component {
           logoImageScrolled={this.props.logoImageScrolled}
           centerLogoIconName={this.props.centerLogoIconName}
           centerHref={this.props.centerHref}
+          heroText={this.props.heroText}
+          heroHover={this.props.heroHover}
+          fetchHeroHover={this.props.fetchHeroHover}
         />
         <HeroText
           textNoScroll={this.props.textNoScroll}
@@ -49,7 +52,7 @@ class Hero extends React.Component {
 
 const mapStateToProps = ({ r360, heroText, heroHover }) => ({ r360, heroHover, heroText });
 
-export default connect(mapStateToProps, { fetchHeroText })(Hero);
+export default connect(mapStateToProps, { fetchHeroText, fetchHeroHover })(Hero);
 
 const styles = StyleSheet.create({
   hero: {

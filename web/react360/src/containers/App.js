@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { UserAgentProvider } from '@quentin-sommer/react-useragent';
 import { StyleSheet, AppRegistry } from 'react-360';
-import { store } from './../store.js';
+import { store } from './../Store.js';
 import Router from './../routes/Routes';
 
 export default class App extends Component {

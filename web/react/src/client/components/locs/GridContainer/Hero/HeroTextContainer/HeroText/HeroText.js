@@ -16,13 +16,16 @@ class HeroText extends Component {
   }
 
   setClass() {
-    const selectedItem = this.props.scrolledItem;
+    const { scrolledItem, scrolledHeroIcon } = this.props;
     // style of text based on content
     const heroCharClass = [];
     if (this.props.siteAnimating === 'notAnimated') {
       heroCharClass.push('hideLogo');
     } else if (this.props.siteAnimating === 'finishedAnimating') {
-      if (selectedItem === 4 && selectedItem !== null) heroCharClass.push('centerIcon');
+      if (scrolledItem === 4 && scrolledItem !== null) {
+        heroCharClass.push('centerIcon');
+        if (scrolledHeroIcon === 'webvr' || scrolledHeroIcon === 'none') heroCharClass.push('centerIconAnimation');
+      }
     }
 
     return heroCharClass.join(' ');

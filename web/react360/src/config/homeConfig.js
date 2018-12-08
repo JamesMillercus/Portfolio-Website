@@ -5,16 +5,16 @@ export default {
   itemText: [
     {
       header: 'Mood Tree',
-      paragraph: 'D&AD wanted to promote social activity during their design festival. I created the electronics for an installation that utilised Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.',
+      paragraph: 'D&AD wanted to promote social activity during their design festival. I worked for Kerve Creative in Bath, who created an installation that used Twitter’s API and Stanfords Natural Language parser, to analyse live tweets on the events ‘#’. A keyword and colour was displayed on each of the trees leaves, based on that tweets collected sentiment.',
     }, {
       header: 'Pay @ Pump',
-      paragraph: 'Barclaycard wanted to explore how their contactless technology could help reduce queues at bars on nights out. Using their contactless card payment system, I worked as part of the team that designed a prototype beer pump, that was automated to accurately pour a pint of beer once a successful payment had been received.',
+      paragraph: 'Barclaycard wanted to explore how their contactless technology could help reduce queues at bars on nights out. Using their contactless card payment system, I worked for Kerve Creative who created a prototype beer pump, that was automated to accurately pour a pint of beer once a successful payment had been received.',
     }, {
       header: 'Epic Mind Drive',
-      paragraph: 'MoneySupermarket.com wanted to celebrate the release of telematics boxes for insurees car’s, by rewarding smarter drivers with more than just cheaper car insurance. I worked as part of the team that delivered an experience, allowing users to drive a car using their mind.',
+      paragraph: 'MoneySupermarket.com wanted to celebrate the release of telematics boxes for insurees car’s, by rewarding drivers with more than just cheaper car insurance. I worked for Kerve Creative, who delivered an experience that allowed users to drive a car using their mind.',
     }, {
-      header: 'Next Gen VR',
-      paragraph: 'Merck created a new drug to help MS patients manage their symptoms and wanted to show how it was changing lives. To help users empathise living with the symptoms, the HTC Vive was used with custom made hardware - to create an immersive VR experience that put users inside the life of suffers.'
+      header: 'My Other Life',
+      paragraph: 'Merck Serono created a new drug to help MS patients manage their symptoms and wanted to show how it was changing lives. To help people empathise living with the symptoms, Momentum Worldwide created an immersive VR experience with the HTC Vive and custom made hardware - to put users inside the life of suffers.'
     }, {
       // header: "Welcome to my portfolio",
       // footer: "Made from React & Redux"
@@ -86,7 +86,7 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE EXPERIENCE & PRODUCT DESIGN SERVICES',
+      text: 'INTERACTIVE EXPERIENCE & DIGITAL PRODUCT DESIGN',
       color: '#7c7c7c'
     },
     centerIcon: {
@@ -133,7 +133,7 @@ export default {
     centerIcon: {
       text: [''],
       backgroundColor: '#008f9c',
-      backgroundImage: 'design.png',
+      backgroundImage360: 'design.png',
       logoImageScrolled: 'webvr.png',
       centerLogoIconName: 'webvr',
       href: '/'

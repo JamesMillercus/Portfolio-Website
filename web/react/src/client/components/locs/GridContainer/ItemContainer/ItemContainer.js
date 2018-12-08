@@ -10,10 +10,19 @@ import {
 	fetchScrolledItem,
 	fetchActiveItem,
 	fetchClickedItems,
-	fetchAsyncVideoComponent
+	fetchAsyncVideoComponent,
+	fetchScrolledHeroIcon
 } from './../../../../actions';
 
 class ItemContainer extends Component {
+
+	componentDidMount() {
+		document.addEventListener('keypress', this.keyPress.bind(this));
+	}
+
+	keyPress(event) {
+		if (event.key === 'f' && this.props.activeItem === 'hidden') this.clickedItem(this.props.scrolledItem);
+	}
 
 	setClass(number, position) {
     // style of text based on content
@@ -23,8 +32,11 @@ class ItemContainer extends Component {
 	}
 
 	scrolledItem(item) {
-		const deviceType = this.props.deviceType;
-		if (!this.checkAnimationState() && deviceType === 'laptop') this.props.fetchScrolledItem(item);
+		const { deviceType, fetchScrolledHeroIcon } = this.props;
+		if (!this.checkAnimationState() && deviceType === 'laptop') {
+			this.props.fetchScrolledItem(item);
+			this.props.fetchScrolledHeroIcon(null);
+		}
 	}
 
 	checkAnimationState() {
@@ -88,5 +100,5 @@ const mapStateToProps = (state) => ({
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent, fetchScrolledHeroIcon }
 )(ItemContainer);

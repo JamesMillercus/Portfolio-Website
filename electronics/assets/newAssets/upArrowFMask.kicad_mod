@@ -1,4 +1,4 @@
-(module upArrow (layer F.Mask) (tedit 5BEB3BD9)
+(module upArrow (layer F.Paste) (tedit 5BEB3BD9)
   (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
     (effects (font (size 1.524 1.524) (thickness 0.3)))
   )
@@ -23,6 +23,6 @@
     (xy -3.047187 1.48245) (xy -2.995323 1.311122) (xy -2.890869 1.086396) (xy -2.727066 0.793927)
     (xy -2.497156 0.419368) (xy -2.194381 -0.051628) (xy -1.81198 -0.633407) (xy -1.343197 -1.340314)
     (xy -1.289675 -1.420897) (xy -1.013171 -1.829064) (xy -0.756175 -2.193491) (xy -0.538068 -2.487824)
-    (xy -0.378228 -2.685708) (xy -0.309076 -2.754397) (xy -0.011831 -2.867715) (xy 0.30972 -2.841915)) (layer F.Mask) (width 0.01))
-  (pad 1 smd circle (at 0 -2.032) (size 1 1) (layers F.Mask))
+    (xy -0.378228 -2.685708) (xy -0.309076 -2.754397) (xy -0.011831 -2.867715) (xy 0.30972 -2.841915)) (layer F.Paste) (width 0.01))
+  (pad 1 smd circle (at 0 -2.032) (size 1 1) (layers F.Paste))
 )
