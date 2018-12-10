@@ -11,17 +11,30 @@ import {
 	fetchActiveItem,
 	fetchClickedItems,
 	fetchAsyncVideoComponent,
-	fetchScrolledHeroIcon
+	fetchScrolledHeroIcon,
+	fetchHeroKeyPress
 } from './../../../../actions';
 
 class ItemContainer extends Component {
+
+	constructor() {
+		super();
+		this.allowKeypress = true;
+	}
 
 	componentDidMount() {
 		document.addEventListener('keypress', this.keyPress.bind(this));
 	}
 
+	componentDidUpdate() {
+			this.allowKeypress = false;
+			const that = this;
+			setTimeout(() => that.allowKeypress = true, 50);
+			if (this.props.scrolledItem !== 4 && this.props.scrolledItem !== null) this.props.fetchHeroKeyPress(false);
+	}
+
 	keyPress(event) {
-		if (event.key === 'f' && this.props.activeItem === 'hidden') this.clickedItem(this.props.scrolledItem);
+		if (event.key === 'f' && this.allowKeypress) this.clickedItem(this.props.scrolledItem);
 	}
 
 	setClass(number, position) {
@@ -100,5 +113,5 @@ const mapStateToProps = (state) => ({
 	});
 
 export default connect(
-	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent, fetchScrolledHeroIcon }
+	mapStateToProps, { fetchScrolledItem, fetchActiveItem, fetchClickedItems, fetchAsyncVideoComponent, fetchScrolledHeroIcon, fetchHeroKeyPress }
 )(ItemContainer);

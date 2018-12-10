@@ -13,12 +13,17 @@ import {
 	fetchHeroTextAnimation,
 	fetchScrolledItem,
 	fetchSiteAnimating,
-	fetchUpdateUrl
+	fetchUpdateUrl,
+	fetchHeroKeyPress
 } from './../../../../../actions';
 import './assets/scss';
 import './assets/images';
 
 class HeroIcon extends Component {
+	componentDidMount() {
+		document.addEventListener('keypress', this.keyPress.bind(this));
+	}
+
 	componentDidUpdate() {
 		// const elem = this.refs.icon;
 		// this.icon = window.getComputedStyle(elem).getPropertyValue('opacity');
@@ -29,17 +34,20 @@ class HeroIcon extends Component {
 		this.activeHero(this.props.scrolledHeroIcon);
 	}
 
+
 	setClass() {
-		const revealIcons = this.props.revealIcons;
-		const iconClasses = [`${this.props.className}`, 'icon'];
+		const { revealIcons, className, scrolledHeroIcon } = this.props;
+		const iconClasses = [`${className}`, 'icon'];
 		if (revealIcons) iconClasses.push('active');
+		if (scrolledHeroIcon === className) iconClasses.push('hover');
+
 		return iconClasses.join(' ');
 	}
 
 	getStyle() {
 		const heroIconContent = this.props.content.heroIcon;
 		const activeHeroIcon = this.props.activeHeroIcon;
-		const siteAnimating = this.props.siteAnimating;
+		const scrolledHeroIcon = this.props.scrolledHeroIcon;
 		const returnstyles = {};
 		Reflect.ownKeys(heroIconContent).forEach(key => {
 			if (this.props.className === key) {
@@ -56,6 +64,34 @@ class HeroIcon extends Component {
 			}
 		});
 		return returnstyles;
+	}
+
+	keyPress(event) {
+		const { heroKeyPress, href, scrolledHeroIcon, scrolledItem, activeHeroIcon } = this.props;
+		// console.log(event.key);
+		if (scrolledItem === 4 && heroKeyPress) {
+			if (scrolledHeroIcon === null || scrolledHeroIcon === 'none') {
+				if (activeHeroIcon === null || activeHeroIcon === 'none') {
+					if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'centerLeftIcon');
+					if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'centerRightIcon');
+				}
+			} else if (scrolledHeroIcon === 'centerRightIcon') {
+				if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'none');
+				console.log('left');
+			} else if (scrolledHeroIcon === 'centerLeftIcon') {
+				if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'none');
+				else if (event.key === 'a' || event.key === 'A') {
+					// should only trigger when already on the left icon, then click right
+					// currently triggers when on centerIcon
+					// console.log for what the scrolledHeroIcon and activeHeroIcon are and go from there
+					console.log('lol');
+					// this.props.fetchScrolledItem(3);
+					// this.props.fetchScrolledHeroIcon(null);
+					// this.props.fetchHeroKeyPress(false);
+				}
+			}
+		}
+		// if (event.key === 'f' && this.allowKeypress) this.clickedItem(this.props.scrolledItem);
 	}
 
 	activeHero(className) {
@@ -125,7 +161,8 @@ const mapStateToProps = (state) => ({
 	scrolledItem: state.scrolledItem,
 	content: state.content,
 	siteAnimating: state.siteAnimating,
-	updateUrl: state.updateUrl
+	updateUrl: state.updateUrl,
+	heroKeyPress: state.heroKeyPress
 });
 
 
@@ -136,5 +173,6 @@ export default connect(mapStateToProps, {
 	fetchHeroTextAnimation,
 	fetchScrolledItem,
 	fetchSiteAnimating,
-	fetchUpdateUrl
+	fetchUpdateUrl,
+	fetchHeroKeyPress
 })(HeroIcon);

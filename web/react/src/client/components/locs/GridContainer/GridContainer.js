@@ -6,7 +6,8 @@ import {
   fetchDeviceType,
   fetchBackgroundPos,
   fetchSiteAnimating,
-  fetchUpdateUrl
+  fetchUpdateUrl,
+  fetchHeroKeyPress
 } from './../../../actions';
 import ItemContainer from './ItemContainer/ItemContainer';
 import Hero from './Hero/Hero';
@@ -78,7 +79,7 @@ class GridContainer extends Component {
     //  [0,1,2] if press down on 0, scrolledItem = 0 + 3 || if press left on 0, scrolledItem = 0 + 2
     //  [3,4,5]
     //  [6,7,8]
-    const { scrolledItem, scrolledHeroIcon, activeItem, fetchScrolledItem, fetchScrolledHeroIcon } = this.props;
+    const { scrolledItem, scrolledHeroIcon, activeItem, fetchScrolledItem, fetchScrolledHeroIcon, heroKeyPress } = this.props;
     // const menuScroll = [[1, 's'], [3, 'd'], [5, 'a'], [7, 'w'], [4, 'a'], [4, 'd']];
     let scrollNumber;
     const scrollToItem = (scrollToNumber) => fetchScrolledItem(this.scrollCalc(scrollToNumber, event.key, scrolledHeroIcon));
@@ -103,11 +104,12 @@ class GridContainer extends Component {
 
     // if click on item, open link
     // if click on hero, open hero menu
+    console.log(heroKeyPress);
       // scroll left or right to open icons
-    if (event.key === 'a') scrollToItem(scrollNumber - 1);
-    else if (event.key === 'd') scrollToItem(scrollNumber + 1);
-    else if (event.key === 'w') scrollToItem(scrollNumber - 3);
-    else if (event.key === 's') scrollToItem(scrollNumber + 3);
+    if (event.key === 'a' && !heroKeyPress) scrollToItem(scrollNumber - 1);
+    else if (event.key === 'd' && !heroKeyPress) scrollToItem(scrollNumber + 1);
+    else if (event.key === 'w' && !heroKeyPress) scrollToItem(scrollNumber - 3);
+    else if (event.key === 's' && !heroKeyPress) scrollToItem(scrollNumber + 3);
   }
 
   scrollCalc(scrolled, key, heroIcon) {
@@ -140,6 +142,7 @@ class GridContainer extends Component {
     //   else if (scrolled === 25 && key === 'a') returnedScroll = 'centerRightIcon';
     //   else if (scrolled === 27 && key === 'w') returnedScroll = 'webvr';
     // }
+    if (returnedScroll === 4) this.props.fetchHeroKeyPress(true);
 
     return returnedScroll;
   }
@@ -188,7 +191,8 @@ function mapStateToProps(state) {
     browser: state.browser,
     updateUrl: state.updateUrl,
     urlRequest: state.urlRequest,
-    asyncVideoComponent: state.asyncVideoComponent
+    asyncVideoComponent: state.asyncVideoComponent,
+    heroKeyPress: state.heroKeyPress
   };
 }
 
@@ -198,5 +202,6 @@ export default connect(mapStateToProps, {
   fetchDeviceType,
   fetchBackgroundPos,
   fetchSiteAnimating,
-  fetchUpdateUrl
+  fetchUpdateUrl,
+  fetchHeroKeyPress
 })(GridContainer);

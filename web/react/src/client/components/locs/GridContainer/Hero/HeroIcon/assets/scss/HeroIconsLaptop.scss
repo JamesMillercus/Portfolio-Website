@@ -27,7 +27,7 @@ $iconHideLeftHorizontal: 23%;
     left: $iconHideRightHorizontal;
 }
 
-.grid-container-laptop .item4 a.centerLeftIcon:hover{
+.grid-container-laptop .item4 a.centerLeftIcon.hover{
   background-size: auto 150%;
 }
 
@@ -57,7 +57,7 @@ $iconHideLeftHorizontal: 23%;
 }
 
 /* set all unlocked icons hover styling */
-.grid-container-laptop .item4 a.icon.active:hover {
+.grid-container-laptop .item4 a.icon.active.hover {
 	background-position: 50% 125%;
 	opacity: 1 !important;
   height: 50px;

@@ -30,7 +30,7 @@ class Video extends Component {
 		// 	if (this.playerState === 'paused') this.playerState = 'playing';
 		// 	else this.playerState = 'paused';
 		// }
-		if (event.key !== 'f' && this.props.activeItem !== 'hidden') this.exitVideo();
+		if (event.key && this.props.activeItem !== 'hidden') this.exitVideo();
 	}
 
 	playing() {
