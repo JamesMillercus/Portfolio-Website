@@ -21,7 +21,7 @@ import './assets/images';
 
 class HeroIcon extends Component {
 	componentDidMount() {
-		document.addEventListener('keypress', this.keyPress.bind(this));
+		// document.addEventListener('keypress', this.keyPress.bind(this));
 	}
 
 	componentDidUpdate() {
@@ -66,33 +66,40 @@ class HeroIcon extends Component {
 		return returnstyles;
 	}
 
-	keyPress(event) {
-		const { heroKeyPress, href, scrolledHeroIcon, scrolledItem, activeHeroIcon } = this.props;
-		// console.log(event.key);
-		if (scrolledItem === 4 && heroKeyPress) {
-			if (scrolledHeroIcon === null || scrolledHeroIcon === 'none') {
-				if (activeHeroIcon === null || activeHeroIcon === 'none') {
-					if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'centerLeftIcon');
-					if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'centerRightIcon');
-				}
-			} else if (scrolledHeroIcon === 'centerRightIcon') {
-				if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'none');
-				console.log('left');
-			} else if (scrolledHeroIcon === 'centerLeftIcon') {
-				if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'none');
-				else if (event.key === 'a' || event.key === 'A') {
-					// should only trigger when already on the left icon, then click right
-					// currently triggers when on centerIcon
-					// console.log for what the scrolledHeroIcon and activeHeroIcon are and go from there
-					console.log('lol');
-					// this.props.fetchScrolledItem(3);
-					// this.props.fetchScrolledHeroIcon(null);
-					// this.props.fetchHeroKeyPress(false);
-				}
-			}
-		}
-		// if (event.key === 'f' && this.allowKeypress) this.clickedItem(this.props.scrolledItem);
-	}
+	// keyPress(event) {
+	// 	const { heroKeyPress, href, scrolledHeroIcon, scrolledItem, activeHeroIcon } = this.props;
+	// 	// console.log(event.key);
+	// 	// console.log('scrolledHeroIcon');
+	// 	// console.log(scrolledHeroIcon);
+	// 	// console.log('activeHeroIcon');
+	// 	// console.log(activeHeroIcon);
+	// 	if (scrolledItem === 4 && heroKeyPress) {
+	// 		if (scrolledHeroIcon === null || scrolledHeroIcon === 'none') {
+	// 			if (activeHeroIcon === null || activeHeroIcon === 'none') {
+	// 				if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'centerLeftIcon');
+	// 				if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'centerRightIcon');
+	// 			}
+	// 		} else if (scrolledHeroIcon === 'centerRightIcon' && activeHeroIcon === 'centerRightIcon') {
+	// 			if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'none');
+	// 			// else if (event.key === 'd' || event.key === 'D') this.scrolledItem(5, 'none');
+	// 			// console.log('left');
+	// 		} else if (scrolledHeroIcon === 'centerLeftIcon' && activeHeroIcon === 'centerLeftIcon') {
+	// 			if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'none');
+	// 			else if (event.key === 'a' || event.key === 'A') {
+	// 				/*
+	// 					1. move this keypress function to Hero.js
+	// 					2. create a reducer which triggers HeroIcon once they key 'f' is pressed
+	// 					3. create a function in HeroIcon which opens the link based on when the reducer is triggered
+	// 				*/
+	// 				console.log('lol');
+	// 				// this.props.fetchScrolledItem(3);
+	// 				// this.props.fetchScrolledHeroIcon(null);
+	// 				// this.props.fetchHeroKeyPress(false);
+	// 			}
+	// 		}
+	// 	}
+	// 	// if (event.key === 'f' && this.allowKeypress) this.clickedItem(this.props.scrolledItem);
+	// }
 
 	activeHero(className) {
 		let timer;

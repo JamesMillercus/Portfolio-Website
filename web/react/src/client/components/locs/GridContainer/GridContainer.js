@@ -104,7 +104,7 @@ class GridContainer extends Component {
 
     // if click on item, open link
     // if click on hero, open hero menu
-    console.log(heroKeyPress);
+    // console.log(heroKeyPress);
       // scroll left or right to open icons
     if (event.key === 'a' && !heroKeyPress) scrollToItem(scrollNumber - 1);
     else if (event.key === 'd' && !heroKeyPress) scrollToItem(scrollNumber + 1);
