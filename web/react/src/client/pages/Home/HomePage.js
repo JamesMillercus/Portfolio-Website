@@ -9,7 +9,7 @@ import getNoScript from './../../components/hocs/getNoScript';
 import GridContainer from './../../components/locs/GridContainer/GridContainer';
 import homePageConfig from './assets/config/homePageConfig';
 import {
-  fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchContent
+  fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchContent, fetchHeroKeyPress
 } from './../../actions';
 
 class Home extends Component {
@@ -18,6 +18,7 @@ class Home extends Component {
     this.props.fetchScrolledHeroIcon('none');
     this.props.fetchContent(homePageConfig);
     this.props.fetchUpdateUrl(null);
+    this.props.fetchHeroKeyPress(false);
   }
 
   // componentDidUpdate() {
@@ -45,7 +46,7 @@ export default {
   component: compose(
     getDevice, getOSVersion, getBrowser, getNoScript,
     connect(null, {
-      fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchContent
+      fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchContent, fetchHeroKeyPress
     })
   )(Home)
 };

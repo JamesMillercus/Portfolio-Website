@@ -21,7 +21,7 @@ import './assets/images';
 
 class HeroIcon extends Component {
 	componentDidMount() {
-		// document.addEventListener('keypress', this.keyPress.bind(this));
+		document.addEventListener('keypress', this.keyPress);
 	}
 
 	componentDidUpdate() {
@@ -33,7 +33,6 @@ class HeroIcon extends Component {
 		// console.log(this.props.scrolledHeroIcon);
 		this.activeHero(this.props.scrolledHeroIcon);
 	}
-
 
 	setClass() {
 		const { revealIcons, className, scrolledHeroIcon } = this.props;
@@ -66,40 +65,24 @@ class HeroIcon extends Component {
 		return returnstyles;
 	}
 
-	// keyPress(event) {
-	// 	const { heroKeyPress, href, scrolledHeroIcon, scrolledItem, activeHeroIcon } = this.props;
+	componentWillUnmount() {
+		document.removeEventListener('keypress', this.keyPress);
+	}
+
+	keyPress = (event) => {
+		/*
+		1. create a reducer which triggers HeroIcon once they key 'f' is pressed
+		2. create a function in HeroIcon which opens the link based on when the reducer is triggered
+		*/
+
+		const { heroKeyPress, className, href, scrolledHeroIcon, scrolledItem, activeHeroIcon } = this.props;
 	// 	// console.log(event.key);
 	// 	// console.log('scrolledHeroIcon');
 	// 	// console.log(scrolledHeroIcon);
-	// 	// console.log('activeHeroIcon');
-	// 	// console.log(activeHeroIcon);
-	// 	if (scrolledItem === 4 && heroKeyPress) {
-	// 		if (scrolledHeroIcon === null || scrolledHeroIcon === 'none') {
-	// 			if (activeHeroIcon === null || activeHeroIcon === 'none') {
-	// 				if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'centerLeftIcon');
-	// 				if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'centerRightIcon');
-	// 			}
-	// 		} else if (scrolledHeroIcon === 'centerRightIcon' && activeHeroIcon === 'centerRightIcon') {
-	// 			if (event.key === 'a' || event.key === 'A') this.scrolledItem(4, 'none');
-	// 			// else if (event.key === 'd' || event.key === 'D') this.scrolledItem(5, 'none');
-	// 			// console.log('left');
-	// 		} else if (scrolledHeroIcon === 'centerLeftIcon' && activeHeroIcon === 'centerLeftIcon') {
-	// 			if (event.key === 'd' || event.key === 'D') this.scrolledItem(4, 'none');
-	// 			else if (event.key === 'a' || event.key === 'A') {
-	// 				/*
-	// 					1. move this keypress function to Hero.js
-	// 					2. create a reducer which triggers HeroIcon once they key 'f' is pressed
-	// 					3. create a function in HeroIcon which opens the link based on when the reducer is triggered
-	// 				*/
-	// 				console.log('lol');
-	// 				// this.props.fetchScrolledItem(3);
-	// 				// this.props.fetchScrolledHeroIcon(null);
-	// 				// this.props.fetchHeroKeyPress(false);
-	// 			}
-	// 		}
-	// 	}
-	// 	// if (event.key === 'f' && this.allowKeypress) this.clickedItem(this.props.scrolledItem);
-	// }
+		if (event.key === 'f' || event.key === 'F') {
+			if (activeHeroIcon === className) this.updateHREF(href);
+		}
+	}
 
 	activeHero(className) {
 		let timer;
@@ -140,7 +123,11 @@ class HeroIcon extends Component {
 
 	updateHREF(href) {
 		this.props.fetchSiteAnimating('changingPage');
-		setTimeout(() => { this.props.fetchUpdateUrl(href); }, 1000);
+		if (this.checkTarget() === '_self') {
+			setTimeout(() => { this.props.fetchUpdateUrl(href); }, 1000);
+			this.props.fetchScrolledItem(null);
+			this.props.fetchScrolledHeroIcon('none');
+		} else location.href = href;
 	}
 
 	render() {
@@ -155,8 +142,9 @@ class HeroIcon extends Component {
 		const updateHREF = () => this.updateHREF(href);
 
 		if (this.props.updateUrl === href) return <Redirect push to={href} />;
-		else if (target === '_self') return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
-		return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
+		// else if (target === '_self') 
+		return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
+		// return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
 	}
 }
 

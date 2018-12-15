@@ -14,10 +14,13 @@ import Hero from './Hero/Hero';
 import './assets/scss';
 
 class GridContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.x = 0;
     this.y = 0;
+    // this.keyPress = this.keyPress.bind(this); //bind function once
+    // https://stackoverflow.com/questions/38564080/remove-event-listener-on-unmount-react
+    // above link will hopefully solve this issue
   }
 
   componentWillMount() {
@@ -29,7 +32,8 @@ class GridContainer extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keypress', this.keyPress.bind(this));
+    document.addEventListener('keypress', this.keyPress);
+    // console.log(getEventListeners(document));
   }
 
   componentDidUpdate() {
@@ -49,6 +53,13 @@ class GridContainer extends Component {
     }
   }
 
+  componentWillUnmount() {
+    console.log('unmounted');
+    // document.removeEventListener('keydown', this.keyPress.bind(this));
+    document.removeEventListener('keypress', this.keyPress); // Succeeds
+    // console.log(getEventListeners(document));
+  }
+
   onMouseMove(e) {
     const yMouseAlign = 0.75;
     const xMouseAlign = 0.5;
@@ -65,6 +76,7 @@ class GridContainer extends Component {
     return gridContainerClasses;
   }
 
+
   calcBackgroundMovement(mousePos) {
     const speed = 0.1;
     const x = mousePos.x * speed;
@@ -75,7 +87,7 @@ class GridContainer extends Component {
     }
   }
 
-  keyPress(event) {
+  keyPress = (event) => {
     //  [0,1,2] if press down on 0, scrolledItem = 0 + 3 || if press left on 0, scrolledItem = 0 + 2
     //  [3,4,5]
     //  [6,7,8]
@@ -83,28 +95,11 @@ class GridContainer extends Component {
     // const menuScroll = [[1, 's'], [3, 'd'], [5, 'a'], [7, 'w'], [4, 'a'], [4, 'd']];
     let scrollNumber;
     const scrollToItem = (scrollToNumber) => fetchScrolledItem(this.scrollCalc(scrollToNumber, event.key, scrolledHeroIcon));
+    // console.log('heroKeyPress');
+    // console.log(heroKeyPress);
     // const scrollToHeroIcon = (scrollToIcon) => fetchScrolledHeroIcon(this.scrollCalc(scrollToIcon, event.key, scrolledHeroIcon)); // menu item scroll
     if (scrolledItem === null) scrollNumber = 4; // if scrolled item is in center or hasn't begun
     else scrollNumber = scrolledItem;
-    // console.log(scrollNumber);
-    // for (let x = 0; x < menuScroll.length; x++) {
-    //   if (scrolledItem === menuScroll[x][0] && event.key === menuScroll[x][1]) {
-    //     if (scrolledItem === menuScroll[0][0] && event.key === menuScroll[0][1]) scrollToItem(scrollNumber + 3);
-    //     else if (scrolledItem === menuScroll[1][0] && event.key === menuScroll[1][1]) scrollToItem(scrollNumber + 1);
-    //     else if (scrolledItem === menuScroll[2][0] && event.key === menuScroll[2][1]) scrollToItem(scrollNumber - 1);
-    //     else if (scrolledItem === menuScroll[3][0] && event.key === menuScroll[3][1]) scrollToItem(scrollNumber - 3);
-    //     else if (scrolledItem === menuScroll[3][0] && event.key === menuScroll[3][1]) scrollToItem(scrollNumber - 3);
-    //     else if (scrolledItem === menuScroll[4][0] && event.key === menuScroll[4][1]) scrollToItem(scrollNumber - 1);
-    //     else if (scrolledItem === menuScroll[5][0] && event.key === menuScroll[5][1]) scrollToItem(scrollNumber + 1);
-    //     scrollToHeroIcon(scrollNumber + 20); // menu item scroll
-    //     heroScroll = true;
-    //     // if on zone 3 and click right
-    //   }
-    // }
-
-    // if click on item, open link
-    // if click on hero, open hero menu
-    // console.log(heroKeyPress);
       // scroll left or right to open icons
     if (event.key === 'a' && !heroKeyPress) scrollToItem(scrollNumber - 1);
     else if (event.key === 'd' && !heroKeyPress) scrollToItem(scrollNumber + 1);
@@ -115,7 +110,6 @@ class GridContainer extends Component {
   scrollCalc(scrolled, key, heroIcon) {
     // console.log(heroIcon);
     let returnedScroll;
-    // console.log(scrolled);
     // edge item scroll
     // if (heroIcon === 'none') {
       if (scrolled === -1 && key === 'w') returnedScroll = 8; // on 2 and scroll up
@@ -142,7 +136,11 @@ class GridContainer extends Component {
     //   else if (scrolled === 25 && key === 'a') returnedScroll = 'centerRightIcon';
     //   else if (scrolled === 27 && key === 'w') returnedScroll = 'webvr';
     // }
-    if (returnedScroll === 4) this.props.fetchHeroKeyPress(true);
+    this.props.fetchScrolledHeroIcon(null);
+    if (returnedScroll === 4) {
+      this.props.fetchHeroKeyPress(true);
+      // console.log('true');
+    }
 
     return returnedScroll;
   }

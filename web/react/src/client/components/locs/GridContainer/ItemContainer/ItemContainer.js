@@ -26,15 +26,24 @@ class ItemContainer extends Component {
 		document.addEventListener('keypress', this.keyPress.bind(this));
 	}
 
+	componentWillUnmount() {
+    document.removeEventListener('keydown', this.keyPress.bind(this));
+  }
+
 	componentDidUpdate() {
 			this.allowKeypress = false;
 			const that = this;
 			setTimeout(() => that.allowKeypress = true, 50);
-			if (this.props.scrolledItem !== 4 && this.props.scrolledItem !== null) this.props.fetchHeroKeyPress(false);
+			// if (this.props.scrolledItem !== 4 && this.props.scrolledItem !== null) this.props.fetchHeroKeyPress(false);
 	}
 
 	keyPress(event) {
-		if (event.key === 'f' && this.allowKeypress) this.clickedItem(this.props.scrolledItem);
+		const { heroKeyPress, scrolledItem } = this.props;
+		// console.log('heroKeyPress');
+		// console.log(heroKeyPress);
+		if(!heroKeyPress) {
+			if (event.key === 'f' && this.allowKeypress) this.clickedItem(scrolledItem);
+		}
 	}
 
 	setClass(number, position) {
@@ -109,7 +118,8 @@ const mapStateToProps = (state) => ({
 		clickedItems: state.clickedItems,
 		siteAnimating: state.siteAnimating,
 		deviceType: state.deviceType,
-		content: state.content
+		content: state.content,
+		heroKeyPress: state.heroKeyPress
 	});
 
 export default connect(

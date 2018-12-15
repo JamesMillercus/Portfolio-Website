@@ -7,7 +7,7 @@ import getOSVersion from './../../components/hocs/getOSVersion';
 import GridContainer from './../../components/locs/GridContainer/GridContainer';
 import servicesPageConfig from './assets/config/servicesPageConfig';
 import {
-  fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
+  fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchHeroKeyPress
 } from './../../actions';
 
 class Services extends Component {
@@ -16,6 +16,7 @@ class Services extends Component {
     this.props.fetchScrolledHeroIcon('none');
     this.props.fetchContent(servicesPageConfig);
     this.props.fetchUpdateUrl('null');
+    this.props.fetchHeroKeyPress(false);
   }
 
   render() {
@@ -28,7 +29,7 @@ export default {
   component: compose(
     getDevice, getOSVersion, getBrowser,
     connect(null, {
-      fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon
+      fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchHeroKeyPress
     })
   )(Services)
 };

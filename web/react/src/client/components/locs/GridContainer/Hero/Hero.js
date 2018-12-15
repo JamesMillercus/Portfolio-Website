@@ -7,8 +7,12 @@ import HeroTextContainer from './HeroTextContainer/HeroTextContainer';
 
 class Hero extends Component {
 	componentDidMount() {
-		document.addEventListener('keypress', this.keyPress.bind(this));
+		document.addEventListener('keypress', this.keyPress);
 	}
+
+	componentWillUnmount() {
+    document.removeEventListener('keypress', this.keyPress);
+  }
 
 	scrolledItem(item) {
 		const deviceType = this.props.deviceType;
@@ -29,12 +33,7 @@ class Hero extends Component {
 		}
 	}
 
-	keyPress(event) {
-		/*
-		1. create a reducer which triggers HeroIcon once they key 'f' is pressed
-		2. create a function in HeroIcon which opens the link based on when the reducer is triggered
-		*/
-
+	keyPress = (event) => {
 		const {
 			heroKeyPress, scrolledHeroIcon, scrolledItem, activeHeroIcon, fetchHeroKeyPress
 		} = this.props;
