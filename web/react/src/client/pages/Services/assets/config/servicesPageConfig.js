@@ -56,7 +56,7 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE EXPERIENCE & PRODUCT DESIGN SERVICES',
+      text: 'INTERACTIVE EXPERIENCE & DIGITAL DESIGN SERVICES',
       color: '#7c7c7c'
     },
     centerIcon: {
@@ -68,7 +68,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: "Creative technology projects I've worked on",
+      text: "Creative technology ideas I've helped agencies bring to life",
       color: '#008f9c'
     },
     webvr: {

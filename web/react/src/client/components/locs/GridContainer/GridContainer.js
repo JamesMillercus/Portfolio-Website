@@ -54,7 +54,7 @@ class GridContainer extends Component {
   }
 
   componentWillUnmount() {
-    console.log('unmounted');
+    // console.log('unmounted');
     // document.removeEventListener('keydown', this.keyPress.bind(this));
     document.removeEventListener('keypress', this.keyPress); // Succeeds
     // console.log(getEventListeners(document));

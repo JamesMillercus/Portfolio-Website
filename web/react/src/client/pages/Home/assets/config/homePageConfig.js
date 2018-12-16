@@ -66,11 +66,11 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE EXPERIENCE & DIGITAL PRODUCT DESIGN',
+      text: 'INTERACTIVE EXPERIENCE & DIGITAL DESIGN SERVICES',
       color: '#7c7c7c'
     },
     centerIcon: {
-      text: "Creative technology ideas I've helped bring to life",
+      text: "Creative technology ideas I've helped agencies bring to life",
       color: '#008f9c'
     },
     centerLeftIcon: {
