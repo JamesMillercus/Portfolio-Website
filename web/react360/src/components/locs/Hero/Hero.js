@@ -56,10 +56,10 @@ export default connect(mapStateToProps, { fetchHeroText, fetchHeroHover })(Hero)
 
 const styles = StyleSheet.create({
   hero: {
-    width: 600,
+    width: 700,
     height: 300,
-    marginLeft: 1750,
-    marginTop: 130
+    marginLeft: 1700,
+    marginTop: 130,
     // backgroundColor: '#639dda'
   }
 });

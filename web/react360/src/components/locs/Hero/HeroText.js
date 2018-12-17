@@ -42,7 +42,7 @@ class HeroText extends React.Component {
         fontWeight: 'bold',
         textAlign: 'center',
         position: 'absolute',
-        width: 600,
+        width: 700,
         height: 80
       },
       unscrolledHeroText: {
@@ -52,7 +52,7 @@ class HeroText extends React.Component {
         fontWeight: 'bold',
         textAlign: 'center',
         position: 'absolute',
-        width: 600,
+        width: 700,
         height: 80
       },
       leftHeroText: {
@@ -62,7 +62,7 @@ class HeroText extends React.Component {
         fontWeight: 'bold',
         textAlign: 'center',
         position: 'absolute',
-        width: 600,
+        width: 700,
         height: 80
       },
       rightHeroText: {
@@ -72,7 +72,7 @@ class HeroText extends React.Component {
         fontWeight: 'bold',
         textAlign: 'center',
         position: 'absolute',
-        width: 600,
+        width: 700,
         height: 80
       }
     });

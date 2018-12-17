@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7d7d7d',
     position: 'absolute',
     marginTop: 60,
-    marginLeft: 23,
+    marginLeft: 40,
     borderRadius: 100 / 2
   },
   leftIconHover: {
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   leftIconHitBox: {
     width: 150,
     height: 150,
+    marginLeft: 15,
     // backgroundColor: '#ff0006',
     marginTop: '4.5%',
     position: 'absolute',
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7d7d7d',
     position: 'absolute',
     marginTop: 60,
-    marginLeft: 475,
+    marginLeft: 558,
     borderRadius: 100 / 2,
   },
   rightIconHover: {
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#e3bb2a',
     position: 'absolute',
     marginTop: 60,
-    marginLeft: 475,
     borderRadius: 100 / 2
   },
   rightIconImage: {
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     marginTop: '5.8%',
     position: 'absolute',
     borderRadius: 150 / 2,
-    marginLeft: 450
+    marginLeft: 535
   }
 });
 

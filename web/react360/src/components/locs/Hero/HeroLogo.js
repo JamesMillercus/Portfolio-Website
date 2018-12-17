@@ -64,7 +64,7 @@ export default connect(mapStateToProps, { fetchHeroHover })(HeroLogo);
 const styles = StyleSheet.create({
   heroLogo: {
     marginTop: 20,
-    marginLeft: 215,
+    marginLeft: 267,
     borderRadius: 200 / 2,
     width: 160,
     height: 160,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   heroLogoHitBox: {
     marginTop: 20,
-    marginLeft: 215,
+    marginLeft: 267,
     borderRadius: 200 / 2,
     width: 160,
     height: 160,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   unscrolledHeroLogo: {
     marginTop: 35,
-    marginLeft: 230,
+    marginLeft: 282,
     borderRadius: 200 / 2,
     width: 140,
     height: 140,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   heroLogoShadow: {
     marginTop: 22,
-    marginLeft: 227,
+    marginLeft: 279,
     borderRadius: 200 / 2,
     width: 160,
     height: 160,
@@ -101,14 +101,14 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginTop: 50,
-    marginLeft: 245,
+    marginLeft: 297,
     position: 'absolute'
   },
   unscrolledHeroImage: {
     width: 80,
     height: 80,
     marginTop: 65,
-    marginLeft: 262,
+    marginLeft: 314,
     position: 'absolute'
   }
 });
