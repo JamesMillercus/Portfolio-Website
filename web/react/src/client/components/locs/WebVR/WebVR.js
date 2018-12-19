@@ -69,13 +69,13 @@ class WebVR extends Component {
       <div>
         <div id='iframeButton' style={iframeStyle} onClick={click} />
         <Iframe
-          url="/webVRbuild/index.html"
+          url={this.props.href}
           width="100%"
           height="100%"
           id="player"
           className="myClassname"
-          display="initial"
-          position="relative"
+          display="block"
+          position="fixed"
           allowFullScreen
           allowvr
         />

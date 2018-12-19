@@ -21,16 +21,6 @@ class Home extends Component {
     this.props.fetchHeroKeyPress(false);
   }
 
-  // componentDidUpdate() {
-    // const motion = () => {
-    //   // alert(this.props.loadWebVr);
-    //   // if (this.props.loadWebVr === null) this.props.fetchLoadWebVr(true);
-    // };
-
-    // if (window.DeviceOrientationEvent) window.addEventListener('deviceorientation', motion, true);
-    // if (window.DeviceMotionEvent) window.addEventListener('devicemotion', motion, true);
-  // }
-
   renderPage() {
     // if (this.props.loadWebVr === true && this.props.deviceType !== 'laptop') return <Redirect push to={'/webvr'} />;
     return <GridContainer />;

@@ -81,7 +81,6 @@ class Hero extends Component {
 
 		return (
 			<div className="item4 middlecenter" onMouseOver={heroContainerMouseOver}>
-				<HeroHeader />
 				<HeroTextContainer />
 				{this.renderHeroIcons()}
 			</div>

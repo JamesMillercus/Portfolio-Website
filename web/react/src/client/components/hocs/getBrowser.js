@@ -27,20 +27,20 @@ export default (ChildComponent) => {
 
 		content(browserName) {
 			this.parser = browserName;
-			return <ChildComponent {...this.props} key={browserName} />;
-			// switch (this.allowedBrowser(browserName)) {
-			// 	// browser not authorised
-			// 	case false:
-			// 		return <BadBrowser key={browserName} />;
-			// 	// if is authorised, then load child component and load props from render page into child
-			// 	default:
-			// 		return <ChildComponent {...this.props} key={browserName} />;
-			// }
+			// return <ChildComponent {...this.props} key={browserName} />;
+			switch (this.allowedBrowser(browserName)) {
+				// browser not authorised
+				case false:
+					return <BadBrowser key={browserName} />;
+				// if is authorised, then load child component and load props from render page into child
+				default:
+					return <ChildComponent {...this.props} key={browserName} />;
+			}
 		}
 
 		allowedBrowser(browserName) {
 			const allowedBrowsers = [
-				'Chrome', 'Safari', 'Mobile Safari', 'Firefox', 'Edge', 'Chromium', 'Android Browser', 'IE', 'Samsung Browser'
+				'Chrome', 'Safari', 'Mobile Safari', 'Firefox', 'Edge', 'Chromium', 'Android Browser', 'IE'
 			];
 
 			for (let x = 0; x < allowedBrowsers.length; x++) {
