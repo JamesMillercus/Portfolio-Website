@@ -91,7 +91,8 @@ export default {
     },
     centerIcon: {
       text: "Creative technology ideas I've helped agencies bring to life",
-      logoTextScrolled: 'Visit this website without Web VR',
+      logoTextScrolled: 'View this website in WebVR',
+      logoTextScrolledWebVR: 'Exit WebVR Mode',
       color: '#008f9c'
     },
     centerLeftIcon: {
@@ -135,8 +136,11 @@ export default {
       backgroundColor: '#008f9c',
       backgroundImage360: 'design.png',
       logoImageScrolled: 'webvr.png',
-      centerLogoIconName: 'webvr',
-      href: '/'
+      centerLogoIconName: 'web',
+      href: '/webvr',
+      webvrCenterLogoIconName: 'webvr',
+      webvrLogoImageScrolled: 'web.png',
+      webvrhref: '/'
     }
   }
 };

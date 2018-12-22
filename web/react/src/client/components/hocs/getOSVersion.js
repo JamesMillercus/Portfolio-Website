@@ -41,9 +41,14 @@ export default (ChildComponent) => {
 			}
 
       if (osFloat <= compatible) return false;
-			else if (osFloat >= compatible && osFloat <= webvrCompatible) return true;
-      return 'react360';
+			else if (this.webVrChecker(osFloat, webvrCompatible)) return 'react360';
+			return true;
     }
+
+		webVrChecker(osFloat, webvrCompatible) {
+			if (osFloat >= webvrCompatible && this.props.location.pathname !== '/services') return true;
+			return false;
+		}
 
 		renderDevice(deviceVersion) {
       switch (this.osIsCompatible(deviceVersion)) {

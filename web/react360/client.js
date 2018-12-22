@@ -4,6 +4,8 @@
 import { Math as VRMath, ReactInstance, Surface, Module } from 'react-360-web';
 import SimpleRaycaster from 'simple-raycaster';
 
+const pathname = parent.document.location.pathname;
+
 function init(bundle, parent, options = {}) {
   // const MobileVideo = new Surface(0, 0, Surface.SurfaceShape.Flat);
 
@@ -59,8 +61,9 @@ function init(bundle, parent, options = {}) {
 
   const appSurface = new Surface(4096, 720, Surface.SurfaceShape.Cylinder);
   appSurface.setAngle(0, -0.6);
+
   r360.renderToSurface(
-    r360.createRoot('App', { /* initial props */ }),
+    r360.createRoot('App', { parentPathName: pathname }),
     appSurface
   );
 

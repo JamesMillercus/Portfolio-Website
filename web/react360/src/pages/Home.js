@@ -12,10 +12,20 @@ import getDevice from './../components/hocs/getDevice';
 
 class Home extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.webMode = 'webvr';
+    // this.webMode = 'webvr'; // comment in production
+  }
+
   componentDidMount() {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
       format: '2D',
     });
+
+    if (this.props.parentPathName === '/webvr') this.webMode = 'webvr'; // comment this in dev
+    else this.webMode = 'web'; // comment this in dev
+    // this.webMode = 'web'; // comment this in production
   }
 
   componentDidUpdate() {
@@ -51,6 +61,26 @@ class Home extends React.Component {
     return itemArr;
   }
 
+  logoTextScrolled() {
+    if (this.webMode === 'webvr') return config.heroFooterText.centerIcon.logoTextScrolledWebVR;
+    return config.heroFooterText.centerIcon.logoTextScrolled;
+  }
+
+  logoImageScrolled() {
+    if (this.webMode === 'webvr') return config.heroText.centerIcon.webvrLogoImageScrolled;
+    return config.heroText.centerIcon.logoImageScrolled;
+  }
+
+  centerLogoIconName() {
+    if (this.webMode === 'webvr') return config.heroText.centerIcon.webvrCenterLogoIconName;
+    return config.heroText.centerIcon.centerLogoIconName;
+  }
+
+  href() {
+    if (this.webMode === 'webvr') return config.heroText.centerIcon.webvrhref;
+    return config.heroText.centerIcon.href;
+  }
+
   content() {
     return (
       <View>
@@ -64,10 +94,10 @@ class Home extends React.Component {
           textScrollCenterRightIcon={config.heroFooterText.centerRightIcon.text}
           textColorScrollCenterRightIcon={config.heroFooterText.centerRightIcon.color}
           logoImage={config.heroText.centerIcon.backgroundImage360}
-          logoImageScrolled={config.heroText.centerIcon.logoImageScrolled} //
-          logoTextScrolled={config.heroFooterText.centerIcon.logoTextScrolled} //
-          centerLogoIconName={config.heroText.centerIcon.centerLogoIconName} //
-          centerHref={config.heroText.centerIcon.href} //
+          logoImageScrolled={this.logoImageScrolled()} //
+          logoTextScrolled={this.logoTextScrolled()} //
+          centerLogoIconName={this.centerLogoIconName()} //
+          centerHref={this.href()} //
           centerLeftIconName={config.heroIcon.centerLeftIcon.name360}
           centerLeftIconImage={config.heroIcon.centerLeftIcon.image360}
           centerLeftIconHref={config.heroIcon.centerLeftIcon.href}
@@ -89,7 +119,7 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = ({ activeItem }) => ({ activeItem });
+const mapStateToProps = ({ activeItem, webMode }) => ({ activeItem, webMode });
 
 // export default connect(mapStateToProps, null)(Home);
 

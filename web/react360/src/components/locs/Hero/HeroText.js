@@ -27,7 +27,7 @@ class HeroText extends React.Component {
     if (heroText === 'scrolled') {
       if (heroHover === 'centerLeftIcon') return textScrollCenterLeftIcon;
       else if (heroHover === 'centerRightIcon') return textScrollCenterRightIcon;
-      else if (heroHover === 'webvr') return logoTextScrolled;
+      else if (heroHover === 'webvr' || heroHover === 'web') return logoTextScrolled;
       return textScrollHero;
     }
     return textNoScroll;

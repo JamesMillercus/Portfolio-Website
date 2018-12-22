@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import { UserAgentProvider } from '@quentin-sommer/react-useragent';
 import { StyleSheet, AppRegistry } from 'react-360';
 import { store } from './../Store.js';
-import Router from './../routes/Routes';
+// import Router from './../routes/Routes';
+import Home from './../pages/Home';
 
 export default class App extends Component {
   componentWillMount() {
@@ -14,7 +15,7 @@ export default class App extends Component {
     return (
       <UserAgentProvider ua={this.userAgent} store={store} style={styles.appContainer}>
         <Provider store={store} style={styles.appContainer}>
-          <Router />
+          <Home parentPathName={this.props.parentPathName} />
         </Provider>
       </UserAgentProvider>
     );

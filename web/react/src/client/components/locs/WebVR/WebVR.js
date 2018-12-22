@@ -31,6 +31,7 @@ class WebVR extends Component {
         this.setState({ videoIsPlaying: true });
       } else if (iframeHref.pathname === '/') window.location = '/';
         else if (iframeHref.pathname === '/services') window.location = '/services';
+        else if (iframeHref.pathname === '/webvr') window.location = '/webvr';
     }, 250);
   }
 

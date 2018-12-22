@@ -70,15 +70,7 @@ class HeroIcon extends Component {
 	}
 
 	keyPress = (event) => {
-		/*
-		1. create a reducer which triggers HeroIcon once they key 'f' is pressed
-		2. create a function in HeroIcon which opens the link based on when the reducer is triggered
-		*/
-
 		const { heroKeyPress, className, href, scrolledHeroIcon, scrolledItem, activeHeroIcon } = this.props;
-	// 	// console.log(event.key);
-	// 	// console.log('scrolledHeroIcon');
-	// 	// console.log(scrolledHeroIcon);
 		if (event.key === 'f' || event.key === 'F') {
 			if (activeHeroIcon === className) this.updateHREF(href);
 		}
@@ -142,9 +134,8 @@ class HeroIcon extends Component {
 		const updateHREF = () => this.updateHREF(href);
 
 		if (this.props.updateUrl === href) return <Redirect push to={href} />;
-		// else if (target === '_self') 
-		return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
-		// return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
+		if (this.props.deviceType === 'laptop') return <a className={css} ref={'icon'} href={voidHREF} onClick={updateHREF} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
+		return <a className={css} ref={'icon'} href={href} target={target} rel={rel} onMouseOver={ovr} onMouseOut={out} style={style} />;
 	}
 }
 
