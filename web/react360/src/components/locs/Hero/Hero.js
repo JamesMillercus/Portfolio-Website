@@ -2,11 +2,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-360';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { fetchHeroText, fetchHeroHover } from './../../../actions';
-
 import HeroIcon from './HeroIcon';
 import HeroLogo from './HeroLogo';
 import HeroText from './HeroText';
+import getDevice from './../../hocs/getDevice';
 
 class Hero extends React.Component {
 
@@ -19,11 +20,13 @@ class Hero extends React.Component {
           iconName={this.props.centerLeftIconName}
           iconImg={this.props.centerLeftIconImage}
           iconUrl={this.props.centerLeftIconHref}
+          webMode={this.props.webMode}
         />
         <HeroIcon
           iconName={this.props.centerRightIconName}
           iconImg={this.props.centerRightIconImage}
           iconUrl={this.props.centerRightIconHref}
+          webMode={this.props.webMode}
         />
         <HeroLogo
           logoImage={this.props.logoImage}
@@ -33,6 +36,7 @@ class Hero extends React.Component {
           heroText={this.props.heroText}
           heroHover={this.props.heroHover}
           fetchHeroHover={this.props.fetchHeroHover}
+          webMode={this.props.webMode}
         />
         <HeroText
           textNoScroll={this.props.textNoScroll}
@@ -52,14 +56,13 @@ class Hero extends React.Component {
 
 const mapStateToProps = ({ r360, heroText, heroHover }) => ({ r360, heroHover, heroText });
 
-export default connect(mapStateToProps, { fetchHeroText, fetchHeroHover })(Hero);
+// export default connect(mapStateToProps, { fetchHeroText, fetchHeroHover })(Hero);
+export default compose(getDevice, connect(mapStateToProps, { fetchHeroText, fetchHeroHover }))(Hero);
 
 const styles = StyleSheet.create({
   hero: {
     width: 700,
-    height: 300,
-    marginLeft: 1700,
-    marginTop: 130,
+    height: 300
     // backgroundColor: '#639dda'
   }
 });

@@ -14,6 +14,22 @@ import { fetchHeroHover } from './../../../actions';
 
 class HeroLogo extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.animateTimeout = null;
+    this.openLink = this.openLink.bind(this);
+  }
+
+  componentDidUpdate() {
+    const { webMode, heroHover, centerLogoIconName } = this.props;
+    if (webMode === 'webvr' && heroHover === centerLogoIconName) this.animateProgress();
+    else if (heroHover === '') clearTimeout(this.animateTimeout);
+  }
+
+  animateProgress() {
+    this.animateTimeout = setTimeout(this.openLink, 1000);
+  }
+
   heroImageStyle() {
     const { heroText } = this.props;
     if (heroText === 'scrolled') return styles.heroImage;
@@ -40,8 +56,18 @@ class HeroLogo extends React.Component {
     if (heroText === 'scrolled') return styles.heroLogoShadow;
   }
 
+  modeCheck(webMode) {
+    if (webMode === 'web') this.openLink();
+  }
+
+  openLink() {
+    const { centerHref } = this.props;
+    console.log(centerHref);
+    NativeModules.LinkingManager.openURL(centerHref);
+  }
+
   render() {
-    const { fetchHeroHover, centerLogoIconName, centerHref } = this.props;
+    const { fetchHeroHover, centerLogoIconName, webMode, centerHref } = this.props;
     return (
         <View>
           <View style={this.heroLogoShadowStyle()} />
@@ -49,7 +75,7 @@ class HeroLogo extends React.Component {
           <Image source={this.heroImage()} style={this.heroImageStyle()} />
           <VrButton
             onEnter={() => fetchHeroHover(centerLogoIconName)} onExit={() => fetchHeroHover('')}
-            onClick={() => NativeModules.LinkingManager.openURL(centerHref)}
+            onClick={() => this.modeCheck(webMode)}
             style={styles.heroLogoHitBox}
           />
         </View>

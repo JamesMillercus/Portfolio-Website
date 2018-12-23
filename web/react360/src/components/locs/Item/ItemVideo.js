@@ -1,16 +1,9 @@
 import React from 'react';
-import { StyleSheet, Video, asset, NativeModules, } from 'react-360';
+import { StyleSheet, Video, NativeModules, asset, Environment } from 'react-360';
 import { connect } from 'react-redux';
 import { fetchActiveItem } from './../../../actions';
 
 const { VideoModule } = NativeModules;
-
-
-/*
-  - test on all devices
-    - detect browser and if oculus browser, then redirect to /webvr
-    - stop device working on devices with no accellerometer
-*/
 
 class ItemVideo extends React.Component {
 
@@ -24,12 +17,15 @@ class ItemVideo extends React.Component {
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);
-
     if (deviceType !== 'laptop') NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${youtube}`);
+    else Environment.clearBackground();
   }
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
+    Environment.setBackgroundImage(asset('360_world.jpg'), {
+      format: '2D',
+    });
   }
 
   render() {

@@ -59,12 +59,20 @@ function init(bundle, parent, options = {}) {
   }
 );
 
-  const appSurface = new Surface(4096, 720, Surface.SurfaceShape.Cylinder);
-  appSurface.setAngle(0, -0.6);
+  const heroSurface = new Surface(700, 300, Surface.SurfaceShape.Flat);
+  heroSurface.setAngle(0, 0.1);
 
   r360.renderToSurface(
-    r360.createRoot('App', { parentPathName: pathname }),
-    appSurface
+    r360.createRoot('HeroContainer', { parentPathName: pathname }),
+    heroSurface
+  );
+
+  const itemSurface = new Surface(800, 400, Surface.SurfaceShape.Flat);
+  itemSurface.setAngle(1, 0);
+
+  r360.renderToSurface(
+    r360.createRoot('ItemContainer', { parentPathName: pathname }),
+    itemSurface
   );
 
   // r360.renderToSurface(r360.createRoot('MobileVideoContainer'), MobileVideo);
@@ -77,7 +85,7 @@ function init(bundle, parent, options = {}) {
   // player.setMuted(false);
 
 
-  r360.controls.clearRaycasters();
+  if (pathname === '/webvr') r360.controls.clearRaycasters();
   r360.controls.addRaycaster(SimpleRaycaster);
   r360.compositor.setCursorVisibility('visible');
 }

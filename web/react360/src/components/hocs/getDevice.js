@@ -11,7 +11,6 @@ export default (ChildComponent) => {
 	class GetDevice extends Component {
 		renderDevice(deviceType) {
 			// fetch with deviceType
-      // console.log(deviceType);
 			if (deviceType !== 'mobile' && deviceType !== 'tablet') this.props.fetchDeviceType('laptop');
 			else this.props.fetchDeviceType(deviceType);
 			return <ChildComponent {...this.props} />;
