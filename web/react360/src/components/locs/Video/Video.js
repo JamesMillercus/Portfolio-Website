@@ -5,31 +5,22 @@ import { fetchActiveItem } from './../../../actions';
 
 const { VideoModule } = NativeModules;
 
-/*
-  - integrate r360 app into csr app
-  - Ensure video is loading and displaying properly when item is clicked
-  - create 7 other items
-  - implement noscript error
-  - test on all devices
-  - animate heroText(if possible)
-*/
-
 class VideoComponent extends React.Component {
   componentDidUpdate() {
     const { activeItem } = this.props;
     if (activeItem !== 'hidden') VideoModule.showVideo();
   }
 
-  click() {
-    const { activeItem } = this.props;
-    // console.log('LOL');
-    if (activeItem !== 'hidden') {
-    }
-  }
+  // click() {
+  //   const { activeItem } = this.props;
+  //   // console.log('LOL');
+  //   if (activeItem !== 'hidden') {
+  //   }
+  // }
 
   content() {
     const { activeItem } = this.props;
-    const click = () => this.click();
+    // const click = () => this.click();
     if (activeItem === 'hidden') return <View />;
 
     // <VrButton onClick={click()}>

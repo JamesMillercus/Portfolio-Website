@@ -10,10 +10,16 @@ import {
 } from 'react-360';
 import { ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-
-import { fetchHeroHover } from './../../../actions';
+import LoadingBar from './LoadingBar';
+import { fetchHeroHover, fetchLoadingContent } from './../../../actions';
 
 class HeroIcon extends React.Component {
+
+  componentDidUpdate() {
+    const { webMode, heroHover, fetchLoadingContent, iconName } = this.props;
+    if (webMode === 'webvr' && heroHover === iconName) fetchLoadingContent(heroHover);
+    else if (heroHover === '') fetchLoadingContent('');
+  }
 
   iconStyle() {
     if (this.props.iconName === 'centerLeftIcon') return styles.leftIcon;
@@ -36,15 +42,17 @@ class HeroIcon extends React.Component {
   }
 
   render() {
-    const { heroHover } = this.props;
+    const { heroHover, iconName, iconUrl } = this.props;
     return (
         <View>
-          <View style={[this.iconStyle(), heroHover === this.props.iconName ? this.iconHoverStyle() : null]}>
+          <View style={[this.iconStyle(), heroHover === iconName ? this.iconHoverStyle() : null]}>
+            <LoadingBar content={'Opening link'} marginTop={-70} marginLeft={-15} id={iconName} url={iconUrl} />
             <ImageBackground source={asset(this.props.iconImg)} style={this.iconImgStyle()} />
           </View>
           <VrButton
-            onEnter={() => this.props.fetchHeroHover(this.props.iconName)} onExit={() => this.props.fetchHeroHover('')}
-            onClick={() => NativeModules.LinkingManager.openURL(this.props.iconUrl)}
+            onEnter={() => this.props.fetchHeroHover(iconName)}
+            onExit={() => this.props.fetchHeroHover('')}
+            onClick={() => NativeModules.LinkingManager.openURL(iconUrl)}
             style={this.iconHitBoxStyle()}
           />
         </View>
@@ -58,7 +66,7 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: '#7d7d7d',
     position: 'absolute',
-    marginTop: 60,
+    marginTop: 110,
     marginLeft: 40,
     borderRadius: 100 / 2
   },
@@ -67,7 +75,7 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: '#269a18',
     position: 'absolute',
-    marginTop: 60,
+    marginTop: 110,
     borderRadius: 100 / 2
   },
   leftIconHitBox: {
@@ -75,22 +83,22 @@ const styles = StyleSheet.create({
     height: 150,
     marginLeft: 15,
     // backgroundColor: '#ff0006',
-    marginTop: '4.5%',
+    marginTop: 90,
     position: 'absolute',
     borderRadius: 150 / 2
   },
   leftIconImage: {
-    width: 50,
     height: 33,
+    width: 70,
     marginTop: 33,
-    marginLeft: '25%'
+    marginLeft: '15%'
   },
   rightIcon: {
     width: 100,
     height: 100,
     backgroundColor: '#7d7d7d',
     position: 'absolute',
-    marginTop: 60,
+    marginTop: 110,
     marginLeft: 558,
     borderRadius: 100 / 2,
   },
@@ -99,20 +107,20 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: '#e3bb2a',
     position: 'absolute',
-    marginTop: 60,
+    marginTop: 110,
     borderRadius: 100 / 2
   },
   rightIconImage: {
-    width: 50,
+    width: 70,
     height: 33,
     marginTop: 33,
-    marginLeft: '26%'
+    marginLeft: '15%'
   },
   rightIconHitBox: {
     width: 150,
     height: 150,
     // backgroundColor: '#ff0006',
-    marginTop: '5.8%',
+    marginTop: 90,
     position: 'absolute',
     borderRadius: 150 / 2,
     marginLeft: 535
@@ -120,6 +128,6 @@ const styles = StyleSheet.create({
 });
 
 
-const mapStateToProps = ({ heroHover }) => ({ heroHover });
+const mapStateToProps = ({ heroHover, webMode }) => ({ heroHover, webMode });
 
-export default connect(mapStateToProps, { fetchHeroHover })(HeroIcon);
+export default connect(mapStateToProps, { fetchHeroHover, fetchLoadingContent })(HeroIcon);

@@ -62,7 +62,7 @@ export default compose(getDevice, connect(mapStateToProps, { fetchHeroText, fetc
 const styles = StyleSheet.create({
   hero: {
     width: 700,
-    height: 300
+    height: 400,
     // backgroundColor: '#639dda'
   }
 });

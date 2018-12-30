@@ -10,24 +10,15 @@ import {
   NativeModules,
   VrButton
 } from 'react-360';
-import { fetchHeroHover } from './../../../actions';
+import LoadingBar from './LoadingBar';
+import { fetchHeroHover, fetchLoadingContent } from './../../../actions';
 
 class HeroLogo extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.animateTimeout = null;
-    this.openLink = this.openLink.bind(this);
-  }
-
   componentDidUpdate() {
-    const { webMode, heroHover, centerLogoIconName } = this.props;
-    if (webMode === 'webvr' && heroHover === centerLogoIconName) this.animateProgress();
-    else if (heroHover === '') clearTimeout(this.animateTimeout);
-  }
-
-  animateProgress() {
-    this.animateTimeout = setTimeout(this.openLink, 1000);
+    const { webMode, heroHover, centerLogoIconName, fetchLoadingContent } = this.props;
+    if (webMode === 'webvr' && heroHover === centerLogoIconName) fetchLoadingContent(heroHover);
+    else if (heroHover === '') fetchLoadingContent('');
   }
 
   heroImageStyle() {
@@ -62,7 +53,6 @@ class HeroLogo extends React.Component {
 
   openLink() {
     const { centerHref } = this.props;
-    console.log(centerHref);
     NativeModules.LinkingManager.openURL(centerHref);
   }
 
@@ -71,8 +61,10 @@ class HeroLogo extends React.Component {
     return (
         <View>
           <View style={this.heroLogoShadowStyle()} />
-          <View style={this.heroLogoStyle()} />
-          <Image source={this.heroImage()} style={this.heroImageStyle()} />
+          <View style={this.heroLogoStyle()}>
+            <LoadingBar content={'Opening link'} marginTop={-70} marginLeft={-15} id={centerLogoIconName} url={centerHref} />
+            <Image source={this.heroImage()} style={this.heroImageStyle()} />
+          </View>
           <VrButton
             onEnter={() => fetchHeroHover(centerLogoIconName)} onExit={() => fetchHeroHover('')}
             onClick={() => this.modeCheck(webMode)}
@@ -85,37 +77,39 @@ class HeroLogo extends React.Component {
 
 const mapStateToProps = ({ heroText, heroHover }) => ({ heroText, heroHover });
 
-export default connect(mapStateToProps, { fetchHeroHover })(HeroLogo);
+export default connect(mapStateToProps, { fetchHeroHover, fetchLoadingContent })(HeroLogo);
 
 const styles = StyleSheet.create({
   heroLogo: {
-    marginTop: 20,
+    marginTop: 70,
     marginLeft: 267,
     borderRadius: 200 / 2,
     width: 160,
     height: 160,
     backgroundColor: '#008f9c',
-    position: 'absolute'
+    position: 'absolute',
+    overflow: 'hidden',
   },
   heroLogoHitBox: {
-    marginTop: 20,
+    marginTop: 70,
     marginLeft: 267,
     borderRadius: 200 / 2,
     width: 160,
     height: 160,
-    position: 'absolute'
+    position: 'absolute',
   },
   unscrolledHeroLogo: {
-    marginTop: 35,
+    marginTop: 85,
     marginLeft: 282,
     borderRadius: 200 / 2,
     width: 140,
     height: 140,
     backgroundColor: '#7d7d7d',
-    position: 'absolute'
+    position: 'absolute',
+    overflow: 'hidden',
   },
   heroLogoShadow: {
-    marginTop: 22,
+    marginTop: 72,
     marginLeft: 279,
     borderRadius: 200 / 2,
     width: 160,
@@ -126,15 +120,15 @@ const styles = StyleSheet.create({
   heroImage: {
     width: 100,
     height: 100,
-    marginTop: 50,
-    marginLeft: 297,
+    marginTop: 30,
+    marginLeft: 30,
     position: 'absolute'
   },
   unscrolledHeroImage: {
-    width: 80,
+    width: 90,
     height: 80,
-    marginTop: 65,
-    marginLeft: 314,
+    marginTop: 28,
+    marginLeft: 27,
     position: 'absolute'
   }
 });

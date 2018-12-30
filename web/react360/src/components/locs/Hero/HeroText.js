@@ -36,7 +36,7 @@ class HeroText extends React.Component {
   render() {
     this.styles = StyleSheet.create({
       heroText: {
-        marginTop: 220,
+        marginTop: 270,
         fontSize: 25,
         color: this.props.textColorScrollHero,
         fontWeight: 'bold',
@@ -46,7 +46,7 @@ class HeroText extends React.Component {
         height: 80
       },
       unscrolledHeroText: {
-        marginTop: 220,
+        marginTop: 270,
         fontSize: 20,
         color: this.props.textColorNoScroll,
         fontWeight: 'bold',
@@ -56,7 +56,7 @@ class HeroText extends React.Component {
         height: 80
       },
       leftHeroText: {
-        marginTop: 220,
+        marginTop: 270,
         fontSize: 25,
         color: this.props.textColorScrollCenterLeftIcon,
         fontWeight: 'bold',
@@ -66,7 +66,7 @@ class HeroText extends React.Component {
         height: 80
       },
       rightHeroText: {
-        marginTop: 220,
+        marginTop: 270,
         fontSize: 25,
         color: this.props.textColorScrollCenterRightIcon,
         fontWeight: 'bold',

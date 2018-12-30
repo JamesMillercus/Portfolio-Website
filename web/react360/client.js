@@ -33,6 +33,9 @@ function init(bundle, parent, options = {}) {
   //   }
   // }
 
+  // const cameraDirection = [0, 0, -1];
+  // const reticleSurface = new Surface(50, 50, Surface.SurfaceShape.Flat);
+
   const r360 = new ReactInstance(bundle, parent, {
     // Add custom options here
     fullScreen: true,
@@ -45,21 +48,23 @@ function init(bundle, parent, options = {}) {
     //   cameraDirection[0] = 0;
     //   cameraDirection[1] = 0;
     //   cameraDirection[2] = -1;
-    //   // cameraDirection will point out from the view of the camera,
-    //   // we can use it to compute surface angles
+    // //   // cameraDirection will point out from the view of the camera,
+    // //   // we can use it to compute surface angles
     //   VRMath.rotateByQuaternion(cameraDirection, cameraQuat);
     //   const cx = cameraDirection[0];
     //   const cy = cameraDirection[1];
     //   const cz = cameraDirection[2];
+    //
     //   const horizAngle = Math.atan2(cx, -cz);
-    //   const vertAngle = Math.asin(cy / Math.sqrt((cx * cx) + (cy * cy) + (cz * cz)));
-    //   Video.setAngle(horizAngle, vertAngle);
+    //   const vertAngle = Math.asin(cy / Math.sqrt(cx * cx + cy * cy + cz * cz));
+    //
+    //   reticleSurface.setAngle(horizAngle, vertAngle);
     // },
     ...options,
   }
 );
 
-  const heroSurface = new Surface(700, 300, Surface.SurfaceShape.Flat);
+  const heroSurface = new Surface(700, 400, Surface.SurfaceShape.Flat);
   heroSurface.setAngle(0, 0.1);
 
   r360.renderToSurface(
@@ -75,6 +80,11 @@ function init(bundle, parent, options = {}) {
     itemSurface
   );
 
+  // r360.renderToSurface(
+  //   r360.createRoot('ReticleContainer', { parentPathName: pathname }),
+  //   reticleSurface
+  // );
+
   // r360.renderToSurface(r360.createRoot('MobileVideoContainer'), MobileVideo);
 
   // const player = r360.compositor.createVideoPlayer('myplayer');
@@ -84,8 +94,7 @@ function init(bundle, parent, options = {}) {
   // player.play();
   // player.setMuted(false);
 
-
-  if (pathname === '/webvr') r360.controls.clearRaycasters();
+  if (pathname === '/webvr' || !('ontouchstart' in window)) r360.controls.clearRaycasters();
   r360.controls.addRaycaster(SimpleRaycaster);
   r360.compositor.setCursorVisibility('visible');
 }

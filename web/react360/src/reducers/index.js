@@ -5,6 +5,8 @@ import HeroHoverReducer from './HeroHoverReducer';
 import ItemClickedReducer from './ItemClickedReducer';
 import ActiveItemReducer from './ActiveItemReducer';
 import DeviceTypeReducer from './DeviceTypeReducer';
+import LoadingContentReducer from './LoadingContentReducer';
+import LoadingProgressReducer from './LoadingProgressReducer';
 
 export default combineReducers({
   scrolledItem: ItemScrolledReducer,
@@ -12,5 +14,7 @@ export default combineReducers({
   heroHover: HeroHoverReducer,
   clickedItems: ItemClickedReducer,
   activeItem: ActiveItemReducer,
-  deviceType: DeviceTypeReducer
+  deviceType: DeviceTypeReducer,
+  loadingContent: LoadingContentReducer,
+  loadingProgress: LoadingProgressReducer
 });

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { UserAgentProvider } from '@quentin-sommer/react-useragent';
-import { AppRegistry, asset, Environment } from 'react-360';
+import { asset, Environment } from 'react-360';
 import { store } from './../Store.js';
 import config from './../config/homeConfig';
 import Hero from './../components/locs/Hero/Hero';
 
-class HeroContainer extends Component {
+export default class HeroContainer extends Component {
 
   componentWillMount() {
     this.webMode = 'webvr';
@@ -74,5 +74,3 @@ class HeroContainer extends Component {
     );
   }
 }
-
-AppRegistry.registerComponent('HeroContainer', () => HeroContainer);
