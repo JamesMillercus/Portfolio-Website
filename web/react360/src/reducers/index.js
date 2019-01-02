@@ -7,6 +7,7 @@ import ActiveItemReducer from './ActiveItemReducer';
 import DeviceTypeReducer from './DeviceTypeReducer';
 import LoadingContentReducer from './LoadingContentReducer';
 import LoadingProgressReducer from './LoadingProgressReducer';
+import WebModeReducer from './WebModeReducer';
 
 export default combineReducers({
   scrolledItem: ItemScrolledReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   activeItem: ActiveItemReducer,
   deviceType: DeviceTypeReducer,
   loadingContent: LoadingContentReducer,
-  loadingProgress: LoadingProgressReducer
+  loadingProgress: LoadingProgressReducer,
+  webMode: WebModeReducer
 });

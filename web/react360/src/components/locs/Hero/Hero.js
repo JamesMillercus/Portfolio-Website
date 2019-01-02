@@ -20,13 +20,11 @@ class Hero extends React.Component {
           iconName={this.props.centerLeftIconName}
           iconImg={this.props.centerLeftIconImage}
           iconUrl={this.props.centerLeftIconHref}
-          webMode={this.props.webMode}
         />
         <HeroIcon
           iconName={this.props.centerRightIconName}
           iconImg={this.props.centerRightIconImage}
           iconUrl={this.props.centerRightIconHref}
-          webMode={this.props.webMode}
         />
         <HeroLogo
           logoImage={this.props.logoImage}
@@ -36,7 +34,6 @@ class Hero extends React.Component {
           heroText={this.props.heroText}
           heroHover={this.props.heroHover}
           fetchHeroHover={this.props.fetchHeroHover}
-          webMode={this.props.webMode}
         />
         <HeroText
           textNoScroll={this.props.textNoScroll}
@@ -54,7 +51,7 @@ class Hero extends React.Component {
   }
 }
 
-const mapStateToProps = ({ r360, heroText, heroHover }) => ({ r360, heroHover, heroText });
+const mapStateToProps = ({ r360, heroText, heroHover, webMode }) => ({ r360, heroHover, heroText, webMode });
 
 // export default connect(mapStateToProps, { fetchHeroText, fetchHeroHover })(Hero);
 export default compose(getDevice, connect(mapStateToProps, { fetchHeroText, fetchHeroHover }))(Hero);

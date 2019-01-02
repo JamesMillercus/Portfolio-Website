@@ -62,11 +62,12 @@ class HeroLogo extends React.Component {
         <View>
           <View style={this.heroLogoShadowStyle()} />
           <View style={this.heroLogoStyle()}>
-            <LoadingBar content={'Opening link'} marginTop={-70} marginLeft={-15} id={centerLogoIconName} url={centerHref} />
+            <LoadingBar content={'Opening link'} marginTop={-70} marginLeft={-15} marginBottom={10} width={200} id={centerLogoIconName} url={centerHref} />
             <Image source={this.heroImage()} style={this.heroImageStyle()} />
           </View>
           <VrButton
-            onEnter={() => fetchHeroHover(centerLogoIconName)} onExit={() => fetchHeroHover('')}
+            onEnter={() => fetchHeroHover(centerLogoIconName)}
+            onExit={() => fetchHeroHover('')}
             onClick={() => this.modeCheck(webMode)}
             style={styles.heroLogoHitBox}
           />
@@ -75,7 +76,7 @@ class HeroLogo extends React.Component {
   }
 }
 
-const mapStateToProps = ({ heroText, heroHover }) => ({ heroText, heroHover });
+const mapStateToProps = ({ heroText, heroHover, webMode }) => ({ heroText, heroHover, webMode });
 
 export default connect(mapStateToProps, { fetchHeroHover, fetchLoadingContent })(HeroLogo);
 

@@ -22,24 +22,18 @@ class LoadingBar extends React.Component {
     this.openLink = this.openLink.bind(this);
   }
 
-  componentDidMount() {
-    // when component is mounted, state is confused because it is taking values from both instantiated components
-    // solution 1: try to find solution by editting this component
-    // solution 2: dynamically instantiate each Loading Bar based on heroHover
-  }
-
   componentDidUpdate() {
     const { loadingContent, id, fetchLoadingProgress, loadingProgress } = this.props;
     if (loadingContent === id) {
       if (loadingProgress !== 0) this.animateTimer();
       else this.animateTimeout = setTimeout(() => this.openLink(), 1000);
-    } else {
+    } else if (loadingContent !== id && this.animateTimeout !== null) {
       clearTimeout(this.animateTimeout);
+      this.animateTimeout = null;
       this.animateCounter = this.beginCount;
       fetchLoadingProgress(this.animateCounter);
     }
   }
-
 
   animateTimer() {
     const { fetchLoadingProgress } = this.props;
@@ -65,21 +59,21 @@ class LoadingBar extends React.Component {
   }
 
   render() {
-    const { marginTop, marginLeft, loadingContent, loadingProgress, id } = this.props;
+    const { marginTop, marginBottom, marginLeft, loadingContent, loadingProgress, id, width } = this.props;
 
     const progressAnimated = this.calcProgressAnimation(loadingProgress);
 
     const styles = StyleSheet.create({
       progressContainer: {
         marginTop,
-        marginLeft
+        marginLeft,
+        marginBottom
       },
       progressText: {
         textAlign: 'center',
         color: '#7d7d7d',
-        marginBottom: 10,
         fontSize: 23,
-        width: 200
+        width
       }
     });
 
@@ -87,7 +81,7 @@ class LoadingBar extends React.Component {
       return (
         <View style={styles.progressContainer}>
           <Text style={styles.progressText}> {this.props.content} in... {loadingProgress} </Text>
-          <Progress.Bar progress={progressAnimated} width={200} />
+          <Progress.Bar progress={progressAnimated} width={width} />
         </View>
       );
     }

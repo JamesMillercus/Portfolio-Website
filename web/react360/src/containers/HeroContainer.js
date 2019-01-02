@@ -1,45 +1,43 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { UserAgentProvider } from '@quentin-sommer/react-useragent';
 import { asset, Environment } from 'react-360';
 import { store } from './../Store.js';
 import config from './../config/homeConfig';
 import Hero from './../components/locs/Hero/Hero';
+import { fetchWebMode } from './../actions';
 
-export default class HeroContainer extends Component {
+class HeroContainer extends Component {
 
   componentWillMount() {
-    this.webMode = 'webvr';
     this.userAgent = navigator.userAgent;
+    if (this.props.parentPathName === '/') this.props.fetchWebMode('web');
+    // this.webMode = 'webvr'; // comment this in dev
   }
 
   componentDidMount() {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
       format: '2D',
     });
-
-    if (this.props.parentPathName === '/webvr') this.webMode = 'webvr'; // comment this in dev
-    else this.webMode = 'web'; // comment this in dev
-    // this.webMode = 'web'; // comment this in production
   }
 
   logoTextScrolled() {
-    if (this.webMode === 'webvr') return config.heroFooterText.centerIcon.logoTextScrolledWebVR;
+    if (this.props.webMode === 'webvr') return config.heroFooterText.centerIcon.logoTextScrolledWebVR;
     return config.heroFooterText.centerIcon.logoTextScrolled;
   }
 
   logoImageScrolled() {
-    if (this.webMode === 'webvr') return config.heroText.centerIcon.webvrLogoImageScrolled;
+    if (this.props.webMode === 'webvr') return config.heroText.centerIcon.webvrLogoImageScrolled;
     return config.heroText.centerIcon.logoImageScrolled;
   }
 
   centerLogoIconName() {
-    if (this.webMode === 'webvr') return config.heroText.centerIcon.webvrCenterLogoIconName;
+    if (this.props.webMode === 'webvr') return config.heroText.centerIcon.webvrCenterLogoIconName;
     return config.heroText.centerIcon.centerLogoIconName;
   }
 
   href() {
-    if (this.webMode === 'webvr') return config.heroText.centerIcon.webvrhref;
+    if (this.props.webMode === 'webvr') return config.heroText.centerIcon.webvrhref;
     return config.heroText.centerIcon.href;
   }
 
@@ -67,10 +65,22 @@ export default class HeroContainer extends Component {
               centerRightIconName={config.heroIcon.centerRightIcon.name360}
               centerRightIconImage={config.heroIcon.centerRightIcon.image360}
               centerRightIconHref={config.heroIcon.centerRightIcon.href}
-              webMode={this.webMode}
             />
         </Provider>
       </UserAgentProvider>
     );
   }
 }
+
+const mapStateToProps = ({ webMode }) => ({ webMode });
+
+function connectWithStore(store, WrappedComponent, ...args) {
+  const ConnectedWrappedComponent = connect(...args)(WrappedComponent);
+  return function (props) {
+    return <ConnectedWrappedComponent {...props} store={store} />;
+  };
+}
+
+const ConnectedApp = connectWithStore(store, HeroContainer, mapStateToProps, { fetchWebMode });
+
+export default ConnectedApp;

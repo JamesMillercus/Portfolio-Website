@@ -41,24 +41,37 @@ class HeroIcon extends React.Component {
     return styles.rightIconImage;
   }
 
+  modeCheck(webMode) {
+    if (webMode === 'web') this.openLink();
+  }
+
+  setLeftMargin() {
+    if (this.props.heroHover === 'centerRightIcon') return -50;
+    return -55;
+  }
+
   render() {
-    const { heroHover, iconName, iconUrl } = this.props;
+    const { heroHover, iconName, iconUrl, webMode } = this.props;
     return (
         <View>
           <View style={[this.iconStyle(), heroHover === iconName ? this.iconHoverStyle() : null]}>
-            <LoadingBar content={'Opening link'} marginTop={-70} marginLeft={-15} id={iconName} url={iconUrl} />
+            <LoadingBar content={'Opening link'} marginTop={-60} marginLeft={this.setLeftMargin()} marginBottom={20} width={195} id={iconName} url={iconUrl} />
             <ImageBackground source={asset(this.props.iconImg)} style={this.iconImgStyle()} />
           </View>
           <VrButton
             onEnter={() => this.props.fetchHeroHover(iconName)}
             onExit={() => this.props.fetchHeroHover('')}
-            onClick={() => NativeModules.LinkingManager.openURL(iconUrl)}
+            onClick={() => this.modeCheck(webMode)}
             style={this.iconHitBoxStyle()}
           />
         </View>
     );
   }
 }
+
+const mapStateToProps = ({ heroHover, webMode }) => ({ heroHover, webMode });
+
+export default connect(mapStateToProps, { fetchHeroHover, fetchLoadingContent })(HeroIcon);
 
 const styles = StyleSheet.create({
   leftIcon: {
@@ -67,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7d7d7d',
     position: 'absolute',
     marginTop: 110,
-    marginLeft: 40,
+    marginLeft: 60,
     borderRadius: 100 / 2
   },
   leftIconHover: {
@@ -76,12 +89,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#269a18',
     position: 'absolute',
     marginTop: 110,
-    borderRadius: 100 / 2
+    borderRadius: 100 / 2,
   },
   leftIconHitBox: {
     width: 150,
     height: 150,
-    marginLeft: 15,
+    marginLeft: 35,
     // backgroundColor: '#ff0006',
     marginTop: 90,
     position: 'absolute',
@@ -99,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7d7d7d',
     position: 'absolute',
     marginTop: 110,
-    marginLeft: 558,
+    marginLeft: 538,
     borderRadius: 100 / 2,
   },
   rightIconHover: {
@@ -123,11 +136,6 @@ const styles = StyleSheet.create({
     marginTop: 90,
     position: 'absolute',
     borderRadius: 150 / 2,
-    marginLeft: 535
+    marginLeft: 515
   }
 });
-
-
-const mapStateToProps = ({ heroHover, webMode }) => ({ heroHover, webMode });
-
-export default connect(mapStateToProps, { fetchHeroHover, fetchLoadingContent })(HeroIcon);
