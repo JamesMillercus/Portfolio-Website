@@ -2,26 +2,36 @@
 import React from 'react';
 import { StyleSheet, VrButton, View } from 'react-360';
 import { connect } from 'react-redux';
-import { fetchScrolledItem, fetchClickedItems, fetchActiveItem } from './../../../actions';
+import {
+  fetchScrolledItem, fetchClickedItems, fetchActiveItem, fetchLoadingContent
+} from './../../../actions';
 import ItemImage from './ItemImage';
 import ItemText from './ItemText';
 import ItemVideo from './ItemVideo';
+import LoadingBar from './../LoadingBar/LoadingBar';
 
 class Item extends React.Component {
 
-  clicked(page, item) {
-    this.props.fetchActiveItem(item);
+  componentDidUpdate() {
+    const { webMode, scrolledItem, itemNumber, fetchLoadingContent } = this.props;
+    if (webMode === 'webvr' && scrolledItem === itemNumber) fetchLoadingContent(scrolledItem);
+    else if (scrolledItem === null) fetchLoadingContent('');
+  }
 
-    const { clickedItems } = this.props;
-    if (Object.getOwnPropertyNames(clickedItems).length === 0 || clickedItems[page] === undefined) {
-      // console.log('page has not been clicked');
-			this.props.fetchClickedItems(page, item);
-		} else {
-      // console.log("page has been clicked, item hasn't");
-			const itemAlreadyClicked = clickedItems[page].includes(item);
-      // if item hasn't already been clicked
-			if (!itemAlreadyClicked) this.props.fetchClickedItems(page, item);
-		}
+  clicked(page, item) {
+    const { webMode, fetchActiveItem, fetchClickedItems, clickedItems } = this.props;
+    if (webMode === 'web') {
+      fetchActiveItem(item);
+      if (Object.getOwnPropertyNames(clickedItems).length === 0 || clickedItems[page] === undefined) {
+        // console.log('page has not been clicked');
+        fetchClickedItems(page, item);
+      } else {
+        // console.log("page has been clicked, item hasn't");
+        const itemAlreadyClicked = clickedItems[page].includes(item);
+        // if item hasn't already been clicked
+        if (!itemAlreadyClicked) fetchClickedItems(page, item);
+      }
+    }
   }
 
   scrolledOut() {
@@ -29,8 +39,13 @@ class Item extends React.Component {
     this.props.fetchActiveItem('hidden');
   }
 
+  scrolledOver() {
+    const { fetchScrolledItem, itemNumber, webMode } = this.props;
+    if (webMode === 'web') fetchScrolledItem(itemNumber);
+  }
+
   content() {
-    const { activeItem, itemNumber, videoID, videoLength, youtube } = this.props;
+    const { activeItem, itemNumber, videoID, videoLength, youtube, page } = this.props;
     if (activeItem === itemNumber) {
       return (
         <ItemVideo
@@ -44,6 +59,17 @@ class Item extends React.Component {
 
     return (
       <View>
+        <LoadingBar
+          content={'Opening video'}
+          marginTop={-20}
+          marginLeft={450}
+          marginBottom={0}
+          width={210}
+          id={itemNumber}
+          url={videoID}
+          position={'absolute'}
+          page={page}
+        />
         <ItemImage
           unscrolledImage={this.props.unscrolledImage}
           scrolledImage={this.props.scrolledImage}
@@ -66,7 +92,7 @@ class Item extends React.Component {
   }
 
   render() {
-    const mouseOver = () => this.props.fetchScrolledItem(this.props.itemNumber);
+    const mouseOver = () => this.scrolledOver();
     const mouseOut = () => this.scrolledOut();
     const mouseClick = () => this.clicked(this.props.page, this.props.itemNumber);
 
@@ -117,9 +143,9 @@ class Item extends React.Component {
 
 
 const mapStateToProps = ({
-  scrolledItem, clickedItems, activeItem
-}) => ({ scrolledItem, clickedItems, activeItem });
+  scrolledItem, clickedItems, activeItem, webMode
+}) => ({ scrolledItem, clickedItems, activeItem, webMode });
 
 export default connect(mapStateToProps, {
-  fetchScrolledItem, fetchClickedItems, fetchActiveItem
+  fetchScrolledItem, fetchClickedItems, fetchActiveItem, fetchLoadingContent
 })(Item);

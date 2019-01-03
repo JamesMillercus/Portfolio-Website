@@ -10,7 +10,7 @@ import {
 } from 'react-360';
 import { ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import LoadingBar from './LoadingBar';
+import LoadingBar from './../LoadingBar/LoadingBar';
 import { fetchHeroHover, fetchLoadingContent } from './../../../actions';
 
 class HeroIcon extends React.Component {
@@ -55,7 +55,17 @@ class HeroIcon extends React.Component {
     return (
         <View>
           <View style={[this.iconStyle(), heroHover === iconName ? this.iconHoverStyle() : null]}>
-            <LoadingBar content={'Opening link'} marginTop={-60} marginLeft={this.setLeftMargin()} marginBottom={20} width={195} id={iconName} url={iconUrl} />
+            <LoadingBar
+              content={'Opening link'}
+              marginTop={-60}
+              marginLeft={this.setLeftMargin()}
+              marginBottom={20}
+              width={195}
+              id={iconName}
+              url={iconUrl}
+              position={'relative'}
+              page={null}
+            />
             <ImageBackground source={asset(this.props.iconImg)} style={this.iconImgStyle()} />
           </View>
           <VrButton

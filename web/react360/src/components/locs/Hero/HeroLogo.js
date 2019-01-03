@@ -10,7 +10,7 @@ import {
   NativeModules,
   VrButton
 } from 'react-360';
-import LoadingBar from './LoadingBar';
+import LoadingBar from './../LoadingBar/LoadingBar';
 import { fetchHeroHover, fetchLoadingContent } from './../../../actions';
 
 class HeroLogo extends React.Component {
@@ -62,7 +62,17 @@ class HeroLogo extends React.Component {
         <View>
           <View style={this.heroLogoShadowStyle()} />
           <View style={this.heroLogoStyle()}>
-            <LoadingBar content={'Opening link'} marginTop={-70} marginLeft={-15} marginBottom={10} width={200} id={centerLogoIconName} url={centerHref} />
+            <LoadingBar
+              content={'Opening link'}
+              marginTop={-70}
+              marginLeft={-15}
+              marginBottom={10}
+              width={200}
+              id={centerLogoIconName}
+              url={centerHref}
+              position={'relative'}
+              page={null}
+            />
             <Image source={this.heroImage()} style={this.heroImageStyle()} />
           </View>
           <VrButton

@@ -10,11 +10,21 @@ import {
   Video
 } from 'react-360';
 import { connect } from 'react-redux';
+import { fetchScrolledItem } from './../../../actions';
 
 class ItemImage extends React.Component {
 
+  scrolledOver() {
+    const { fetchScrolledItem, itemNumber, webMode } = this.props;
+    if (webMode === 'webvr') fetchScrolledItem(itemNumber);
+  }
+
+  scrolledOut() {
+    this.props.fetchScrolledItem(null);
+  }
+
   itemImage() {
-    const { scrolledItem, clickedItems, itemNumber, page } = this.props;
+    const { scrolledItem, clickedItems, itemNumber, page, webMode } = this.props;
     // if clickedItems reducer isn't empty
     if (Object.getOwnPropertyNames(clickedItems).length !== 0 && clickedItems[page] !== undefined) {
       // return gif if the current item is clicked
@@ -30,9 +40,12 @@ class ItemImage extends React.Component {
   }
 
   render() {
+    const mouseOver = () => this.scrolledOver();
+    const mouseOut = () => this.scrolledOut();
+
     return (
       <View>
-        <VrButton>
+        <VrButton onEnter={() => mouseOver()} onExit={() => mouseOut()}>
           {this.itemImage()}
         </VrButton>
       </View>
@@ -58,6 +71,6 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ scrolledItem, clickedItems }) => ({ scrolledItem, clickedItems });
+const mapStateToProps = ({ scrolledItem, clickedItems, webMode }) => ({ scrolledItem, clickedItems, webMode });
 
-export default connect(mapStateToProps, null)(ItemImage);
+export default connect(mapStateToProps, { fetchScrolledItem })(ItemImage);

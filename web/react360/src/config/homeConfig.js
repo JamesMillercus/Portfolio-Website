@@ -33,7 +33,7 @@ export default {
     }
   ],
   itemImage: [
-    { unscrolled: 'moodtree.png', scrolled: 'moodtree-scrolled.png', clicked: 'moodtreegif.mp4' },
+    { webvr: 'moodtree-webvr.png', webvrScrolled: 'moodtree-scrolled-webvr.png', unscrolled: 'moodtree.png', scrolled: 'moodtree-scrolled.png', clicked: 'moodtreegif.mp4' },
     { unscrolled: 'beer.png', scrolled: 'beer-scrolled.png', clicked: 'beergif.mp4' },
     { unscrolled: 'epic.png', scrolled: 'epic-scrolled.png', clicked: 'epicgif.mp4' },
     { unscrolled: 'merck.png', scrolled: 'merck-scrolled.png', clicked: 'merckgif.mp4' },
