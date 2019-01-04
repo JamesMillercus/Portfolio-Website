@@ -3,7 +3,7 @@ import { Provider, connect } from 'react-redux';
 import { UserAgentProvider } from '@quentin-sommer/react-useragent';
 import { asset, Environment } from 'react-360';
 import { store } from './../Store.js';
-import config from './../config/homeConfig';
+import config from './../config/config';
 import Hero from './../components/locs/Hero/Hero';
 import { fetchWebMode } from './../actions';
 

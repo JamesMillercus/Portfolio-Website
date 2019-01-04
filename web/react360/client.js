@@ -72,12 +72,32 @@ function init(bundle, parent, options = {}) {
     heroSurface
   );
 
-  const itemSurface = new Surface(800, 400, Surface.SurfaceShape.Flat);
-  itemSurface.setAngle(1, 0);
-
+  const moodTreeSurface = new Surface(800, 400, Surface.SurfaceShape.Flat);
+  moodTreeSurface.setAngle(1.2, 0.1);
   r360.renderToSurface(
-    r360.createRoot('ItemContainer', { parentPathName: pathname }),
-    itemSurface
+    r360.createRoot('ItemContainer', { itemNumber: 0 }),
+    moodTreeSurface
+  );
+
+  const epicSurface = new Surface(800, 400, Surface.SurfaceShape.Flat);
+  epicSurface.setAngle(5.1, 0.1);
+  r360.renderToSurface(
+    r360.createRoot('ItemContainer', { itemNumber: 2 }),
+    epicSurface
+  );
+
+  const beerSurface = new Surface(800, 400, Surface.SurfaceShape.Flat);
+  beerSurface.setAngle(2.5, 0.1);
+  r360.renderToSurface(
+    r360.createRoot('ItemContainer', { itemNumber: 1 }),
+    beerSurface
+  );
+
+  const merckSurface = new Surface(800, 400, Surface.SurfaceShape.Flat);
+  merckSurface.setAngle(3.8, 0.1);
+  r360.renderToSurface(
+    r360.createRoot('ItemContainer', { itemNumber: 3 }),
+    merckSurface
   );
 
   // r360.renderToSurface(
