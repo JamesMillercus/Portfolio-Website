@@ -33,10 +33,50 @@ export default {
     }
   ],
   itemImage: [
-    { webvr: 'moodtree-webvr.png', webvrScrolled: 'moodtree-scrolled-webvr.png', unscrolled: 'moodtree.png', scrolled: 'moodtree-scrolled.png', clicked: 'moodtreegif.mp4' },
-    { webvr: 'beer-webvr.png', webvrScrolled: 'beer-scrolled-webvr.png', unscrolled: 'beer.png', scrolled: 'beer-scrolled.png', clicked: 'beergif.mp4' },
-    { webvr: 'epic-webvr.png', webvrScrolled: 'epic-scrolled-webvr.png', unscrolled: 'epic.png', scrolled: 'epic-scrolled.png', clicked: 'epicgif.mp4' },
-    { webvr: 'merck-webvr.png', webvrScrolled: 'merck-scrolled-webvr.png', unscrolled: 'merck.png', scrolled: 'merck-scrolled.png', clicked: 'merckgif.mp4' },
+    { // mood tree
+      webvr: 'moodtree-webvr.png',
+      webvrScrolled: 'moodtree-scrolled-webvr.png',
+      unscrolled: 'moodtree.png',
+      scrolled: 'moodtree-scrolled.png',
+      clicked: 'moodtreegif.mp4',
+      marginLeft: 9,
+      marginTop: 10,
+      clickedMarginLeft: 22,
+      clickedMarginTop: 22
+    },
+    { // beer pump
+      webvr: 'beer-webvr.png',
+      webvrScrolled: 'beer-scrolled-webvr.png',
+      unscrolled: 'beer.png',
+      scrolled: 'beer-scrolled.png',
+      clicked: 'beergif.mp4',
+      marginLeft: 3,
+      marginTop: 8,
+      clickedMarginLeft: 20,
+      clickedMarginTop: 20
+    },
+    { // epic mind drive
+      webvr: 'epic-webvr.png',
+      webvrScrolled: 'epic-scrolled-webvr.png',
+      unscrolled: 'epic.png',
+      scrolled: 'epic-scrolled.png',
+      clicked: 'epicgif.mp4',
+      marginLeft: 8,
+      marginTop: 4,
+      clickedMarginLeft: 22,
+      clickedMarginTop: 20
+    },
+    { // my other life
+      webvr: 'merck-webvr.png',
+      webvrScrolled: 'merck-scrolled-webvr.png',
+      unscrolled: 'merck.png',
+      scrolled: 'merck-scrolled.png',
+      clicked: 'merckgif.mp4',
+      marginLeft: 5,
+      marginTop: 8,
+      clickedMarginLeft: 26,
+      clickedMarginTop: 21
+    },
     { unscrolled: 'krispy.png', scrolled: 'krispy-scrolled.png', clicked: 'krispy.gif' },
     { unscrolled: 'sap.png', scrolled: 'sap-scrolled.png', clicked: 'sap.gif' },
     { unscrolled: null, scrolled: null, clicked: null },
@@ -47,19 +87,23 @@ export default {
     {
       videoID: 'moodtree.mp4', // moodtree
       videoLength: 103000,
-      youtube: 'yVKqqdlHPLI'
+      youtube: 'yVKqqdlHPLI',
+      webvrYoutube: 'gvH1MHfv-nI',
     }, {
       videoID: 'beerpump.mp4', // pay@pump
       videoLength: 64000,
-      youtube: '8ycTf2TDH_I'
+      youtube: '8ycTf2TDH_I',
+      webvrYoutube: 'qR6JDCNV-pw'
     }, {
       videoID: 'epic.mp4', // epic mind drive
       videoLength: 102000,
-      youtube: 'K3N18cqnzHg'
+      youtube: 'K3N18cqnzHg',
+      webvrYoutube: 'jlUxbGY2guM'
     }, {
       videoID: 'merck.mp4', // merck next gen vr
       videoLength: 114000,
-      youtube: 'FPOmiqU4bIs'
+      youtube: 'FPOmiqU4bIs',
+      webvrYoutube: 'R7i77wmA4fk'
     }, {
       // hero text: video not applicable
     }, {

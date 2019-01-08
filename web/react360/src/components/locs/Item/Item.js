@@ -45,7 +45,19 @@ class Item extends React.Component {
   }
 
   content() {
-    const { activeItem, itemNumber, videoID, videoLength, youtube, page } = this.props;
+    const {
+      activeItem,
+      itemNumber,
+      videoID,
+      videoLength,
+      youtube,
+      page,
+      webvrYoutube,
+      marginLeft,
+      marginTop,
+      clickedMarginTop,
+      clickedMarginLeft
+    } = this.props;
     if (activeItem === itemNumber) {
       return (
         <ItemVideo
@@ -53,6 +65,7 @@ class Item extends React.Component {
           videoLength={videoLength}
           itemNumber={itemNumber}
           youtube={youtube}
+          webvrYoutube={webvrYoutube}
         />
       );
     }
@@ -61,8 +74,8 @@ class Item extends React.Component {
       <View>
         <LoadingBar
           content={'Opening video'}
-          marginTop={-20}
-          marginLeft={450}
+          marginTop={0}
+          marginLeft={465}
           marginBottom={0}
           width={210}
           id={itemNumber}
@@ -76,6 +89,10 @@ class Item extends React.Component {
           clickedImage={this.props.clickedImage}
           itemNumber={this.props.itemNumber}
           page={this.props.page}
+          marginLeft={marginLeft}
+          marginTop={marginTop}
+          clickedMarginLeft={clickedMarginLeft}
+          clickedMarginTop={clickedMarginTop}
         />
         <ItemText
           textHeader={this.props.textHeader}
@@ -89,6 +106,18 @@ class Item extends React.Component {
     const { activeItem, itemNumber } = this.props;
     if (activeItem === itemNumber || activeItem === 'hidden') return 'flex';
     return 'none';
+  }
+
+  borderWidth() {
+    const { webMode } = this.props;
+    if (webMode === 'web') return 1;
+    return 0;
+  }
+
+  borderColor() {
+    const { webMode } = this.props;
+    if (webMode === 'web') return '#008f9c';
+    return null;
   }
 
   render() {
@@ -106,8 +135,6 @@ class Item extends React.Component {
       item: {
         width: 800,
         height: 400,
-        marginLeft: this.props.marginLeft,
-        marginTop: this.props.marginTop,
         paddingTop: 90,
         paddingLeft: 100,
         position: 'absolute',
@@ -119,12 +146,10 @@ class Item extends React.Component {
         height: 400,
         backgroundColor: '#fff',
         position: 'absolute',
-        marginLeft: this.props.marginLeft,
-        marginTop: this.props.marginTop,
         paddingTop: 90,
         paddingLeft: 100,
-        borderWidth: 1,
-        borderColor: '#008f9c'
+        borderWidth: this.borderWidth(),
+        borderColor: this.borderColor()
       },
     });
 

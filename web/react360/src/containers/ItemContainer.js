@@ -45,7 +45,12 @@ class ItemContainer extends Component {
             videoID={config.itemVideo[itemNumber].videoID}
             videoLength={config.itemVideo[itemNumber].videoLength}
             youtube={config.itemVideo[itemNumber].youtube}
+            webvrYoutube={config.itemVideo[itemNumber].webvrYoutube}
             webMode={this.webMode}
+            marginLeft={config.itemImage[itemNumber].marginLeft}
+            marginTop={config.itemImage[itemNumber].marginTop}
+            clickedMarginLeft={config.itemImage[itemNumber].clickedMarginLeft}
+            clickedMarginTop={config.itemImage[itemNumber].clickedMarginTop}
           />
         </Provider>
       </UserAgentProvider>

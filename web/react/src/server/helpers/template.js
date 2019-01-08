@@ -1,11 +1,12 @@
 import { Helmet } from 'react-helmet';
 import serialize from 'serialize-javascript';
 
-export default (req, store, content) => {
+export default (req, store, rawContent) => {
   let headerTags;
   let scripts;
+  let content;
 
-  if (content) {
+  if (rawContent) {
     // ssr
     const helmet = Helmet.renderStatic();
     headerTags = `${helmet.title.toString()}
@@ -16,6 +17,7 @@ export default (req, store, content) => {
                </script>
                <script src ="/js/vendors.js"></script>
                <script src ="/js/bundle.js"></script>`;
+    content = rawContent;
   } else {
     // csr
     headerTags =
@@ -23,9 +25,11 @@ export default (req, store, content) => {
 
     scripts = `<script src ="/js/vendors.js"></script>
                <script src ="/js/csr_bundle.js"></script>`;
+    content = '<div> </div>';
   }
   // returns an object that contains tags from loaded components
   // load front end js
+
   return `
     <html>
       <head>
