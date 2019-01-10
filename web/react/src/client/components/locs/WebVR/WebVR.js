@@ -7,7 +7,7 @@ class WebVR extends Component {
     this.interval = null;
     this.state = {
       videoIsPlaying: false,
-      browser: null
+      // browser: null
     };
   }
 
@@ -15,9 +15,9 @@ class WebVR extends Component {
     this.setTimer();
   }
 
-  componentWillReceiveProps() {
-    this.setState({ browser: this.props.browser });
-  }
+  // componentWillReceiveProps() {
+  //   this.setState({ browser: this.props.browser });
+  // }
 
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -26,12 +26,17 @@ class WebVR extends Component {
   setTimer() {
     this.interval = setInterval(() => {
       const iframeHref = document.getElementById('player').contentWindow.location;
-      if (Object.keys(iframeHref).length < 8 && this.state.browser !== 'Oculus Browser') {
+      // console.log(`iframeHref ${iframeHref.pathname}`);
+      if (Object.keys(iframeHref).length < 8 && ('ontouchstart' in window)) {
         clearInterval(this.interval);
         this.setState({ videoIsPlaying: true });
       } else if (iframeHref.pathname === '/') window.location = '/';
-        else if (iframeHref.pathname === '/services') window.location = '/services';
-        else if (iframeHref.pathname === '/webvr') window.location = '/webvr';
+      else if (iframeHref.pathname === '/services') window.location = '/services';
+      else if (iframeHref.pathname === '/webvr') window.location = '/webvr';
+      // else if (iframeHref.pathname !== '/webVRbuild/index.html' && this.state.browser !== 'Oculus Browser') {
+      //   clearInterval(this.interval);
+      //   this.setState({ videoIsPlaying: true });
+      // }
     }, 250);
   }
 

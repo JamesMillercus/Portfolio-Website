@@ -130,7 +130,7 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE EXPERIENCE & DIGITAL DESIGN SERVICES',
+      text: 'INTERACTIVE DESIGN & DEVELOPMENT SERVICES',
       color: '#7c7c7c'
     },
     centerIcon: {
