@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import Iframe from 'react-iframe';
+import Instructions from './Instructions/Instructions';
 
 class WebVR extends Component {
+  /*
+    1. Set initial state to instruction page = DONE
+    2. If state === instruction, display instruction page
+    3. Instruction page content is pulled from config file
+    4. Once continue is clicked, update state to hide instruction and activate iframe
+  */
+
   constructor() {
     super();
     this.interval = null;
     this.state = {
       videoIsPlaying: false,
-      // browser: null
+      displayInstructions: true
     };
   }
 
@@ -73,6 +81,7 @@ class WebVR extends Component {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
       <div>
+        <Instructions />
         <div id='iframeButton' style={iframeStyle} onClick={click} />
         <Iframe
           url={this.props.href}

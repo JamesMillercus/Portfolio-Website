@@ -1,0 +1,32 @@
+.instructions {
+  width: 100%;
+  height: 100%;
+  background-color:red;
+  position:fixed;
+  z-index: 1;
+}
+
+.instructionsButton {
+  width: 200px;
+  height: 100px;
+  background-color:green;
+  right: 0;
+  bottom:0;
+  position: absolute;
+}
+
+.instructionOne {
+  width: 100%;
+  height: 30%;
+  background-color: blue;
+}
+
+.instructionImage {
+  height: 100%;
+  width: 50%;
+  background-color: pink;
+}
+
+.instructionsText {
+  
+}

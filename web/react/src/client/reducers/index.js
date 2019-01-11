@@ -18,6 +18,7 @@ import contentReducer from './contentReducer';
 import updateUrlReducer from './updateUrlReducer';
 import asyncVideoComponentReducer from './asyncVideoComponentReducer';
 import heroKeyPressReducer from './heroKeyPressReducer';
+import vrInstructionsReducer from './vrInstructionsReducer';
 // combine all existing reducers
 export default combineReducers({
 	userAgent: userAgentReducer,
@@ -37,5 +38,6 @@ export default combineReducers({
 	content: contentReducer,
 	updateUrl: updateUrlReducer,
 	asyncVideoComponent: asyncVideoComponentReducer,
-	heroKeyPress: heroKeyPressReducer
+	heroKeyPress: heroKeyPressReducer,
+	vrInstructions: vrInstructionsReducer
 });

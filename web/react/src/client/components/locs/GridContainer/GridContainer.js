@@ -160,7 +160,6 @@ class GridContainer extends Component {
     return items;
   }
 
-
   render() {
     const divStyle = {
       marginLeft: `${this.props.backgroundPos.x}px`,

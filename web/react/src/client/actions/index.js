@@ -249,3 +249,13 @@ export const fetchHeroKeyPress = (data) => async (dispatch) => {
       payload: res
     });
 };
+
+export const FETCH_VR_INSTRUCTIONS = 'fetch_vr_instructions';
+
+export const fetchVrInstructions = (data) => async (dispatch) => {
+    const res = data;
+    dispatch({
+      type: FETCH_VR_INSTRUCTIONS,
+      payload: res
+    });
+};
