@@ -1,0 +1,70 @@
+.laptopInstructionsContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.laptopInstructions {
+  width: 95%;
+  height: 90%;
+  // background-color:red;
+  margin-left:auto;
+  margin-right:auto;
+  position: relative;
+  color: #7c7c7c;
+  font-family: Source Sans Pro,sans-serif;
+}
+
+.laptopInstructions h1 {
+  margin-top: 0;
+  padding-top: 10px;
+  padding-left: 1.6%;
+}
+
+.laptopInstructionsContainer .instructionsButton {
+  width: 200px;
+  height: 10%;
+  background-color:green;
+  margin-left: auto;
+  display: flex;
+  cursor: pointer;
+}
+
+.laptopInstructionsContainer .instructionsButton p {
+  text-align: center;
+  margin: auto;
+}
+
+.laptopInstructions .instruction {
+  width: 30%;
+  height: 89%;
+  float: left;
+  margin-right: 1.65%;
+  margin-left: 1.65%;
+  position: relative;
+  display: inline-block;
+}
+
+.laptopInstructions .instructionImage {
+  height: 60%;
+  width: 100%;
+  background-color: pink;
+  position: absolute;
+  bottom: 10%;
+}
+
+.laptopInstructions .instructionText {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.laptopInstructions .instructionText p, .laptopInstructions .instructionText h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.laptopInstructions .instructionText h2 {
+  margin-bottom: 10px;
+}

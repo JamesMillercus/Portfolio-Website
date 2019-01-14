@@ -1,0 +1,55 @@
+.mobileInstructions {
+  width: 95%;
+  height: 100%;
+  background-color:red;
+  margin-left:auto;
+  margin-right:auto;
+  z-index: 1;
+  position: relative;
+}
+
+.mobileInstructions h1 {
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.mobileInstructions .instructionsButton {
+  width: 200px;
+  height: 100px;
+  background-color:green;
+  right: 0;
+  bottom:0;
+  position: absolute;
+}
+
+.mobileInstructions .instruction {
+  width: 100%;
+  height: 170px;
+  margin-bottom: 10px;
+}
+
+.mobileInstructions .instructionImage {
+  height: 100%;
+  width: 50%;
+  background-color: pink;
+  display: inline-block;
+  float: left;
+}
+
+.mobileInstructions .instructionText {
+  height: 100%;
+  width: 50%;
+  background-color: blue;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.mobileInstructions .instructionText p, .mobileInstructions .instructionText h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.mobileInstructions .instructionText h2 {
+  margin-bottom: 10px;
+}

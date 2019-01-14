@@ -13,7 +13,5 @@ class WebVRPage extends Component {
 
 export default {
   // take props from admins and pass them into require Auth
-  component: compose(
-    getDevice, getOSVersion
-  )(WebVRPage)
+  component: compose(getDevice, getOSVersion)(WebVRPage)
 };

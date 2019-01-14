@@ -3,19 +3,11 @@ import Iframe from 'react-iframe';
 import Instructions from './Instructions/Instructions';
 
 class WebVR extends Component {
-  /*
-    1. Set initial state to instruction page = DONE
-    2. If state === instruction, display instruction page
-    3. Instruction page content is pulled from config file
-    4. Once continue is clicked, update state to hide instruction and activate iframe
-  */
-
   constructor() {
     super();
     this.interval = null;
     this.state = {
-      videoIsPlaying: false,
-      displayInstructions: true
+      videoIsPlaying: false
     };
   }
 
@@ -60,29 +52,36 @@ class WebVR extends Component {
   }
 
   render() {
-    const iframeStyle = {
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      width: 100,
-      height: 100,
-      backgroundImage: `url(${'/assets/images/exitIcon.png'})`,
-      backgroundColor: '#cd0b0b',
-      backgroundSize: '50%',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      cursor: 'pointer',
-      zIndex: 1,
-      display: this.displayButton()
+    const styles = {
+      iframe: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: 100,
+        height: 100,
+        backgroundImage: `url(${'/assets/images/exitIcon.png'})`,
+        backgroundColor: '#cd0b0b',
+        backgroundSize: '50%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        cursor: 'pointer',
+        zIndex: 1,
+        display: this.displayButton()
+      },
+      webvrContainer: {
+        width: '100%',
+        height: '100%',
+        position: 'fixed'
+      }
     };
 
     const click = () => this.exit();
 
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
-      <div>
+      <div style={styles.webvrContainer}>
         <Instructions />
-        <div id='iframeButton' style={iframeStyle} onClick={click} />
+        <div id='iframeButton' style={styles.iframe} onClick={click} />
         <Iframe
           url={this.props.href}
           width="100%"

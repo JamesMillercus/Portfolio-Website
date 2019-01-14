@@ -66,7 +66,7 @@ export default {
   ],
   heroFooterText: {
     none: {
-      text: 'INTERACTIVE DESIGN & DEVELOPMENT SERVICES',
+      text: 'INTERACTIVE ART, DESIGN & TECHNOLOGY DEVELOPMENT',
       color: '#7c7c7c'
     },
     centerIcon: {
