@@ -22,8 +22,18 @@ class Instructions extends Component {
   }
 
   displayInstructions() {
-    if (this.props.vrInstructions) return 'block';
-    return 'none';
+    if (this.props.vrInstructions) return 2;
+    return 0;
+  }
+
+  whiteOutZindex() {
+    if (this.props.vrInstructions) return 1;
+    return 0;
+  }
+
+  whiteOutOpacity() {
+    if (this.props.vrInstructions) return 0.5;
+    return 0;
   }
 
   clickedInstruction() {
@@ -57,19 +67,17 @@ class Instructions extends Component {
 
   render() {
     const { deviceType } = this.props;
-
-    const divStyle = {
-      display: this.displayInstructions()
-    };
     const click = () => this.clickedInstruction();
 
     return (
-      <div className={`${deviceType}InstructionsContainer`} style={divStyle}>
-        <div className={`${deviceType}Instructions`}>
-          <h1> How to use </h1>
-          {this.instructions()}
+      <div>
+        <div className={`${deviceType}InstructionsContainer`} style={{ zIndex: this.displayInstructions() }}>
+          <div className={`${deviceType}Instructions`}>
+            {this.instructions()}
+            <div className="instructionsButton" onClick={click}> <p> Click to continue </p> </div>
+          </div>
         </div>
-        <div className="instructionsButton" onClick={click}> <p> Click to continue </p> </div>
+        <div className={'webvrWhiteout'} style={{ opacity: this.whiteOutOpacity(), zIndex: this.whiteOutZindex() }} />
       </div>
     );
   }

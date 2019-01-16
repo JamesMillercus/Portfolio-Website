@@ -1,30 +1,34 @@
 .laptopInstructionsContainer {
   width: 100%;
   height: 100%;
-  position: relative;
-}
-
-.laptopInstructions {
-  width: 95%;
-  height: 90%;
-  // background-color:red;
-  margin-left:auto;
-  margin-right:auto;
-  position: relative;
+  position: fixed;
+  min-width: 1300px;
+  min-height: 600px;
   color: #7c7c7c;
   font-family: Source Sans Pro,sans-serif;
 }
 
+.laptopInstructions {
+  width: 42%;
+  background-color: white;
+  height: 72%;
+  padding-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
 .laptopInstructions h1 {
   margin-top: 0;
-  padding-top: 10px;
   padding-left: 1.6%;
 }
 
 .laptopInstructionsContainer .instructionsButton {
   width: 200px;
   height: 10%;
-  background-color:green;
+  background-color: green;
+  margin-right: 7.5%;
+  margin-top: 2%;
   margin-left: auto;
   display: flex;
   cursor: pointer;
@@ -36,25 +40,23 @@
 }
 
 .laptopInstructions .instruction {
-  width: 30%;
-  height: 89%;
-  float: left;
-  margin-right: 1.65%;
-  margin-left: 1.65%;
+  width: 85%;
+  height: 79%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 4%;
   position: relative;
-  display: inline-block;
 }
 
 .laptopInstructions .instructionImage {
-  height: 60%;
+  height: 75%;
   width: 100%;
   background-color: pink;
-  position: absolute;
-  bottom: 10%;
 }
 
 .laptopInstructions .instructionText {
   width: 100%;
+  height: 25%;
   margin: 0;
   padding: 0;
   display: block;
@@ -67,4 +69,11 @@
 
 .laptopInstructions .instructionText h2 {
   margin-bottom: 10px;
+}
+
+.webvrWhiteout {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
 }

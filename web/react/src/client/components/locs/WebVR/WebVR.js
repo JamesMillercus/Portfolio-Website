@@ -54,11 +54,11 @@ class WebVR extends Component {
   render() {
     const styles = {
       iframe: {
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         right: 0,
-        width: 100,
-        height: 100,
+        width: '100%',
+        height: '100%',
         backgroundImage: `url(${'/assets/images/exitIcon.png'})`,
         backgroundColor: '#cd0b0b',
         backgroundSize: '50%',
@@ -67,11 +67,6 @@ class WebVR extends Component {
         cursor: 'pointer',
         zIndex: 1,
         display: this.displayButton()
-      },
-      webvrContainer: {
-        width: '100%',
-        height: '100%',
-        position: 'fixed'
       }
     };
 
@@ -79,7 +74,7 @@ class WebVR extends Component {
 
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
-      <div style={styles.webvrContainer}>
+      <div>
         <Instructions />
         <div id='iframeButton' style={styles.iframe} onClick={click} />
         <Iframe
