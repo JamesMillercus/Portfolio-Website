@@ -40,18 +40,8 @@ export default [
     instructions: [
       {
         image: 'lol',
-        header: 'Step 1',
-        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      },
-      {
-        image: 'lol 2',
-        header: 'Step 2',
-        paragraph: 'Phasellus vel ante velit. Nulla ut dignissim purus.'
-      },
-      {
-        image: 'lol 3',
-        header: 'Step 3',
-        paragraph: 'Duis fermentum non odio sit amet rutrum. Integer nec lacus rhoncus.'
+        header: 'Attach your VR viewer onto your mobile device',
+        paragraph: "Then look around the page and gaze at content that you'd like to open"
       }
     ]
   },
@@ -61,18 +51,8 @@ export default [
     instructions: [
       {
         image: 'lol',
-        header: 'Step 1',
-        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      },
-      {
-        image: 'lol 2',
-        header: 'Step 2',
-        paragraph: 'Phasellus vel ante velit. Nulla ut dignissim purus.'
-      },
-      {
-        image: 'lol 3',
-        header: 'Step 3',
-        paragraph: 'Duis fermentum non odio sit amet rutrum. Integer nec lacus rhoncus.'
+        header: 'Rotate your device to explore',
+        paragraph: "Then tap on content that you'd like to open"
       }
     ]
   }

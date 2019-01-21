@@ -19,14 +19,15 @@ export default (ChildComponent) => {
 			return (
 				<UserAgent returnFullParser>
 					{parser => (
-						<div className="class"> {this.content(parser.getBrowser().name)} </div>
+						<div className="class"> {this.content(parser.getBrowser())} </div>
 					)}
 				</UserAgent>
 			);
 		}
 
-		content(browserName) {
-			this.parser = browserName;
+		content(browser) {
+			const browserName = browser.name;
+			this.parser = browser;
 			// return <ChildComponent {...this.props} key={browserName} />;
 			switch (this.allowedBrowser(browserName)) {
 				// browser not authorised

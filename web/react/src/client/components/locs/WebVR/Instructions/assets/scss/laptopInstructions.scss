@@ -26,12 +26,13 @@
 .laptopInstructionsContainer .instructionsButton {
   width: 200px;
   height: 10%;
-  background-color: green;
+  background-color: #7c7c7c;
   margin-right: 7.5%;
   margin-top: 2%;
   margin-left: auto;
   display: flex;
   cursor: pointer;
+  color: white;
 }
 
 .laptopInstructionsContainer .instructionsButton p {

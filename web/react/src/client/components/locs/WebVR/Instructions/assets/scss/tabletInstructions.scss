@@ -1,0 +1,89 @@
+.tabletInstructionsContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  color: #7c7c7c;
+  font-family: Source Sans Pro,sans-serif;
+}
+
+.tabletInstructions {
+  width: 90%;
+  background-color: white;
+  height: 86%;
+  padding-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.tabletInstructionsContainer .instructionsButton {
+  width: 50%;
+  height: 10%;
+  background-color: #7c7c7c;
+  margin-right: 7.5%;
+  margin-top: 18%;
+  margin-left: auto;
+  display: flex;
+  cursor: pointer;
+  color: white;
+}
+
+.tabletInstructionsContainer .instructionsButton p {
+  text-align: center;
+  margin: auto;
+  font-size: 2.3vh;
+}
+
+.tabletInstructions .instruction {
+  width: 85%;
+  height: 68%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 4%;
+  position: relative;
+}
+
+.tabletInstructions .instructionImage {
+  height: 75%;
+  width: 100%;
+  background-color: pink;
+}
+
+.tabletInstructions .instructionText {
+  width: 100%;
+  height: 34%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.tabletInstructions .instructionText p, .tabletInstructions .instructionText h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.tabletInstructions .instructionText p {
+  font-size: 2.3vh;
+}
+
+.tabletInstructions .instructionText h2 {
+  margin-bottom: 3vh;
+  font-size: 2.9vh;
+}
+
+.webvrWhiteout {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+}
+
+@media only screen and (orientation: landscape) {
+  .tabletInstructionsContainer .instructionsButton {
+    margin-top: 8%;
+  }
+
+  .tabletInstructions .instruction {
+    padding-top: 2%;
+  }
+}

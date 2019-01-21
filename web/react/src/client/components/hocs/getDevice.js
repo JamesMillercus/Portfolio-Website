@@ -8,7 +8,8 @@ export default (ChildComponent) => {
 // export default connect(mapStateToProps, { fetchDeviceType })(ChildComponent) => {
 
 	class GetDevice extends Component {
-		renderDevice(deviceType) {
+		renderDevice(device) {
+			const deviceType = device.type;
 			// fetch with deviceType
 			if (deviceType !== 'mobile' && deviceType !== 'tablet') this.props.fetchDeviceType('laptop');
 			else this.props.fetchDeviceType(deviceType);
@@ -20,7 +21,7 @@ export default (ChildComponent) => {
 				<UserAgent returnFullParser>
 					{parser => (
 						<div>
-							{this.renderDevice(parser.getDevice().type)}
+							{this.renderDevice(parser.getDevice())}
 						</div>
 					)}
 				</UserAgent>

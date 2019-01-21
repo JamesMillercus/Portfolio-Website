@@ -1,48 +1,60 @@
-.mobileInstructions {
-  width: 95%;
+.mobileInstructionsContainer {
+  width: 100%;
   height: 100%;
-  background-color:red;
-  margin-left:auto;
-  margin-right:auto;
-  z-index: 1;
+  position: fixed;
+  color: #7c7c7c;
+  font-family: Source Sans Pro,sans-serif;
+}
+
+.mobileInstructions {
+  width: 90%;
+  background-color: white;
+  height: 84%;
+  padding-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
 }
 
-.mobileInstructions h1 {
-  margin-top: 0;
-  padding-top: 10px;
+.mobileInstructionsContainer .instructionsButton {
+  width: 50%;
+  height: 10%;
+  background-color: #7c7c7c;
+  margin-right: 7.5%;
+  margin-top: 12%;
+  margin-left: auto;
+  display: flex;
+  cursor: pointer;
+  color: white;
 }
 
-.mobileInstructions .instructionsButton {
-  width: 200px;
-  height: 100px;
-  background-color:green;
-  right: 0;
-  bottom:0;
-  position: absolute;
+.mobileInstructionsContainer .instructionsButton p {
+  text-align: center;
+  margin: auto;
+  font-size: 2.3vh;
 }
 
 .mobileInstructions .instruction {
-  width: 100%;
-  height: 170px;
-  margin-bottom: 10px;
+  width: 85%;
+  height: 74%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 4%;
+  position: relative;
 }
 
 .mobileInstructions .instructionImage {
-  height: 100%;
-  width: 50%;
+  height: 70%;
+  width: 100%;
   background-color: pink;
-  display: inline-block;
-  float: left;
 }
 
 .mobileInstructions .instructionText {
-  height: 100%;
-  width: 50%;
-  background-color: blue;
+  width: 100%;
+  height: 34%;
   margin: 0;
   padding: 0;
-  display: inline-block;
+  display: block;
 }
 
 .mobileInstructions .instructionText p, .mobileInstructions .instructionText h2 {
@@ -50,6 +62,52 @@
   padding: 0;
 }
 
+.mobileInstructions .instructionText p {
+  font-size: 2.3vh;
+}
+
 .mobileInstructions .instructionText h2 {
-  margin-bottom: 10px;
+  margin-bottom: 3vh;
+  font-size: 2.9vh;
+}
+
+.webvrWhiteout {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+}
+
+@media only screen and (orientation: landscape) {
+
+  .mobileInstructions {
+    padding-top: 1.2%;
+    width: 95%;
+    height: 95%;
+  }
+
+  .mobileInstructions .instruction {
+    padding-top: 3%;
+  }
+
+  .mobileInstructions .instructionText {
+    height: 20%;
+  }
+
+  .mobileInstructions .instructionImage {
+    height: 80%;
+  }
+
+  .mobileInstructionsContainer .instructionsButton {
+    width: 25%;
+    margin-top: 2%;
+  }
+
+  .mobileInstructions .instructionText h2 {
+    font-size: 4vh;
+  }
+
+  .mobileInstructions .instructionText p {
+    font-size: 3vh;
+  }
 }

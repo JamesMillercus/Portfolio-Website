@@ -6,23 +6,32 @@ import './assets/scss';
 
 class Instructions extends Component {
   /*
-    1. Design layout of instruction page
-    2. Instruction page content is pulled from config file
+    1. Set horizontal version on mobile & tablet
+    2. Test on mobile & tablet
+    3. Test on oculus go headset
+    4. Create content for each screen layout
   */
 
   constructor(props) {
     super(props);
     this.state = {
-      pageHref: null
+      pageHref: null,
+      touchDevice: false
     };
   }
 
   componentDidMount() {
     this.setState({ pageHref: window.location.pathname });
+    // if (('ontouchstart' in window)) {
+    //   this.setState({ touchDevice: true });
+    // }
   }
 
   displayInstructions() {
-    if (this.props.vrInstructions) return 2;
+    const { vrInstructions, webMode, deviceType } = this.props;
+    // if (deviceType === 'laptop' || deviceType === 'tablet' && this.state.touchDevice || deviceType === 'mobile' && this.state.touchDevice) {
+    // }
+    if (vrInstructions) return 2;
     return 0;
   }
 
@@ -32,7 +41,7 @@ class Instructions extends Component {
   }
 
   whiteOutOpacity() {
-    if (this.props.vrInstructions) return 0.5;
+    if (this.props.vrInstructions) return 0.8;
     return 0;
   }
 
@@ -65,6 +74,11 @@ class Instructions extends Component {
     return returnedInstructions;
   }
 
+  instructionsButton(deviceType) {
+    if (deviceType !== 'laptop') return 'Tap to continue';
+    return 'Click to continue';
+  }
+
   render() {
     const { deviceType } = this.props;
     const click = () => this.clickedInstruction();
@@ -74,7 +88,7 @@ class Instructions extends Component {
         <div className={`${deviceType}InstructionsContainer`} style={{ zIndex: this.displayInstructions() }}>
           <div className={`${deviceType}Instructions`}>
             {this.instructions()}
-            <div className="instructionsButton" onClick={click}> <p> Click to continue </p> </div>
+            <div className="instructionsButton" onClick={click}> <p> {this.instructionsButton(deviceType)} </p> </div>
           </div>
         </div>
         <div className={'webvrWhiteout'} style={{ opacity: this.whiteOutOpacity(), zIndex: this.whiteOutZindex() }} />

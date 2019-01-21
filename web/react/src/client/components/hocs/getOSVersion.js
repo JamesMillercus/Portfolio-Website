@@ -31,7 +31,7 @@ export default (ChildComponent) => {
 			} else if (osName === 'iOS') {
 				osString = String(osVersion).substring(0, 5);
 				osFloat = parseFloat(osString.replace('.', ''));
-				compatible = 103; // 10.3
+				compatible = 90; // 10.3
 				webvrCompatible = 110; // 11.0
 			} else {
 				osString = String(osVersion).substring(0, 5);
@@ -39,7 +39,6 @@ export default (ChildComponent) => {
 				compatible = 103; // 10.3
 				webvrCompatible = 99999; // 99.9
 			}
-
       if (osFloat <= compatible) return false;
 			else if (this.webVrChecker(osFloat, webvrCompatible)) return 'react360';
 			return true;
