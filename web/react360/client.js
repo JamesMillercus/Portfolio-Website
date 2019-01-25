@@ -35,7 +35,6 @@ function init(bundle, parent, options = {}) {
 
   // const cameraDirection = [0, 0, -1];
   // const reticleSurface = new Surface(50, 50, Surface.SurfaceShape.Flat);
-
   const r360 = new ReactInstance(bundle, parent, {
     // Add custom options here
     fullScreen: true,

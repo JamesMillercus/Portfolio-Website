@@ -55,7 +55,7 @@ export default (ChildComponent) => {
 				case false:
 					return <BadOS />;
 				case 'react360':
-					return <WebVR {...this.props} href={'/webVRbuild/index.html'} />;
+					return <WebVR {...this.props} />;
 				// if is authorised, then load child component and load props from render page into child
 				default:
 					return <ChildComponent {...this.props} />;

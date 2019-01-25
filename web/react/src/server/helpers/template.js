@@ -25,7 +25,25 @@ export default (req, store, rawContent) => {
 
     scripts = `<script src ="/js/vendors.js"></script>
                <script src ="/js/csr_bundle.js"></script>`;
-    content = '<div> </div>';
+
+     /* CREATE LOGIC FOR DETERMINING IF:
+      1. is Laptop or headset webvr
+      2. is Mobile webvr
+      3. then push that result to the webMode reducer
+     */
+
+    content = `
+      <div> </div>
+      <script>
+        var vrDisplay;
+        if(navigator.getVRDisplays) {
+          navigator.getVRDisplays().then(function(displays) {
+            if(displays.length > 0) window.INITIAL_STATE = {vrDisplays: JSON.stringify(displays[0].displayName)};
+            else window.INITIAL_STATE = ${serialize({ vrDisplays: null })}
+          });
+        } else window.INITIAL_STATE = ${serialize({ vrDisplays: null })}
+      </script>
+    `;
   }
   // returns an object that contains tags from loaded components
   // load front end js

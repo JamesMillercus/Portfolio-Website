@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Iframe from 'react-iframe';
 import Instructions from './Instructions/Instructions';
+import { fetchWebMode } from './../../../actions';
+
 
 class WebVR extends Component {
   constructor() {
@@ -11,13 +14,9 @@ class WebVR extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setTimer();
-  }
-
-  // componentWillReceiveProps() {
-  //   this.setState({ browser: this.props.browser });
-  // }
+    componentDidMount() {
+      this.setTimer();
+    }
 
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -48,7 +47,13 @@ class WebVR extends Component {
   exit() {
     this.setState({ videoIsPlaying: false });
     this.setTimer();
-    document.getElementById('player').src = '/webVRbuild/index.html';
+    document.getElementById('player').src = this.props.href;
+  }
+
+  loadExperience() {
+    const { vrDisplays, deviceType } = this.props;
+    // if (!vrDisplays && deviceType === 'mobile') return 'mobilewebvr' (timer)
+    return '/webVRbuild/index.html';
   }
 
   render() {
@@ -78,7 +83,7 @@ class WebVR extends Component {
         <Instructions />
         <div id='iframeButton' style={styles.iframe} onClick={click} />
         <Iframe
-          url={this.props.href}
+          url={this.loadExperience()}
           width="100%"
           height="100%"
           id="player"
@@ -93,4 +98,12 @@ class WebVR extends Component {
   }
 }
 
-export default WebVR;
+// map the state of data called from fetchUsers to users[state.users]
+function mapStateToProps(state) {
+  return {
+    vrDisplays: state.vrDisplays,
+    deviceType: state.deviceType
+  };
+}
+
+export default connect(mapStateToProps, { fetchWebMode })(WebVR);

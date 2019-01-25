@@ -259,3 +259,23 @@ export const fetchVrInstructions = (data) => async (dispatch) => {
       payload: res
     });
 };
+
+export const FETCH_VR_DISPLAYS = 'fetch_vr_displays';
+
+export const fetchVrDisplays = (data) => async (dispatch) => {
+    const res = data;
+    dispatch({
+      type: FETCH_VR_DISPLAYS,
+      payload: res
+    });
+};
+
+export const FETCH_WEB_MODE = 'fetch_web_mode';
+
+export const fetchWebMode = (data) => async (dispatch) => {
+    const res = data;
+    dispatch({
+      type: FETCH_WEB_MODE,
+      payload: res
+    });
+};

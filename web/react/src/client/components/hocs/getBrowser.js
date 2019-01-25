@@ -27,7 +27,7 @@ export default (ChildComponent) => {
 
 		content(browser) {
 			const browserName = browser.name;
-			this.parser = browser;
+			this.parser = browserName;
 			// return <ChildComponent {...this.props} key={browserName} />;
 			switch (this.allowedBrowser(browserName)) {
 				// browser not authorised

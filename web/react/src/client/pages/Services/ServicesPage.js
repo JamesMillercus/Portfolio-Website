@@ -27,7 +27,7 @@ class Services extends Component {
 export default {
   // take props from admins and pass them into require Auth
   component: compose(
-    getDevice, getOSVersion, getBrowser,
+    getDevice, getOSVersion,
     connect(null, {
       fetchContent, fetchUpdateUrl, fetchScrolledItem, fetchScrolledHeroIcon, fetchHeroKeyPress
     })
