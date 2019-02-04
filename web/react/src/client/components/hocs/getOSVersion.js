@@ -18,8 +18,8 @@ export default (ChildComponent) => {
 			if (osName === 'Android') {
 				osString = String(osVersion);
 				osFloat = parseFloat(osString.replace('.', ''));
-				compatible = 40; //.4
-				webvrCompatible = 70; // .7
+				compatible = 4; //.4 (used to be 7)
+				webvrCompatible = 8; // .7
 			} else if (osName === 'Windows') {
 				osFloat = String(osVersion);
 				compatible = 7; // windows 7

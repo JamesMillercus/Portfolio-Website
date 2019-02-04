@@ -16,12 +16,12 @@ class ItemImage extends React.Component {
 
   scrolledOver() {
     const { fetchScrolledItem, itemNumber, webMode } = this.props;
-    if (webMode === 'webvr') fetchScrolledItem(itemNumber);
+    if (webMode === 'mobile-webvr') fetchScrolledItem(itemNumber);
   }
 
   scrolledOut() {
     const { fetchScrolledItem, webMode } = this.props;
-    if (webMode === 'webvr') fetchScrolledItem(null);
+    if (webMode === 'mobile-webvr') fetchScrolledItem(null);
   }
 
   itemImage(styles) {
@@ -50,19 +50,19 @@ class ItemImage extends React.Component {
 
   borderWidth() {
     const { webMode } = this.props;
-    if (webMode === 'webvr') return 2;
+    if (webMode === 'mobile-webvr') return 2;
     return 0;
   }
 
   borderColor() {
     const { webMode } = this.props;
-    if (webMode === 'webvr') return '#7c7c7c';
+    if (webMode === 'mobile-webvr') return '#7c7c7c';
     return null;
   }
 
   scrolledBorderColor() {
     const { webMode } = this.props;
-    if (webMode === 'webvr') return '#008f9c';
+    if (webMode === 'mobile-webvr') return '#008f9c';
     return null;
   }
 

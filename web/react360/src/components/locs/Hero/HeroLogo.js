@@ -17,7 +17,7 @@ class HeroLogo extends React.Component {
 
   componentDidUpdate() {
     const { webMode, heroHover, centerLogoIconName, fetchLoadingContent } = this.props;
-    if (webMode === 'webvr' && heroHover === centerLogoIconName) fetchLoadingContent(heroHover);
+    if (webMode === 'mobile-webvr' && heroHover === centerLogoIconName) fetchLoadingContent(heroHover);
     else if (heroHover === '') fetchLoadingContent('');
   }
 
@@ -48,7 +48,7 @@ class HeroLogo extends React.Component {
   }
 
   modeCheck(webMode) {
-    if (webMode === 'web') this.openLink();
+    if (webMode === 'web' || webMode === 'webvr') this.openLink();
   }
 
   openLink() {

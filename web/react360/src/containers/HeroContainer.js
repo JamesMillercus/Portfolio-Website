@@ -11,7 +11,19 @@ class HeroContainer extends Component {
 
   componentWillMount() {
     this.userAgent = navigator.userAgent;
-    if (this.props.parentPathName === '/') this.props.fetchWebMode('web');
+    // CHECK THIS FUNCTION IS WORKING PROPERLY!!
+    if (navigator.getVRDisplays) {
+      // if vr display is detected
+      navigator.getVRDisplays().then(function (displays) {
+        // render scene for webvr (headset experience)
+        if (displays.length > 0) this.props.fetchWebMode('webvr');
+        // else render normal expeirence (laptop)
+        else this.props.fetchWebMode('web');
+      });
+      // if webvr is not enabled and pathname is '/', render normal experience (mobile)
+    } else if (this.props.parentPathName === '/' || this.props.parentPathName === '/index.html') this.props.fetchWebMode('web');
+    // else if pathame isn't '/', render webvr experience (mobile)
+    else this.props.fetchWebMode('mobile-webvr');
     // this.webMode = 'webvr'; // comment this in dev
   }
 
@@ -22,22 +34,30 @@ class HeroContainer extends Component {
   }
 
   logoTextScrolled() {
-    if (this.props.webMode === 'webvr') return config.heroFooterText.centerIcon.logoTextScrolledWebVR;
+    const { webMode } = this.props;
+    if (webMode === 'webvr') return config.heroFooterText.centerIcon.logoTextScrolledWebVR;
+    else if (webMode === 'mobile-webvr') return config.heroFooterText.centerIcon.logoTextScrolledMobileWebVR;
     return config.heroFooterText.centerIcon.logoTextScrolled;
   }
 
   logoImageScrolled() {
-    if (this.props.webMode === 'webvr') return config.heroText.centerIcon.webvrLogoImageScrolled;
+    const { webMode } = this.props;
+    if (webMode === 'webvr') return config.heroText.centerIcon.webvrLogoImageScrolled;
+    else if (webMode === 'mobile-webvr') return config.heroText.centerIcon.mobileWebvrLogoImageScrolled;
     return config.heroText.centerIcon.logoImageScrolled;
   }
 
   centerLogoIconName() {
-    if (this.props.webMode === 'webvr') return config.heroText.centerIcon.webvrCenterLogoIconName;
+    const { webMode } = this.props;
+    if (webMode === 'webvr') return config.heroText.centerIcon.webvrCenterLogoIconName;
+    else if (webMode === 'mobile-webvr') return config.heroText.centerIcon.mobileWebvrCenterLogoIconName;
     return config.heroText.centerIcon.centerLogoIconName;
   }
 
   href() {
-    if (this.props.webMode === 'webvr') return config.heroText.centerIcon.webvrhref;
+    const { webMode } = this.props;
+    if (webMode === 'webvr') return config.heroText.centerIcon.webvrhref;
+    else if (webMode === 'mobile-webvr') return config.heroText.centerIcon.mobilewebvrhref;
     return config.heroText.centerIcon.href;
   }
 

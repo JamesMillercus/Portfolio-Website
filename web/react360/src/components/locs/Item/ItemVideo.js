@@ -17,8 +17,8 @@ class ItemVideo extends React.Component {
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);
-    if (deviceType !== 'laptop' && webMode === 'web') NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${youtube}`);
-    else if (deviceType !== 'laptop' && webMode === 'webvr') NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${webvrYoutube}`);
+    if (deviceType !== 'laptop' && this.webMode()) NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${youtube}`);
+    else if (deviceType !== 'laptop' && webMode === 'mobile-webvr') NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${webvrYoutube}`);
     else Environment.clearBackground();
   }
 
@@ -27,6 +27,11 @@ class ItemVideo extends React.Component {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
       format: '2D',
     });
+  }
+
+  webMode() {
+    if (this.props.webMode === 'web' || this.props.webMode === 'webvr') return true;
+    return false;
   }
 
   render() {
