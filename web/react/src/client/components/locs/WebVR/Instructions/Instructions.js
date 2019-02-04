@@ -50,31 +50,27 @@ class Instructions extends Component {
   }
 
   instructions() {
-    const { deviceType, webMode } = this.props;
+    const { deviceType } = this.props;
     const returnedInstructions = [];
     // loop through instruction page type
     // return content[0].device;
-    // if (webMode ) {
-      // webvr headset instructions here
-    // } else {
-      for (let x = 0; x < instructionsConfig.length; x++) {
-        if (this.state.pageHref === instructionsConfig[x].page && deviceType === instructionsConfig[x].device) {
-          // loop through each instruction for that page type
-          for (let y = 0; y < instructionsConfig[x].instructions.length; y++) {
-            const instructionNumber = y + 1;
-            returnedInstructions.push(
-              <div className={`instruction instruction${instructionNumber}`}>
+    for (let x = 0; x < instructionsConfig.length; x++) {
+      if (this.state.pageHref === instructionsConfig[x].page && deviceType === instructionsConfig[x].device) {
+        // loop through each instruction for that page type
+        for (let y = 0; y < instructionsConfig[x].instructions.length; y++) {
+          const instructionNumber = y + 1;
+          returnedInstructions.push(
+            <div className={`instruction instruction${instructionNumber}`}>
               <div className="instructionText">
-              <h2> {instructionsConfig[x].instructions[y].header} </h2>
-              <p> {instructionsConfig[x].instructions[y].paragraph} </p>
+                <h2> {instructionsConfig[x].instructions[y].header} </h2>
+                <p> {instructionsConfig[x].instructions[y].paragraph} </p>
               </div>
               <div className="instructionImage" />
-              </div>
-            );
-          }
+            </div>
+          );
         }
       }
-    // }
+    }
     return returnedInstructions;
   }
 
