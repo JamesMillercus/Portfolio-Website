@@ -137,6 +137,7 @@ export default {
       text: "Creative technology ideas I've helped agencies bring to life",
       logoTextScrolled: 'View this website in WebVR',
       logoTextScrolledWebVR: 'Exit WebVR Mode',
+      logoTextScrolledMobileWebVR: 'Exit WebVR Mode',
       color: '#008f9c'
     },
     centerLeftIcon: {
@@ -183,8 +184,11 @@ export default {
       centerLogoIconName: 'web',
       href: '/webvr',
       webvrCenterLogoIconName: 'webvr',
+      mobileWebvrCenterLogoIconName: 'mobile-webvr',
       webvrLogoImageScrolled: 'web.png',
-      webvrhref: '/'
+      mobileWebvrLogoImageScrolled: 'web.png',
+      webvrhref: '/',
+      mobilewebvrhref: '/'
     }
   }
 };

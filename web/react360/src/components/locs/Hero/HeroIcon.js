@@ -17,8 +17,10 @@ class HeroIcon extends React.Component {
 
   componentDidUpdate() {
     const { webMode, heroHover, fetchLoadingContent, iconName } = this.props;
-    if (webMode === 'mobile-webvr' && heroHover === iconName) fetchLoadingContent(heroHover);
-    else if (heroHover === '') fetchLoadingContent('');
+    if (webMode === 'mobile-webvr') {
+      if (heroHover === iconName) fetchLoadingContent(heroHover);
+      else if (heroHover === '') fetchLoadingContent('');
+    }
   }
 
   iconStyle() {
@@ -43,6 +45,11 @@ class HeroIcon extends React.Component {
 
   modeCheck(webMode) {
     if (webMode === 'web' || webMode === 'webvr') this.openLink();
+  }
+
+  openLink() {
+    const { iconUrl } = this.props;
+    NativeModules.LinkingManager.openURL(iconUrl);
   }
 
   setLeftMargin() {

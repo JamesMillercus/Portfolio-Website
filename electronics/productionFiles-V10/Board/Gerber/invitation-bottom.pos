@@ -1,0 +1,37 @@
+### Module positions - created on Saturday, 16 February 2019 at 14:47:15 ###
+### Printed by Pcbnew version kicad (5.0.1-3-g963ef8bb5)
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val                      Package                                     PosX       PosY       Rot  Side
+C0        1uF                      CP_Tantalum_Case-R_EIA-2012-12_Reflow  -193.2940   -93.7260    0.0000  bottom
+C1        22pF                     C_0805                                 -203.9620   -85.0900  270.0000  bottom
+C2        22pF                     C_0805                                 -201.6760   -85.0900  270.0000  bottom
+C3        0.1uF                    C_0805                                 -181.8640   -83.8200  180.0000  bottom
+C4        1uF                      CP_Tantalum_Case-R_EIA-2012-12_Reflow  -134.0170   -73.9140  180.0000  bottom
+C5        0.1uF                    CP_Tantalum_Case-R_EIA-2012-12_Reflow  -134.1120   -76.9620  180.0000  bottom
+D1        Power_LED_(green)        LED_0805                               -193.0400  -100.3300    0.0000  bottom
+D2        Website_CTA_(green)      LED_0805                               -193.0400  -105.1560    0.0000  bottom
+D3        Interaction_LED_(green)  LED_0805                               -193.0400  -109.9820    0.0000  bottom
+D4        Email_LED_(green)        LED_0805                               -180.8480  -120.9040    0.0000  bottom
+D5        Phone_LED_(green)        LED_0805                               -150.6220  -121.1580    0.0000  bottom
+D6        RX_LED_(orange)          LED_0805                               -175.7680   -73.6600  180.0000  bottom
+D7        TX_LED_(orange)          LED_0805                               -175.7680   -76.2000  180.0000  bottom
+F1        PPTC_Fuse_500mA          Fuse_SMD1206_Reflow                    -169.8560   -73.9140    0.0000  bottom
+P1        USB_Micro_B              USB_Micro-B                            -162.3060   -75.4380    0.0000  bottom
+R1        47                       R_0805                                 -130.3020  -100.3300  180.0000  bottom
+R2        47                       R_0805                                 -130.3020  -105.1560  180.0000  bottom
+R3        47                       R_0805                                 -130.3020  -109.9820  180.0000  bottom
+R4        47                       R_0805                                 -170.4340  -120.9040  180.0000  bottom
+R5        47                       R_0805                                 -140.4620  -121.1580  180.0000  bottom
+R6        82                       R_0805                                 -181.8640   -73.6600  180.0000  bottom
+R7        82                       R_0805                                 -181.8640   -76.2000  180.0000  bottom
+R8        22                       R_0805                                 -181.8640   -78.9940  180.0000  bottom
+R9        22                       R_0805                                 -181.8640   -81.5340  180.0000  bottom
+R10       10K                      R_0805                                 -203.2000   -75.1840    0.0000  bottom
+R11       200k                     R_0805_2012Metric                      -133.4285   -79.7560  180.0000  bottom
+R12       200k                     R_0805_2012Metric                      -125.7300   -73.6600  180.0000  bottom
+R13       200k                     R_0805_2012Metric                      -125.8085   -76.2000  180.0000  bottom
+R14       200k                     R_0805_2012Metric                      -125.8085   -78.7400  180.0000  bottom
+R15       200k                     R_0805_2012Metric                      -125.7300   -81.2800  180.0000  bottom
+U1        ATMEGA32U4-A             TQFP-44_10x10mm_Pitch0.8mm             -192.5320   -80.0100    0.0000  bottom
+## End

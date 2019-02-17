@@ -14,13 +14,13 @@ class Item extends React.Component {
 
   componentDidUpdate() {
     const { webMode, scrolledItem, itemNumber, fetchLoadingContent } = this.props;
-    if (webMode === 'webvr' && scrolledItem === itemNumber) fetchLoadingContent(scrolledItem);
+    if (webMode === 'mobile-webvr' && scrolledItem === itemNumber) fetchLoadingContent(scrolledItem);
     else if (scrolledItem === null) fetchLoadingContent('');
   }
 
   clicked(page, item) {
     const { webMode, fetchActiveItem, fetchClickedItems, clickedItems } = this.props;
-    if (webMode === 'web') {
+    if (webMode !== 'mobile-webvr') {
       fetchActiveItem(item);
       if (Object.getOwnPropertyNames(clickedItems).length === 0 || clickedItems[page] === undefined) {
         // console.log('page has not been clicked');
@@ -41,7 +41,7 @@ class Item extends React.Component {
 
   scrolledOver() {
     const { fetchScrolledItem, itemNumber, webMode } = this.props;
-    if (webMode === 'web') fetchScrolledItem(itemNumber);
+    if (webMode !== 'mobile-webvr') fetchScrolledItem(itemNumber);
   }
 
   content() {

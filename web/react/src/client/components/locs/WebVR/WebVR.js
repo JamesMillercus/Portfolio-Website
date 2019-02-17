@@ -14,9 +14,9 @@ class WebVR extends Component {
     };
   }
 
-    componentDidMount() {
-      this.setTimer();
-    }
+  componentDidMount() {
+    this.setTimer();
+  }
 
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -25,7 +25,6 @@ class WebVR extends Component {
   setTimer() {
     this.interval = setInterval(() => {
       const iframeHref = document.getElementById('player').contentWindow.location;
-      // console.log(`iframeHref ${iframeHref.pathname}`);
       if (Object.keys(iframeHref).length < 8 && ('ontouchstart' in window)) {
         clearInterval(this.interval);
         this.setState({ videoIsPlaying: true });
@@ -47,7 +46,7 @@ class WebVR extends Component {
   exit() {
     this.setState({ videoIsPlaying: false });
     this.setTimer();
-    document.getElementById('player').src = this.props.href;
+    document.getElementById('player').src = window.location.pathname;
   }
 
   loadExperience() {
@@ -58,7 +57,7 @@ class WebVR extends Component {
 
   render() {
     const styles = {
-      iframe: {
+      iframeBtn: {
         position: 'fixed',
         top: 0,
         right: 0,
@@ -81,7 +80,7 @@ class WebVR extends Component {
     return (
       <div>
         <Instructions />
-        <div id='iframeButton' style={styles.iframe} onClick={click} />
+        <div id='iframeButton' style={styles.iframeBtn} onClick={click} />
         <Iframe
           url={this.loadExperience()}
           width="100%"

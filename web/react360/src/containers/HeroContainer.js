@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
-import { UserAgentProvider } from '@quentin-sommer/react-useragent';
+import { UserAgentProvider, UserAgent } from '@quentin-sommer/react-useragent';
 import { asset, Environment } from 'react-360';
 import { store } from './../Store.js';
 import config from './../config/config';
@@ -9,28 +9,19 @@ import { fetchWebMode } from './../actions';
 
 class HeroContainer extends Component {
 
+  // somehow detect if user is on laptop or mobile, then serve the correct experience to them
+    // option 1: turn connectWithStore into a HOC, then use connect function to call deviceTypeReducer
+
   componentWillMount() {
     this.userAgent = navigator.userAgent;
     // CHECK THIS FUNCTION IS WORKING PROPERLY!!
-    if (navigator.getVRDisplays) {
-      // if vr display is detected
-      navigator.getVRDisplays().then(function (displays) {
-        // render scene for webvr (headset experience)
-        if (displays.length > 0) this.props.fetchWebMode('webvr');
-        // else render normal expeirence (laptop)
-        else this.props.fetchWebMode('web');
-      });
-      // if webvr is not enabled and pathname is '/', render normal experience (mobile)
-    } else if (this.props.parentPathName === '/' || this.props.parentPathName === '/index.html') this.props.fetchWebMode('web');
-    // else if pathame isn't '/', render webvr experience (mobile)
-    else this.props.fetchWebMode('mobile-webvr');
-    // this.webMode = 'webvr'; // comment this in dev
   }
 
   componentDidMount() {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
       format: '2D',
     });
+    console.log(this.props.webMode);
   }
 
   logoTextScrolled() {
@@ -61,31 +52,55 @@ class HeroContainer extends Component {
     return config.heroText.centerIcon.href;
   }
 
+  vrExperience(deviceType) {
+    if (navigator.getVRDisplays) {
+      // if vr display is detected
+      navigator.getVRDisplays().then(function (displays) {
+        // render scene for webvr (headset experience)
+        if (displays.length > 0) this.props.fetchWebMode('webvr');
+        // else render normal expeirence (laptop)
+        else this.props.fetchWebMode('webvr');
+        // else this.props.fetchWebMode('web');
+      });
+      // if webvr is not enabled and pathname is '/', render normal experience (mobile)
+    } else if (deviceType === 'mobile' || deviceType === 'tablet') {
+      if (this.props.parentPathName === '/' || this.props.parentPathName === '/index.html') this.props.fetchWebMode('web');
+      // else if pathame isn't '/', render webvr experience (mobile)
+      else this.props.fetchWebMode('mobile-webvr');
+      // this.webMode = 'webvr'; // comment this in dev
+    }
+  }
+
   render() {
     return (
       <UserAgentProvider ua={this.userAgent} store={store}>
         <Provider store={store}>
-            <Hero
-              textNoScroll={config.heroFooterText.none.text}
-              textColorNoScroll={config.heroFooterText.none.color}
-              textScrollHero={config.heroFooterText.centerIcon.text}
-              textColorScrollHero={config.heroFooterText.centerIcon.color}
-              textScrollCenterLeftIcon={config.heroFooterText.centerLeftIcon.text}
-              textColorScrollCenterLeftIcon={config.heroFooterText.centerLeftIcon.color}
-              textScrollCenterRightIcon={config.heroFooterText.centerRightIcon.text}
-              textColorScrollCenterRightIcon={config.heroFooterText.centerRightIcon.color}
-              logoImage={config.heroText.centerIcon.backgroundImage360}
-              logoImageScrolled={this.logoImageScrolled()} //
-              logoTextScrolled={this.logoTextScrolled()} //
-              centerLogoIconName={this.centerLogoIconName()} //
-              centerHref={this.href()} //
-              centerLeftIconName={config.heroIcon.centerLeftIcon.name360}
-              centerLeftIconImage={config.heroIcon.centerLeftIcon.image360}
-              centerLeftIconHref={config.heroIcon.centerLeftIcon.href}
-              centerRightIconName={config.heroIcon.centerRightIcon.name360}
-              centerRightIconImage={config.heroIcon.centerRightIcon.image360}
-              centerRightIconHref={config.heroIcon.centerRightIcon.href}
-            />
+          <UserAgent returnFullParser>
+              {parser => (
+                <Hero
+                  vrExperience={this.vrExperience(parser.getDevice().type)}
+                  textNoScroll={config.heroFooterText.none.text}
+                  textColorNoScroll={config.heroFooterText.none.color}
+                  textScrollHero={config.heroFooterText.centerIcon.text}
+                  textColorScrollHero={config.heroFooterText.centerIcon.color}
+                  textScrollCenterLeftIcon={config.heroFooterText.centerLeftIcon.text}
+                  textColorScrollCenterLeftIcon={config.heroFooterText.centerLeftIcon.color}
+                  textScrollCenterRightIcon={config.heroFooterText.centerRightIcon.text}
+                  textColorScrollCenterRightIcon={config.heroFooterText.centerRightIcon.color}
+                  logoImage={config.heroText.centerIcon.backgroundImage360}
+                  logoImageScrolled={this.logoImageScrolled()} //
+                  logoTextScrolled={this.logoTextScrolled()} //
+                  centerLogoIconName={this.centerLogoIconName()} //
+                  centerHref={this.href()} //
+                  centerLeftIconName={config.heroIcon.centerLeftIcon.name360}
+                  centerLeftIconImage={config.heroIcon.centerLeftIcon.image360}
+                  centerLeftIconHref={config.heroIcon.centerLeftIcon.href}
+                  centerRightIconName={config.heroIcon.centerRightIcon.name360}
+                  centerRightIconImage={config.heroIcon.centerRightIcon.image360}
+                  centerRightIconHref={config.heroIcon.centerRightIcon.href}
+                />
+              )}
+          </UserAgent>
         </Provider>
       </UserAgentProvider>
     );

@@ -45,6 +45,7 @@ class Hero extends React.Component {
           textScrollCenterRightIcon={this.props.textScrollCenterRightIcon}
           textColorScrollCenterRightIcon={this.props.textColorScrollCenterRightIcon}
           logoTextScrolled={this.props.logoTextScrolled}
+          centerLogoIconName={this.props.centerLogoIconName}
         />
       </View>
     );
