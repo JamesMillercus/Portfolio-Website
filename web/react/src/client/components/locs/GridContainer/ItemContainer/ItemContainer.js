@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import ItemImage from './ItemImage/ItemImage';
 import ItemText from './ItemText/ItemText';
+import Video from './Video/Video';
 import itemContainerConfig from './assets/config/itemContainerConfig';
 import './assets/scss';
 import {
@@ -16,7 +17,6 @@ import {
 } from './../../../../actions';
 
 class ItemContainer extends Component {
-
 	constructor() {
 		super();
 		this.allowKeypress = true;
@@ -41,7 +41,7 @@ class ItemContainer extends Component {
 		const { heroKeyPress, scrolledItem } = this.props;
 		// console.log('heroKeyPress');
 		// console.log(heroKeyPress);
-		if(!heroKeyPress) {
+		if (!heroKeyPress) {
 			if (event.key === 'f' && this.allowKeypress) this.clickedItem(scrolledItem);
 		}
 	}
@@ -72,18 +72,16 @@ class ItemContainer extends Component {
 		this.props.fetchActiveItem(item);
 
 		// page has not been clicked yet
-		if(Object.getOwnPropertyNames(this.props.clickedItems).length === 0 || this.props.clickedItems[page] === undefined) {
+		if (Object.getOwnPropertyNames(this.props.clickedItems).length === 0 || this.props.clickedItems[page] === undefined) {
 			this.props.fetchClickedItems(page, item);
 		} else {
 			// page has been clicked, item hasn't
 			const itemAlreadyClicked = this.props.clickedItems[page].includes(item);
 			if (!itemAlreadyClicked && !this.checkAnimationState()) this.props.fetchClickedItems(page, item);
 		}
-		if(this.props.content.itemVideo){
-			import(/* webpackChunkName: "video" */ './Video/Video').then(VideoComponent => {
-				this.props.fetchAsyncVideoComponent(VideoComponent.default);
-			});
-		} else if(this.props.content.itemLink) window.open(this.props.content.itemLink[item].href, '_blank');
+		// TURN THIS INTO A RENDER STATEMENT BASED ON ITEM NUMBER AND CONTENT ARRAY (CONTENT.ITEMVIDEO[ITEMNUMBER])
+		if (this.props.content.itemVideo) this.props.fetchAsyncVideoComponent(Video);
+		else if (this.props.content.itemLink) window.open(this.props.content.itemLink[item].href, '_blank');
 	}
 
 	scrolledCheck(number, scrolledItem) {
