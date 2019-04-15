@@ -55,5 +55,17 @@ export default [
         paragraph: "Then tap on content that you'd like to open"
       }
     ]
+  },
+  {
+    page: '/',
+    device: 'vrheadset',
+    browser: 'Oculus Browser',
+    instructions: [
+      {
+        image: 'lol',
+        header: 'Look around the space to explore',
+        paragraph: "Then use your controller to interact with the content"
+      }
+    ]
   }
 ];

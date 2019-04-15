@@ -8,13 +8,13 @@ import WebVR from './../../components/locs/WebVR/WebVR';
 
 class WebVRPage extends Component {
   render() {
-    return <WebVR browser={this.props.browser} />;
+    return <WebVR browserName={this.props.browserName} browser={this.props.browser} />;
   }
 }
 
 export default {
   // take props from admins and pass them into require Auth
   component: compose(
-    getDevice, getOSVersion, getBrowser, getNoScript
+    getBrowser, getDevice, getOSVersion, getNoScript,
   )(WebVRPage)
 };

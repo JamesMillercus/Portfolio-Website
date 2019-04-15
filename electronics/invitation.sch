@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Portfolio Business Card"
-Date "November 2018"
-Rev "8"
+Date "April 2019"
+Rev "11"
 Comp "James Miller"
 Comment1 ""
 Comment2 ""
@@ -103,17 +103,16 @@ F 3 "" H 1550 3800 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L invitation-rescue:USB_OTG P1
+L invitation-rescue:USB_OTG-invitation-rescue P1
 U 1 1 5840E12E
 P 1100 6400
 F 0 "P1" H 1425 6275 50  0000 C CNN
 F 1 "USB Micro B" H 1100 6600 50  0000 C CNN
-F 2 "Connect:USB_Micro-B" V 1050 6300 50  0001 C CNN
+F 2 "10103594-0001LF:FCI_10103594-0001LF" V 1050 6300 50  0001 C CNN
 F 3 "" V 1050 6300 50  0000 C CNN
 	1    1100 6400
 	0    -1   -1   0   
 $EndComp
-NoConn ~ 1000 6000
 NoConn ~ 1400 6300
 Text GLabel 1700 6700 2    60   Input ~ 0
 USBVCC

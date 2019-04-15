@@ -6,10 +6,9 @@ import './assets/scss';
 
 class Instructions extends Component {
   /*
-    1. Set horizontal version on mobile & tablet
-    2. Test on mobile & tablet
-    3. Test on oculus go headset
-    4. Create content for each screen layout
+    1. Test on tablet
+    2. Test on oculus rift and windows headset
+    3. Create content for each screen layout
   */
 
   constructor(props) {
@@ -50,10 +49,21 @@ class Instructions extends Component {
   }
 
   instructions() {
-    const { deviceType } = this.props;
+    const { deviceType, browser, browserName } = this.props;
     const returnedInstructions = [];
     // loop through instruction page type
-    // return content[0].device;
+    // if(browserName === 'Oculus Browser' || browserName === undefined) {
+    //   let instructionNumber = instructionsConfig[instructionsConfig.length-1];
+    //   returnedInstructions.push(
+    //     <div className={`instruction instruction${instructionNumber}`}>
+    //     <div className="instructionText">
+    //     <h2> {instructionNumber.instructions[0].header} </h2>
+    //     <p> {instructionNumber.instructions[0].paragraph} </p>
+    //     </div>
+    //     <div className="instructionImage" />
+    //     </div>
+    //   );
+    // } else {
     for (let x = 0; x < instructionsConfig.length; x++) {
       if (this.state.pageHref === instructionsConfig[x].page && deviceType === instructionsConfig[x].device) {
         // loop through each instruction for that page type
@@ -61,16 +71,18 @@ class Instructions extends Component {
           const instructionNumber = y + 1;
           returnedInstructions.push(
             <div className={`instruction instruction${instructionNumber}`}>
-              <div className="instructionText">
-                <h2> {instructionsConfig[x].instructions[y].header} </h2>
-                <p> {instructionsConfig[x].instructions[y].paragraph} </p>
-              </div>
-              <div className="instructionImage" />
+            <div className="instructionText">
+            <h2> {instructionsConfig[x].instructions[y].header} </h2>
+            <p> {instructionsConfig[x].instructions[y].paragraph} </p>
+            </div>
+            <div className="instructionImage" />
             </div>
           );
         }
       }
     }
+    // }
+
     return returnedInstructions;
   }
 
@@ -88,7 +100,7 @@ class Instructions extends Component {
         <div className={`${deviceType}InstructionsContainer`} style={{ zIndex: this.displayInstructions() }}>
           <div className={`${deviceType}Instructions`}>
             {this.instructions()}
-            <div className="instructionsButton" onClick={click}> <p> {this.instructionsButton(deviceType)} </p> </div>
+            <div className="instructionsButton" onClick={ click }> <p> {this.instructionsButton(deviceType)} </p> </div>
           </div>
         </div>
         <div className={'webvrWhiteout'} style={{ opacity: this.whiteOutOpacity(), zIndex: this.whiteOutZindex() }} />
@@ -102,7 +114,8 @@ function mapStateToProps(state) {
   return {
     vrInstructions: state.vrInstructions,
     webMode: state.webMode,
-    deviceType: state.deviceType
+    deviceType: state.deviceType,
+    browser: state.browser
   };
 }
 

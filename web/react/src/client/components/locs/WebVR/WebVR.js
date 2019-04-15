@@ -10,12 +10,22 @@ class WebVR extends Component {
     super();
     this.interval = null;
     this.state = {
-      videoIsPlaying: false
+      videoIsPlaying: false,
+      mobileOrientationMessage: false
     };
   }
 
   componentDidMount() {
     this.setTimer();
+    const { deviceType } = this;
+    // if(window.orientation) {
+    // if(window.orientation === 0) this.setState({ mobileOrientationMessage: true });
+    //   // Listen for orientation changes
+      window.addEventListener("orientationchange", function() {
+        // Announce the new orientation number
+        // alert(window.orientation);
+      }, false);
+    // }
   }
 
   componentWillUnmount() {
@@ -35,11 +45,23 @@ class WebVR extends Component {
       //   clearInterval(this.interval);
       //   this.setState({ videoIsPlaying: true });
       // }
+      const { deviceType } = this;
+      if(window.location === '/webvr') {
+        if(deviceType === 'mobile' || deviceType === undefined ) {
+          if(window.orientation === 0) this.setState({ mobileOrientationMessage: true });
+          else this.setState({ mobileOrientationMessage: false });
+        }
+      }
     }, 250);
   }
 
   displayButton() {
     if (this.state.videoIsPlaying) return 'block';
+    return 'none';
+  }
+
+  displayMobileOrientation() {
+    if (this.state.mobileOrientationMessage === true) return 'block';
     return 'none';
   }
 
@@ -71,6 +93,13 @@ class WebVR extends Component {
         cursor: 'pointer',
         zIndex: 1,
         display: this.displayButton()
+      },
+      mobileOrientation: {
+        width:'100%',
+        height: '100%',
+        zIndex: 1,
+        backgroundColor: 'red',
+        display: this.displayMobileOrientation()
       }
     };
 
@@ -79,7 +108,8 @@ class WebVR extends Component {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
       <div>
-        <Instructions />
+        <div id="mobileOrientation" style={styles.mobileOrientation} />
+        <Instructions browserName={this.props.browserName} />
         <div id='iframeButton' style={styles.iframeBtn} onClick={click} />
         <Iframe
           url={this.loadExperience()}

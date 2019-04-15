@@ -5,23 +5,18 @@ import { asset, Environment } from 'react-360';
 import { store } from './../Store.js';
 import config from './../config/config';
 import Hero from './../components/locs/Hero/Hero';
-import { fetchWebMode } from './../actions';
+import { fetchWebMode, fetchWebBrowser } from './../actions';
 
 class HeroContainer extends Component {
 
-  // somehow detect if user is on laptop or mobile, then serve the correct experience to them
-    // option 1: turn connectWithStore into a HOC, then use connect function to call deviceTypeReducer
-
   componentWillMount() {
     this.userAgent = navigator.userAgent;
-    // CHECK THIS FUNCTION IS WORKING PROPERLY!!
   }
 
   componentDidMount() {
     Environment.setBackgroundImage(asset('360_world.jpg'), {
       format: '2D',
     });
-    console.log(this.props.webMode);
   }
 
   logoTextScrolled() {
@@ -52,7 +47,10 @@ class HeroContainer extends Component {
     return config.heroText.centerIcon.href;
   }
 
-  vrExperience(deviceType) {
+  vrExperience(parser) {
+    const deviceType = parser.getDevice().type;
+    const browser = parser.getBrowser().name;
+    this.props.fetchWebBrowser(browser);
     if (navigator.getVRDisplays) {
       // if vr display is detected
       navigator.getVRDisplays().then(function (displays) {
@@ -63,6 +61,8 @@ class HeroContainer extends Component {
         // else this.props.fetchWebMode('web');
       });
       // if webvr is not enabled and pathname is '/', render normal experience (mobile)
+    } else if (browser === 'Oculus Browser') {
+      this.props.fetchWebMode('webvr');
     } else if (deviceType === 'mobile' || deviceType === 'tablet') {
       if (this.props.parentPathName === '/' || this.props.parentPathName === '/index.html') this.props.fetchWebMode('web');
       // else if pathame isn't '/', render webvr experience (mobile)
@@ -78,7 +78,7 @@ class HeroContainer extends Component {
           <UserAgent returnFullParser>
               {parser => (
                 <Hero
-                  vrExperience={this.vrExperience(parser.getDevice().type)}
+                  vrExperience={this.vrExperience(parser)}
                   textNoScroll={config.heroFooterText.none.text}
                   textColorNoScroll={config.heroFooterText.none.color}
                   textScrollHero={config.heroFooterText.centerIcon.text}
@@ -116,6 +116,6 @@ function connectWithStore(store, WrappedComponent, ...args) {
   };
 }
 
-const ConnectedApp = connectWithStore(store, HeroContainer, mapStateToProps, { fetchWebMode });
+const ConnectedApp = connectWithStore(store, HeroContainer, mapStateToProps, { fetchWebMode, fetchWebBrowser });
 
 export default ConnectedApp;

@@ -1,0 +1,25 @@
+Drill report for /Users/james.miller/Desktop/CreativeTechnology/Personal/portfolio/electronics/invitation.kicad_pcb
+Created on Sunday, 14 April 2019 at 13:03:30
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'invitation-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.40mm  0.016"  (54 holes)
+    T2  0.65mm  0.026"  (2 holes)  (with 2 slots)
+    T3  0.70mm  0.028"  (2 holes)  (with 2 slots)
+    T4  0.95mm  0.037"  (6 holes)
+
+    Total plated holes count 64
+
+
+Drill file 'invitation-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

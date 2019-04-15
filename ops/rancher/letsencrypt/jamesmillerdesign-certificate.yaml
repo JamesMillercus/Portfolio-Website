@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: jamesmiller-design
+  namespace: p-jzsfs-pipeline
+spec:
+  secretName: jamesmiller-design-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: www.jamesmiller.design
+  dnsNames:
+    - jamesmiller.design
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - www.jamesmiller.design
+      - jamesmiller.design

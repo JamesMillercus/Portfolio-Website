@@ -7,3 +7,4 @@ export * from './DeviceTypeAction';
 export * from './LoadingContentAction';
 export * from './LoadingProgressAction';
 export * from './WebModeAction';
+export * from './WebBrowserAction';

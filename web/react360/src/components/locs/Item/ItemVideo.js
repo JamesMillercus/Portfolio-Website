@@ -13,11 +13,12 @@ class ItemVideo extends React.Component {
   }
 
   componentDidMount() {
-    const { videoLength, deviceType, youtube, webMode, webvrYoutube } = this.props;
+    const { videoLength, deviceType, youtube, webMode, webvrYoutube, webBrowser } = this.props;
     this.timeout = setTimeout(() => {
       fetchActiveItem('hidden');
     }, videoLength);
-    if (deviceType !== 'laptop' && this.webMode()) NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${youtube}`);
+    if (webBrowser === 'Oculus Browser') Environment.clearBackground();
+    else if (deviceType !== 'laptop' && this.webMode()) NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${youtube}`);
     else if (deviceType !== 'laptop' && webMode === 'mobile-webvr') NativeModules.LinkingManager.openURL(`https://www.youtube.com/embed/${webvrYoutube}`);
     else Environment.clearBackground();
   }
@@ -53,6 +54,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ deviceType, webMode }) => ({ deviceType, webMode });
+const mapStateToProps = ({
+  deviceType, webMode, webBrowser
+}) => ({
+  deviceType, webMode, webBrowser
+});
 
 export default connect(mapStateToProps, { fetchActiveItem })(ItemVideo);

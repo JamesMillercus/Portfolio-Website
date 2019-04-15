@@ -35,7 +35,7 @@ export default (ChildComponent) => {
 					return <BadBrowser key={browserName} />;
 				// if is authorised, then load child component and load props from render page into child
 				default:
-					return <ChildComponent {...this.props} key={browserName} />;
+					return <ChildComponent {...this.props} browserName={browserName} key={browserName} />;
 			}
 		}
 
