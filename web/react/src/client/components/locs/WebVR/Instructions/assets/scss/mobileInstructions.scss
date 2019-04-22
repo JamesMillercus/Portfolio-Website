@@ -46,7 +46,9 @@
 .mobileInstructions .instructionImage {
   height: 70%;
   width: 100%;
-  background-color: pink;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .mobileInstructions .instructionText {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchVrInstructions } from './../../../../actions';
 import instructionsConfig from './assets/config/instructionsConfig';
 import './assets/scss';
+import './assets/images';
 
 class Instructions extends Component {
   /*
@@ -75,7 +76,7 @@ class Instructions extends Component {
             <h2> {instructionsConfig[x].instructions[y].header} </h2>
             <p> {instructionsConfig[x].instructions[y].paragraph} </p>
             </div>
-            <div className="instructionImage" />
+            <div className="instructionImage" style={this.instructionsStyle(instructionsConfig[x].instructions[y].image)} />
             </div>
           );
         }
@@ -84,6 +85,12 @@ class Instructions extends Component {
     // }
 
     return returnedInstructions;
+  }
+
+  instructionsStyle(image) {
+    return {
+      backgroundImage: `url(/assets/images/${image})`
+    }
   }
 
   instructionsButton(deviceType) {

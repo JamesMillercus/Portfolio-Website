@@ -113,9 +113,21 @@ function init(bundle, parent, options = {}) {
   // player.play();
   // player.setMuted(false);
 
-  if (pathname === '/webvr' || !('ontouchstart' in window)) r360.controls.clearRaycasters();
-  r360.controls.addRaycaster(SimpleRaycaster);
-  r360.compositor.setCursorVisibility('visible');
+  // window.addEventListener('devicemotion', (event) => {
+  //   if (event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma) {
+  //     alert('working');
+  //   }
+  // });
+
+  if (pathname === '/webvr' || !('ontouchstart' in window)) {
+    r360.controls.clearRaycasters();
+    r360.controls.addRaycaster(SimpleRaycaster);
+    r360.compositor.setCursorVisibility('visible');
+  }
+
+  // if (pathname === '/webvr' || !('ontouchstart' in window)) r360.controls.clearRaycasters();
+  // r360.controls.addRaycaster(SimpleRaycaster);
+  // r360.compositor.setCursorVisibility('visible');
 }
 
 window.React360 = { init };
