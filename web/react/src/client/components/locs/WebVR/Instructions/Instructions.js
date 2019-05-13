@@ -104,10 +104,10 @@ class Instructions extends Component {
 
     return (
       <div>
-        <div className={`${deviceType}InstructionsContainer`} style={{ zIndex: this.displayInstructions() }}>
+        <div className={`${deviceType}InstructionsContainer`} style={{ zIndex: this.displayInstructions() }} onClick={ click }>
           <div className={`${deviceType}Instructions`}>
             {this.instructions()}
-            <div className="instructionsButton" onClick={ click }> <p> {this.instructionsButton(deviceType)} </p> </div>
+            <div className="instructionsButton"> <p> {this.instructionsButton(deviceType)} </p> </div>
           </div>
         </div>
         <div className={'webvrWhiteout'} style={{ opacity: this.whiteOutOpacity(), zIndex: this.whiteOutZindex() }} />

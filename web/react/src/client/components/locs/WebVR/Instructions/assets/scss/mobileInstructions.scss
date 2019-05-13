@@ -7,9 +7,9 @@
 }
 
 .mobileInstructions {
-  width: 90%;
-  background-color: white;
-  height: 84%;
+  width: 85%;
+  background-color: #fff;
+  height: 95%;
   padding-top: 5%;
   margin-left: auto;
   margin-right: auto;
@@ -20,12 +20,14 @@
   width: 50%;
   height: 10%;
   background-color: #7c7c7c;
-  margin-right: 7.5%;
-  margin-top: 12%;
+  /* margin-right: 7.5%; */
+  margin-top: 5%;
   margin-left: auto;
+  /* right: 0; */
   display: flex;
   cursor: pointer;
-  color: white;
+  color: #fff;
+  position: relative;
 }
 
 .mobileInstructionsContainer .instructionsButton p {
@@ -35,8 +37,8 @@
 }
 
 .mobileInstructions .instruction {
-  width: 85%;
-  height: 74%;
+  width: 100%;
+  height: 80%;
   margin-right: auto;
   margin-left: auto;
   padding-top: 4%;
@@ -44,11 +46,13 @@
 }
 
 .mobileInstructions .instructionImage {
-  height: 70%;
+  height: 50%;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 50%;
+  position: absolute;
+  bottom: 0;
 }
 
 .mobileInstructions .instructionText {
@@ -97,12 +101,12 @@
   }
 
   .mobileInstructions .instructionImage {
-    height: 80%;
+    height: 65%;
   }
 
   .mobileInstructionsContainer .instructionsButton {
     width: 25%;
-    margin-top: 2%;
+    margin-top: 1%;
   }
 
   .mobileInstructions .instructionText h2 {

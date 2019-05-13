@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: beta-app-deployment
+  namespace: p-jzsfs-pipeline
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beta-app
+    spec:
+      containers:
+      - name: beta-app
+        image: simuha999/portfolio:beta
+        ports:
+        - containerPort: 3000
+      restartPolicy: Always
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: beta-app
+    labels:
+      run: beta-app
+  spec:
+    type: NodePort
+    ports:
+    - port: 3000
+      protocol: TCP
+      name: http
+    selector:
+      app: beta-app

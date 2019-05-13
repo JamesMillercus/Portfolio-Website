@@ -17,9 +17,9 @@ export default [
     device: 'mobile',
     instructions: [
       {
-        image: 'mobileIntro.gif',
-        header: 'Ensure your gyroscope is enabled for the web and then attach a VR viewer onto your mobile device.',
-        paragraph: "Once you've activated the gyroscope in your settings, unfold your VR viewer and attach it to your phone. Put it to your face and look around the page and gaze at content that you'd like to explore!"
+        image: 'mobile-webvr.gif',
+        header: "Welcome to WebVR",
+        paragraph: "Go into your device's settings and ensure that gyroscope has been activated (on IOS this can be found within Safari's settings), then unfold your VR viewer and attach it to your phone. Hold the device and the VR viewer to your face and gaze at content that you'd like to explore!"
       }
     ]
   },
@@ -39,9 +39,9 @@ export default [
     device: 'tablet',
     instructions: [
       {
-        image: 'mobileIntro.gif',
-        header: 'Ensure your gyroscope is enabled for the web and then attach a VR viewer onto your mobile device.',
-        paragraph: "Once you've activated the gyroscope in your settings, unfold your VR viewer and attach it to your phone. Put it to your face and look around the page and gaze at content that you'd like to explore!"
+        image: 'mobile-webvr.gif',
+        header: 'Welcome to WebVR',
+        paragraph: "Go into your device's settings and ensure that gyroscope has been activated (on IOS this can be found within Safari's settings), then unfold your VR viewer and attach it to your phone. Hold the device and the VR viewer to your face and gaze at content that you'd like to explore!"
       }
     ]
   },

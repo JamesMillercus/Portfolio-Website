@@ -11,6 +11,8 @@ spec:
   commonName: www.jamesmiller.design
   dnsNames:
     - jamesmiller.design
+    - alpha.jamesmiller.design
+    - beta.jamesmiller.design
   acme:
     config:
     - http01:
@@ -18,3 +20,5 @@ spec:
       domains:
       - www.jamesmiller.design
       - jamesmiller.design
+      - alpha.jamesmiller.design
+      - beta.jamesmiller.design
