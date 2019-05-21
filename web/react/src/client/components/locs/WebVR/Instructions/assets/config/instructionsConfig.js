@@ -6,9 +6,9 @@ export default [
     device: 'laptop',
     instructions: [
       {
-        image: 'mobileIntro.gif',
-        header: 'You’ll need a WebVR-enabled browser and VR headset to fully enjoy this experience.',
-        paragraph: "Once you've put on the headset, click on the WebVR icon and use your VR controllers to interact with content. If you don't have a headset, then you can click and drag with your trackpad/mouse to explore!"
+        image: 'laptop-webvr.gif',
+        header: 'Welcome to WebVR',
+        paragraph: "Put on your VR headset, look around the space to explore and then use your controller to interact with the content."
       }
     ]
   },
@@ -62,9 +62,9 @@ export default [
     browser: 'Oculus Browser',
     instructions: [
       {
-        image: 'mobileIntro.gif',
-        header: 'Look around the space to explore',
-        paragraph: "Then use your controller to interact with the content"
+        image: 'laptop-webvr.gif',
+        header: 'Welcome to WebVR',
+        paragraph: "Look around the space to explore and then use your controller to interact with the content."
       }
     ]
   }

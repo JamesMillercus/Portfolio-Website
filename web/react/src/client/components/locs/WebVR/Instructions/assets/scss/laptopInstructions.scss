@@ -9,7 +9,7 @@
 }
 
 .laptopInstructions {
-  width: 42%;
+  width: 50%;
   background-color: white;
   height: 72%;
   padding-top: 5%;
@@ -52,7 +52,9 @@
 .laptopInstructions .instructionImage {
   height: 75%;
   width: 100%;
-  background-color: pink;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
 .laptopInstructions .instructionText {

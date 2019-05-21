@@ -25,8 +25,8 @@ export default {
       header: 'Epic Mind Drive',
       paragraph: 'MoneySupermarket.com wanted to celebrate the release of telematics boxes for insurees car’s, by rewarding smarter drivers with more than just cheaper car insurance. I worked for Kerve Creative, who delivered an experience that allowed users to drive a car using their mind.',
     }, {
-      header: 'What It Means To Be A Maker',
-      paragraph: 'This research was focussed on understanding the mental and physical processes that lie at the heart of making. Through the use of various tools, 2 wooden records were created that represented the different aspects of what it means to make.',
+      header: 'World Travel Market',
+      paragraph: 'The Egypt Tourism Authority wanted to attract the attention of international businesses at the World Travel Market to help bring commerce into the country. Momentum Worldwide created a stand that showed off the countries top attractions with various technologies such as web, Virtual and Augmented Reality experiences.',
     }, {
       header: 'MAIA',
       paragraph: 'ADT wanted to show their brand in a more playful context, by catching ‘petty pilferers’. I worked for Kerve Creative, who created a series IOT devices that took photos of the ‘petty pilferers’ using a camera and sent the images via a 4g connection to the users mobile device.',
@@ -40,7 +40,7 @@ export default {
     { png: null, gif: null },
     { png: 'merck.png', gif: 'merck.gif' },
     { png: 'epic.png', gif: 'epic.gif' },
-    { png: 'maker.png', gif: 'maker.gif' },
+    { png: 'egypt.png', gif: 'egypt.gif' },
     { png: 'adt.png', gif: 'adt.gif' }
   ],
   itemVideo: [
@@ -59,7 +59,7 @@ export default {
     }, {
       videoID: 'K3N18cqnzHg' // epic mind drive
     }, {
-      videoID: '5hHonl2hmiU' // what it means to be a maker
+      videoID: 'E4ga2by5Q1k' // egypt
     }, {
       videoID: '36XGBIJLyN4' // MAIA
     }
