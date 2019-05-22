@@ -21,6 +21,10 @@ class Home extends Component {
     this.props.fetchHeroKeyPress(false);
   }
 
+  /*
+    IF ON OCULUS BROWSER, REDIRECT TO WEBVR
+  */
+
   renderPage() {
     // if (this.props.loadWebVr === true && this.props.deviceType !== 'laptop') return <Redirect push to={'/webvr'} />;
     return <GridContainer />;
