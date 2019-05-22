@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: design-app-deployment
-  namespace: design-app
 spec:
   replicas: 1 # We want two pods for this deployment
   template:
