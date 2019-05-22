@@ -10,6 +10,6 @@ stages:
 - name: Deploy YAML
   steps:
   - applyYamlConfig:
-      path: ./ops/rancher/design.yaml
+      path: ./ops/rancher/jenkins/design.yaml
 timeout: 30
 branch: {}
