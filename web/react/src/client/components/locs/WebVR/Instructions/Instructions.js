@@ -11,7 +11,7 @@ class Instructions extends Component {
     2. Test on oculus rift and windows headset
     3. Create content for each screen layout
   */
-
+// 
   constructor(props) {
     super(props);
     this.state = {
