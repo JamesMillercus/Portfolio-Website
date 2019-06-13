@@ -3,29 +3,20 @@ import { connect } from 'react-redux';
 import Iframe from 'react-iframe';
 import Instructions from './Instructions/Instructions';
 import { fetchWebMode } from './../../../actions';
-
+import './assets/scss';
 
 class WebVR extends Component {
   constructor() {
     super();
     this.interval = null;
     this.state = {
-      videoIsPlaying: false,
-      mobileOrientationMessage: false
+      videoIsPlaying: false
     };
   }
 
   componentDidMount() {
     this.setTimer();
     const { deviceType } = this;
-    // if(window.orientation) {
-    // if(window.orientation === 0) this.setState({ mobileOrientationMessage: true });
-    //   // Listen for orientation changes
-      window.addEventListener("orientationchange", function() {
-        // Announce the new orientation number
-        // alert(window.orientation);
-      }, false);
-    // }
   }
 
   componentWillUnmount() {
@@ -44,14 +35,8 @@ class WebVR extends Component {
       // else if (iframeHref.pathname !== '/webVRbuild/index.html' && this.state.browser !== 'Oculus Browser') {
       //   clearInterval(this.interval);
       //   this.setState({ videoIsPlaying: true });
-      // }
-      const { deviceType } = this;
-      if(window.location === '/webvr') {
-        if(deviceType === 'mobile' || deviceType === undefined ) {
-          if(window.orientation === 0) this.setState({ mobileOrientationMessage: true });
-          else this.setState({ mobileOrientationMessage: false });
-        }
-      }
+      //
+
     }, 250);
   }
 
@@ -77,14 +62,14 @@ class WebVR extends Component {
     return '/webVRbuild/index.html';
   }
 
+
+
   render() {
     const styles = {
       iframeBtn: {
         position: 'fixed',
         top: 0,
         right: 0,
-        width: '250px',
-        height: '250px',
         backgroundImage: `url(${'/assets/images/exitIcon.png'})`,
         backgroundColor: '#cd0b0b',
         backgroundSize: '60%',
@@ -93,13 +78,6 @@ class WebVR extends Component {
         cursor: 'pointer',
         zIndex: 1,
         display: this.displayButton()
-      },
-      mobileOrientation: {
-        width:'100%',
-        height: '100%',
-        zIndex: 1,
-        backgroundColor: 'red',
-        display: this.displayMobileOrientation()
       }
     };
 
@@ -108,9 +86,8 @@ class WebVR extends Component {
     /** LOGIC FOR DISPLAYING CONTENT CORRECLTY ON DEVICE + BROWSER **/
     return (
       <div>
-        <div id="mobileOrientation" style={styles.mobileOrientation} />
         <Instructions browserName={this.props.browserName} />
-        <div id='iframeButton' style={styles.iframeBtn} onClick={click} />
+        <div id="iframeButton" className="iframeButton" style={styles.iframeBtn} onClick={click} />
         <Iframe
           url={this.loadExperience()}
           width="100%"

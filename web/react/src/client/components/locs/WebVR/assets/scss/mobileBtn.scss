@@ -1,0 +1,11 @@
+.iframeButton {
+  width: 250px;
+  height: 250px;
+}
+
+@media only screen and (orientation: landscape) {
+  .iframeButton {
+    width: 150px;
+    height: 150px;
+  }
+}

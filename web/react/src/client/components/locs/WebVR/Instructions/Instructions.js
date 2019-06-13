@@ -6,12 +6,6 @@ import './assets/scss';
 import './assets/images';
 
 class Instructions extends Component {
-  /*
-    1. Test on tablet
-    2. Test on oculus rift and windows headset
-    3. Create content for each screen layout
-  */
-// 
   constructor(props) {
     super(props);
     this.state = {
