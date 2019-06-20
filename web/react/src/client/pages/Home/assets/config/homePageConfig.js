@@ -25,7 +25,7 @@ export default {
       header: 'Epic Mind Drive',
       paragraph: 'MoneySupermarket.com wanted to celebrate the release of telematics boxes for insurees car’s, by rewarding smarter drivers with more than just cheaper car insurance. I worked for Kerve Creative, who delivered an experience that allowed users to drive a car using their mind.',
     }, {
-      header: 'World Travel Market',
+      header: 'Explore Egypt',
       paragraph: 'The Egypt Tourism Authority wanted to attract the attention of international businesses at the World Travel Market to help bring commerce into the country. Momentum Worldwide created a stand that showed off the countries top attractions using interactive screens, VR and AR experiences.',
     }, {
       header: 'MAIA',

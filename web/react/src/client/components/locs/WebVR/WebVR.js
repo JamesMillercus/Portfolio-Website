@@ -69,7 +69,7 @@ class WebVR extends Component {
       iframeBtn: {
         position: 'fixed',
         top: 0,
-        right: 0,
+        left: 0,
         backgroundImage: `url(${'/assets/images/exitIcon.png'})`,
         backgroundColor: '#cd0b0b',
         backgroundSize: '60%',
