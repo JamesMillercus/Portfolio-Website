@@ -62,7 +62,7 @@ class GridContainer extends Component {
 
   onMouseMove(e) {
     const yMouseAlign = 0.75;
-    const xMouseAlign = 0.5;
+    const xMouseAlign = (e.screenX < 2000) ? 0.5 : 1.75; // if screenX reslution is below 2000 then set to 0.5, if not then set to 1.75
     const lMouseX = (window.innerWidth * xMouseAlign) - e.screenX;
     const lMouseY = (window.innerHeight * yMouseAlign) - e.screenY;
     const mouse = { x: lMouseX, y: lMouseY };

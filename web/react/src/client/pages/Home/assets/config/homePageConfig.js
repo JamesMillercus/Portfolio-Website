@@ -70,6 +70,7 @@ export default {
       color: '#7c7c7c'
     },
     centerIcon: {
+      // Hi 'X', thanks for accepting the invitation to view my portfolio and I hope you enjoy these projects that have been custom selected for your to view.
       text: "Creative technology ideas I've helped agencies bring to life",
       color: '#008f9c'
     },
