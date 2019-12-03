@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "design",
+      "image": "simuha999/portfolio:version-4",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ]
+    }
+  ]
+}
