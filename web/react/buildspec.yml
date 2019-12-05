@@ -1,5 +1,8 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      docker: 19
   pre_build:
     commands:
       - REPOSITORY_URI=registry.hub.docker.com/simuha999/portfolio
