@@ -3,7 +3,7 @@ phases:
   install:
     commands:
       - apt-get update
-      - apt-get install docker.io
+      - wget -qO- https://get.docker.com/ | sh
   pre_build:
     commands:
       - REPOSITORY_URI=registry.hub.docker.com/simuha999/portfolio
