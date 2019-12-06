@@ -9,7 +9,7 @@ phases:
   pre_build:
     commands:
       - REPOSITORY_URI=simuha999/portfolio
-      - docker login
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
