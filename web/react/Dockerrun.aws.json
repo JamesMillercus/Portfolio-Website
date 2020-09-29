@@ -3,12 +3,12 @@
   "containerDefinitions": [
     {
       "name": "design",
-      "image": "simuha999/portfolio:version-4",
+      "image": "simuha999/portfolio",
       "essential": true,
       "memory": 128,
       "portMappings": [
         {
-          "hostPort": 3000,
+          "hostPort": 80,
           "containerPort": 3000
         }
       ]
