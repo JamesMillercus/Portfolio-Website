@@ -71,7 +71,7 @@ export default {
     },
     centerIcon: {
       // Hi 'X', thanks for accepting the invitation to view my portfolio and I hope you enjoy these projects that have been custom selected for your to view.
-      text: "Creative technology ideas I've helped agencies bring to life",
+      text: "Creative technology ideas I've helped bring to life",
       color: '#008f9c'
     },
     centerLeftIcon: {
@@ -79,7 +79,7 @@ export default {
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: 'How I can help launch your ideas with technology',
+      text: 'Learn and teach yourself something new',
       color: '#e4bc02'
     },
     webvr: {
@@ -92,7 +92,7 @@ export default {
       backgroundColor: '#e4bc02',
       scrolledBackgroundPosition: '51.5% 125%',
       image: 'techIcon.png',
-      href: '/services',
+      href: 'https://jamesmiller.blog',
       target: '_self'
     },
     centerLeftIcon: {

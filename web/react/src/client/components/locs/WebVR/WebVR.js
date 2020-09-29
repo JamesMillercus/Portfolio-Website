@@ -30,7 +30,7 @@ class WebVR extends Component {
         clearInterval(this.interval);
         this.setState({ videoIsPlaying: true });
       } else if (iframeHref.pathname === '/') window.location = '/';
-      else if (iframeHref.pathname === '/services') window.location = '/services';
+      else if (iframeHref.pathname === '/services') window.location = 'https://jamesmiller.blog';
       else if (iframeHref.pathname === '/webvr') window.location = '/webvr';
       // else if (iframeHref.pathname !== '/webVRbuild/index.html' && this.state.browser !== 'Oculus Browser') {
       //   clearInterval(this.interval);

@@ -116,7 +116,10 @@ class HeroIcon extends Component {
 	updateHREF(href) {
 		this.props.fetchSiteAnimating('changingPage');
 		if (this.checkTarget() === '_self') {
-			setTimeout(() => { this.props.fetchUpdateUrl(href); }, 1000);
+			setTimeout(() => { 
+				// this.props.fetchUpdateUrl(href); 
+				location.href = href;
+			}, 1000);
 			this.props.fetchScrolledItem(null);
 			this.props.fetchScrolledHeroIcon('none');
 		} else location.href = href;

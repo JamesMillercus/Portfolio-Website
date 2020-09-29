@@ -141,11 +141,11 @@ export default {
       color: '#008f9c'
     },
     centerLeftIcon: {
-      text: 'Tell me about your ideas on: hi@jamesmiller.design',
+      text: 'Tell me about your ideas on: hi@jamesmiller.blog',
       color: '#1d9c00'
     },
     centerRightIcon: {
-      text: 'How I can help launch your ideas with technology',
+      text: 'Learn and teach yourself something new',
       color: '#e4bc02'
     }
   },
@@ -161,7 +161,7 @@ export default {
       name360: 'centerLeftIcon',
       backgroundColor: '#1d9c00',
       image360: 'mail.png',
-      href: 'mailto:hi@jamesmiller.design',
+      href: 'mailto:hi@jamesmiller.blog',
       target: '_blank'
     }
   },
