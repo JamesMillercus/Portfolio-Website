@@ -17,7 +17,7 @@
     "acorn-dynamic-import": "^4.0.0",
     "acorn-jsx": "^5.0.1",
     "ajv-keywords": "^3.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
